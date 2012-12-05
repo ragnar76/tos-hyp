@@ -1,0 +1,119 @@
+!iflang [english]
+
+
+!begin_node Support for alternative file-systems
+!label File-systems, alternative
+!label File-systems
+
+The MiNT project of the Canadian (!I)Eric Smith(!i) made possible for the
+first time the use of alternative file-systems, and with that the use of
+long filenames under (!nolink [TOS]). This was achieved through the
+introduction of new (!nolink [GEMDOS]) functions.
+
+These new functions however do not have to be present only when MiNT is
+(!nolink [installed]): (!nolink [MagiC]) as of Version 3.0 possesses some
+MiNT-compatible functions; also MetaDOS drivers with corresponding
+functionality have been spotted. For this reason it is imperative that
+interrogation for the MiNT cookie should be removed from all programs. The
+presence of a (!nolonk [GEMDOS]) function can be recognized by the fact
+that the function does (!I)not(!i) return the value EINVFN.
+
+To obtain information about the underlying file-system, one should use the
+(!nolink [GEMDOS]) function Dpathconf.
+
+!ifdest [html]
+!ifset [No_Bilder_Pfad]
+!image filesys
+!else
+!image (!picture_path)\filesys
+!endif
+!else
+!image (!picture_path)\filesys
+!endif
+
+The above illustration shows the limitations of a pure (!nolink [TOS]) file
+system for the various drives. The column (!I)files(!i) specifies the
+maximum number of files that may be opened per process (apart from
+process-internal limits). Under (!I)links(!i) one can see the maximum number
+of links to a file that may exist. (!I)path_max(!i) shows how long complete
+filenames (including the path) may be on the file-system. The column
+(!I)name_max(!i) shows the maximum length of a filename, and under
+(!I)atomic(!i) is specified how many bytes may be written per write
+operation. The column (!I)trunc(!i) is specially important, showing how
+over-length filenames will be truncated. Finally, under (!I)case(!i) one can
+tell whether and how filenames with mixed capitals and lower case will be
+supported.
+
+!label File-systems, Rule of thumb for
+(!B)The rule of thumb is:(!b) Always continue using filenames and paths
+exactly as they were presented by the operating system; basically, write
+filenames in lower case, as even on systems with mixed capitals and lower
+case, filenames in capitals are rather the exception!
+
+See also:
+(!link [XFS-concept in MagiC][MagiC's XFS-concept]) ~ Dpathconf
+!end_node
+
+
+!else
+
+
+!begin_node UnterstÅtzung fremder Dateisysteme
+!label Dateisysteme, fremde
+!label Filesysteme
+!label Filesysteme, fremde
+
+Das MiNT-Projekt des Kanadiers (!I)Eric Smith(!i) ermîglichte zum ersten mal
+den Einsatz alternativer Dateisysteme, und damit die Verwendung langer
+Dateinamen unter TOS. Dies wurde durch die EinfÅhrung neuer GEMDOS
+Funktionen erreicht.
+
+Die neuen Funktionen mÅssen jedoch nicht nur dann vorhanden sein, wenn MiNT
+installiert ist: MagiC besitzt ab der Version 3.0 kompatible Funktionen, und
+auch MetaDOS-Treiber mit entsprechender FunktionalitÑt sind schon gesichtet
+worden. Aus diesem Grund sollten Abfragen auf den MiNT-Cookie unbedingt aus
+allen Programmen entfernt werden. Das Vorhandensein einer (!nolink [GEMDOS])-Funktion
+wird daran erkannt, daû als Funktionsergebnis (!I)nicht(!i) der Wert EINVFN
+zurÅckgeliefert wird.
+
+Um Informationen Åber das zugrundeliegende Dateisystem zu erhalten, bedient
+man sich der (!nolink [GEMDOS])-Funktion Dpathconf.
+
+!ifdest [html]
+!ifset [No_Bilder_Pfad]
+!image filesys
+!else
+!image (!picture_path)\filesys
+!endif
+!else
+!image (!picture_path)\filesys
+!endif
+
+Die obige Abbildung zeigt die BeschrÑnkungen eines reinen TOS-Dateisystems
+fÅr die verschiedenen Laufwerke. Die Spalte (!I)files(!i) gibt an, wieviele
+Dateien pro Prozess maximal geîffnet sein dÅrfen (vom Prozess-internen Limit
+abgesehen). Unter (!I)links(!i) kann abgelesen werden, wieviele Verweise
+(Links) auf eine Datei maximal existieren kînnen. (!I)path_max(!i) zeigt,
+wie lang komplette Dateinamen (inklusive Pfad) auf dem Dateisystem werden
+kînnen. Die Spalte (!I)name_max(!i) informiert Åber die maximale LÑnge eines
+Dateinamens, und unter (!I)atomic(!i) ist angegeben, wieviele Bytes in einem
+Rutsch geschrieben werden kînnen. Besonders wichtig ist die Spalte
+(!I)trunc(!i), die darÅber Aufschluû gibt, wie zu lange Dateinamen
+abgeschnitten werden. Zu guter Letzt kann man per (!I)case(!i) erfahren, ob
+und auf welche Weise Dateinamen mit gemischter Groû- bzw. Kleinschreibung
+unterstÅtzt werden.
+
+!label Dateisysteme, Faustregel fÅr
+!label Filesysteme, Faustregel fÅr
+(!B)Als Faustregel gilt:(!b) Dateinamen und -pfade immer genauso
+weiterverwenden, wie sie vom Betriebssystem geliefert worden sind;
+Dateinamen grundsÑtzlich klein schreiben, denn auch auf Systemen mit
+gemischter Groû- und Kleinschreibung sind groûgeschriebene Dateinamen eher
+die Ausnahme!
+
+Querverweis:
+(!link [XFS-Konzept in MagiC][Das XFS-Konzept von MagiC]) ~ Dpathconf
+!end_node
+
+
+!endif

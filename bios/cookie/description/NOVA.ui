@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, NOVA
+
+(!B)NOVA graphics card(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, NOVA
+
+(!B)NOVA Grafikkarte(!b)
+
+!end_node
+
+!endif
+ 

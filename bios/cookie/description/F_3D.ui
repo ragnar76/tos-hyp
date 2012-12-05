@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, F_3D
+
+(!B)Focus 3D (!b) graphics program
+
+The cookie points to a structure over which communication with 
+external modules of Focus 3D takes place.
+
+!end_node
+
+!else
+
+!begin_node Cookie, F_3D
+
+(!B)Focus 3D(!b) (Grafikprogramm).
+
+Der Cookie zeigt auf eine Struktur, Åber die 
+die Kommunikation mit externen Modulen von Focus 3D abgewickelt wird.
+
+!end_node
+
+!endif
+ 

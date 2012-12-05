@@ -1,0 +1,29 @@
+!iflang [english]
+
+!begin_node Cookie, _INF
+
+!label STEFIX patch
+!label Patch, STEFIX
+(!B)STEFIX patch programm(!b)
+
+The cookie is created by the patch programm STEFIX, which remedies 
+some errors in the (!nolink [TOS]) 1.06 desktop. In the modified version with 
+XBRA by Karsten Isakovic.
+
+!end_node
+
+!else
+
+!begin_node Cookie, _INF
+
+!label STEFIX-Patch
+!label Patch, STEFIX
+(!B)STEFIX-Patchprogramm(!b)
+
+Der Cookie wird vom Patchprogramm STEFIX angelegt, welches einige Fehler
+im Desktop von (!nolink [TOS]) 1.06 behebt. In der 
+von Karsten Isakovic modifizierten Version mit XBRA.
+
+!end_node
+
+!endif

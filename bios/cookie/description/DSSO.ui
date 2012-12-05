@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, DSSO
+
+(!B)SOKRATES(!b)
+
+Keyboard driver.
+
+Modifies the IKBD vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DSSO
+
+(!B)SOKRATES(!b)
+
+Tastaturtreiber.
+
+Verbiegt den IKBD-Vektor.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,31 @@
+!iflang [english]
+
+!begin_node cdrom_tochdr
+
+!begin_verbatim
+struct cdrom_tochdr
+{
+    int8_t cdth_trk0;        /* Start track */
+    int8_t cdth_trk1;        /* End track   */
+};
+!end_verbatim
+
+See also: (!link [CD-ROM opcodes for Fcntl][Fcntl, CD-ROM commands for])
+!end_node
+
+!else
+
+!begin_node cdrom_tochdr
+
+!begin_verbatim
+struct cdrom_tochdr
+{
+    int8_t cdth_trk0;        /* Start-Track */
+    int8_t cdth_trk1;        /* Ende-Track  */
+};
+!end_verbatim
+
+Querverweis: (!link [CD-ROM Opcodes fÅr Fcntl][Fcntl, CD-ROM-Kommandos fÅr])
+!end_node
+
+!endif

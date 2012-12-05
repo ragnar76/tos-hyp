@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, CRIT
+
+(!B)CRYPT-IT(!b)
+
+Personal data protection for Atari ST/TT.
+
+Modifies the three hdv_ vectors.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CRIT
+
+(!B)CRYPT-IT(!b)
+
+Personal Data Protection fÅr Atari ST/TT'.
+
+Verbiegt die drei hdv_-Vektoren.
+
+!end_node
+
+!endif
+ 

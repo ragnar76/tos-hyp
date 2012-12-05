@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, GSXB
+
+(!B)Generic sound X(!nolink [BIOS])(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, GSXB
+
+(!B)Generic sound X(!nolink [BIOS])(!b)
+
+!end_node
+
+!endif
+ 

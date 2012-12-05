@@ -1,0 +1,206 @@
+!iflang [english]
+
+!begin_node fslx_set_flags
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØFile selectionX set flagsÆ - Sets certain flags of the file-selector for the
+whole system.
+
+!item [Opcode:]
+195
+
+!item [Syntax:]
+int16_t fslx_set_flags ( int16_t flags, int16_t *oldval );
+
+!item [Description:]
+The call fslx_set_flags sets certain flags of the file-selector box for the whole
+system. The following apply:
+
+!begin_xlist !short [Parameter]
+
+!item [Parameter]
+Meaning
+
+!item [~]
+~
+
+!item [flags]
+Various flags:
+!begin_xlist [1 =]
+
+!label SHOW8P3
+!item [1 =]
+SHOW8P3 is valid only for the display of directories on DOS drives; it
+corresponds to the switch "Show (!nolink [TOS]) Files as '8+3'" in Magxdesk
+
+!end_xlist
+
+!item [oldval]
+Previous value
+
+!end_xlist
+
+!item [(!nolink [Return]) value:]
+The function return the value 0 in case of error, else the value 1 for error-free
+execution.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7])  (opcode 7).
+
+!item [Group:]
+Extended file-selectors
+
+!item [See also:]
+(!link [Binding] [Bindings for fslx_set_flags]) ~ fslx_open ~ fslx_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for fslx_set_flags
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t fslx_set_flags ( int16_t flags, int16_t *oldval );
+
+!item [Binding:]
+!begin_verbatim
+int16_t fslx_set_flags ( int16_t flags, int16_t *oldval )
+{
+   int_in[0] = 0;
+   int_in[1] = flags;
+
+   crys_if (195);
+
+   *oldval = int_out[1];
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 195   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 2     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! 0
+int_in+2  !! int_in[1]  !! flags
+int_out   !! int_out[0] !! Return value
+int_out+2 !! int_out[1] !! oldval
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node fslx_set_flags
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØFile SelectionX SetFlagsÆ - setzt bestimmte Flags der Dateiauswahl fÅr das
+ganze System.
+
+!item [AES-Nummer:]
+195
+
+!item [Deklaration:]
+int16_t fslx_set_flags ( int16_t flags, int16_t *oldval );
+
+!item [Beschreibung:]
+Die Funktion setzt bestimmte Flags der Dateiauswahlbox fÅr das ganze System.
+Es gilt:
+
+!begin_xlist !short [Parameter]
+
+!item [Parameter]
+Bedeutung
+
+!item [~]
+~
+
+!item [flags]
+verschiedene Flags
+!begin_xlist [1 =]
+
+!label SHOW8P3
+!item [1 =]
+Format 8+3: Dies gilt nur fÅr die Darstellung von Verzeichnissen auf
+DOS-Laufwerken. Entspricht dem Schalter "TOS-Dateien als 8+3" in MagXDesk.
+!end_xlist
+
+!item [oldval]
+vorheriger Wert
+
+!end_xlist
+
+!item [Ergebnis:]
+Die Funktion liefert im Fehlerfall den Wert 0, und den Wert 1 bei
+fehlerfreier AusfÅhrung.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Fileselektoren
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr fslx_set_flags]) ~  fslx_open ~  fslx_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr fslx_set_flags
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t fslx_set_flags ( int16_t flags, int16_t *oldval );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t fslx_set_flags ( int16_t flags, int16_t *oldval )
+{
+   int_in[0] = 0;
+   int_in[1] = flags;
+
+   crys_if (195);
+
+   *oldval = int_out[1];
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 195   # Opcode der Funktion
+control+2 !! control[1] !! 2     # EintrÑge in int_in
+control+4 !! control[2] !! 2     # EintrÑge in int_out
+control+6 !! control[3] !! 0     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! 0
+int_in+2  !! int_in[1]  !! flags
+int_out   !! int_out[0] !! Return-Wert
+int_out+2 !! int_out[1] !! oldval
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

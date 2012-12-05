@@ -1,0 +1,155 @@
+!iflang [english]
+
+!begin_node lbox_delete
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box deleteÆ - Release memory allocated for a list box.
+
+!item [Opcode:]
+173
+
+!item [Syntax:]
+int16_t lbox_delete ( LIST_BOX *box );
+
+!item [Description:]
+The call lbox_delete releases the memory allocated for the list box.
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+Always 1
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_delete]) ~ lbox_create ~ lbox_do
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_delete
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_delete ( LIST_BOX *box );
+
+!item [Binding:]
+!begin_verbatim
+int16_t lbox_delete ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   crys_if (173);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 173   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_delete
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box DeleteÆ - Speicher fÅr Listbox freigeben.
+
+!item [AES-Nummer:]
+173
+
+!item [Deklaration:]
+int16_t lbox_delete ( LIST_BOX *box );
+
+!item [Beschreibung:]
+Die Funktion gibt den Speicherplatz fÅr eine Listbox wieder frei. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert stets den Wert 1 zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_delete]) ~  lbox_create ~  lbox_do
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_delete
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_delete ( LIST_BOX *box );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t lbox_delete ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   crys_if (173);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 173   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

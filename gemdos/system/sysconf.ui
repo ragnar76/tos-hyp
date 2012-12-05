@@ -1,0 +1,150 @@
+!iflang [english]
+
+!begin_node Sysconf
+!html_name Sysconf
+
+(!begin_liste) [Availability]
+!item [Name:]
+ØSysconfÆ - Obtain information about the operating system configuration.
+
+!item [Opcode:]
+290
+
+!item [Syntax:]
+int32_t Sysconf ( int16_t n );
+
+!item [Description:]
+The function Sysconf returns information about the capabilities (or the
+configuration) of the operating system. With the parameter (!I)n(!i) various
+values can be interrogated:
+!begin_xlist [-1] !compressed
+!item [n]
+Meaning
+!item [~]
+~
+!item [-1]
+Max. legal value for n itself
+!item [~0]
+Max. value of memory regions per process
+!item [~1]
+Max. length of command line string for Pexec
+!item [~2]
+Max. number of open files per process
+!item [~3]
+Max. number of supplementary groups per process
+!item [~4]
+Max. number pf processes per user
+!end_xlist
+A return value of 0xfffffff (2^31 - 1) means that the corresponding value is
+unlimited.
+
+!item [(!nolink [Return]) value:]
+(!B)Return value:(!b) The function returns the information specified by the
+parameter (!I)n(!i).
+
+!item [Availability:]
+As of the first in MultiTOS integrated MiNT version 1.04.
+              
+!item [Group:]
+System functions
+
+!item [See also:]
+(!link [Binding] [Bindings for Sysconf]) ~ Dpathconf
+(!ende_liste)
+
+
+!begin_node Bindings for Sysconf
+!html_name Bindings_for_Sysconf
+
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Sysconf ( int16_t n );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    n,-(sp)      ; Offset 2
+move.w    #290,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #4,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Sysconf
+!html_name Sysconf
+
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØSysconfÆ - Informationen Åber die Konfiguration des Betriebssystems
+ermitteln.
+
+!item [Gemdosnummer:]
+290
+
+!item [Deklaration:]
+int32_t Sysconf ( int16_t n );
+
+!item [Beschreibung:]
+Die Funktion liefert Informationen Åber die Mîglichkeiten (bzw. die
+Konfiguration) des Betriebssystems. öber den Parameter (!I)n(!i) lassen sich
+die verschiedenen Werte abfragen:
+!begin_xlist [-1] !compressed
+!item [n]
+Bedeutung
+!item [~]
+~
+!item [-1]
+max. legaler Wert fÅr n selbst.
+!item [~0]
+max. Wert von Speicherbereichen pro Prozeû.
+!item [~1]
+max. LÑnge der Kommandozeile fÅr Pexec.
+!item [~2]
+max. Anzahl offener Dateien pro Prozess.
+!item [~3]
+max. Anzahl der Supplementary-Groups pro Prozess.
+!item [~4]
+max. Anzahl der Prozesse je Benutzer.
+!end_xlist
+Ein RÅckgabewert von 0xfffffff (2^31 - 1) bedeutet, daû der entsprechende
+Wert unbegrenzt ist.
+
+!item [Ergebnis:]
+Die Funktion liefert die durch den Parameter (!I)n(!i) spezifizierte
+Information zurÅck.
+
+!item [VerfÅgbar:]
+Seit der ersten in MultiTOS integrierten MiNT Version 1.04.
+              
+!item [Gruppe:]
+Systemfunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Sysconf]) ~ Dpathconf
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Sysconf
+!html_name Bindings_for_Sysconf
+
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Sysconf ( int16_t n );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    n,-(sp)      ; Offset 2
+move.w    #290,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #4,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

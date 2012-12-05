@@ -1,0 +1,25 @@
+!iflang [english]
+
+!begin_node Cookie, J_Sc
+
+(!B)SECURE.PRG(!b)
+
+This makes a pointer available that is used by JML-Snapshot.
+SECURE is a part of the JML-Snapshot package, but is Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, J_Sc
+
+(!B)SECURE.PRG(!b)
+
+Stellt einen Zeiger zu VerfÅgung, der von JML-Snapshot 
+benutzt wird. SECURE ist Bestandteil des JML-Snapshotpakets, aber 
+Freeware.
+
+!end_node
+
+!endif
+ 

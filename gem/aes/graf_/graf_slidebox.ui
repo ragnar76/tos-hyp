@@ -1,0 +1,311 @@
+!iflang [english]
+
+!begin_node graf_slidebox
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+¯Graphics slide box® - Obtain slider position etc.
+
+!item [Opcode:]
+76
+
+!item [Syntax:]
+int16_t graf_slidebox ( OBJECT *gr_slptree, int16_t gr_slparent,
+                     int16_t gr_slobject, int16_t gr_slvh );
+
+!item [Description:]
+The call graf_slidebox serves to inquire the position of sliders within the
+bounds of its parent object. The following apply:
+
+!begin_xlist !short [gr_slparent]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [gr_slptree]
+Address of object tree holding parent and child objects
+!item [gr_slparent]
+Index of the parent rectangle
+!item [gr_slobject]
+Index of the child rectangle to be moved (slider)
+!item [gr_slvh]
+Direction of movement:
+!begin_table [l l l]
+0 !! = !! Move horizontally
+1 !! = !! Move vertically
+!end_table
+!end_xlist
+
+(!B)Note:(!b) The function may only be called with an already pressed mouse
+button, since it returns immediately when the button is released.
+
+It can be used also with sliders built into dialogs: Make the slider a
+TOUCHEXIT object and call this func!- tion when it is clicked on.
+
+In Geneva the parameter (!link [gr_slvh][graf_slidebox from Geneva]) has
+changed slightly.
+
+!item [(!nolink [Return]) value:]
+The function returns the relative position of the slider, between 0 (far left
+or very top) and 1000 (far right or very bottom).
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Graphics library
+
+!item [See also:]
+(!link [Binding] [Bindings for graf_slidebox]) ~ OBJECT
+
+(!ende_liste)
+
+!begin_node graf_slidebox from Geneva
+
+The meaning of the (!I)gr_slvh(!i) parameter has changed slightly, to provide
+for real-time updating of sliders:
+!begin_table [lll]
+LSB !!   0 !! for horizontal slider, 1 for vertical
+MSB !!   0 !! for old-style, dotted outline drag box
+~   !!   1 !! to describe the area to be scrolled in real-time
+~   !!   2 !! to initialize real-time scrolling
+~   !!   3 !! to process the scroll bar in real time
+!end_table
+To use real-time scroll bars, a program does the following:
+!begin_enumerate
+!item Call (!nolink[graf_slidebox]) with (!I)gr_slvh(!i) mode 0x1XX (where "XX" is 00 for a
+horizontal slider, and 01 for vertical). In this mode, the (!I)gr_slparent(!i)
+parameter describes the size of the entire area to be scrolled, and
+(!I)gr_slobject(!i) describes the size of the area which is visible at one time.
+Both of these values can be in any units the programmer chooses.
+
+!item Call (!nolink[graf_slidebox]) with (!I)gr_slvh(!i) mode 0x2XX. In this mode,
+(!I)gr_slparent(!i) and (!I)gr_slobject(!i) have the same meaning they normally do.
+The return value will either be -1, if the user has released the slider,
+or it will be a number >= 0 which represents the new position of the
+slider. This number is based on the numbers passed in Step 1. The call
+does not return until the slider has either moved enough to change the
+position within the list, or the mouse button has been released.
+
+!item If the result of the last (!nolink[graf_slidebox]) call was -1, then continue on
+with the rest of the program. Otherwise, perform whatever action is
+necessary to redraw the list of items, starting at the returned index. The
+slider position is updated automatically by Geneva; the program must not
+alter it.
+
+!item Call (!nolink[graf_slidebox]) with (!I)gr_slvh(!i) mode 0x3XX. In this mode,
+(!I)gr_slparent(!i) and (!I)gr_slobject(!i) have the same meaning they normally do. Go
+to Step 3.
+!end_enumerate
+Example: Process a list of 100 items, 10 of which are visible at once
+!begin_verbatim
+if( graf_slidebox( 0L, 100, 10, 0x101 ) >= 0 )
+{
+  i = graf_slidebox( object_tree, parent_obj, slider_obj, 0x201 );
+  while( i>=0 )
+  {
+     redraw_list_starting_at(i);
+     i = graf_slidebox( object_tree, parent_obj, slider_obj, 0x301 );
+  }
+}
+!end_verbatim
+!end_node
+
+!begin_node Bindings for graf_slidebox
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t graf_slidebox ( OBJECT *gr_slptree, int16_t gr_slparent,
+                     int16_t gr_slobject, int16_t gr_slvh );
+
+!item [Binding:]
+!begin_verbatim
+int16_t graf_slidebox (OBJECT *gr_slptree, int16_t gr_slparent,
+                       int16_t gr_slobject, int16_t gr_slvh)
+{
+   int_in[0]  = gr_slparent;
+   int_in[1]  = gr_slobject;
+   int_in[2]  = gr_slvh;
+   addr_in[0] = gr_slptree;
+
+   return ( crys_if(76) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 76    # Function opcode
+control+2 !! control[1] !! 3     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! gr_slparent
+int_in+2  !! int_in[1]  !! gr_slobject
+int_in+4  !! int_in[2]  !! gr_slvh
+addr_in   !! addr_in[0] !! gr_slptree
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node graf_slidebox
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+¯Graphics slide Box® - ermittelt die Position der Schieberegler.
+
+!item [AES-Nummer:]
+76
+
+!item [Deklaration:]
+int16_t graf_slidebox ( OBJECT *gr_slptree, int16_t gr_slparent,
+                     int16_t gr_slobject, int16_t gr_slvh );
+
+!item [Beschreibung:]
+Die Funktion dient zur Abfrage von Schiebereglern (Slidern). Es gilt:
+
+!begin_xlist !short [gr_slparent]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [gr_slptree]
+Adresse des Objektbaumes
+!item [gr_slparent]
+Nummer des Parent-Rechteckes
+!item [gr_slobject]
+Nummer des zu verschiebenden Rechteckes (Slider)
+!item [gr_slvh]
+!begin_table [l l l]
+0 !! = !! horizontal verschieben
+1 !! = !! vertikal verschieben
+!end_table
+!end_xlist
+
+(!B)Hinweis:(!b) Die Funktion darf nur bei gedrckter Maustaste aufgerufen
+werden, da sie beim Loslassen des Mausknopfes sofort abbricht.
+
+In Geneva hat sich der Parameter (!link [gr_slvh][graf_slidebox von Geneva]) geringfgig
+ge„ndert.
+
+!item [Ergebnis:]
+Die Funktion liefert die relative Position zwischen 0 (ganz links bzw. ganz
+oben) und 1000 (ganz rechts bzw. ganz unten) des Sliders.
+
+!item [Verfgbar:]
+In allen (!nolink [AES]) Versionen.
+
+!item [Gruppe:]
+Grafikfunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr graf_slidebox]) ~ OBJECT
+
+(!ende_liste)
+
+!begin_node graf_slidebox von Geneva
+
+The meaning of the (!I)gr_slvh(!i) parameter has changed slightly, to provide
+for real-time updating of sliders:
+!begin_table [lll]
+LSB !!   0 !! for horizontal slider, 1 for vertical
+MSB !!   0 !! for old-style, dotted outline drag box
+~   !!   1 !! to describe the area to be scrolled in real-time
+~   !!   2 !! to initialize real-time scrolling
+~   !!   3 !! to process the scroll bar in real time
+!end_table
+To use real-time scroll bars, a program does the following:
+!begin_enumerate
+!item Call (!nolink[graf_slidebox]) with (!I)gr_slvh(!i) mode 0x1XX (where "XX" is 00 for a
+horizontal slider, and 01 for vertical). In this mode, the (!I)gr_slparent(!i)
+parameter describes the size of the entire area to be scrolled, and
+(!I)gr_slobject(!i) describes the size of the area which is visible at one time.
+Both of these values can be in any units the programmer chooses.
+
+!item Call (!nolink[graf_slidebox]) with (!I)gr_slvh(!i) mode 0x2XX. In this mode,
+(!I)gr_slparent(!i) and (!I)gr_slobject(!i) have the same meaning they normally do.
+The return value will either be -1, if the user has released the slider,
+or it will be a number >= 0 which represents the new position of the
+slider. This number is based on the numbers passed in Step 1. The call
+does not return until the slider has either moved enough to change the
+position within the list, or the mouse button has been released.
+
+!item If the result of the last (!nolink[graf_slidebox]) call was -1, then continue on
+with the rest of the program. Otherwise, perform whatever action is
+necessary to redraw the list of items, starting at the returned index. The
+slider position is updated automatically by Geneva; the program must not
+alter it.
+
+!item Call (!nolink[graf_slidebox]) with (!I)gr_slvh(!i) mode 0x3XX. In this mode,
+(!I)gr_slparent(!i) and (!I)gr_slobject(!i) have the same meaning they normally do. Go
+to Step 3.
+!end_enumerate
+Example: Process a list of 100 items, 10 of which are visible at once
+!begin_verbatim
+if( graf_slidebox( 0L, 100, 10, 0x101 ) >= 0 )
+{
+  i = graf_slidebox( object_tree, parent_obj, slider_obj, 0x201 ); 
+  while( i>=0 )
+  {
+     redraw_list_starting_at(i);
+     i = graf_slidebox( object_tree, parent_obj, slider_obj, 0x301 );
+  }
+}
+!end_verbatim
+!end_node
+
+
+!begin_node Bindings fr graf_slidebox
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t graf_slidebox ( OBJECT *gr_slptree, int16_t gr_slparent,
+                     int16_t gr_slobject, int16_t gr_slvh );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t graf_slidebox (OBJECT *gr_slptree, int16_t gr_slparent,
+                       int16_t gr_slobject, int16_t gr_slvh)
+{
+   int_in[0]  = gr_slparent;
+   int_in[1]  = gr_slobject;
+   int_in[2]  = gr_slvh;
+   addr_in[0] = gr_slptree;
+
+   return ( crys_if(76) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 76    # Opcode der Funktion
+control+2 !! control[1] !! 3     # Eintr„ge in int_in
+control+4 !! control[2] !! 1     # Eintr„ge in int_out
+control+6 !! control[3] !! 1     # Eintr„ge in addr_in
+control+8 !! control[4] !! 0     # Eintr„ge in addr_out
+int_in    !! int_in[0]  !! gr_slparent
+int_in+2  !! int_in[1]  !! gr_slobject
+int_in+4  !! int_in[2]  !! gr_slvh
+addr_in   !! addr_in[0] !! gr_slptree
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, _MIL
+
+(!B)Milan computer(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, _MIL
+
+(!B)Milan Computer(!b)
+
+!end_node
+
+!endif
+ 

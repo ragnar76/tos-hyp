@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, OVRD
+
+(!B)OVER_RAM(!b) - OverScan RAMDisk (iV)
+
+!end_node
+
+!else
+
+!begin_node Cookie, OVRD
+
+(!B)OVER_RAM(!b) - OverScan RAMDisk (iV)
+
+!end_node
+
+!endif
+ 

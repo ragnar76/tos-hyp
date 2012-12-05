@@ -1,0 +1,29 @@
+!iflang [english]
+
+!begin_node Cookie, DYJA
+
+(!B)CCONRS.PRG(!b) installs a new CCONRS routine with correction capabilities
+(cursor keys, Delete, Backspace,...) and history buffer.
+
+The (!nolink [GEMDOS]) vector is modified.
+
+The program is Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DYJA
+
+(!B)CCONRS.PRG(!b) installiert neue CCONRS-Routine, mit 
+Korrekturm”glichkeiten (Cursortasten, Delete, Backspace,...) und 
+History-Buffer.
+
+Der (!nolink [GEMDOS])-Vektor wird verbogen.
+
+Das Programm ist Freeware
+
+!end_node
+
+!endif
+ 

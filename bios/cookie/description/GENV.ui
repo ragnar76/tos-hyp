@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, GENV
+
+(!B)GEM Environment setter(!b) 
+
+Source: (!I)ST-Magazin(!i) 6/1990.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GENV
+
+(!B)GEM-Environment-Setter(!b)
+
+Quellen: (!I)ST-Magazin(!i) 6/1990.
+
+!end_node
+
+!endif
+ 

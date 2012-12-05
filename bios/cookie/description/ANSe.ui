@@ -1,0 +1,20 @@
+!iflang [english]
+
+!begin_node Cookie, ANSe
+
+(!B)ANSI emulation(!b)
+
+Modifies Bconout vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, ANSe
+
+ANSI-Emulation (verbiegt Bconout-Vektor).
+
+
+!end_node
+
+!endif

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, PRTR
+
+Protar (!B)driver for interchangeable media hard drives(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, PRTR
+
+(!B)Protar-Wechselplattentreiber(!b)
+
+!end_node
+
+!endif
+ 

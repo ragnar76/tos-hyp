@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, MFFM
+
+(!B)Mfsfm(!b) - Marcus' file-selector for MiNT
+
+Modified vectors: (!nolink [GEM/VDI])-trap, (!nolink [BIOS])-trap.
+
+Status: Shareware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MFFM
+
+(!B)Mfsfm(!b) - Marcus' file selector for MiNT.
+
+Verbogene Vektoren: (!nolink [GEM/VDI])-Trap, (!nolink [BIOS])-Trap.
+
+Status: Shareware.
+
+!end_node
+
+!endif
+ 

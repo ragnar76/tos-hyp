@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, ACCS
+
+(!B)ACCS.PRG(!b)
+
+Accessories are loaded from the folder \ACCS.
+
+Modifies (!nolink [GEMDOS]) (Fsfirst('\*.ACC')) twice, then unhooks.
+
+!end_node
+
+!else
+
+!begin_node Cookie, ACCS
+
+(!B)ACCS.PRG(!b)
+
+Accessories werden aus dem Ordner \ACCS geladen. Verbiegt 
+GEMDOS (Fsfirst('\*.ACC')) zweimal, danach Auskettung.
+
+!end_node
+
+!endif

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, OVLS
+
+(!B)OVER_LSB(!b) - Overscan patch for DMC Laserbrain laser printer
+
+!end_node
+
+!else
+
+!begin_node Cookie, OVLS
+
+(!B)OVER_LSB(!b) - Patch fÅr DMC-Laserbrain
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,38 @@
+########################################
+# @(#) TOS - das Betriebssystem
+# @(#) Rolf Kotzian
+########################################
+
+!iflang [english]
+	!docinfo [title] The documentation for
+	!docinfo [program]    BIOS
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] BIOS (TOS - The Operating System)
+!else
+	!docinfo [title] Die Anleitung zum
+	!docinfo [program]    BIOS
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] BIOS (TOS - das Betriebssystem)
+!endif
+
+!include config.u
+
+########################################
+
+!begin_document
+
+!ifdest [tech]
+\documentstyle[11pt,german]{article}
+!endif
+!ifdest [stg]
+!begin_raw
+@options "+g -s +x +zz -t4"
+@subject "Programmieren/Atari"
+!end_raw
+!endif
+!maketitle
+!tableofcontents
+
+!include bios/bios.u
+
+!end_document

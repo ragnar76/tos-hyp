@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, WEGA
+
+This is used by the (!B)WEGA libraries(!b) (dialog boxes etc.).
+
+!end_node
+
+!else
+
+!begin_node Cookie, WEGA
+
+Wird von der (!B)WEGA-Library(!b) (Dialogboxen etc) benutzt.
+
+!end_node
+
+!endif
+ 

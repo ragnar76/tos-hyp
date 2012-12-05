@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, LLCR
+
+(!B)1st_lock(!b)
+
+Affects: hdv vectors.
+
+!end_node
+
+!else
+
+!begin_node Cookie, LLCR
+
+(!B)1st_lock(!b)
+
+verbiegt: hdv-Vektoren
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,81 @@
+!iflang [english]
+
+!begin_node PCI-BIOS
+!html_name PCI_BIOS
+
+!begin_xlist [ù fast_read_config_longword] !compressed
+!item [ù fast_read_config_byte]        Read configuration byte fast
+!item [ù fast_read_config_longword]    Read configuration longword fast
+!item [ù fast_read_config_word]        Read configuration word fast
+!item [ù find_pci_classcode]           Find PCI class code
+!item [ù find_pci_device]              Find PCI device
+!item [ù get_machine_id]               Get machine ID
+!item [ù get_resource]             		 Get resource Data
+!item [ù get_routing]             		 Get interrupt routing options
+!item [ù hook_interrupt]               Hook interrupt vector
+!item [ù read_config_byte]             Read configuration byte
+!item [ù read_config_longword]         Read configuration longword
+!item [ù read_config_word]             Read configuration word
+!item [ù set_interrupt]                Set hardware interrupt
+!item [ù special_cycle]                Generates special cycle
+!item [ù unhook_interrupt]             Unhook interrupt vector
+!item [ù write_config_byte]            Write configuration byte
+!item [ù write_config_longword]        Write configuration longword
+!item [ù write_config_word]            Write configuration word
+!end_xlist
+
+See also: (!link [PCI-BIOS Error codes][PCI-BIOS Error codes]) ~ (!link [Cookie PCI_][Cookie, PCI_]) ~
+(!link [Cookie XPCI][Cookie, XPCI])
+
+!else
+
+!begin_node PCI-BIOS
+!html_name PCI_BIOS
+
+!begin_xlist [ù fast_read_config_longword] !compressed
+!item [ù fast_read_config_byte]        Read configuration byte fast
+!item [ù fast_read_config_longword]    Read configuration longword fast
+!item [ù fast_read_config_word]        Read configuration word fast
+!item [ù find_pci_classcode]           Find PCI class code
+!item [ù find_pci_device]              Find PCI device
+!item [ù get_machine_id]               Get machine ID
+!item [ù get_resource]             		 Get resource Data
+!item [ù get_routing]             		 Get interrupt routing options
+!item [ù hook_interrupt]               Hook interrupt vector
+!item [ù read_config_byte]             Read configuration byte
+!item [ù read_config_longword]         Read configuration longword
+!item [ù read_config_word]             Read configuration word
+!item [ù set_interrupt]                Set hardware interrupt
+!item [ù special_cycle]                Generates special cycle
+!item [ù unhook_interrupt]             Unhook interrupt vector
+!item [ù write_config_byte]            Write configuration byte
+!item [ù write_config_longword]        Write configuration longword
+!item [ù write_config_word]            Write configuration word
+!end_xlist
+
+Querverweis: PCI-BIOS Fehlercodes ~ (!link [Cookie PCI_][Cookie, PCI_]) ~ 
+(!link [Cookie XPCI][Cookie, XPCI])
+!endif
+
+!include xbios/pci_bios/fast_read_config_byte.ui
+!include xbios/pci_bios/fast_read_config_longword.ui
+!include xbios/pci_bios/fast_read_config_word.ui
+!include xbios/pci_bios/fpclassc.ui
+!include xbios/pci_bios/fpdevice.ui
+!include xbios/pci_bios/get_machine_id.ui
+!include xbios/pci_bios/get_resource.ui
+!include xbios/pci_bios/get_routing.ui
+!include xbios/pci_bios/hook_interrupt.ui
+!include xbios/pci_bios/read_config_byte.ui
+!include xbios/pci_bios/read_config_longword.ui
+!include xbios/pci_bios/read_config_word.ui
+!include xbios/pci_bios/set_interrupt.ui
+!include xbios/pci_bios/special_cycle.ui
+!include xbios/pci_bios/unhook_interrupt.ui
+!include xbios/pci_bios/write_config_byte.ui
+!include xbios/pci_bios/write_config_longword.ui
+!include xbios/pci_bios/write_config_word.ui
+
+!include xbios/pci_bios/error.ui
+
+!end_node

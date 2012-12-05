@@ -1,0 +1,162 @@
+!iflang [english]
+
+!begin_node lbox_get_items
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box get itemsÆ - Return pointer to the first item.
+
+!item [Opcode:]
+174 (sub-opcode 6)
+
+!item [Syntax:]
+LBOX_ITEM *lbox_get_items ( LIST_BOX *box );
+
+!item [Description:]
+The call lbox_get_items returns a pointer to the first item of the list box.
+The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+The function returns the pointer to the chained list.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_get_items]) ~ lbox_get_first ~ lbox_get_idx
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_get_items
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+LBOX_ITEM *lbox_get_items ( LIST_BOX *box );
+
+!item [Binding:]
+!begin_verbatim
+LBOX_ITEM *lbox_get_items ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 6;
+   crys_if (174);
+
+   return ( addr_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0]  !! 174   # Function opcode
+control+2 !! control[1]  !! 1     # Entry in int_in
+control+4 !! control[2]  !! 0     # Entry in int_out
+control+6 !! control[3]  !! 1     # Entry in addr_in
+control+8 !! control[4]  !! 1     # Entry in addr_out
+addr_in   !! addr_in[0]  !! box
+int_in    !! int_in[0]   !! 6     # Sub-opcode
+addr_out  !! addr_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_get_items
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Get ItemsÆ - Zeiger auf erstes Listenelement ermitteln.
+
+!item [AES-Nummer:]
+174 (Unterfunktion 6)
+
+!item [Deklaration:]
+LBOX_ITEM *lbox_get_items ( LIST_BOX *box );
+
+!item [Beschreibung:]
+Die Funktion liefert einen Zeiger auf das erste Element der Listbox zurÅck.
+Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert einen Zeiger auf das erste Listenelement der Listbox
+zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7])
+(Opcode 7) festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_get_items]) ~ lbox_get_first ~ lbox_get_idx
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_get_items
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+LBOX_ITEM *lbox_get_items ( LIST_BOX *box );
+
+!item [Umsetzung:]
+!begin_verbatim
+LBOX_ITEM *lbox_get_items ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 6;
+   crys_if (174);
+
+   return ( addr_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0]  !! 174   # Opcode der Funktion
+control+2 !! control[1]  !! 1     # EintrÑge in int_in
+control+4 !! control[2]  !! 0     # EintrÑge in int_out
+control+6 !! control[3]  !! 1     # EintrÑge in addr_in
+control+8 !! control[4]  !! 1     # EintrÑge in addr_out
+addr_in   !! addr_in[0]  !! box
+int_in    !! int_in[0]   !! 6     # Unterfunktion
+addr_out  !! addr_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

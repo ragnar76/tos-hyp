@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, Fose
+
+(!B)Font selector(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, Fose
+
+(!B)Font Selector(!b)
+
+!end_node
+
+!endif
+ 

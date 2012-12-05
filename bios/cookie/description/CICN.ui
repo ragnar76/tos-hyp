@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, CICN
+
+(!B)C-ICON(!b)
+
+The program enables loading and use of resources with colour icons.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CICN
+
+(!B)C-ICON(!b)
+
+Das Programm erm”glicht das Laden und Verwenden von Resourcen mit
+Farbicons.
+
+!end_node
+
+!endif

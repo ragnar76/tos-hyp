@@ -1,0 +1,20 @@
+# Source: Archiv NAMECOOK.LZH
+
+!iflang [english]
+
+!begin_node Cookie, UsNm
+
+(!B)User-Name cookie(!b) - Makes the user name available as a cookie
+
+!end_node
+
+!else
+
+!begin_node Cookie, UsNm
+
+(!B)User-Name-Cookie(!b) - Stellt den Benutzername als Cookie zur VerfÅgung
+
+!end_node
+
+!endif
+ 

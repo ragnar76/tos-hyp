@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, ETM
+
+(!B)Demouser(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, ETM
+
+(!B)Entmauser(!b)
+
+!end_node
+
+!endif
+ 

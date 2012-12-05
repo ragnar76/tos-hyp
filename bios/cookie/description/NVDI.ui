@@ -1,0 +1,75 @@
+# Source for nvdi_config from the manual of NVDI 2.10
+
+!iflang [english]
+
+!begin_node Cookie, NVDI
+
+!label NVDI, Cookie from
+(!B)NVDI(!b) - Fast replacement of the (!nolink [VDI])
+
+The cookie is (!nolink [installed]) by the 'screen speeder' NVDI, and points to 
+the following structure:
+
+!begin_verbatim
+typedef struct
+{
+  uint16_t nvdi_version;      /* Version in BCD format          */
+                              /* (e.g. 0x400 for 4.00)          */
+  uint32_t nvdi_date;         /* Date in BCD format             */
+                              /* (0x18061990 for 18.06.1990)    */
+  struct
+  {
+     unsigned           : 9;  /* Reserved                       */
+     unsigned alert     : 1;  /* Error-messages on/off          */
+     unsigned           : 1;  /* Reserved                       */
+     unsigned linea     : 1;  /* LINE-A                         */
+     unsigned mouse     : 1;  /* Dynamic mouse                  */
+     unsigned gemdos    : 1;  /* (Fast) GEMDOS character output */
+     unsigned error     : 1;  /* Error compatibility            */
+     unsigned gdos      : 1;  /* GDOS                           */
+  } nvdi_config;
+} NVDI_STRUC;
+!end_verbatim
+
+Modifies GEM, (!nolink [GEMDOS]), (!nolink [BIOS]), X(!nolink [BIOS]) and the
+(!nolink [LINE-A]) vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, NVDI
+
+!label NVDI, Cookie von
+(!B)NVDI(!b) - Schneller Ersatz des (!nolink [VDI])
+
+Der Cookie wird vom 'Bildschirmbeschleuniger' NVDI installiert, und zeigt
+auf folgende Struktur:
+
+!begin_verbatim
+typedef struct
+{
+   uint16_t nvdi_version;       /* Version im BCD-Format       */
+                                /* 0x400 fÅr 4.00              */
+   uint32_t nvdi_datum;         /* Datum im BCD-Format         */
+                                /* 0x18061990 fÅr 18.06.1990   */
+   struct
+   {
+      unsigned            : 9;  /* reserviert                  */
+      unsigned alert      : 1;  /* Fehlermeldungen ein/aus     */
+      unsigned            : 1;  /* reserviert                  */
+      unsigned linea      : 1;  /* LINE-A                      */
+      unsigned mouse      : 1;  /* Dynamische Maus             */
+      unsigned gemdos     : 1;  /* GEMDOS-Zeichenausgabe       */
+      unsigned fehler     : 1;  /* FehlerkompatibilitÑt        */
+      unsigned gdos       : 1;  /* GDOS                        */
+   } nvdi_config;
+} NVDI_STRUC;
+!end_verbatim
+
+VerÑndert GEM, (!nolink [GEMDOS]), (!nolink [BIOS]), X(!nolink [BIOS]) und den
+(!nolink [LINE-A]) Vektor.
+
+!end_node
+
+!endif

@@ -1,0 +1,141 @@
+!iflang [english]
+
+!begin_node rsrc_free
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ ØResource freeÆ - Release memory occupied by a resource file.
+
+!item [Opcode:]
+111
+
+!item [Syntax:]
+int16_t rsrc_free ( void );
+
+!item [Description:]
+The call rsrc_free frees the memory previously occupied by a resource file
+(allocated by rsrc_load).
+
+(!B)Note:(!b) It is imperative to call this function at the termination of a
+program!
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Resource library
+
+!item [See also:]
+(!link [Binding] [Bindings for rsrc_free]) ~ rsrc_load
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for rsrc_free
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t rsrc_free ( void );
+
+!item [Binding:]
+!begin_verbatim
+int16_t rsrc_free (void)
+{
+   return ( crys_if(111) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 111   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node rsrc_free
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØResource freeÆ - gibt den Speicher einer Resourcedatei wieder frei.
+
+!item [AES-Nummer:]
+111
+
+!item [Deklaration:]
+int16_t rsrc_free ( void );
+
+!item [Beschreibung:]
+Die Funktion gibt den durch eine Resourcedatei belegten Speicherplatz wieder
+frei.
+
+(!B)Hinweis:(!b) Man sollte auf keinen Fall vergessen, diese Funktion am
+Ende eines Programms aufzurufen.
+
+!item [Ergebnis:]
+Ein Fehler ist nur dann aufgetreten, wenn als Ergebnis 0 zurÅckgegeben wird.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+(!link [Resourceorganisation][Resourcefunktionen])
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr rsrc_free]) ~ rsrc_load
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr rsrc_free
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t rsrc_free ( void );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t rsrc_free (void)
+{
+   return ( crys_if(111) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 111   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 0     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

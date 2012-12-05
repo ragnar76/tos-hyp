@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, MFAC
+
+(!B)Multi-accessory(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, MFAC
+
+(!B)Multi Accessory(!b)
+
+!end_node
+
+!endif
+ 

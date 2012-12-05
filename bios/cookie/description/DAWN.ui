@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, DAWN
+
+(!B)Before Dawn(!b)
+
+Screensaver.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DAWN
+
+(!B)Before Dawn(!b)
+
+Bildschirmschoner
+
+!end_node
+
+!endif
+ 

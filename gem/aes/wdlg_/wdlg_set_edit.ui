@@ -1,0 +1,178 @@
+!iflang [english]
+
+!begin_node wdlg_set_edit
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØWindow-dialog set edit objectÆ - Activate editable field in the window-dialog
+
+!item [Opcode:]
+165 (sub-opcode 0)
+
+!item [Syntax:]
+int16_t wdlg_set_edit ( DIALOG *dialog, int16_t obj );
+
+!item [Description:]
+The call wdlg_set_edit activates an editable object. The following apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)dialog(!i) !! Pointer to the dialog structure
+(!I)obj(!i) !! Index of the new editable object (or 0, if none is to be active)
+!end_table
+
+(!B)Note:(!b) Activates an editable object, i.e. the cursor will be drawn in
+the specified object and deleted from any previously active object.
+
+!item [(!nolink [Return]) value:]
+The function returns the number of the current edit object. The value
+0 means that none ist active.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+Window-dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for wdlg_set_edit]) ~ wdlg_open ~ wdlg_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for wdlg_set_edit
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_set_edit ( DIALOG *dialog, int16_t obj );
+
+!item [Binding:]
+!begin_verbatim
+int16_t wdlg_set_edit ( DIALOG *dialog, int16_t obj )
+{
+   addr_in[0] = dialog;
+
+   int_in[0] = 0;
+   int_in[1] = obj;
+
+   crys_if (165);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 165   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! dialog
+int_in    !! int_in[0]  !! 0     # Sub-opcode
+int_in+2  !! int_in[1]  !! obj
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node wdlg_set_edit
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØWindowDialog Set Edit ObjectÆ - Editfeld im Dialog aktivieren.
+
+!item [AES-Nummer:]
+165 (Unterfunktion 0)
+
+!item [Deklaration:]
+int16_t wdlg_set_edit ( DIALOG *dialog, int16_t obj );
+
+!item [Beschreibung:]
+Die Funktion aktiviert ein Editfeld eines Fensterdialogs. Es gilt:
+
+!begin_table [l|l]
+Parameter  !! Bedeutung
+!hline
+(!I)dialog(!i) !! Zeiger auf den Dialog
+(!I)obj(!i) !! Nummer des neuen Edit-Objekts bzw. 0, falls keins aktiv sein soll
+!end_table
+
+(!B)Hinweis:(!b) Aktivieren bedeutet in diesem Zusammenhang, daû der Cursor
+im angegebenen Objekt gezeichnet, und in einem evtl. vorher aktiven Objekt
+gelîscht wird.
+
+!item [Ergebnis:]
+Die Funktion liefert die Nummer des aktuellen Editobjekts zurÅck. Ein Wert
+von 0 bedeutet, daû kein solches aktiv ist.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Fensterdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr wdlg_set_edit]) ~  wdlg_open ~  wdlg_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr wdlg_set_edit
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_set_edit ( DIALOG *dialog, int16_t obj );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t wdlg_set_edit ( DIALOG *dialog, int16_t obj )
+{
+   addr_in[0] = dialog;
+
+   int_in[0] = 0;
+   int_in[1] = obj;
+
+   crys_if (165);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 165   # Opcode der Funktion
+control+2 !! control[1] !! 2     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! dialog
+int_in    !! int_in[0]  !! 0     # Unterfunktion
+int_in+2  !! int_in[1]  !! obj
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

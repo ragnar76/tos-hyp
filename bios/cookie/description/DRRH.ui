@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, DRRH
+
+(!B)Wodan(!b)
+
+Desk accessory for keyboard layout assignment.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DRRH
+
+(!B)Wodan(!b)
+
+Accessory zur Tastaturbelegung.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,183 @@
+!iflang [english]
+
+!begin_node objc_offset
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØObject offsetÆ - Calculate the true position of an object on the screen.
+
+!item [Opcode:]
+44
+
+!item [Syntax:]
+int16_t objc_offset ( OBJECT *ob_oftree, int16_t ob_ofobject,
+                   int16_t *ob_ofxoff, int16_t *ob_ofyoff );
+
+!item [Description:]
+DThe call objc_offset calculates the true position of an object in absolute
+screen coordinates. The following apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)ob_oftree(!i) !! Address of the object tree
+(!I)ob_ofobject(!i) !! Index of the relevant object
+(!I)ob_ofxoff(!i) !! Calculated X-coordinate
+(!I)ob_ofyoff(!i) !! Calculated Y-coordinate
+!end_table
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Object library
+
+!item [Querverweise:]
+(!link [Binding] [Bindings for objc_offset]) ~ OBJECT ~ form_center
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for objc_offset
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t objc_offset ( OBJECT *ob_oftree, int16_t ob_ofobject,
+                   int16_t *ob_ofxoff, int16_t *ob_ofyoff );
+
+!item [Binding:]
+!begin_verbatim
+int16_t objc_offset (OBJECT *ob_oftree, int16_t ob_ofobject,
+                     int16_t *ob_ofxoff, int16_t *ob_ofyoff)
+{
+   int_in[0]  = ob_ofobject;
+   addr_in[0] = ob_oftree;
+
+   crys_if (44);
+
+   *ob_ofxoff = int_out[1];
+   *ob_ofyoff = int_out[2];
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 44    # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 3     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! ob_ofobject
+addr_in   !! addr_in[0] !! ob_oftree
+int_out   !! int_out[0] !! Return value
+int_out+2 !! int_out[1] !! ob_ofxoff
+int_out+4 !! int_out[2] !! ob_ofyoff
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node objc_offset
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØObject OffsetÆ - berechnet die Position eines Objekts auf dem Bildschirm.
+
+!item [AES-Nummer:]
+44
+
+!item [Deklaration:]
+int16_t objc_offset ( OBJECT *ob_oftree, int16_t ob_ofobject,
+                   int16_t *ob_ofxoff, int16_t *ob_ofyoff );
+
+!item [Beschreibung:]
+Die Funktion berechnet die Position eines Objektes in absoluten
+Bildschirmkoordinaten. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)ob_oftree(!i) !! Adresse des Objektbaumes
+(!I)ob_ofobject(!i) !! Nummer des entsprechenden Objektes
+(!I)ob_ofxoff(!i) !! berechnete x-Koordinate
+(!I)ob_ofyoff(!i) !! berechnete y-Koordinate
+!end_table
+
+!item [Ergebnis:]
+Ein RÅckgabewert von 0 kennzeichnet einen Fehler.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+(!link [Objekte][Objektfunktionen])
+
+!item [See also:]
+(!link [Binding] [Bindings fÅr objc_offset]) ~ OBJECT ~ form_center
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr objc_offset
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t objc_offset ( OBJECT *ob_oftree, int16_t ob_ofobject,
+                   int16_t *ob_ofxoff, int16_t *ob_ofyoff );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t objc_offset (OBJECT *ob_oftree, int16_t ob_ofobject,
+                     int16_t *ob_ofxoff, int16_t *ob_ofyoff)
+{
+   int_in[0]  = ob_ofobject;
+   addr_in[0] = ob_oftree;
+
+   crys_if (44);
+
+   *ob_ofxoff = int_out[1];
+   *ob_ofyoff = int_out[2];
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 44    # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 3     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! ob_ofobject
+addr_in   !! addr_in[0] !! ob_oftree
+int_out   !! int_out[0] !! Return-Wert
+int_out+2 !! int_out[1] !! ob_ofxoff
+int_out+4 !! int_out[2] !! ob_ofyoff
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

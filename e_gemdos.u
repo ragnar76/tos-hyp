@@ -1,0 +1,38 @@
+########################################
+# @(#) TOS - das Betriebssystem
+# @(#) Rolf Kotzian
+########################################
+
+!iflang [english]
+	!docinfo [title] The documentation for
+	!docinfo [program]    GEMDOS
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] GEMDOS (TOS - The Operating System)
+!else
+	!docinfo [title] Die Anleitung zum
+	!docinfo [program]    GEMDOS
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] GEMDOS (TOS - das Betriebssystem)
+!endif
+
+!include config.u
+
+########################################
+
+!begin_document
+
+!ifdest [tech]
+\documentstyle[11pt,german]{article}
+!endif
+!ifdest [stg]
+!begin_raw
+@options "+g -s +x +zz -t4"
+@subject "Programmieren/Atari"
+!end_raw
+!endif
+!maketitle
+!tableofcontents
+
+!include gemdos/gemdos.u
+
+!end_document

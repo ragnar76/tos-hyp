@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, XFS1
+
+(!B)Master-module xfs.mmx(!b) - Extended file-system for (!nolink [TOS])
+
+Modifies (!nolink [GEMDOS])-trap.
+
+!end_node
+
+!else
+
+!begin_node Cookie, XFS1
+
+(!B)Master-Modul xfs.mmx(!b) - Erweitertes Filesystem fÅr TOS,
+
+Biegt (!nolink [GEMDOS])-Trap um
+
+!end_node
+
+!endif
+ 

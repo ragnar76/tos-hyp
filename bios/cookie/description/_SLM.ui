@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, _SLM
+
+!label Diablo drivers
+(!B)Diablo driver for SLM laser printer(!b)
+
+The cookie is set by the Diablo driver (since version 1.4) of the SLM 
+laser printer. The value of the cookie points to an (!I)undocumented(!i)
+structure.
+
+!end_node
+
+!else
+
+!begin_node Cookie, _SLM
+
+!label Diablo-Treiber
+(!B)Diablo-Treiber fÅr SLM-Laserdrucker(!b)
+
+Der Cookie wird vom Diablo-Treiber (ab Version 1.4) der SLM-Laserdrucker gesetzt.
+Der Wert des Cookies zeigt auf eine (!I)nicht(!i) dokumentierte Struktur.
+
+!end_node
+
+!endif

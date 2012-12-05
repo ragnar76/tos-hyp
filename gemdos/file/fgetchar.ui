@@ -1,0 +1,182 @@
+!iflang [english]
+
+!begin_node Fgetchar
+(!begin_liste) [Availability]
+!item [Name:]
+¯Fgetchar® - Read a character from a file.
+
+!item [Opcode:]
+263
+
+!item [Syntax:]
+int32_t Fgetchar ( int16_t fh, int16_t mode );
+
+!item [Description:]
+The function reads a character from the file with the handle (!I)fh(!i). The
+parameter (!I)mode(!i) is only of interest when the opened file is a
+(pseudo-)terminal. In that case the following values apply:
+
+!begin_xlist !short [mode]
+!item [mode]
+Meaning
+!item [~]
+~
+!item [0]
+(!B)Raw mode(!b)
+(!nl)
+No evaluation of (!nolink [control]) characters
+!item [1]
+(!B)Cooked mode(!b)
+(!nl)
+Special (!nolink [control]) characters (Control-C, Control-Z) will be looked
+for and interpreted if appropriate; the same applies for flow
+(!nolink [control]) (Control-S, Control-Q)
+!item [2]
+(!B)Echo mode(!b)
+(!nl)
+Read characters will be output on the terminal
+!end_xlist
+
+The ASCII value of the character read will be stored  in the low byte of the
+LONG returned by the function. For cases where the file is a
+(pseudo-)terminal, the scancode and Shift status will be returned as for
+Bconin.
+
+The individual modes of (!I)mode(!i) can naturally also be combined with an
+OR operation.
+
+(!B)Warning:(!b) This function is optional, hence a call may be answered
+with EINVFN.
+
+!item [(!nolink [Return]) value:]
+The function can return the following results:
+!begin_xlist !short [EIHNDL :]
+!item [>= 0 :]
+No error, but the read character
+!item [0xff1a :]
+End-of-File (EOF) was recognized
+!item [EIHNDL :]
+Invalid file handle
+!end_xlist
+
+!item [Availability:]
+As of the first in MultiTOS integrated MiNT version 1.04.
+
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding] [Bindings for Fgetchar]) ~ Bconin ~ Cconin ~ Cauxin ~
+Fputchar ~ Fread
+(!ende_liste)
+
+
+!begin_node Bindings for Fgetchar
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fgetchar ( int16_t fh, int16_t mode );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    mode,-(sp)   ; Offset 4
+move.w    fh,-(sp)     ; Offset 2
+move.w    #263,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #6,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Fgetchar
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Fgetchar® - Zeichen aus einer Datei lesen.
+
+!item [Gemdosnummer:]
+263
+
+!item [Deklaration:]
+int32_t Fgetchar ( int16_t fh, int16_t mode );
+
+!item [Beschreibung:]
+Die Funktion liest ein Zeichen aus der Datei mit der Handle (!I)fh(!i). Der
+Parameter (!I)mode(!i) ist nur dann von Interesse, wenn die ge”ffnete Datei
+ein (Pseudo-)Terminal ist. Fr diesen Fall gelten die folgenden Werte:
+
+!begin_xlist !short [mode]
+!item [mode]
+Bedeutung
+!item [~]
+~
+!item [0]
+(!B)Raw-Mode(!b)
+(!nl)
+keine Auswertung von Kontrollzeichen.
+!item [1]
+(!B)Cooked-Mode(!b)
+(!nl)
+spezielle Kontrollzeichen (Control-C, Control-Z) werden gesucht und ggfs.
+interpretiert. Das selbe gilt fr die Flukontrolle (Control-S, Control-Q).
+!item [2]
+(!B)Echo-Mode(!b)
+(!nl)
+Gelesene Zeichen werden auf dem Terminal ausgegeben.
+!end_xlist
+
+Der ASCII-Wert des gelesenen Zeichens wird im Low-Byte des
+Funktionsergebnisses abgelegt. Fr den Fall, da die Datei ein
+(Pseudo-)Terminal ist, werden Scan-Code und Shift-Status wie bei Bconin
+zurckgeliefert.
+
+Die einzelnen Modi von (!I)mode(!i) k”nnen natrlich auch durch eine
+ODER-Operation verknpft werden.
+
+(!B)Achtung:(!b) Diese Funktion ist optional, daher darf ein Aufruf mit
+EINVFN beantwortet werden.
+
+!item [Ergebnis:]
+Die Funktion kann folgende Rckgabewerte liefern:
+!begin_xlist !short [EIHNDL :]
+!item [>= 0 :]
+kein Fehler, sondern das gelesene Zeichen.
+!item [0xff1a :]
+End-of-File (EOF) wurde erkannt.
+!item [EIHNDL :]
+ungltiges Datei-Handle.
+!end_xlist
+
+!item [Verfgbar:]
+Seit der ersten in MultiTOS integrierten MiNT Version 1.04.
+              
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr Fgetchar]) ~ Bconin ~ Cconin ~ Cauxin ~
+Fputchar ~ Fread
+(!ende_liste)
+
+
+!begin_node Bindings fr Fgetchar
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fgetchar ( int16_t fh, int16_t mode );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    mode,-(sp)   ; Offset 4
+move.w    fh,-(sp)     ; Offset 2
+move.w    #263,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #6,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

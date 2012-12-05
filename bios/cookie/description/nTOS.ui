@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, nTOS
+
+(!B)MilanBlaster(!b)
+
+Uses TRAP #14/X(!nolink [BIOS]) and TTMFP/SCSI DMAC.
+
+!end_node
+
+!else
+
+!begin_node Cookie, nTOS
+
+(!B)MilanBlaster(!b)
+
+Nutzt den Trap#14/X(!nolink [BIOS]) und TTMFP/SCSI DMAC.
+
+
+!end_node
+
+!endif
+ 

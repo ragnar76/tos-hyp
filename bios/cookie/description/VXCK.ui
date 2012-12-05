@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, VXCK
+
+(!B)VoxClock(!b) - Talking clock for DMA-sound
+
+Modifies (!nolink [GEMDOS]) Timer vector, DMA active interrupt and IKBD clock-
+packet handler.
+
+!end_node
+
+!else
+
+!begin_node Cookie, VXCK
+
+(!B)VoxClock(!b) - sprechende Uhr fÅr DMA-Sound
+
+Verbiegt GEMDOS-Timer-Vektor, DMA-Active-Interrupt und IKBD-Clock-Packet-Handler.
+
+!end_node
+
+!endif
+ 

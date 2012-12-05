@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, SLCT
+
+(!B)Selectric¿(!b) - Enhanced file-selector
+
+Modifies TRAP #2 and #13.
+
+Status: Shareware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SLCT
+
+(!B)Selectric¿(!b) - File-Selector.
+
+Verbiegt TRAP #2 und #13.
+
+Status: Shareware.
+
+!end_node
+
+!endif
+ 

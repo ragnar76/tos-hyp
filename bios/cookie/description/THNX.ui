@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, THNX
+
+(!B)THINX(!b) (Shell)
+
+Character filter for print output. The program is being developed 
+further under the name Chatwin (see (!link [CHTW][Cookie, CHTW])).
+
+Modifies the (!nolink [BIOS]) vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, THNX
+
+(!B)THINX(!b) (Shell).
+
+Zeichenfilter fÅr Druckerausgaben. Das Programm wird unter dem Namen
+Chatwin (siehe (!link [CHTW][Cookie, CHTW])) weiterentwickelt.
+
+Verbiegt den (!nolink [BIOS])-Vektor. 
+
+!end_node
+
+!endif
+ 

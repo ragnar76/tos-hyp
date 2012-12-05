@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, ENVN
+
+(!B)Environ.prg(!b)
+
+Sets the (!nolink [GEM]) environment.
+
+Redirected: exec_os, reset vector. 
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, ENVN
+
+(!B)Environ.prg(!b)
+
+Setzt (!nolink [GEM])-Environment.
+
+Verbogen: exec_os, Resetvektor.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

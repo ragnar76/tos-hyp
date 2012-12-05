@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, SFIX
+
+(!B)Serial Port Fix(!b)
+
+Patch program for the serial port ((!nolink [TOS 2.05, TOS 3.01 and TOS]) 3.05).
+
+!end_node
+
+!else
+
+!begin_node Cookie, SFIX
+
+(!B)Serial Port Fix(!b)
+
+Patchprogramm fÅr die serielle Schnittstelle
+((!nolink [TOS 2.05, TOS 3.01 and TOS]) 3.05).
+
+!end_node
+
+!endif
+ 

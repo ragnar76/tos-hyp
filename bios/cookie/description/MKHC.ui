@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, MKHC
+
+(!B)Hardcopy fix(!b)
+
+Source: (!I)ST-Computer(!i) 12/1989.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MKHC
+
+(!B)Hardcopy-Fix(!b)
+
+Quelle: (!I)ST-Computer(!i) 12/1989.
+
+!end_node
+
+!endif
+ 

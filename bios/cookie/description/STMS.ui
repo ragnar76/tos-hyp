@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, STMS
+
+(!B)Screendump utility(!b)
+
+Source: (!I)ST-Magazin(!i) 2/1990.
+
+Modifies the hardcopy vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, STMS
+
+(!B)Screendump(!b)
+
+Quelle: (!I)ST-Magazin(!i) 2/1990.
+
+Verbiegt den Hardcopy-Vektor.
+
+!end_node
+
+!endif
+ 

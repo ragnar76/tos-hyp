@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, SPEK
+
+(!B)Driver for the 'Spektrum' graphics cards(!b)
+
+Modifies timer-interrupt and mouse routine.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SPEK
+
+(!B)Treiber fr die 'Spektrum'-Grafikkarten(!b)
+
+Ver„ndert: Timer-Interrupt und Mausroutine.
+
+!end_node
+
+!endif
+ 

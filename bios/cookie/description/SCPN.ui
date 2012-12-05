@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SCPN
+
+(!B)Screen Blaster 3(!b) screen enhancer
+
+!end_node
+
+!else
+
+!begin_node Cookie, SCPN
+
+(!B)Screen Blaster 3(!b) screen enhancer
+
+!end_node
+
+!endif
+ 

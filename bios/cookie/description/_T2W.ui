@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, _T2W
+
+(!B)TOS2WIN emulator(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, _T2W
+
+(!B)TOS2WIN Emulator(!b)
+
+!end_node
+
+!endif
+ 

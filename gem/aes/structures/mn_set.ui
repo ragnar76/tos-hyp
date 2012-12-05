@@ -1,0 +1,42 @@
+!iflang [english]
+
+!begin_node MN_SET
+
+!begin_verbatim
+typedef struct
+{
+    int32_t display;    /* Submenu display delay          */
+    int32_t drag;       /* Submenu drag delay             */
+    int32_t delay;      /* Single-click scroll delay      */
+    int32_t speed;      /* Continuous scroll delay        */
+    int16_t height;     /* Menu scroll height (in items)  */
+} MN_SET;
+!end_verbatim
+
+The delay values are measured in milliseconds.
+
+See also: About the AES ~ menu_settings
+!end_node
+
+!else
+
+!begin_node MN_SET
+
+!begin_verbatim
+typedef struct
+{
+    int32_t display;    /* Anzeigeverz”gerung              */
+    int32_t drag;       /* Auswahlverz”gerung              */
+    int32_t delay;      /* Einfachklick Scroll-Verz”gerung */
+    int32_t speed;      /* Scroll-Verz”gerung              */
+    int16_t height;     /* Scroll-H”he (Anzahl der darzu-  */
+                        /* stellenden Eintr„ge)            */
+} MN_SET;
+!end_verbatim
+
+Alle Verz”gerungszeiten werden in Millisekunden gemessen.
+
+Querverweis: AES ~ menu_settings
+!end_node
+
+!endif

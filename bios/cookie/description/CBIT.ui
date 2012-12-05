@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, CBIT
+
+(!B)"c't bus" interface driver(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, CBIT
+
+(!B)c't Bus-Interface-Treiber(!b)
+
+!end_node
+
+!endif
+ 

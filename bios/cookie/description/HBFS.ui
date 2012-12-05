@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, HBFS
+
+(!B)BoxKite(!b) - Resident File-Selector
+
+Modifies TRAP #2 and #13. The value of the cookie is the entry 
+address of the TRAP #2 handler.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HBFS
+
+(!B)BoxKite(!b) - residente Dateiauswahlbox.
+
+Verbiegt Trap #2 und #13. 
+Der Wert des Cookies ist die Einsprungadresse des Trap #2-Handlers.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

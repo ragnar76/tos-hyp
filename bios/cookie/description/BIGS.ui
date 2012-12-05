@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, BIGS
+
+(!B)BigScreen 2(!b)
+
+This is the new BigScreen for ST, STe and TT.
+
+Modifies TRAP #2, X(!nolink [BIOS]) and VBlank.
+
+!end_node
+
+!else
+
+!begin_node Cookie, BIGS
+
+(!B)BigScreen 2(!b)
+
+Das neue BigScreen fÅr ST, STe und TT
+
+verbiegt: TRAP #2, X(!nolink [BIOS]) und VBlank).
+
+!end_node
+
+!endif
+ 

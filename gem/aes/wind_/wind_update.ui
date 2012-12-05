@@ -1,0 +1,214 @@
+!iflang [english]
+
+!begin_node wind_update
+!label BEG_MCTRL
+!label BEG_UPDATE
+!label END_MCTRL
+!label END_UPDATE
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØUpdate windowÆ - Blocks or releases screen operations.
+
+!item [Opcode:]
+107
+
+!item [Syntax:]
+int16_t wind_update ( int16_t wi_ubegend );
+
+!item [Description:]
+The call wind_update signals the (!nolink [AES]) that a user application is
+currently redrawing the screen. Following this, the (!nolink [AES]) restricts
+its own graphical 'activities' such as the dropping down of menus or the
+moving of windows, for instance.
+
+!begin_xlist !short [END_UPDATE (0)]
+!item [wi_ubegend]
+Meaning
+!item [~]
+~
+!item [END_UPDATE (0)]
+Screen redraw is compete and the flag set by BEG_UPDATE is reset
+!item [BEG_UPDATE (1)]
+Screen redraw starts, rectangle lists are frozen, flag is set to prevent any
+other processes updating the screen
+!item [END_MCTRL  (2)]
+Application releases control of the mouse to the (!nolink [AES]) and resumes
+mouse click message reactions
+!item [BEG_MCTRL  (3)]
+The application wants to have sole control over mouse button messages
+!end_xlist
+
+MagiC implements the (!B)'check and set mode'(!b) of (!nolink [AES]) 4.00.
+The call then is wind_update (BEG_UPDATE|0x100) or and_update
+(BEG_MCTRL|0x100), i.e. a logical OR with a NO_BLOCK mask (0x100). Here the
+update control is only applied if no other application has control of the
+screen semaphore. If it has, the function returns at once with an error-value
+of 0.
+               
+(!B)Note:(!b) It is recommended that this function be used only for
+time-sensitive applications (e.g. terminal programs etc.) where long redraws
+by another applications could cause a timeout.
+
+All wind_update modes nest, so to release the screen semaphore the same number
+of END_UPDATE calls must be received as BEG_UPDATEs were made, but it is
+preferable to design applications that avoid nesting these calls.
+
+Both the BEG_xxx calls should be used before displaying a form or a popup to
+stop them from being overwritten, or mouse clicks to them being passed to other
+applica!-tions. Also, make sure you wait until (!I)after(!i) BEG_UPDATE  has
+been called before turning off the mouse cursor when updating the screen.
+
+The presence of this feature can be inquired for with
+(!link [appl_getinfo][%apgi_11]) (opcode 11).
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Window library
+
+!item [See also:]
+(!link [Binding] [Bindings for wind_update])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for wind_update
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wind_update ( int16_t wi_ubegend );
+
+!item [Binding:]
+!begin_verbatim
+int16_t wind_update (int16_t wi_ubegend)
+{
+   int_in[0] = wi_ubegend;
+   return ( crys_if(107) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 107   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! wi_ubegend
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node wind_update
+!label BEG_MCTRL
+!label BEG_UPDATE
+!label END_MCTRL
+!label END_UPDATE
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØUpdate WindowÆ - bestimmt das Neuzeichnen eines Fensters.
+
+!item [AES-Nummer:]
+107
+
+!item [Deklaration:]
+int16_t wind_update ( int16_t wi_ubegend );
+
+!item [Beschreibung:]
+Die Funktion signalisiert dem AES, daû die Benutzerapplikation gerade den
+Bildschirm neu aufbaut. Das AES schrÑnkt daraufhin seine eigenen grafischen
+"TÑtigkeiten", wie z. B. das Herunterklappen von DropdownmenÅs, ein.
+
+!begin_xlist !short [END_UPDATE (0)]
+!item [wi_ubegend]
+Bedeutung
+!item [~]
+~
+!item [END_UPDATE (0)]
+Bildschirmaufbau ist abgeschlossen.
+!item [BEG_UPDATE (1)]
+Aufbau beginnt, Rechtecklisten werden eingefroren.
+!item [END_MCTRL  (2)]
+Applikation gibt Mauskontrolle ab
+!item [BEG_MCTRL  (3)]
+die Applikation mîchte die alleinige Kontrolle Åber die Maus haben.
+!end_xlist
+
+MagiC implementiert den (!B)'check and set mode'(!b) von AES 4.00 Der Aufruf
+erfolgt in diesem Fall per wind_update (BEG_UPDATE|0x100) bzw. wind_update
+(BEG_MCTRL|0x100). Dabei wird die Update-Kontrolle nur noch Åbernommen,
+falls keine andere Applikation die Kontrolle hat bzw. die eigene Applikation
+besitzt.
+
+Das Vorhandensein dieses Features kann per (!link [appl_getinfo][%apgi_11])
+(Opcode 11) abgefragt werden.
+
+!item [Ergebnis:]
+Ein Fehler ist nur dann aufgetreten, wenn als Ergebnis 0 zurÅckgegeben wird.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+Fensterverwaltung
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr wind_update])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr wind_update
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wind_update ( int16_t wi_ubegend );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t wind_update (int16_t wi_ubegend)
+{
+   int_in[0] = wi_ubegend;
+   return ( crys_if(107) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 107   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 0     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! wi_ubegend
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

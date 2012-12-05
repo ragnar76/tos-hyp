@@ -1,0 +1,192 @@
+!iflang [english]
+
+!begin_node edit_resized
+(!begin_liste) [Availability]
+!item [Name:]
+¯Edit Object Resized® - Alter settings: Object size
+!item [Opcode:]
+217 (sub-opcode 6)
+
+!item [Syntax:]
+int16_t edit_resized ( OBJECT *tree, int16_t obj, int16_t *oldrh, int16_t *newrh );
+
+!item [Description:]
+The call edit_resized alters the height of an editable object. The following
+apply:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [tree]
+RSC-tree of object
+!item [obj]
+Object index
+!item [oldrh]
+Old net height of object
+!item [newrh]
+New net height of object
+!end_xlist
+
+For changes of the object size the editable object must release and reserve
+memory. Thus it is possible that in extreme circumstances the operation fails
+due to a shortage of memory. In that case the return value is 0. So that the
+calling program can execute a correct redraw, the previous and new actual
+height is returned. In fact it means here the number of visible lines
+multiplied by the line height, i.e. the object height without the unused bottom
+white border.
+
+!item [(!nolink [Return]) value:]
+1 (OK) or 0 (error)
+
+!item [Availability:]
+As of MagiC 5.20 by means of a shared library.
+
+!item [Group:]
+Editable object functions
+
+!item [See also:]
+(!link [Binding] [Bindings for edit_resized])
+(!ende_liste)
+
+
+
+!begin_node Bindings for edit_resized
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t edit_resized ( OBJECT *tree, int16_t obj, int16_t *oldrh, int16_t *newrh );
+!item [Binding:]
+!begin_verbatim
+int16_t edit_resized ( OBJECT *tree, int16_t obj,
+                       int16_t *oldrh, int16_t *newrh )
+{
+   int_in[0]  = obj;
+   int_in[1]  = 6;      /* Sub-opcode for function */
+
+   addr_in[0] = tree;
+
+   crys_if( 217 );
+   
+   *oldrh = int_out[1];
+   *newrh = int_out[2];
+
+   return ( int_out [0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 217   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 3     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! 6     # Sub-opcode
+addr_in   !! addr_in[0] !! tree
+int_out   !! int_out[0] !! Return value
+int_out+2 !! int_out[1] !! oldrh
+int_out+4 !! int_out[4] !! newrh
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node edit_resized
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Edit Object Resized® - ver„ndert die Gr”e eines Editobjektes.
+!item [AES-Nummer:]
+217 (Unterfunktion 6)
+!item [Deklaration:]
+int16_t edit_resized ( OBJECT *tree, int16_t obj, int16_t *oldrh, int16_t *newrh );
+
+!item [Beschreibung:]
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [tree]
+RSC-Baum des Objekts
+!item [obj]
+Objektnummer
+!item [oldrh]
+alte Netto-H”he des Objekts
+!item [newrh]
+neue Netto-H”he des Objekts
+!end_xlist
+
+Das Editobjekt mu bei Ver„nderung der Objektgr”e Speicher freigeben
+und anfordern. Daher kann es im Extremfall vorkommen, da die Operation
+wegen Speichermangel fehlschl„gt. Rckgabewert ist dann 0.
+Damit das aufrufende Programm einen korrekten Redraw ausfhren kann, wird
+die vorherige und neue tats„chliche H”he zurckgegeben. Tats„chlich
+bedeutet hier die Anzahl sichtbarer Zeilen, multipliziert mit der Zeilenh”he,
+d.h. die Objekth”he ohne unbenutzten, unteren weien Rand.
+
+!item [Ergebnis:]
+Die Funktion liefert bei erfolgreicher Ausfhrung den Wert 1 und im
+Fehlerfall den Wert 0 zurck.
+
+!item [Verfgbar:]
+ab MagiC 5.20 mittels SharedLibrary
+
+!item [Gruppe:]
+Editobjekt-Funktionen
+!item [Querverweis:]
+(!link [Binding] [Bindings fr edit_resized])
+(!ende_liste)
+
+
+
+!begin_node Bindings fr edit_resized
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t edit_resized ( OBJECT *tree, int16_t obj, int16_t *oldrh, int16_t *newrh );
+!item [Umsetzung:]
+!begin_verbatim
+int16_t edit_resized ( OBJECT *tree, int16_t obj,
+                       int16_t *oldrh, int16_t *newrh )
+{
+   int_in[0]  = obj;
+   int_in[1]  = 6;      /* Subcode fr Funktion */
+
+   addr_in[0] = tree;
+
+   crys_if( 217 );
+   
+   *oldrh = int_out[1];
+   *newrh = int_out[2];
+
+   return ( int_out [0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 217   # Opcode der Funktion
+control+2 !! control[1] !! 2     # Eintr„ge in int_in
+control+4 !! control[2] !! 3     # Eintr„ge in int_out
+control+6 !! control[3] !! 1     # Eintr„ge in addr_in
+control+8 !! control[4] !! 0     # Eintr„ge in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! 6     # Sub-Opcode
+addr_in   !! addr_in[0] !! tree
+int_out   !! int_out[0] !! Return-Wert
+int_out+2 !! int_out[1] !! oldrh
+int_out+4 !! int_out[4] !! newrh
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

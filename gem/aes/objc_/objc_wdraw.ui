@@ -1,0 +1,215 @@
+!iflang [english]
+
+!begin_node objc_wdraw
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØObject window drawÆ - Draw an (!nolink [AES]) object tree in a window.
+
+!item [Opcode:]
+60
+
+!item [Syntax:]
+void objc_wdraw ( OBJECT *ob_drtree, int16_t ob_drstart, int16_t ob_drdepth,
+                  GRECT *clip, int16_t whandle );
+
+!item [Description:]
+The call objc_wdraw renders an object tree (or parts of objects) in a window on
+the screen. The following apply:
+
+!begin_xlist !short [ob_drdepth]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [ob_drtree]
+Address of object tree to draw
+!item [ob_drstart]
+Index of the first object to be drawn
+!item [ob_drdepth]
+Number of object generations to be drawn (0 = only the first object), maximum
+of 8
+!item [clip]
+Bounding clipping rectangle
+!item [whandle]
+Window identifier
+!end_xlist
+
+(!B)Note:(!b) In the parameters one can specify a rectangle to which drawing is
+to be restricted ((!link [clipping][Clipping])). If (!I)clip(!i) has the value
+NULL, then the drawing region is restricted to the working area of the window.
+
+The function corresponds essentially to objc_draw with the difference that here
+the rectangle list of a window is respected.
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+The function is available in MagiC as of Version 5.10.
+
+!item [Group:]
+Object library
+
+!item [See also:]
+(!link [Binding] [Bindings for objc_wdraw]) ~ objc_draw ~ OBJECT
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for objc_wdraw
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void objc_wdraw ( OBJECT *ob_drtree, int16_t ob_drstart, int16_t ob_drdepth,
+                  GRECT *clip, int16_t whandle );
+
+!item [Binding:]
+!begin_verbatim
+void objc_wdraw (OBJECT *ob_drtree, int16_t ob_drstart,
+                 int16_t ob_drdepth, GRECT *clip,
+                 int16_t whandle)
+{
+   int_in[0]  = ob_drstart;
+   int_in[1]  = ob_drdepth;
+   int_in[2]  = whandle;
+
+   addr_in[0] = ob_drtree;
+   addr_in[1] = clip;
+
+   crys_if(60);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 60    # Function opcode
+control+2 !! control[1] !! 3     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! ob_drstart
+int_in+2  !! int_in[1]  !! ob_drdepth
+int_in+4  !! int_in[2]  !! whandle
+addr_in   !! addr_in[0] !! ob_drtree
+addr_in+4 !! addr_in[1] !! clip
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node objc_wdraw
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØObject window drawÆ - zeichnet ein Objekt im Fenster.
+
+!item [AES-Nummer:]
+60
+
+!item [Deklaration:]
+void objc_wdraw ( OBJECT *ob_drtree, int16_t ob_drstart, int16_t ob_drdepth,
+                  GRECT *clip, int16_t whandle );
+
+!item [Beschreibung:]
+Die Funktion stellt Objekte (oder Teile von Objekten) auf dem Bildschirm
+dar. Es gilt:
+
+!begin_xlist !short [ob_drdepth]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [ob_drtree]
+Adresse des Objektbaumes
+!item [ob_drstart]
+Nummer des ersten zu zeichnenden Objektes
+!item [ob_drdepth]
+Anzahl der zu zeichnenden Ebenen (0 = nur das erste Objekt)
+!item [clip]
+begrenzendes Clipping-Rechteck
+!item [whandle]
+Kennung des Fensters
+!end_xlist
+
+(!B)Hinweis:(!b) öber die Parameter kann ein Rechteck angegeben werden, auf
+das sich die Darstellung beschrÑnken soll ((!nolink [Clipping])). Besitzt (!I)clip(!i)
+den Wert NULL, so beschrÑnkt sich der Zeichenbereich auf den Arbeitsbereich
+des Fensters.
+
+Die Funktion entspricht im wesentlichen objc_draw mit dem Unterschied, dass
+hier die Rechteckliste eines Fensters beachtet wird.
+
+!item [Ergebnis:]
+Ein Fehler ist nur dann aufgetreten, wenn als Ergebnis 0 zurÅckgegeben wird.
+
+!item [VerfÅgbar:]
+Die Funktion steht in MagiC ab Version 5.10 zur VerfÅgung.
+
+!item [Gruppe:]
+(!link [Objekte][Objektfunktionen])
+
+!item [Querverweise:]
+(!link [Binding] [Bindings fÅr objc_wdraw]) ~ objc_draw ~ OBJECT
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr objc_wdraw
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void objc_wdraw ( OBJECT *ob_drtree, int16_t ob_drstart, int16_t ob_drdepth,
+                  GRECT *clip, int16_t whandle );
+
+!item [Umsetzung:]
+!begin_verbatim
+void objc_wdraw (OBJECT *ob_drtree, int16_t ob_drstart,
+                 int16_t ob_drdepth, GRECT *clip,
+                 int16_t whandle)
+{
+   int_in[0]  = ob_drstart;
+   int_in[1]  = ob_drdepth;
+   int_in[2]  = whandle;
+
+   addr_in[0] = ob_drtree;
+   addr_in[1] = clip;
+
+   crys_if(60);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 60    # Opcode der Funktion
+control+2 !! control[1] !! 3     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! ob_drstart
+int_in+2  !! int_in[1]  !! ob_drdepth
+int_in+4  !! int_in[2]  !! whandle
+addr_in   !! addr_in[0] !! ob_drtree
+addr_in+4 !! addr_in[1] !! clip
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

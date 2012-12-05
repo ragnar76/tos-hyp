@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, SPEE
+
+(!B)Mouse Speeder(!b)
+
+Status: PD.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SPEE
+
+(!B)Mouse Speeder(!b)
+
+Status: PD.
+
+!end_node
+
+!endif
+ 

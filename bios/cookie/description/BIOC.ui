@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, BIOC
+
+(!B)Pirosca(!b)
+
+Resident printer spooler with hardcopy utility.
+
+!end_node
+
+!else
+
+!begin_node Cookie, BIOC
+
+(!B)Pirosca(!b)
+
+Residenter Druckerspooler mit Hardcopy-Utility.
+
+!end_node
+
+!endif
+ 

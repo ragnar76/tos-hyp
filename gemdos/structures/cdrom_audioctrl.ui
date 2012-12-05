@@ -1,0 +1,49 @@
+!iflang [english]
+
+!begin_node cdrom_audioctrl
+
+!begin_verbatim
+struct cdrom_audioctrl
+{
+    /* input parameters */
+
+    int16_t set;                   /* 0 = 0 == inquire only */
+
+    /* input/output parameters */
+
+    struct
+    {
+        int8_t selection;
+        int8_t volume;
+    } channel[4];
+};
+!end_verbatim
+
+See also: (!link [CD-ROM opcodes for Fcntl][Fcntl, CD-ROM commands for])
+!end_node
+
+!else
+
+!begin_node cdrom_audioctrl
+
+!begin_verbatim
+struct cdrom_audioctrl
+{
+    /* Eingabe-Parameter */
+
+    int16_t set;                   /* 0 = nur nachfragen */
+
+    /* Ein-/Ausgabe-Parameter */
+
+    struct
+    {
+        int8_t selection;
+        int8_t volume;
+    } channel[4];
+};
+!end_verbatim
+
+Querverweis: (!link [CD-ROM Opcodes fÅr Fcntl][Fcntl, CD-ROM-Kommandos fÅr])
+!end_node
+
+!endif

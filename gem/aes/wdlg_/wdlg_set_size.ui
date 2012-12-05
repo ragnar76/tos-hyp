@@ -1,0 +1,196 @@
+!iflang [english]
+
+!begin_node wdlg_set_size
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØWindow-dialog set sizeÆ - Alter the size of a window-dialog
+
+!item [Opcode:]
+165 (sub-opcode 2)
+
+!item [Syntax:]
+int16_t wdlg_set_size ( DIALOG *dialog, GRECT *new_size );
+
+!item [Description:]
+The call wdlg_set_size makes it possible to alter the size of a window-dialog.
+The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [dialog]
+Pointer to the dialog structure
+!item [new_size]
+New position and size of the window's working area
+!end_xlist
+
+(!B)Note:(!b) The function can alter position or size of a window-dialog. If the
+root object is to be moved or enlarged then the object dimensions have to be
+altered before calling wdlg_set_size.
+
+The buttons must always lie completely within the window's working area, as
+form_button pays no regard to the rectangle list. The normal use for wdlg_set_size
+are enlargeable dialogs that have a (!link [Sizer][The components of a window])
+object at the bottom right corner.
+
+!item [(!nolink [Return]) value:]
+The function always returns the value 1.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+Window-dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for wdlg_set_size]) ~ wdlg_open ~ wdlg_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for wdlg_set_size
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_set_size ( DIALOG *dialog, GRECT *new_size );
+
+!item [Binding:]
+!begin_verbatim
+int16_t wdlg_set_size ( DIALOG *dialog, GRECT *new_size )
+{
+   addr_in[0] = dialog;
+   addr_in[1] = new_size;
+
+   int_in[0] = 2;
+   crys_if (165);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 165   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! dialog
+addr_in+4 !! addr_in[1] !! new_size
+int_in    !! int_in[0]  !! 2     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node wdlg_set_size
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØWindowDialog Set SizeÆ - Grîûe eines Dialogs verÑndern.
+
+!item [AES-Nummer:]
+165 (Unterfunktion 2)
+
+!item [Deklaration:]
+int16_t wdlg_set_size ( DIALOG *dialog, GRECT *new_size );
+
+!item [Beschreibung:]
+Die Funktion ermîglicht es, die Grîûe eines Fensterdialogs zu verÑndern. Es
+gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [dialog]
+Zeiger auf den Dialog
+!item [new_size]
+neue Position und Grîûe der ArbeitsflÑche des Fensters
+!end_xlist
+
+(!B)Hinweis:(!b) Die Funktion Ñndert weder Position noch Grîûe des
+Wurzelobjektes. Soll dieses verschoben oder vergrîûert werden, so mÅssen die
+Objektausmaûe (!I)vor(!i) dem Aufruf der Funktion geÑndert werden.
+
+(!B)Achtung:(!b) Die Buttons mÅssen sich immer vollstÑndig innerhalb der
+ArbeitsflÑche des Fensters befinden, da form_button die Rechteckliste
+(!I)nicht(!i) beachtet. Der normale Anwendungsfall fÅr diese Funktion sind
+vergrîûerbare Dialoge, die ein Sizer-Objekt in der rechten unteren Ecke
+enthalten.
+
+!item [Ergebnis:]
+Die Funktion liefert stets den Wert 1 zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Fensterdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr wdlg_set_size])  ~ wdlg_open ~  wdlg_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr wdlg_set_size
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_set_size ( DIALOG *dialog, GRECT *new_size );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t wdlg_set_size ( DIALOG *dialog, GRECT *new_size )
+{
+   addr_in[0] = dialog;
+   addr_in[1] = new_size;
+
+   int_in[0] = 2;
+   crys_if (165);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 165   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! dialog
+addr_in+4 !! addr_in[1] !! new_size
+int_in    !! int_in[0]  !! 2     # Unterfunktion
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

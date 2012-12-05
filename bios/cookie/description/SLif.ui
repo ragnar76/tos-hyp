@@ -1,0 +1,27 @@
+!iflang [english]
+
+!begin_node Cookie, SLif
+
+(!B)SoundLifter(!b)
+
+Input switching for Falcon, belongs to SoundLifter hardware.
+
+Modifies X(!nolink [BIOS])-trap.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SLif
+
+(!B)SoundLifter(!b)
+
+Eingangsumschaltung fÅr Falcon, gehîrt zur 
+SoundLifter-Hardware.
+
+Verbiegt X(!nolink [BIOS])-Trap.
+
+!end_node
+
+!endif
+ 

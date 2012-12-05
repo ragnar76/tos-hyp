@@ -1,0 +1,27 @@
+!iflang [english]
+
+!begin_node Cookie, SPRG
+
+(!B)STARTER.ACC(!b)
+
+Launches programs by function key presses under old desktop versions.
+
+Uses temporarily TRAP #1 and TRAP #2.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SPRG
+
+(!B)STARTER.ACC(!b)
+
+Startet unter alten Desktop-Versionen Programme auf 
+Funktionstastendruck. 
+
+Benutzt kurzzeitig TRAP #1 und TRAP #2.
+
+!end_node
+
+!endif
+ 

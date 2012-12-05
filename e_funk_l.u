@@ -1,0 +1,42 @@
+########################################
+# @(#) TOS - das Betriebssystem
+# @(#) Rolf Kotzian
+########################################
+
+!iflang [english]
+	!docinfo [title] Referenz zum
+	!docinfo [program]    TOS Funktionsliste
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] TOS Funktionsliste (TOS - The Operating System)
+!else
+	!docinfo [title] Referenz zum
+	!docinfo [program]    TOS Funktionsliste
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] TOS Funktionsliste (TOS - das Betriebssystem)
+!endif
+
+!include config.u
+
+########################################
+
+!begin_document
+
+!ifdest [tech]
+\documentstyle[11pt,german]{article}
+!endif
+!ifdest [stg]
+!begin_raw
+@options "+g -s +x +zz -t4"
+@subject "Programmieren/Atari"
+!end_raw
+!endif
+!maketitle
+!tableofcontents
+
+!include bios/bios_f.u
+!include xbios/xbios_f.u
+!include gemdos/gemdos_f.u
+!include gem/aes/aes_f.u
+!include gem/vdi/vdi_f.u
+
+!end_document

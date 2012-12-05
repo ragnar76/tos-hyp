@@ -1,0 +1,83 @@
+!iflang [english]
+
+!begin_node SLCT_ITEM
+
+!begin_verbatim
+typedef void (cdecl *SLCT_ITEM)( LIST_BOX *box, OBJECT *tree,
+                                 struct _lbox_item *item,
+                                 void *user_data, int16_t obj_index,
+                                 int16_t last_state );
+!end_verbatim
+
+The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [(!I)box(!i)]
+points to the list box structure
+!item [(!I)tree(!i)]
+points to the object tree of the dialog
+!item [(!I)item(!i)]
+points to the LBOX_ITEM-structure of the selected entry
+
+!item [(!I)user_data(!i)]
+is the pointer passed by (!nolink [lbox_create])
+
+!item [(!I)obj_index(!i)]
+is the number of the selected object. For a double-click the top bit is set,
+similar to form_do. If it is 0, it signifies that no object is assigned to this
+entry; it is not visible. Normally this is only the case when one is
+scrolling and by selecting a new object the (now no longer visible) selection has
+to be cleared.
+!item [(!I)last_state(!i)]
+is the previous status of the object. (!I)last_state(!i) can also have the same
+value as (!I)item->selected.(!i) In that case one can normally quit the function
+immediately.
+
+!end_xlist
+
+See also: lbox_create
+!end_node
+
+!else
+
+!begin_node SLCT_ITEM
+
+!begin_verbatim
+typedef void (cdecl *SLCT_ITEM)( LIST_BOX *box, OBJECT *tree,
+                                 struct _lbox_item *item,
+                                 void *user_data, int16_t obj_index,
+                                 int16_t last_state );
+!end_verbatim
+
+Dabei gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [(!I)box(!i)]
+Zeiger auf Listbox-Struktur
+!item [(!I)tree(!i)]
+Zeiger auf den Objektbaum des Dialogs
+!item [(!I)item(!i)]
+Zeiger auf die LBOX_ITEM-Struktur des ausgew„hlten Eintrags
+!item [(!I)user_data(!i)]
+Zeiger der bei (!nolink [lbox_create]) bergeben wurde
+!item [(!I)obj_index(!i)]
+ist die Nummer des angew„hlten Objekts. Bei einem (!nolink [Doppelklick]) ist „hnlich
+wie nach form_do das oberste Bit gesetzt. Wenn (!I)obj_index(!i) 0 ist,
+heižt das, daž dem Eintrag kein Objekt zugeordnet ist; er ist nicht
+sichtbar. Normalerweise ist das nur der Fall, wenn gescrollt wird und durch
+Auswahl eines neuen Objekts die (mittlerweile nicht mehr sichtbare)
+Selektion gel”scht werden muž.
+!item [(!I)last_state(!i)]
+ist der vorhergehende Status des Objekts. (!I)last_state(!i) kann auch den
+gleichen Wert wie item->selected haben. In diesem Fall kann die Funktion
+slct normalerweise sofort verlassen werden.
+!end_xlist
+
+Querverweis: lbox_create
+!end_node
+
+!endif

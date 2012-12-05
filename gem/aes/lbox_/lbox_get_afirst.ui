@@ -1,0 +1,182 @@
+!iflang [english]
+
+!begin_node lbox_get_afirst
+!label lbox_get_first
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box get first visible item, Slider AÆ - Obtain index of first visible
+item (slider A).
+
+!item [Opcode:]
+174 (sub-opcode 4)
+
+!item [Syntax:]
+int16_t lbox_get_afirst ( LIST_BOX *box );
+
+!item [Description:]
+The call lbox_get_afirst obtains the index of the first visible item of the list
+box for slider A. The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+The function returns the index of the first visible item for slider A.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_get_afirst]) ~ lbox_get_idx ~ lbox_get_item
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_get_afirst
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_afirst ( LIST_BOX *box );
+
+(!I)or(!i)
+
+int16_t lbox_get_first  ( ... );
+
+!item [Binding:]
+!begin_verbatim
+int16_t lbox_get_afirst ( LIST_BOX *box )
+
+(!I)or(!i)
+
+int16_t lbox_get_first  ( ... )
+{
+   addr_in[0] = box;
+   int_in[0]  = 4;
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 174   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 4     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_get_afirst
+!label lbox_get_first
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Get First Visible Item, Slider AÆ - Index des ersten sichtbaren
+Elementes ermitteln.
+
+!item [AES-Nummer:]
+174 (Unterfunktion 4)
+
+!item [Deklaration:]
+int16_t lbox_get_afirst ( LIST_BOX *box );
+
+!item [Beschreibung:]
+Die Funktion ermittelt den Index des ersten sichtbaren Elementes der Listbox
+fÅr Slider-A. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert den Index des ersten sichtbaren Elementes der Listbox
+zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_get_afirst])  ~ lbox_get_idx  ~ lbox_get_item
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_get_afirst
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_afirst ( LIST_BOX *box );
+
+oder
+
+int16_t lbox_get_first  ( ... );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t lbox_get_afirst ( LIST_BOX *box )
+
+oder
+
+int16_t lbox_get_first  ( ... )
+{
+   addr_in[0] = box;
+   int_in[0]  = 4;
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 174   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 4     # Unterfunktion
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

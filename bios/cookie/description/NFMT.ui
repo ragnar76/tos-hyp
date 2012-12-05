@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, NFMT
+
+(!B)INFOMAT(!b)
+
+This displays cookie and system infos and creates/enlarges a cookie 
+jar on request. The cookie contains information about the program 
+that (!nolink [installed]) it and the type of action undertaken.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, NFMT
+
+(!B)INFOMAT(!b) 
+
+Zeigt Cookie-/Systeminfos und erzeugt/erweitert auf Wunsch einen 
+Cookie-Jar. Der Cookie enthÑlt Informationen Åber das ihn installierende 
+Programm und die Art der erfolgten Aktion.
+
+Status: Freeware
+
+!end_node
+
+!endif
+ 

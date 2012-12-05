@@ -1,0 +1,37 @@
+!iflang [english]
+
+!begin_node Cookie, shlp
+
+(!B)shelhelp(!b)
+
+This is a TSR that makes the N.AES function shel_help available also 
+under other systems. This provides a simple way to select one of the 
+available viewers for a given type of Help-file format and so achieve 
+a uniform online help.
+
+Hooks only into TraPatch internal XBRA-list.
+
+Status: Freeware
+
+!end_node
+
+!else
+
+!begin_node Cookie, shlp
+
+(!B)shelhelp(!b)
+
+Dies ist ein TSR, daû die N.AES-Funktion shel_help auch unter anderen 
+Systemen zur VerfÅgung stellt. Damit ist es auf einfache Art und Weise 
+mîglich einen der verfÅgbaren Viewer fÅr eine bestimmte Art von 
+Help-File-Formaten auszuwÑhlen und so eine einheitliche Online-Hilfe zu 
+bekommen.
+
+Nur in TraPatch-interner XBRA-Liste.
+
+Status: Freeware
+
+!end_node
+
+!endif
+ 

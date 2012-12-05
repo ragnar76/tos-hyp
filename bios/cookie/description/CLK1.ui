@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, CLK1
+
+Utility for (!B)MEGA ST hardware clock(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, CLK1
+
+Utility fÅr (!B)MEGA-ST Hardwareuhr(!b).
+
+!end_node
+
+!endif
+ 

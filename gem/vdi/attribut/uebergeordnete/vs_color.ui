@@ -1,0 +1,257 @@
+!iflang [english]
+
+!begin_node vs_color
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+¯Set colour representation® - Set the colour intensity of a palette index.
+
+!item [Opcode:]
+14
+
+!item [Syntax:]
+void vs_color ( int16_t handle, int16_t index, int16_t *rgb_in );
+
+!item [Description:]
+The call  vs_color sets the colour intensity for the individual colour registers
+of a palette index. The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [handle]
+Workstation identifier
+!item [index]
+Colour register index (pen)
+!item [rgb_in[0!]]
+Red colour intensity (in tenths of a percent, 0-1000)
+!item [rgb_in[1!]]
+Green colour intensity (in tenths of a percent, 0-1000)
+!item [rgb_in[2!]]
+Blue colour intensity (in tenths of a percent, 0-1000)
+!end_xlist
+
+As not every output device needs to offer 1000 possible colour tints, several
+input intensities of the RGB colours may share the intensities that have
+actually been set.
+
+(!B)Note:(!b) The function can only be used if (!link [lookup table][Lookup table])
+support is present. If an invalid colour number is passed, then the next achievable
+value will be set.
+
+For devices with a CLUT (graphics systems with up to 8 planes, i.e. 256 colours) the
+settings are effective immediately on all pixels that were drawn on the screen
+with the colour index (!I)index.(!i)
+               
+(!B)Important:(!b) For this reason the first 16 colour numbers should not be
+altered, as these are used by the (!nolink [AES]).
+
+If a device has more than 256 colours displayable simultaneously, it usually
+does not have a CLUT. In that case the pixels do not contain a colour value or
+index but a direct colour value in RGB (e.g. a pixel with 32 bits has 8 unused
+bits, 8 bits for red, 8 bits for green and 8 bits for blue). This means that
+the (!nolink [VDI]) creates a pseudo-CLUT with 256 pens, and calling
+vs_color for one of these pens will not change the
+colour of the pixels which have been drawn with this pen, though it will change
+the colour of new pixels drawn with this pen. Note that the palettes are
+handled per workstation, which means that each workstation has its own palette
+(pseudo-CLUT) and changing the RGB value for a colour index on one workstation
+will not change the value of the same pen on another workstation.
+               
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+Supported by all devices.
+
+!item [Group:]
+Superior attributes
+
+!item [See also:]
+(!link [Binding] [Bindings for vs_color])   ~   v_pline  ~      v_pmarker ~     v_gtext ~
+v_fillarea ~  v_cellarray  ~  v_contourfill ~ vr_recfl ~
+v_bar    ~    v_arc     ~     v_pieslice ~    v_circle ~
+v_ellarc ~    v_ellpie   ~    v_ellipse  ~    v_rbox ~
+v_rfbox  ~   v_justified ~   vq_color    ~   vq_scrninfo
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings for vs_color
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void vs_color ( int16_t handle, int16_t index, int16_t *rgb_in );
+
+!item [Binding:]
+!begin_verbatim
+void vs_color (int16_t handle, int16_t index, int16_t *rgb_in)
+{
+   int16_t i;
+
+   intin[0] = index;
+
+   for (i=1; i<4; i++)
+      intin[i] = *rgb_in++;
+
+   contrl[0] = 14;
+   contrl[1] = 0;
+   contrl[3] = 4;
+   contrl[6] = handle;
+
+   vdi ();
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! Contents
+!hline
+contrl    !! contrl[0]   !! 14    # Function Opcode
+contrl+2  !! contrl[1]   !! 0     # entry in ptsin
+contrl+4  !! contrl[2]   !! 0     # entry in ptsout
+contrl+6  !! contrl[3]   !! 4     # entry in intin
+contrl+8  !! contrl[4]   !! 0     # entry in intout
+contrl+12 !! contrl[6]   !! handle
+intin     !! intin[0]    !! index
+intin+2   !! intin[1..3] !! rgb_in[0..2]
+!end_table
+
+(!ende_liste)
+!end_node
+
+!else
+
+!begin_node vs_color
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+¯Set Color Representation® - legt die Farbintensit„t fest.
+
+!item [VDI-Nummer:]
+14
+
+!item [Deklaration:]
+void vs_color ( int16_t handle, int16_t index, int16_t *rgb_in );
+
+!item [Beschreibung:]
+Die Funktion w„hlt die Farbintensit„t zu den einzelnen Farbregistern. Es
+gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [handle]
+Kennung der Workstation
+!item [index]
+Farbnummer
+!item [rgb_in[0!]]
+Rotanteil in Promille
+!item [rgb_in[1!]]
+Grnanteil in Promille
+!item [rgb_in[2!]]
+Blauanteil in Promille
+!end_xlist
+
+Da nicht jedes Ausgabeger„t ber 1000 m”gliche Farbabstufungen verfgen muž,
+k”nnen fr verschiedene Eingabeintensit„ten der RGB-Farben, die tats„chlich
+eingestellten Intensit„ten gleich sein.
+
+(!B)Hinweis:(!b) Die Funktion kann nur benutzt werden, falls eine
+Lookup-Table Untersttzung vorhanden ist. Sollte eine ungltige Farbnummer
+bergeben werden, wird der n„chste erreichbare Wert angenommen.
+
+Bei Ger„ten mit einer CLUT (Grafiksysteme bis 8 Planes d.h. 256 Farben)
+wirken sich die Einstellungen sofort auf alle Punkte aus, die bisher auf dem
+Bildschirm mit dem Farbindex (!I)index(!i) gezeichnet wurden.
+
+(!B)Wichtig:(!b) Aus diesem Grund sollten die ersten 16 Farbnummern nicht
+ver„ndert werden, da diese vom AES benutzt werden.
+
+Bei mehr als 256 gleichzeitig darstellbaren Farben benutzen Grafiksysteme in
+der Regel keine CLUT sondern eine direkte RGB-Zuordnung pro Pixel. Die
+einzelnen Pixel enthalten dann statt eines Farbindex einen direkten RGB-Wert
+(z.B. je 8 Bit fr R,G und B und 8 Bit Overlay). Bei einer solchen
+Organisation stellt das VDI pro Workstation 256 lokale Farbstifte und eine
+Pseudopalette zur Verfgung, fr die man  mit vs_color() die Farbwerte
+setzen kann. Eine Žnderung  wirkt sich also erst dann aus, wenn man wieder
+mit dem Farbstift zeichnet und wirkt sich immer nur auf die mit
+(!I)handle(!i) bezeichnete Workstation aus.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis.
+
+!item [Verfgbar:]
+Supported by all devices.
+
+!item [Gruppe:]
+bergeordnete Attribute
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr vs_color])   ~   v_pline  ~      v_pmarker ~     v_gtext ~
+v_fillarea ~  v_cellarray  ~  v_contourfill ~ vr_recfl ~
+v_bar    ~    v_arc     ~     v_pieslice ~    v_circle ~
+v_ellarc ~    v_ellpie   ~    v_ellipse  ~    v_rbox ~
+v_rfbox  ~   v_justified ~   vq_color    ~   vq_scrninfo
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings fr vs_color
+!ignore_index
+
+(!begin_liste) [Umsetzung]
+
+!item [C:]
+void vs_color ( int16_t handle, int16_t index, int16_t *rgb_in );
+
+!item [Umsetzung:]
+!begin_verbatim
+void vs_color (int16_t handle, int16_t index, int16_t *rgb_in)
+{
+   int16_t i;
+
+   intin[0] = index;
+
+   for (i=1; i<4; i++)
+      intin[i] = *rgb_in++;
+
+   contrl[0] = 14;
+   contrl[1] = 0;
+   contrl[3] = 4;
+   contrl[6] = handle;
+
+   vdi ();
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+contrl    !! contrl[0]   !! 14    # Opcode der Funktion
+contrl+2  !! contrl[1]   !! 0     # Eintr„ge in ptsin
+contrl+4  !! contrl[2]   !! 0     # Eintr„ge in ptsout
+contrl+6  !! contrl[3]   !! 4     # Eintr„ge in intin
+contrl+8  !! contrl[4]   !! 0     # Eintr„ge in intout
+contrl+12 !! contrl[6]   !! handle
+intin     !! intin[0]    !! index
+intin+2   !! intin[1..3] !! rgb_in[0..2]
+!end_table
+
+(!ende_liste)
+!end_node
+
+!endif

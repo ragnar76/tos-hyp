@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, MDSa
+
+(!B)Medical Design Software's serial fix(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, MDSa
+
+(!B)Medical Design Software's Serial Fix(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, PRDS
+
+Peter Rohde's (!B)Disk Speeder(!b) v1.1
+
+Hard disk cache.
+
+!end_node
+
+!else
+
+!begin_node Cookie, PRDS
+
+PR's (!B)Disk-Speeder(!b) v1.1
+
+Harddiskcache
+
+!end_node
+
+!endif
+ 

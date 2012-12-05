@@ -1,0 +1,259 @@
+!iflang [english]
+
+!begin_node vst_point
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØSet character height, points modeÆ - Set the character cell size for text
+output.
+
+!item [Opcode:]
+107
+
+!item [Syntax:]
+int16_t vst_point ( int16_t handle, int16_t point, int16_t *char_width,
+                 int16_t *char_height, int16_t *cell_width, int16_t *cell_height );
+
+!item [Description:]
+The call vst_point sets the character cell size, i.e. the distance between two
+baselines, in points (1/72"). The following apply:
+
+!begin_xlist !short [cell_height]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [handle]
+Workstation identifier
+!item [point]
+Requested character cell height (points)
+!item [char_width]
+Selected character width
+!item [char_height]
+Selected character height
+!item [cell_width]
+Selected character cell width
+!item [cell_height]
+Selected character cell height
+!end_xlist
+
+The sizes are measured in points, each of which is 1/72 inch or roughly 0.353mm.
+
+(!B)Note:(!b) Should the desired character height not be available, the next
+smaller one will be chosen. With proportional fonts, the maximum possible
+values are returned for width and height.
+
+If the font is a vector font, only predefined heights can be selected (usually
+8, 9, 10, 11, 12, 14, 18, 24, 36, and 48 pt).
+
+(!B)Warning:(!b) The screen driver in ROM can scale each of the available fonts
+to double size, so that it is (!I)not(!i) possible without further ado to
+differentiate between fonts that have been scaled and those actually present.
+One can help oneself here by using a routine that can locate all (!I)present(!i)
+point sizes, as, when a wrong size is specified, vst_point selects the next
+smallest available size; if one finds with this method that (!I)all(!i) point
+sizes are present, then we are evidently dealing with a vector font.
+
+!item [(!nolink [Return]) value:]
+The function returns the character cell height in points.
+
+!item [Availability:]
+Supported by all drivers.
+
+!item [Group:]
+Text attributes
+
+!item [See also:]
+(!link [Binding] [Bindings for vst_point]) ~ v_gtext ~ v_justified ~ vst_height
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings for vst_point
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t vst_point ( int16_t handle, int16_t point, int16_t *char_width,
+                 int16_t *char_height, int16_t *cell_width, int16_t *cell_height );
+
+!item [Binding:]
+!begin_verbatim
+int16_t vst_point (int16_t handle, int16_t point,
+                   int16_t *char_width, int16_t *char_height,
+                   int16_t *cell_width, int16_t *cell_height)
+{
+   intin[0] = point;
+
+   contrl[0] = 107;
+   contrl[1] = 0;
+   contrl[3] = 1;
+   contrl[6] = handle;
+
+   vdi ();
+
+   *char_width  = ptsout[0];
+   *char_height = ptsout[1];
+   *cell_width  = ptsout[2];
+   *cell_height = ptsout[3];
+
+   return ( intout[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! Contents
+!hline
+contrl    !! contrl[0] !! 107   # Function Opcode
+contrl+2  !! contrl[1] !! 0     # entry in ptsin
+contrl+4  !! contrl[2] !! 2     # entry in ptsout
+contrl+6  !! contrl[3] !! 1     # entry in intin
+contrl+8  !! contrl[4] !! 1     # entry in intout
+contrl+12 !! contrl[6] !! handle
+intin     !! intin[0]  !! point
+intout    !! intout[0] !! Return value
+ptsout    !! ptsout[0] !! char_width
+ptsout+2  !! ptsout[1] !! char_height
+ptsout+4  !! ptsout[2] !! cell_width
+ptsout+6  !! ptsout[3] !! cell_height
+!end_table
+
+(!ende_liste)
+!end_node
+
+!else
+
+!begin_node vst_point
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØSet Character Height, Points ModeÆ - bestimmt die Zeichenzellengrîûe bei
+Textausgaben.
+
+!item [VDI-Nummer:]
+107
+
+!item [Deklaration:]
+int16_t vst_point ( int16_t handle, int16_t point, int16_t *char_width,
+                 int16_t *char_height, int16_t *cell_width, int16_t *cell_height );
+
+!item [Beschreibung:]
+Die Funktion setzt die Zeichenzellengrîûe, d.h. den Abstand zweier
+Basislinien. Es gilt:
+
+!begin_xlist !short [cell_height]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [handle]
+Kennung der Workstation  
+!item [point]
+Zeichenzellenhîhe
+!item [char_width]
+gewÑhlte Zeichenbreite
+!item [char_height]
+gewÑhlte Zeichenhîhe
+!item [cell_width]
+gewÑhlte Zeichenzellenbreite
+!item [cell_height]
+gewÑhlte Zeichenzellenhîhe
+!end_xlist
+
+Der Abstand wird in Point gemessen. Hierunter versteht man 1/72 Zoll oder
+ca. 0.353mm.
+
+(!B)Hinweis:(!b) Falls die gewÅnschte Zeichenhîhe nicht verfÅgbar ist, wird
+die nÑchstkleinere gewÑhlt. Bei proportionalen ZeichensÑtzen werden fÅr
+Breite/Hîhe die maximal mîglichen Werte zurÅckgeliefert.
+
+Bei Vektorfonts kann man mit dieser Funktion nur die vordefinierten Hîhen
+anwÑhlen (in der Regel sind das 8,9,10,11,12,14,18,24,36, und 48 pt).
+
+(!B)Achtung:(!b) Der Bildschirmtreiber im ROM kann vorhandene ZeichensÑtze
+auf die jeweils doppelte Grîûe skalieren, so daû es (!I)nicht(!i) ohne
+weiteres mîglich ist, zwischen skalierten und tatsÑchlich vorhandenen Fonts
+zu unterscheiden. Man kann sich hier mit einer Routine behelfen, die alle
+(!I)vorhandenen(!i) Punktgrîûen ermittelt, da vst_point bei Angabe einer
+falschen Grîûe die nÑchstkleinere und vorhandene Grîûe wÑhlt. Wenn man auf
+diese Art und Weise feststellt, daû (!I)alle(!i) Punktgrîûen vorhanden sind,
+liegt offensichtlich ein Vektorfont vor.
+
+!item [Ergebnis:]
+Die Funktion liefert die Zeichenzellenhîhe in Point.
+
+!item [VerfÅgbar:]
+Supported by all drivers.
+
+!item [Gruppe:]
+Text-Attribute
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr vst_point]) ~ v_gtext ~ v_justified ~ vst_height
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings fÅr vst_point
+!ignore_index
+
+(!begin_liste) [Umsetzung]
+
+!item [C:]
+int16_t vst_point ( int16_t handle, int16_t point, int16_t *char_width,
+                 int16_t *char_height, int16_t *cell_width, int16_t *cell_height );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t vst_point (int16_t handle, int16_t point,
+                   int16_t *char_width, int16_t *char_height,
+                   int16_t *cell_width, int16_t *cell_height)
+{
+   intin[0] = point;
+
+   contrl[0] = 107;
+   contrl[1] = 0;
+   contrl[3] = 1;
+   contrl[6] = handle;
+
+   vdi ();
+
+   *char_width  = ptsout[0];
+   *char_height = ptsout[1];
+   *cell_width  = ptsout[2];
+   *cell_height = ptsout[3];
+
+   return ( intout[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+contrl    !! contrl[0] !! 107   # Opcode der Funktion
+contrl+2  !! contrl[1] !! 0     # EintrÑge in ptsin
+contrl+4  !! contrl[2] !! 2     # EintrÑge in ptsout
+contrl+6  !! contrl[3] !! 1     # EintrÑge in intin
+contrl+8  !! contrl[4] !! 1     # EintrÑge in intout
+contrl+12 !! contrl[6] !! handle
+intin     !! intin[0]  !! point
+intout    !! intout[0] !! Return-Wert
+ptsout    !! ptsout[0] !! char_width
+ptsout+2  !! ptsout[1] !! char_height
+ptsout+4  !! ptsout[2] !! cell_width
+ptsout+6  !! ptsout[3] !! cell_height
+!end_table
+
+(!ende_liste)
+!end_node
+
+!endif

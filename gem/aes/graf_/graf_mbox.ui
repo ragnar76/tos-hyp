@@ -1,0 +1,218 @@
+!iflang [english]
+
+!begin_node graf_mbox/graf_movebox
+!label graf_mbox
+!label graf_movebox
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØGraphics move boxÆ - Move a rectangle with the mouse.
+
+!item [Opcode:]
+72
+
+!item [Syntax:]
+int16_t graf_movebox ( int16_t gr_mwidth, int16_t gr_mheight, int16_t gr_msourcex,
+                 int16_t gr_msourcey, int16_t gr_mdestx, int16_t gr_mdesty );
+
+(!I)or(!i)
+
+int16_t graf_mbox( ... )
+               
+!item [Description:]
+The call graf_movebox draws a rectangle of constant size that moves with the
+mouse pointer, and is used to give the user a visual 'clue' to an action
+undertaken by an application. The following apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)gr_mwidth(!i) !! Width, (!U)and(!u)
+(!I)gr_mheight(!i) !! Height of the rectangle
+(!I)gr_msourcex(!i) !! X-coordinate, (!U)and(!u)
+(!I)gr_msourcey(!i) !! Y-coordinate of top left corner at start
+(!I)gr_mdestx(!i) !! X-coordinate, (!U)and(!u)
+(!I)gr_mdesty(!i) !! Y-coordinate of top left corner at end
+!end_table
+
+(!B)Note:(!b) The function can be used, for instance, when the movement of an
+icon is not permitted (e.g. dragging the printer icon onto the wastebasket
+icon) and so it is to be placed back at its original position.
+
+In older (!nolink [GEM]) documentation this function is also called 'graf_mbox'!
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Graphics library
+
+!item [See also:]
+(!link [Binding] [Bindings for graf_mbox])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for graf_mbox
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t graf_mbox ( int16_t gr_mwidth, int16_t gr_mheight, int16_t gr_msourcex,
+                 int16_t gr_msourcey, int16_t gr_mdestx, int16_t gr_mdesty );
+
+oder
+
+int16_t graf_movebox ( ... )
+
+!item [Binding:]
+!begin_verbatim
+int16_t graf_mbox (int16_t gr_mwidth, int16_t gr_mheight,
+                   int16_t gr_msourcex, int16_t gr_msourcey,
+                   int16_t gr_mdestx, int16_t gr_mdesty)
+{
+   int_in[0] = gr_mwidth;
+   int_in[1] = gr_mheight;
+   int_in[2] = gr_msourcex;
+   int_in[3] = gr_msourcey;
+   int_in[4] = gr_mdestx;
+   int_in[5] = gr_medsty;
+
+   return ( crys_if(72) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 72    # Function opcode
+control+2 !! control[1] !! 6     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! gr_mwidth
+int_in+2  !! int_in[1]  !! gr_mheight
+int_in+4  !! int_in[2]  !! gr_msourcex
+int_in+6  !! int_in[3]  !! gr_msourcey
+int_in+8  !! int_in[4]  !! gr_mdestx
+int_in+10 !! int_in[5]  !! gr_mdesty
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node graf_mbox
+!label graf_movebox
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØGraphics move BoxÆ - verschiebt ein Rechteck mit der Maus.
+
+!item [AES-Nummer:]
+72
+
+!item [Deklaration:]
+int16_t graf_mbox ( int16_t gr_mwidth, int16_t gr_mheight, int16_t gr_msourcex,
+                 int16_t gr_msourcey, int16_t gr_mdestx, int16_t gr_mdesty );
+
+!item [Beschreibung:]
+Die Funktion zeichnet ein sich bewegendes Rechteck mit konstanter Grîûe. Es
+gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)gr_mwidth(!i) !! Breite
+(!I)gr_mheight(!i) !! Hîhe des Rechteckes
+(!I)gr_msourcex(!i) !! x-Koordinate
+(!I)gr_msourcey(!i) !! y-Koordinate (zu Beginn)
+(!I)gr_mdestx(!i) !! x-Koordinate
+(!I)gr_mdesty(!i) !! y-Koordinate (am Ende)
+!end_table
+
+(!B)Hinweis:(!b) Die Funktion kann beispielsweise dann angewendet werden,
+wenn das Verschieben eines Piktogramms nicht erlaubt ist, (Drucker-Symbol
+auf das Papierkorb-Icon legen) und es an seine ursprÅnglich Stelle
+zurÅckpositioniert werden soll.
+
+!item [Ergebnis:]
+Ein Fehler ist nur dann aufgetreten, wenn als Ergebnis 0 zurÅckgegeben wird.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+Grafikfunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr graf_mbox])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr graf_mbox
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t graf_mbox ( int16_t gr_mwidth, int16_t gr_mheight, int16_t gr_msourcex,
+                 int16_t gr_msourcey, int16_t gr_mdestx, int16_t gr_mdesty );
+
+oder
+
+int16_t graf_movebox ( ... )
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t graf_mbox (int16_t gr_mwidth, int16_t gr_mheight,
+                   int16_t gr_msourcex, int16_t gr_msourcey,
+                   int16_t gr_mdestx, int16_t gr_mdesty)
+{
+   int_in[0] = gr_mwidth;
+   int_in[1] = gr_mheight;
+   int_in[2] = gr_msourcex;
+   int_in[3] = gr_msourcey;
+   int_in[4] = gr_mdestx;
+   int_in[5] = gr_medsty;
+
+   return ( crys_if(72) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 72    # Opcode der Funktion
+control+2 !! control[1] !! 6     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 0     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! gr_mwidth
+int_in+2  !! int_in[1]  !! gr_mheight
+int_in+4  !! int_in[2]  !! gr_msourcex
+int_in+6  !! int_in[3]  !! gr_msourcey
+int_in+8  !! int_in[4]  !! gr_mdestx
+int_in+10 !! int_in[5]  !! gr_mdesty
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

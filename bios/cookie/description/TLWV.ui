@@ -1,0 +1,27 @@
+!iflang [english]
+
+!begin_node Cookie, TLWV
+
+(!B)STGAWVBL(!b) 
+
+Retrofits the missing WVBL-routine for the MEGA4000 adapter in NVDI.
+
+Modifies vectors: X(!nolink [BIOS]).
+
+!end_node
+
+!else
+
+!begin_node Cookie, TLWV
+
+(!B)STGAWVBL(!b)
+
+RÅstet die in NVDI fehlende WVBL-Routine fuer den
+MEGA4000-Adapter nach.
+
+Verbogene Vektoren: X(!nolink [BIOS]).
+
+!end_node
+
+!endif
+ 

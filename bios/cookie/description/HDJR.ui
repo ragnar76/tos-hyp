@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, HDJR
+
+(!B)HuSHI(!b)
+
+Hard & Soft Harddisk-Interface (hard disk driver).
+
+!end_node
+
+!else
+
+!begin_node Cookie, HDJR
+
+(!B)HuSHI(!b)
+
+Hard & Soft Harddisk-Interface (Festplattentreiber).
+
+!end_node
+
+!endif
+ 

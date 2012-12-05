@@ -1,0 +1,32 @@
+!iflang [english]
+
+!begin_node Cookie, OVER
+
+!label OverScan, Cookie from
+(!B)Driver for AutoSwitch OverScan hardware(!b)
+
+The cookie contains as a value the (hexadecimal) version number of 
+the OverScan driver. A value of 0x300 represents Version 3.0, for 
+instance.
+
+Modifies (!nolink [GEM]), (!nolink [GEMDOS]), (!nolink [BIOS]), X(!nolink [BIOS]),
+LINEA, ikbdsys, ipl_4, VBL and reset vectors.
+
+!end_node
+
+!else
+
+!begin_node Cookie, OVER
+
+!label OverScan, Cookie von
+(!B)Treiber zur AutoSwitch-OverScan Hardware.(!b)
+
+Der Cookie enthÑlt als Wert die (hexadezimale) Versionsnummer des
+OverScan-Treibers. Ein Wert von 0x300 steht z.B. fÅr die Version 3.0.
+
+VerÑndert (!nolink [GEM]), (!nolink [GEMDOS]), (!nolink [BIOS]), X(!nolink [BIOS]),
+LINEA, IKBDSYS, IPL_4, VBL und RESET Vektoren.
+
+!end_node
+
+!endif

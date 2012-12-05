@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, HMDU
+
+(!B)Memory dump for PMD of the HÑnisch Modula2 system(!b)
+
+Affects exception vectors 2-8.
+
+
+!end_node
+
+!else
+
+!begin_node Cookie, HMDU
+
+(!B)Speicherdump fÅr PMD des HÑnisch Modula2-Systems(!b)
+
+Exception 2-8
+
+!end_node
+
+!endif
+ 

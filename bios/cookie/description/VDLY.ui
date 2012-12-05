@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, VDLY
+
+(!B)Videlity(!b) - Resolution enhancer for Falcon030
+
+Videlity allows vastly increased resolution desktops on (S)VGA 
+monitors. It was designed to provide access to the high resolution 
+TrueColor VGA modes which Nemesis makes possible.
+
+!end_node
+
+!else
+
+!begin_node Cookie, VDLY
+
+(!B)Videlity(!b)
+
+!end_node
+
+!endif
+ 

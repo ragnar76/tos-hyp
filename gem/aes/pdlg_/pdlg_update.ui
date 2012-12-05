@@ -1,0 +1,180 @@
+!iflang [english]
+
+!begin_node pdlg_update
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØPrint Dialog - Update WindowÆ - neuen Fensternamen setzen.
+
+!item [Opcode:]
+205 (sub-opcode 2)
+
+!item [Syntax:]
+int16_t pdlg_update ( PRN_DIALOG *prn_dialog, int8_t *document_name );
+
+!item [Description:]
+ØPrint dialog - Update windowÆ - Set new window title.
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)prn_dialog(!i) !! Pointer to management structure
+(!I)document_name(!i) !! New document name
+!end_table
+
+(!B)Note:(!b) The function should be called if a window-dialog is lying in the
+background and the user tops a new document window (brings it to the front).
+               
+!item [(!nolink [Return]) value:]
+The function returns the value 1 if it operates correctly, else the value 0 in
+case of error.
+
+!item [Availability:]
+The presence of this function can be checked with (!link [appl_getinfo][%apgi_7])
+(opcode 7).
+
+!item [Group:]
+Print dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for pdlg_update]) ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for pdlg_update
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_update ( PRN_DIALOG *prn_dialog, int8_t *document_name );
+
+!item [Binding:]
+!begin_verbatim
+int16_t pdlg_update ( PRN_DIALOG *prn_dialog, int8_t *document_name )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = 0;              /* Reserved (must be 0!) */
+   addr_in[2] = document_name;
+
+   int_in[0] = 2;
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 205   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 3     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! 0
+addr_in+8 !! addr_in[2] !! document_name
+int_in    !! int_in[0]  !! 2     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node pdlg_update
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØPrint Dialog - Update WindowÆ - neuen Fensternamen setzen.
+
+!item [AES-Nummer:]
+205 (Unterfunktion 2)
+
+!item [Deklaration:]
+int16_t pdlg_update ( PRN_DIALOG *prn_dialog, int8_t *document_name );
+
+!item [Beschreibung:]
+Die Funktion setzt einen neuen Fensternamen. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)prn_dialog(!i) !! Zeiger auf Verwaltungsstruktur
+(!I)document_name(!i) !! neuer Name des Dokumentes
+!end_table
+
+(!B)Hinweis:(!b) Die Funktion sollte aufgerufen werden, wenn der
+Fensterdialog im Hintergrund liegt und der Anwender ein neues
+Dokumentenfenster nach vorne bringt.
+
+!item [Ergebnis:]
+Die Funktion liefert bei korrekter AusfÅhrung den Wert 1 und im Fehlerfall
+den Wert 0 zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Druckdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr pdlg_update]) ~  WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr pdlg_update
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_update ( PRN_DIALOG *prn_dialog, int8_t *document_name );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t pdlg_update ( PRN_DIALOG *prn_dialog, int8_t *document_name )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = 0;              /* reserviert (muû 0 sein!) */
+   addr_in[2] = document_name;
+
+   int_in[0] = 2;
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 205   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 3     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! 0
+addr_in+8 !! addr_in[2] !! document_name
+int_in    !! int_in[0]  !! 2     # Sub-Opcode
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

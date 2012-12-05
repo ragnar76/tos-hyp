@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, HDSW
+
+(!B)HDSWITCH.PRG(!b) - High Density Switcher (at present V1.1)
+
+Configuration for high density floppy drives.
+
+[LSHIFT][ALT][HELP] changes the mode (auto, forced HD, forced DD).
+
+Modifies scr_dump.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HDSW
+
+(!B)HDSWITCH.PRG(!b) - High Density Switcher (z.Zt. V1.1).
+
+Konfiguration fÅr HIDS.
+
+öber [LSHIFT][ALT][HELP] wird der Modus gewechselt (auto, forced HD, forced DD).
+
+Verbiegt scr_dump.
+
+!end_node
+
+!endif
+ 

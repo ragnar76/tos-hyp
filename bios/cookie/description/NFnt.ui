@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, NFnt
+
+(!B)Neodesk Font-loader(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, NFnt
+
+(!B)Neodesk Font Loader(!b)
+
+!end_node
+
+!endif
+ 

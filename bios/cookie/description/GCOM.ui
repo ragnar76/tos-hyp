@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, GCOM
+
+(!B)GEM Component Object Model(!b)
+
+This cookie indicates the availability of the GCOM extension. The 
+value of the cookie is a pointer to the service routines. GCOM is
+at present not yet publicly available (Thomas Much).
+
+Status: GCOM will be Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GCOM
+
+(!B)GEM Component Object Model(!b)
+
+Dieser Cookie zeigt die VerfÅgbarkeit der 
+GCOM-Erweiterung an. Der Wert des Cookies ist ein Pointer auf die 
+Serviceroutinen. GCOM ist derzeit noch nicht îffentlich erhÑltlich (Thomas Much). 
+
+Status: GCOM wird Freeware.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,171 @@
+!iflang [english]
+
+!begin_node lbox_update
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box updateÆ - Update contents of list box objects.
+
+!item [Opcode:]
+171
+
+!item [Syntax:]
+void lbox_update ( LIST_BOX *box, GRECT *rect );
+
+!item [Description:]
+The call lbox_update brings the contents of the list box objects to the current
+state. The following apply:
+
+!begin_table [l|l]
+Parameter  !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+(!I)rect(!i) !! Pointer to the redraw GRECT, or 0L
+!end_table
+
+(!B)Hint:(!b) The updating is sequentiat, i.e. the function (!I)set(!i)
+(see above) is called for each of the objects. If (!I)rect(!i) is not 0L it will
+be regarded as a pointer to a GRECT that will be used for the redraw of the list
+box. Otherwise the objects will only be updated but not drawn.
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_update]) ~ lbox_do ~ lbox_scroll_to
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_update
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_update ( LIST_BOX *box, GRECT *rect );
+
+!item [Binding:]
+!begin_verbatim
+void lbox_update ( LIST_BOX *box, GRECT *rect )
+{
+   addr_in[0] = box;
+   addr_in[1] = rect;
+
+   crys_if (171);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 171   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+addr_in+4 !! addr_in[1] !! rect
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_update
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box UpdateÆ - Inhalt der Listboxobjekte aktualisieren.
+
+!item [AES-Nummer:]
+171
+
+!item [Deklaration:]
+void lbox_update ( LIST_BOX *box, GRECT *rect );
+
+!item [Beschreibung:]
+Die Funktion bringt den Inhalt der Listbox-Objekte auf den neuesten Stand.
+Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+(!I)rect(!i) !! Zeiger auf Redraw-Rechteck, oder NULL
+!end_table
+
+(!B)Hinweis:(!b) Die Aktualisierung erfolgt, indem die Funktion (!I)set(!i)
+(vgl. lbox_create) fÅr jedes der Objekte aufgerufen wird. Besitzt rect
+(!I)nicht(!i) den Wert NULL, so wird es als Zeiger auf eine
+Rechtecks-Beschreibung interpretiert, welche fÅr den Redraw der Listbox
+benutzt wird. Anderenfalls werden die Objekte nur aktualisiert aber
+(!I)nicht(!i) gezeichnet.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7])
+(Opcode 7) festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_update]) ~ lbox_do ~ lbox_scroll_to
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_update
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_update ( LIST_BOX *box, GRECT *rect );
+
+!item [Umsetzung:]
+!begin_verbatim
+void lbox_update ( LIST_BOX *box, GRECT *rect )
+{
+   addr_in[0] = box;
+   addr_in[1] = rect;
+
+   crys_if (171);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 171   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+addr_in+4 !! addr_in[1] !! rect
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,188 @@
+!iflang [english]
+
+!begin_node menu_click
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+¯Menu click® - ¯Menu click® - Set or inquire type of menu (!nolink [control]).
+
+!item [Opcode:]
+37
+
+!item [Syntax:]
+int16_t menu_click ( int16_t click, int16_t setit );
+
+!item [Description:]
+With the aid of the menu_click function it is possible to change the operation
+of dropdown menus to that of pulldown menus, familiar from the
+(!I)Macintosh.(!i) The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [click]
+!begin_table [l l l]
+0 !! = !! Dropdown
+1 !! = !! Pulldown
+!end_table
+!item [setit]
+!begin_table [l l l]
+0 !! = !! Inquire menu (!nolink [control])
+1 !! = !! Set menu (!nolink [control])
+!end_table
+!end_xlist
+
+!item [(!nolink [Return]) value:]
+The function returns the type of menu (!nolink [control]) set (0 = Dropdown,
+1 = Pulldown).
+
+!item [Availability:]
+On the PC this function is available only from (!nolink [GEM])/3, KAOS 1.4.2
+and MagiC; on the Atari the presence should be checked for with
+(!link [appl_getinfo][%apgi_5]) (opcode 5).
+
+!item [Group:]
+Menu library
+
+!item [See also:]
+(!link [Binding] [Bindings for menu_click])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for menu_click
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t menu_click ( int16_t click, int16_t setit );
+
+!item [Binding:]
+!begin_verbatim
+int16_t menu_click (int16_t click, int16_t setit)
+{
+   int_in[0] = click;
+   int_in[1] = setit;
+
+   return ( crys_if(37) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 37    # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! click
+int_in+2  !! int_in[1]  !! setit
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node menu_click
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+¯Menu click® - Art der Mensteuerung setzen bzw. erfragen
+
+!item [AES-Nummer:]
+37
+
+!item [Deklaration:]
+int16_t menu_click ( int16_t click, int16_t setit );
+
+!item [Beschreibung:]
+Mit Hilfe dieser Funktion ist es m”glich die Behandlung der Drop-Down-Mens
+auf die vom (!I)Macintosh(!i) bekannten Pull-Down-Mens umzustellen. Es
+gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [click]
+!begin_table [l l l]
+0 !! = !! Dropdown
+1 !! = !! Pulldown
+!end_table
+!item [setit]
+!begin_table [l l l]
+0 !! = !! Mensteuerung abfragen
+1 !! = !! Mensteuerung setzen
+!end_table
+!end_xlist
+
+
+!item [Ergebnis:]
+Die Funktion liefert die eingestellte Mensteuerung zurck (0 = Dropdown,
+1 = Pulldown).
+
+!item [Verfgbar:]
+Auf dem PC steht diese Funktion erst ab GEM/3 und KAOS 1.4.2 und MagiC zur
+Verfgung; auf dem Atari sollte das Vorhandensein per
+(!link [appl_getinfo][%apgi_5]) (Opcode 5) ermittelt werden.
+
+!item [Gruppe:]
+(!link [Mens][Menfunktionen])
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr menu_click])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fr menu_click
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t menu_click ( int16_t click, int16_t setit );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t menu_click (int16_t click, int16_t setit)
+{
+   int_in[0] = click;
+   int_in[1] = setit;
+
+   return ( crys_if(37) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 37    # Opcode der Funktion
+control+2 !! control[1] !! 2     # Eintr„ge in int_in
+control+4 !! control[2] !! 1     # Eintr„ge in int_out
+control+6 !! control[3] !! 0     # Eintr„ge in addr_in
+control+8 !! control[4] !! 0     # Eintr„ge in addr_out
+int_in    !! int_in[0]  !! click
+int_in+2  !! int_in[1]  !! setit
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

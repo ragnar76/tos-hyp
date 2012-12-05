@@ -1,0 +1,43 @@
+!iflang [english]
+
+!begin_node MENU
+
+!begin_verbatim
+typedef struct
+{
+    OBJECT  *mn_tree;    /* The object tree of the menu             */
+    int16_t mn_menu;     /* The parent object of the menu items     */
+    int16_t mn_item;     /* The starting menu item                  */
+    int16_t mn_scroll;   /* The scroll field status of the menu:    */
+                         /*  0  - The menu will not scroll          */
+                         /*  >0 - The menu will scroll              */
+    int16_t mn_keystate; /* The [CTRL], [ALT], [SHIFT] key state at */
+                         /* the time the mouse button was pressed   */
+} MENU;
+!end_verbatim
+
+See also: About the AES ~ menu_attach ~ menu_popup
+!end_node
+
+!else
+
+!begin_node MENU
+
+!begin_verbatim
+typedef struct
+{
+    OBJECT  *mn_tree;    /* Adresse des Men-Objektbaumes  */
+    int16_t mn_menu;     /* Index des Parent-Objektes      */
+    int16_t mn_item;     /* Anfangs-Meneintrag (bestimmt  */
+                         /* die Position des Mens         */
+    int16_t mn_scroll;   /* 0 = nicht scrollen             */
+                         /* >0 = scrollen                  */
+    int16_t mn_keystate; /* Tastaturstatus (Shift, Control */
+                         /* bzw. Alternate)                */
+} MENU;
+!end_verbatim
+
+Querverweis: AES ~ menu_attach ~ menu_popup
+!end_node
+
+!endif

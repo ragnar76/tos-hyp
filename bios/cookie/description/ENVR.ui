@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, ENVR
+
+Program for setting the (!B)desktop environment(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, ENVR
+
+Programm zum Setzen des (!B)Desktop-Environments(!b).
+
+!end_node
+
+!endif
+ 

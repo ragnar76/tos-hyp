@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, SFA^
+
+(!B)FONT_BLK.PRG(!b) (resident AUTO-folder part), (!B)FONTLOAD.ACC, FONTLOAD.PRG, 
+FONTLOAD.CPX(!b)
+
+Loading programs for the 8*16 ST system fonts.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SFA^
+
+(!B)FONT_BLK.PRG(!b) (residenter Autoordnerteil), (!B)FONTLOAD.ACC, FONTLOAD.PRG, 
+FONTLOAD.CPX(!b)
+
+Ladeprogramme fÅr die 8*16-ST-Systemfonts.
+
+!end_node
+
+!endif
+ 

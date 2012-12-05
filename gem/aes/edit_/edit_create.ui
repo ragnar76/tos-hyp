@@ -1,0 +1,136 @@
+!iflang [english]
+
+!begin_node edit_create
+(!begin_liste) [Availability]
+!item [Name:]
+ØEdit Object CreateÆ - Create editable object
+!item [Opcode:]
+210
+!item [Syntax:]
+void *edit_create ( void )
+
+!item [Description:]
+The call edit_create creates a corresponding descriptor (memory is reserved),
+but the editor will not be opened yet. One can now alter several settings
+with one of the edit_set_xxx functions. The default settings are:
+
+System font, 10 pt (!nl)
+Black on white (!nl)
+No line wrap (!nl)
+Tabulator width 64 pixels
+
+!item [(!nolink [Return]) value:]
+Returns a descriptor for any further actions, or NULL if an error has occurred
+(not enough memory). The descriptor must be entered as (!I)ob_spec(!i) into
+the object.
+
+!item [Availability:]
+As of MagiC 5.20 by means of a shared library.
+
+!item [Group:]
+Editable object functions
+
+!item [See also:]
+(!link [Binding] [Bindings for edit_create])
+(!ende_liste)
+
+
+
+!begin_node Bindings for edit_create
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+void *edit_create ( void )
+!item [Binding:]
+!begin_verbatim
+void *edit_create ( void )
+{
+    crys_if(210);
+    
+    return ( addr_out[0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 210   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 1     # Entry in addr_out
+addr_out  !! addr_out[0] !! Return value
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node edit_create
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØEdit Object CreateÆ - erstellt ein Editobjekt.
+!item [AES-Nummer:]
+210
+!item [Deklaration:]
+void *edit_create ( void )
+
+!item [Beschreibung:]
+Der entsprechende Deskriptor wird angelegt (Speicher wird reserviert), aber
+der Editor ist noch nicht geîffnet. Es kînnen jetzt verschiedene Einstellungen
+Åber edit_set_xxx geÑndert werden. Die Default-Einstellungen sind:
+
+Systemzeichensatz, 10 pt (!nl)
+  Schwarz auf Weiû (!nl)
+  Kein Zeilenumbruch (!nl)
+  Tabulatorweite 64 Pixel
+
+!item [Ergebnis:]
+Die Funktion liefert einen Zeiger auf einen Deskriptor des Editobjektes
+zurÅck, oder im Fehlerfall den Wert NULL. Der Deskriptor muss anschlieûend
+in der Komponente (!I)ob_spec(!i) der OBJECT-Struktur gespeichert werden.
+
+!item [VerfÅgbar:]
+ab MagiC 5.20 mittels SharedLibrary
+
+!item [Gruppe:]
+Editobjekt-Funktionen
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr edit_create])
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr edit_create
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+void *edit_create ( void )
+!item [Umsetzung:]
+!begin_verbatim
+void *edit_create ( void )
+{
+    crys_if(210);
+    
+    return ( addr_out[0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 210   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 0     # EintrÑge in addr_in
+control+8 !! control[4] !! 1     # EintrÑge in addr_out
+addr_out  !! addr_out[0] !! Return-Wert
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

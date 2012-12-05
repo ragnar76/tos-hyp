@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, FIX2
+
+(!B)FIX24(!b)
+
+Limits 68030 addressing to 24 bit; published in (!I)ST-Computer.(!i)
+
+!end_node
+
+!else
+
+!begin_node Cookie, FIX2
+
+(!B)FIX24(!b)
+
+Beschr„nkt 68030-Adressierung auf 24 Bit, ver”ffentlicht in (!I)ST-
+Computer(!i).
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,125 @@
+!iflang [english]
+
+!begin_node appl_yield
+!html_name appl_yield
+(!begin_liste) [Availability]
+!item [Name:]
+ØApplication yieldÆ - Force (!nolink [AES]) process-switch.
+!item [Opcode:]
+17
+!item [Syntax:]
+int16_t appl_yield ( void );
+
+!item [Description:]
+With the aid of the function appl_yield one may force an (!nolink [AES]) process
+change.
+
+(!B)Note:(!b) This may be achieved in a similar way with a short call of the
+function evnt_timer. 
+
+!item [(!nolink [Return]) value:]
+Return value of the function is unknown at present.
+
+!item [Availability:]
+The function is available only under PC-(!nolink [GEM]), Geneva, as well as MagiC
+(in each case) as of Version 2.0, (!nolink [N.AES]) and (!nolink [XaAES]).
+
+!item [Group:]
+Application library
+
+!item [See also:]
+(!link [Binding] [Bindings for appl_yield]) ~ evnt_timer ~ _appl_yield
+(!ende_liste)
+
+
+
+!begin_node Bindings for appl_yield
+!html_name Bindings_for_appl_yield
+!ignore_index
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t appl_yield ( void );
+!item [Binding:]
+!begin_verbatim
+int16_t appl_yield (void)
+{
+   return ( crys_if(17) );  
+} 
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control !! control[0] !! 17    # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_out !! int_out[0] !! Return value
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node appl_yield
+!html_name appl_yield
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØApplication yieldÆ - Prozeûwechsel erzwingen
+!item [AES-Nummer:]
+17
+!item [Deklaration:]
+int16_t appl_yield ( void );
+
+!item [Beschreibung:]
+Mit Hilfe dieser Funktion kann ein AES-Prozeûwechsel erzwungen werden.
+
+(!B)Hinweis:(!b) Dies kann analog durch einen kurzen Aufruf der Funktion
+evnt_timer erreicht werden. 
+
+!item [Ergebnis:]
+Der RÅckgabewert der Funktion ist z.Zt. nicht bekannt.
+
+!item [VerfÅgbar:]
+Die Funktion steht nur unter PC-GEM, Geneva, sowie MagiC
+(jeweils) ab Version 2.0, N.AES und XaAES zur VerfÅgung.
+
+!item [Gruppe:]
+(!link [Applikationen][Applikationsfunktionen])
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr appl_yield]) ~ evnt_timer ~ _appl_yield
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr appl_yield
+!html_name Bindings_for_appl_yield
+!ignore_index
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t appl_yield ( void );
+!item [Umsetzung:]
+!begin_verbatim
+int16_t appl_yield (void)
+{
+   return ( crys_if(17) );  
+} 
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control !! control[0] !! 17    # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 0     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_out !! int_out[0] !! Return-Wert
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

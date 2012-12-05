@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, LPJM
+
+(!B)Joy Mouse(!b)
+
+Source: (!I)ST-Magazin(!i) 7/89.
+
+
+!end_node
+
+!else
+
+!begin_node Cookie, LPJM
+
+(!B)Joy-Mouse(!b)
+
+Quelle: (!I)ST-Magazin(!i) 7/89.
+
+!end_node
+
+!endif
+ 

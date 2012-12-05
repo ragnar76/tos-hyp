@@ -1,0 +1,326 @@
+!iflang [english]
+
+!begin_node Fopen
+(!begin_liste) [Availability]
+!item [Name:]
+ØFile openÆ - Open a given file.
+
+!item [Opcode:]
+61
+
+!item [Syntax:]
+int32_t Fopen ( const int8_t *fname, int16_t mode );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Fopen serves for opening specified files. The
+following apply:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [fname]
+Name of file to be opened
+!item [mode]
+Mode, as bit-vector:
+!begin_xlist !short [Bit-0..2]
+!item [Bit-0..2]
+= (!B)Access mode(!b)
+!begin_xlist !short
+!item [0 =]
+Read only
+!item [1 =]
+Write only
+!item [2 =]
+Read and write
+!end_xlist
+!item [Bit-3]
+= Reserved (to be set to 0)
+!item [Bit-4..6]
+= Sharing-Modus
+!item [Bit-7]
+= Inheritance flag
+!end_xlist
+
+The bits 3..7 are only available with a (!nolink [GEMDOS]) that offers file
+locking extensions (test for _FLK cookie). The inheritance flag determines
+whether a child started by a process inherits any open file handles and has
+the same access as the parent. If this flag is set then a child has to
+reopen any files it wishes to use and must face the same sharing
+restrictions that other processes must share. The sharing mode determines
+the way other processes may access the file once it has been opened. The
+following apply:
+!begin_xlist !short [Sharing]
+!item [Sharing]
+Meaning
+!item [~]
+~
+!item [0]
+Compatibility mode (will be used by those programs that do not know about
+network extensions). If the file's read-only bit is set then this is the
+same as deny writing; otherwise it is the same as deny reading/writing.
+!item [1]
+Reading and writing denied (the file may not be opened a second time)
+!item [2]
+Writing denied (the file may only be reopened for reading)
+!item [3]
+Reading denied (the file may only be reopened for writing)
+!item [4]
+Everything is allowed
+!end_xlist
+!end_xlist
+(!B)Warning:(!b) The file locking may be implemented in an advisory manner,
+i.e. it may be possible to access segments despite the presence of a lock.
+Programs that support file locking should therefore set their own lock
+(!I)before(!i) making an access and release it again immediately
+(!I)after(!i) the access. In this way one can guarantee that possible locks
+set by others will be respected.
+
+In MiNT and MagiC there are in addition the following modes available:
+!begin_xlist !short [0x000]
+!item [mode]
+Meaning
+!item [~]
+~
+!item [0x080]
+Reserved for MiNT
+!item [0x100]
+Do not block file for I/O
+!item [0x200]
+Create file, if this does not exist
+!item [0x400]
+Set existing file to zero length
+!item [0x800]
+Do not open existing file
+!end_xlist
+(!B)Note:(!b) For some devices, standard channel numbers already exist, so
+that it is not necessary to call Fopen. In detail:
+!begin_xlist !short [Channel]
+!item [Channel]
+Meaning
+!item [~]
+~
+!item [0]
+Keyboard (stdin:)
+!item [1]
+Screen (stdout:)
+!item [2]
+Serial port (stdaux:)
+!item [3]
+Parallel port (stdprn:)
+!end_xlist
+According to Atari the standard channel numbers 4 and 5 are reserved, so
+that normal channel numbers for files only start at 6.
+
+In addition it is also possible to open the following character-oriented
+devices:
+!begin_itemize !short
+!item PRN: (parallel port, -3)
+!item AUX: (serial port, -2)
+!item CON: (console, -1)
+!end_itemize
+Symbolic links are automatically dereferenced by this function, i.e. if the
+file already exists as a symbolic link, the file referenced from it will be
+opened or, depending on the mode, truncated to zero length.
+
+!item [(!nolink [Return]) value:]
+The function returns the corresponding file handle in the lower WORD of the
+positive LONG, or a negative error-message.
+
+!item [Availability:] All (!nolink [GEMDOS]) versions.
+
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding] [Bindings for Fopen]) ~ Fcreate ~
+(!link [The BIOS input/output channels][The input/output channels of the BIOS]) ~
+F_SETLK
+(!ende_liste)
+
+
+!begin_node Bindings for Fopen
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fopen ( const int8_t *fname, int16_t mode );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    mode,-(sp)   ; Offset 6
+pea       fname        ; Offset 2
+move.w    #61,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #8,sp        ; Correct stack
+!end_verbatim
+
+!item [GFA-Basic]
+Handle%=Gemdos(&H3D,L:fname%,W:mode%)
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Fopen
+(!begin_liste) [Beschreibung]
+!item [Name:]
+Øfile openÆ - îffnet eine Datei.
+
+!item [Gemdosnummer:]
+61
+
+!item [Deklaration:]
+int32_t Fopen ( const int8_t *fname, int16_t mode );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Fopen dient dazu, Dateien zu îffnen. Es gilt:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [fname]
+Name der zu îffnenden Datei
+!item [mode]
+Modus als Bitvektor
+!begin_xlist !short [Bit-0..2]
+!item [Bit-0..2]
+= (!B)Zugriffsmodus(!b)
+!begin_xlist !short
+!item [0 =]
+nur lesen
+!item [1 =]
+nur schreiben
+!item [2 =]
+lesen und schreiben
+!end_xlist
+!item [Bit-3]
+= reserviert (auf Null setzen)
+!item [Bit-4..6]
+= Sharing-Modus
+!item [Bit-7]
+= Vererbungsflag
+!end_xlist
+
+Die Bits 3..7 stehen nur bei einem (!nolink [GEMDOS]) mit Filelocking
+Erweiterungen (Cookie _FLK testen) zu VerfÅgung. Das Vererbungsflag
+bestimmt, ob vom Prozess gestartete Childs das entsprechende Handle erben
+und die gleichen Zugriffsrechte haben. Wenn das Flag gesetzt ist, muû das
+Child jede Datei, die es nutzen mîchte, erneut îffnen und hat die gleichen
+Restriktionen wie jeder andere Prozess. Der Sharing-Modus legt fest, auf
+welche Art andere Prozesse auf die Datei zugreifen dÅrfen, wenn sie erst
+einmal geîffnet ist. Es gilt:
+!begin_xlist !short [Sharing]
+!item [Sharing]
+Bedeutung
+!item [~]
+~
+!item [0]
+KompatibilitÑtsmodus (wird von den Programmen benutzt, die nichts von den
+Netzwerkerweiterungen wissen).
+!item [1]
+Lesen und Schreiben verbieten (die Datei darf kein zweites Mal geîffnet
+werden).
+!item [2]
+Schreiben verbieten (die Datei darf nur noch zum Lesen geîffnet werden).
+!item [3]
+Lesen verbieten (die Datei darf nur noch zum Schreiben geîffnet werden).
+!item [4]
+Alles ist erlaubt.
+!end_xlist
+!end_xlist
+(!B)Achtung:(!b) Das File-Locking kann beratend implementiert sein, d.h. daû
+es mîglich sein kann, auf Bereiche trotz eines vorgenommenen Lockings
+zuzugreifen. Programme, die File-Locking unterstÅtzen, sollten daher
+(!I)vor(!i) einem Zugriff selbst einen Lock setzen und diesen unmittelbar
+(!I)nach(!i) dem Zugriff wieder freigeben. So ist garantiert, daû etwaige
+Locks anderer Seiten respektiert werden.
+
+In MiNT und MagiC stehen darÅber hinaus die folgenden Modi zur VerfÅgung:
+!begin_xlist !short [0x000]
+!item [mode]
+Bedeutung
+!item [~]
+~
+!item [0x080]
+reserviert fÅr MiNT.
+!item [0x100]
+Datei bei I/O nicht blockieren.
+!item [0x200]
+Datei erstellen, falls diese nicht exist.
+!item [0x400]
+existierende Datei auf Null-LÑnge setzen.
+!item [0x800]
+existierende Datei nicht îffnen.
+!end_xlist
+(!B)Hinweis:(!b) FÅr einige GerÑte existieren bereits Standardkanal-Nummern,
+so daû es nicht notwendig ist, Fopen aufzurufen. Im einzelnen:
+!begin_xlist !short [Kanal]
+!item [Kanal]
+Bedeutung
+!item [~]
+~
+!item [0]
+Tastatur (stdin)
+!item [1]
+Bildschirm (stdout)
+!item [2]
+serielle Schnittstelle (stdaux)
+!item [3]
+parallele Schnittstelle (stdprn)
+!end_xlist
+Lt. Atari sind die Standardkanal-Nummern 4 und 5 reserviert, so daû normale
+Kanalnummern fÅr Dateien erst bei 6 beginnen.
+
+DarÅber hinaus lassen sich auch die folgenden zeichenorientierten GerÑte
+îffnen:
+!begin_itemize !short
+!item PRN: (parallele Schnittstelle, -3)
+!item AUX: (serielle Schnittstelle, -2)
+!item CON: (Konsole, -1)
+!end_itemize
+Symbolische Links werden von dieser Funktion automatisch dereferenziert,
+d.h. wenn die Datei bereits als symbolischer Link existiert, wird die davon
+referenzierte Datei geîffnet bzw., je nach Modus, auf die LÑnge Null
+gebracht.
+
+!item [Ergebnis:]
+Die Funktion liefert die entsprechende Dateikennung, oder eine negative
+Fehlermeldung zurÅck.
+
+!item [VerfÅgbar:]
+Alle GEMDOS Versionen.
+
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Fopen]) ~ Fcreate ~
+(!link [Ein-/AusgabekanÑle des BIOS][Die Ein-/AusgabekanÑle des BIOS]) ~
+F_SETLK
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Fopen
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fopen ( const int8_t *fname, int16_t mode );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    mode,-(sp)   ; Offset 6
+pea       fname        ; Offset 2
+move.w    #61,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #8,sp        ; Stack korrigieren
+!end_verbatim
+
+!item [GFA-Basic]
+Handle%=Gemdos(&H3D,L:fname%,W:mode%)
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

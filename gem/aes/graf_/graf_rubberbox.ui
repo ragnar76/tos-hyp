@@ -1,0 +1,257 @@
+!iflang [english]
+
+!begin_node graf_rubberbox/graf_rubbox
+!label graf_rubberbox
+!label graf_rubbox
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØGraphics rubberboxÆ - Draw 'rubber band' outline rectangle on the screen.
+
+!item [Opcode:]
+70
+
+!item [Syntax:]
+int16_t graf_rubberbox ( int16_t gr_rx, int16_t gr_ry, int16_t gr_minwidth,
+                   int16_t gr_minheight, int16_t *gr_rlastwidth,
+                   int16_t *gr_rlastheight );
+
+(!I)or(!i)
+
+int16_t graf_rubbox ( ... );
+
+!item [Description:]
+The call graf_rubberbox displays a 'rubber band' in the form of a rectangle on
+the screen, whose top left corner remains fixed and its bottom right corner
+can be moved while the left mouse button is held down. The following apply:
+
+!begin_xlist !short [gr_rlastheight]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [gr_rx]
+X-coordinate, (!U)and(!u)
+!item [gr_ry]
+Y-coordinate of initial corner
+!item [gr_minwidth]
+Minimum width of rubber band box
+!item [gr_minheight]
+Minimum height of rubber band box
+!item [gr_rlastwidth]
+Width, (!U)and(!u)
+!item [gr_rlastheight]
+Height of rubber band box when releasing the mouse button
+!end_xlist
+
+(!B)Note:(!b) For the reasons mentioned above, the function should only be
+called with an already pressed mouse button, since it returns when the button
+is released. It's interesting that the minimum width and height parameters may
+also take (!I)negative(!i) values; the rubber band may then be stretched from
+bottom right to top left.
+
+In older (!nolink [GEM]) documentation this function is also called 'graf_rubbox'!
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Graphics library
+
+!item [See also:]
+(!link [Binding] [Bindings for graf_rubberbox])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for graf_rubberbox
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t graf_rubberbox ( int16_t gr_rx, int16_t gr_ry, int16_t gr_minwidth,
+                   int16_t gr_minheight, int16_t *gr_rlastwidth,
+                   int16_t *gr_rlastheight );
+
+(!I)or(!i)
+
+int16_t graf_rubbox ( ... )
+
+!item [Binding:]
+!begin_verbatim
+int16_t graf_rubbox (int16_t gr_rx, int16_t gr_ry,
+                     int16_t gr_minwidth, int16_t gr_minheight,
+                     int16_t *gr_rlastwidth,
+                     int16_t *gr_rlastheight)
+{
+   int_in[0] = gr_rx;
+   int_in[1] = gr_ry;
+   int_in[2] = gr_minwidth;
+   int_in[3] = gr_minheight;  
+
+   crys_if (70);
+
+   *gr_rlastwidth = int_out[1];
+   *gr_lastheight = int_out[2];   
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 70    # Function opcode
+control+2 !! control[1] !! 4     # Entry in int_in
+control+4 !! control[2] !! 3     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! gr_rx
+int_in+2  !! int_in[1]  !! gr_ry
+int_in+4  !! int_in[2]  !! gr_minwidth
+int_in+6  !! int_in[3]  !! gr_minheight
+int_out   !! int_out[0] !! Return value
+int_out+2 !! int_out[1] !! gr_rlastwidth
+int_out+4 !! int_out[2] !! gr_rlastheight
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node graf_rubberbox
+!label graf_rubbox
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØGraphics RubberboxÆ - zeichnet eine 'Rubberbox' (Gummirechteck) auf den
+Bildschirm.
+
+!item [AES-Nummer:]
+70
+
+!item [Deklaration:]
+int16_t graf_rubberbox ( int16_t gr_rx, int16_t gr_ry, int16_t gr_minwidth,
+                   int16_t gr_minheight, int16_t *gr_rlastwidth,
+                   int16_t *gr_rlastheight );
+
+oder
+
+int16_t graf_rubbox ( ... );
+
+
+!item [Beschreibung:]
+Die Funktion stellt ein Gummiband in Form eines Rechtecks auf dem Bildschirm
+dar, dessen obere linke Ecke festbleibt und dessen untere rechte Ecke
+solange bewegt werden kann, wie die linke Maustaste gedrÅckt wird.
+
+!begin_xlist !short [gr_rlastheight]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [gr_rx]
+x-Koordinate
+!item [gr_ry]
+y-Koordinate der linken, oberen Ecke
+!item [gr_minwidth]
+kleinste Breite des Gummibandes
+!item [gr_minheight]
+kleinste Hîhe des Gummibandes
+!item [gr_rlastwidth]
+Breite 
+!item [gr_rlastheight]
+Hîhe des Gummibandes bei Loslassen des Mausknopfs
+!end_xlist
+
+(!B)Hinweis:(!b) Die Funktion sollte aus den o.g. GrÅnden nur bei bereits
+gedrÅckter Maustaste aufgerufen werden. Interessant ist, daû bei der Angabe
+der minimalen Breite und Hîhe auch (!I)negative(!i) Werte zugelassen sind;
+das Gummiband lÑût sich dann von rechts unten nach links oben ziehen.
+
+In Ñlteren (!nolink [GEM])-Dokumentationen auch hÑufig als "graf_rubbox" bezeichnet!
+
+!item [Ergebnis:]
+Ein Fehler ist nur dann aufgetreten, wenn als Ergebnis 0 zurÅckgegeben wird.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+Grafikfunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr graf_rubberbox])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr graf_rubberbox
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t graf_rubbox ( int16_t gr_rx, int16_t gr_ry, int16_t gr_minwidth,
+                   int16_t gr_minheight, int16_t *gr_rlastwidth,
+                   int16_t *gr_rlastheight );
+
+oder
+
+int16_t graf_rubberbox ( ... )
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t graf_rubbox (int16_t gr_rx, int16_t gr_ry,
+                     int16_t gr_minwidth, int16_t gr_minheight,
+                     int16_t *gr_rlastwidth,
+                     int16_t *gr_rlastheight)
+{
+   int_in[0] = gr_rx;
+   int_in[1] = gr_ry;
+   int_in[2] = gr_minwidth;
+   int_in[3] = gr_minheight;  
+
+   crys_if (70);
+
+   *gr_rlastwidth = int_out[1];
+   *gr_lastheight = int_out[2];   
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 70    # Opcode der Funktion
+control+2 !! control[1] !! 4     # EintrÑge in int_in
+control+4 !! control[2] !! 3     # EintrÑge in int_out
+control+6 !! control[3] !! 0     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! gr_rx
+int_in+2  !! int_in[1]  !! gr_ry
+int_in+4  !! int_in[2]  !! gr_minwidth
+int_in+6  !! int_in[3]  !! gr_minheight
+int_out   !! int_out[0] !! Return-Wert
+int_out+2 !! int_out[1] !! gr_rlastwidth
+int_out+4 !! int_out[2] !! gr_rlastheight
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

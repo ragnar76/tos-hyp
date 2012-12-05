@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, KAOS
+
+(!B)KAOS(!b) is an operating system modification
+
+As of Version 1.4 it creates this cookie. The LONGword contains the 
+creation date in packed BCD format:
+
+0x22121989L corresponds to "22.12.1989"
+
+!end_node
+
+!else
+
+!begin_node Cookie, KAOS
+
+(!B)KAOS(!b) ist eine Betriebssystemmodifikation.
+
+Ab der Version 1.4 legt es den Cookie an. Im Langwort ist steht das
+Erstellungsdatum im gepackten BCD-Format:
+
+0x22121989L entspricht "22.12.1989"
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,49 @@
+!iflang [english]
+
+!begin_node Cookie, XFRB
+
+!label Fast-RAM-Buffer, Extended
+!label Extended-Fast-RAM-Buffer
+(!B)Extended Fast-RAM Buffer(!b)
+
+The cookie is created by the hard disk driver HDDRIVER, amongst 
+others, and points to the following structure:
+
+!begin_verbatim
+typedef struct xfrb
+{
+   int16_t version;   /* Version number in BCD format */
+   int8_t  *xflock;   /* Semaphore                    */
+   int8_t  *buffer;   /* Buffer address               */
+   int32_t size;      /* Buffer size                  */
+   xfrb    *next;     /* Pointer to next XFRB         */
+} XFRB;
+!end_verbatim
+
+!end_node
+
+!else
+
+!begin_node Cookie, XFRB
+
+!label Fast-RAM-Buffer, Extended
+!label Extended-Fast-RAM-Buffer
+(!B)Extended-Fast-RAM-Buffer(!b)
+
+Der Cookie wird u.a. vom Festplatten-Treiber HDDRIVER angelegt, und zeigt
+auf die folgende Struktur:
+
+!begin_verbatim
+typedef struct xfrb
+{
+   int16_t version;   /* Versionsnummer im BCD-Format */
+   int8_t  *xflock;   /* Semaphore                    */
+   int8_t  *buffer;   /* Pufferadresse                */
+   int32_t size;      /* Puffergr”že                  */
+   xfrb    *next;     /* Zeiger auf n„chsten XFRB     */
+} XFRB;
+!end_verbatim
+
+!end_node
+
+!endif

@@ -1,0 +1,29 @@
+!iflang [english]
+
+!begin_node Cookie, _OOL
+
+!label POOLFIX3 patch
+!label Patch, POOLFIX3
+(!B)POOLFIX3 patch program(!b)
+
+The cookie is created by the patch program POOLFIX3, which remedies 
+some errors in (!nolink [GEMDOS]) Version 0.15.
+
+!end_node
+
+!else
+
+!begin_node Cookie, _OOL
+
+!label POOLFIX3-Patch
+!label Patch, POOLFIX3
+(!B)POOLFIX3-Patchprogramm(!b)
+
+Der Cookie wird vom Patchprogramm POOLFIX3 angelegt, welches einige Fehler
+in (!nolink [GEMDOS])-Version 0.15 behebt.
+
+!end_node
+
+!endif
+
+

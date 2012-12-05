@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, cdMC
+
+(!B)CDROM.XFS(!b) > V0.6
+
+File system for (!nolink [CD])-ROMs under MiNT/MultiTOS > V0.4.
+ 
+Modifies vector: hdv_mediach.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, cdMC
+
+(!B)CDROM.XFS(!b) > V0.6
+
+Dateisystem fr CDROMs unter MiNT/MultiTOS > V0.4. 
+
+Vektor: hdv_mediach.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

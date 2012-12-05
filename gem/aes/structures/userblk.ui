@@ -1,0 +1,36 @@
+!iflang [english]
+
+!begin_node USERBLK
+
+!begin_verbatim
+typedef struct
+{
+   int16_t cdecl (*ub_code)(PARMBLK *parmblock);
+   int32_t ub_parm;
+} USERBLK;
+!end_verbatim
+
+(!B)Note:(!b) The function (!I)ub_code(!i) is called for each call of objc_draw and
+objc_change for the corresponding object. The component (!I)ub_parm(!i) can
+be looked on as an optional parameter.
+
+!end_node
+
+!else
+
+!begin_node USERBLK
+
+!begin_verbatim
+typedef struct
+{
+   int16_t cdecl (*ub_code)(PARMBLK *parmblock);
+   int32_t ub_parm;
+} USERBLK;
+!end_verbatim
+
+(!B)Hinweis:(!b) Die Funktion (!I)ub_code(!i) wird bei jedem Aufruf von
+objc_draw und objc_change fÅr das entsprechende Objekt aufgerufen. Die
+Komponente (!I)ub_parm(!i) kann als optionaler Parameter angesehen werden.
+!end_node
+
+!endif

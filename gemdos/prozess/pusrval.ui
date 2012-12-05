@@ -1,0 +1,109 @@
+!iflang [english]
+
+
+!begin_node Pusrval
+(!begin_liste) [Availability]
+!item [Name:]
+ØPusrvalÆ - Set/interrogate specific process information.
+
+!item [Opcode:]
+280
+
+!item [Syntax:]
+int32_t Pusrval ( int32_t val );
+
+!item [Description:]
+The function Pusrval permits the setting or interrogation of
+process-specific information. These are stored in a LONGword, and inherited
+by all child processes.
+
+The meaning of the value can be freely determined by the calling program.
+
+!item [(!nolink [Return]) value:]
+The function returns the old value.
+
+!item [Availability:]
+As of the first in MultiTOS integrated MiNT version 1.04, and MagiC as of
+Version 5.04.
+
+!item [Group:]
+Process functions
+
+!item [See also:]
+(!link [Binding][Bindings for Pusrval])
+(!ende_liste)
+
+
+!begin_node Bindings for Pusrval
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Pusrval ( int32_t val );
+
+!item [Assembler:]
+!begin_verbatim
+move.l    val,-(sp)    ; Offset 2
+move.w    #280,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #6,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Pusrval
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØPusrvalÆ - spezifische Informationen eines Prozesses setzen bzw. abfragen.
+
+!item [Gemdosnummer:]
+280
+
+!item [Deklaration:]
+int32_t Pusrval ( int32_t val );
+
+!item [Beschreibung:]
+Die Funktion erlaubt das Setzen bzw. Abfragen von Prozessspezifischen
+Informationen. Diese werden in einem Langwort gespeichert, und an alle
+Child-Prozesse weitervererbt.
+
+Die Bedeutung des Wertes kann vom aufrufenden Programm frei bestimmt werden.
+
+!item [Ergebnis:]
+Die Funktion liefert den alten Wert zurÅck.
+
+!item [VerfÅgbar:]
+Seit der ersten in MultiTOS integrierten MiNT Version 1.04 und in MagiC ab
+der Version 5.04.
+
+!item [Gruppe:]
+Prozessfunktionen
+
+!item [Querverweis:]
+(!link [Binding][Bindings fÅr Pusrval])
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Pusrval
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Pusrval ( int32_t val );
+
+!item [Assembler:]
+!begin_verbatim
+move.l    val,-(sp)    ; Offset 2
+move.w    #280,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #6,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

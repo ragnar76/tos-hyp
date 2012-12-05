@@ -1,0 +1,184 @@
+!iflang [english]
+
+!begin_node wdlg_get_tree
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØWindow-dialog get treeÆ - Obtain object tree of the window
+
+!item [Opcode:]
+164 (sub-opcode 0)
+
+!item [Syntax:]
+int16_t wdlg_get_tree ( DIALOG *dialog, OBJECT **tree, GRECT *r );
+
+!item [Description:]
+The call wdlg_get_tree obtains the address of the object-tree displayed in the
+window. The following apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)dialog(!i) !! Pointer to the dialog structure
+(!I)tree(!i) !! Pointer to object tree
+(!I)r(!i) !! Pointer to GRECT
+!end_table
+
+(!B)Note:(!b) In addition, the function returns the size of the working area of
+the window. If the dialog size has not been altered with wdlg_set_size, then
+the working area corresponds to the GRECT of the root object.
+
+!item [(!nolink [Return]) value:]
+The function always returns the value 1.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+Window-dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for wdlg_get_tree]) ~ wdlg_get_handle
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for wdlg_get_tree
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_get_tree ( DIALOG *dialog, OBJECT **tree, GRECT *r );
+
+!item [Binding:]
+!begin_verbatim
+int16_t wdlg_get_tree ( DIALOG *dialog, OBJECT **tree, GRECT *r )
+{
+   addr_in[0] = dialog;
+   addr_in[1] = tree;
+   addr_in[2] = r;
+
+   int_in[0] = 0;
+   crys_if (164);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 164   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 3     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! dialog
+addr_in+4 !! addr_in[1] !! tree
+addr_in+8 !! addr_in[2] !! r
+int_in    !! int_in[0]  !! 0     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node wdlg_get_tree
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØWindowDialog GetTreeÆ - Objektbaum des Fensters ermitteln.
+
+!item [AES-Nummer:]
+164 (Unterfunktion 0)
+
+!item [Deklaration:]
+int16_t wdlg_get_tree ( DIALOG *dialog, OBJECT **tree, GRECT *r );
+
+!item [Beschreibung:]
+Die Funktion ermittelt die Adresse des im Fenster angezeigten Objektbaumes.
+Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)dialog(!i) !! Zeiger auf den Dialog
+(!I)tree(!i) !! Zeiger auf den Zeiger des Objektbaums
+(!I)r(!i) !! Zeiger auf die Rechtecksbeschreibung
+!end_table
+
+(!B)Hinweis:(!b) DarÅber hinaus liefert die Funktion die Grîûe der
+ArbeitsflÑche des Fensters zurÅck. Sofern die Dialoggrîûe (!I)nicht(!i) mit
+wdlg_set_size verÑndert wurde, entspricht die ArbeitsflÑche des Fensters dem
+GRECT des Wurzelobjektes.
+
+!item [Ergebnis:]
+Die Funktion liefert stets den Wert 1 zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Fensterdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr wdlg_get_tree]) ~  wdlg_get_handle
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr wdlg_get_tree
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_get_tree ( DIALOG *dialog, OBJECT **tree, GRECT *r );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t wdlg_get_tree ( DIALOG *dialog, OBJECT **tree, GRECT *r )
+{
+   addr_in[0] = dialog;
+   addr_in[1] = tree;
+   addr_in[2] = r;
+
+   int_in[0] = 0;
+   crys_if (164);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 164   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 3     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! dialog
+addr_in+4 !! addr_in[1] !! tree
+addr_in+8 !! addr_in[2] !! r
+int_in    !! int_in[0]  !! 0     # Unterfunktion
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

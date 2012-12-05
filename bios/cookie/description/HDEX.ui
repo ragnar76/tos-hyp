@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, HDEX
+
+(!B)HD Driver's-own interface(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, HDEX
+
+(!B)HDDriver-eigenes Interface(!b)
+
+!end_node
+
+!endif
+ 

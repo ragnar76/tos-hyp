@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SBTE
+
+(!B)Terminal program(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, SBTE
+
+(!B)Terminalprogramm(!b)
+
+!end_node
+
+!endif
+ 

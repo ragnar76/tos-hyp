@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, HABO
+
+(!B)HaBoo(!b) 1.8 - Hard disk cache (first published in (!I)ST-Magazin(!i) 6/1988). 
+
+Note: It is (!B)no longer(!b) supported, requests are pointless. 
+Use (!nolink [TOS]) 1.04 (or newer) with CACHENNN.PRG or similar instead!
+
+!end_node
+
+!else
+
+!begin_node Cookie, HABO
+
+(!B)HaBoo(!b) 1.8, Harddiskcache (erstmals verîffentlicht in (!I)ST-Magazin(!i) 6/1988). 
+
+Hinweis: wird (!B)nicht(!b) mehr unterstÅtzt, Nachfrage zwecklos. Stattdessen 
+(!nolink [TOS]) 1.04 (oder neuer) mit CACHENNN.PRG o. Ñ. benutzen!
+
+!end_node
+
+!endif
+ 

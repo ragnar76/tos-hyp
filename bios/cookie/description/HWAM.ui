@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, HWAM
+
+(!B)Cookie Jar creator program(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, HWAM
+
+(!B)Cookie Jar creator program(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, SYST
+
+(!B)Systime(!b) - Utilization display in the menu bar
+
+Modifies vector 256 (etv_timer).
+
+Status: Freeware
+
+!end_node
+
+!else
+
+!begin_node Cookie, SYST
+
+(!B)Systime(!b) - Auslastungsanzeige in der MenÅzeile.
+
+Verbiegt Vektor 256 (etv_timer).
+
+Status: Freeware
+
+!end_node
+
+!endif
+ 

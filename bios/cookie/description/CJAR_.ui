@@ -1,0 +1,29 @@
+!iflang [english]
+
+!begin_node Cookie, CJAR
+
+(!B)COOKIE.PRG(!b)
+
+Sets the cookie-jar at 40 entries. 
+
+Modified: Reset vector.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CJAR
+
+(!B)Cookie.prg(!b)
+
+Setzt Cookie-Jar auf 40 Eintr„ge.
+
+Verbogen: Resetvektor.
+
+Status: Freeware.
+
+!end_node
+
+!endif

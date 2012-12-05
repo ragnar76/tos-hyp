@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, EPro
+
+(!B)Extendos Pro (!nolink [CD])-ROM Driver(!b)
+
+Hooks into (!nolink [GEMDOS])-, X(!nolink [BIOS])-trap, hdv_bpb, hdv_rw, hdv_mediach.
+
+!end_node
+
+!else
+
+!begin_node Cookie, EPro
+
+(!B)Extendos Pro (!nolink [CD])-ROM Driver(!b)
+
+H„ngt in (!nolink [GEMDOS])-, X(!nolink [BIOS])-Trap, hdv_bpb, hdv_rw, hdv_mediach
+
+!end_node
+
+!endif
+ 

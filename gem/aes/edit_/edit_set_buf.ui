@@ -1,0 +1,182 @@
+!iflang [english]
+
+!begin_node edit_set_buf
+(!begin_liste) [Availability]
+!item [Name:]
+ØEdit Object Set BufferÆ - Alter settings: Text buffer
+!item [Opcode:]
+217 (sub-opcode 0)
+
+!item [Syntax:]
+void edit_set_buf ( OBJECT *tree, int16_t obj, int8_t *buf, int32_t buflen );
+
+!item [Description:]
+The call edit_set_buf is used to alter the settings of the text buffer for an
+editable object. The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [tree]
+Object tree
+!item [obj]
+Object index
+!item [buf]
+Text buffer. The text is present in DOS format with CR/LF as line-end
+identifier and is terminated by a  Nullbyte.
+!item [buflen]
+Length of text buffer inclusive of closing Nullbyte.
+!end_xlist
+
+The buffer is allocated to the text object, the number of lines are 
+determined. The cursor is set to the start of the text.
+This call clears the Dirty flag.
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+As of MagiC 5.20 by means of a shared library.
+
+!item [Group:]
+Editable object functions
+
+!item [See also:]
+(!link [Binding] [Bindings for edit_set_buf])
+(!ende_liste)
+
+
+
+!begin_node Bindings for edit_set_buf
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+void edit_set_buf ( OBJECT *tree, int16_t obj, int8_t *buf, int32_t buflen );
+!item [Binding:]
+!begin_verbatim
+void edit_set_buf ( OBJECT *tree, int16_t obj, int8_t *buf,
+                    int32_t buflen )
+{
+   int_in[0]    = obj;
+   int_in[1]    = 0;      /* Sub-opcode for function */
+   int_in[2..3] = buflen;
+
+   addr_in[0] = tree;
+   addr_in[1] = buf;
+
+   crys_if( 217 );
+
+   return;
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 217   # Function opcode
+control+2 !! control[1] !! 4     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! 0     # Sub-opcode
+int_in+4  !! int_in[2..3]  !! buflen
+addr_in   !! addr_in[0] !! tree
+addr_in+4 !! addr_in[1] !! buf
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node edit_set_buf
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØEdit Object Set BufferÆ - Ñndert den Inhalt des Textpuffers eines Editobjektes.
+!item [AES-Nummer:]
+217 (Unterfunktion 0)
+!item [Deklaration:]
+void edit_set_buf ( OBJECT *tree, int16_t obj, int8_t *buf, int32_t buflen );
+
+!item [Beschreibung:]
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [tree]
+RSC-Baum des Objekts
+!item [obj]
+Objektnummer
+!item [buf]
+Textpuffer. Der Text liegt im DOS-Format mit CR/LF als Zeilenende-
+Kennzeichen vor und wird mit einem Nullbyte abgeschlossen.
+!item [buflen]
+LÑnge des Textpuffers inklusive abschlieûendem Nullbyte.
+!end_xlist
+
+Der Puffer wird dem Edit-Objekt zugewiesen, die Anzahl der Zeilen 
+wird bestimmt. Der Cursor wird an den Textanfang gesetzt.
+Dieser Aufruf lîscht das Dirty-Flag.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck.
+
+!item [VerfÅgbar:]
+ab MagiC 5.20 mittels SharedLibrary
+
+!item [Gruppe:]
+Editobjekt-Funktionen
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr edit_set_buf])
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr edit_set_buf
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+void edit_set_buf ( OBJECT *tree, int16_t obj, int8_t *buf, int32_t buflen );
+!item [Umsetzung:]
+!begin_verbatim
+void edit_set_buf ( OBJECT *tree, int16_t obj, int8_t *buf,
+                    int32_t buflen )
+{
+   int_in[0]    = obj;
+   int_in[1]    = 0;      /* Subcode fÅr Funktion */
+   int_in[2..3] = buflen;
+
+   addr_in[0] = tree;
+   addr_in[1] = buf;
+
+   crys_if( 217 );
+
+   return;
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 217   # Opcode der Funktion
+control+2 !! control[1] !! 4     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! 0     # Sub-Opcode
+int_in+4  !! int_in[2..3]  !! buflen
+addr_in   !! addr_in[0] !! tree
+addr_in+4 !! addr_in[1] !! buf
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

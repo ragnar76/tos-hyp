@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, EXRA
+
+(!B)ExtraRAM management(!b) for the FAFST accelerator card
+
+Manufacture and distribution: F. Aschwanden. 
+
+Modifies vectors: (!nolink [GEMDOS]), (!nolink [BIOS]), X(!nolink [BIOS]).
+
+!end_node
+
+!else
+
+!begin_node Cookie, EXRA
+
+(!B)ExtraRAM-Verwaltung(!b) fÅr die FAFST-Beschleunigerkarte.
+
+Herstellung und Vertrieb: F. Aschwanden.
+
+Vektoren: (!nolink [GEMDOS]), (!nolink [BIOS]), X(!nolink [BIOS]).
+
+!end_node
+
+!endif
+ 

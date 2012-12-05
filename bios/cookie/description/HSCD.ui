@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, HSCD
+
+(!B)MiNT (!nolink [CD])-ROM driver(!b)
+
+Affects mediachange vector.
+
+Commercial product from Hard & Soft.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HSCD
+
+(!B)MiNT-(!nolink [CD])ROM-Treiber(!b)
+
+Ver„ndert den Mediachange-Vektor
+
+Kommerzielles Produkt von Hard & Soft.
+
+!end_node
+
+!endif
+ 

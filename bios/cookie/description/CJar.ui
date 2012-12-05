@@ -1,0 +1,21 @@
+!iflang [english]
+
+!begin_node Cookie, CJar
+
+(!B)JarXXX program(!b)
+
+Increases the size of the cookie jar to hold the number of cookies 
+specified in the 3-digit number entered to replace 'XXX'.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CJar
+
+(!B)JarXXX program(!b)
+
+!end_node
+
+!endif
+ 

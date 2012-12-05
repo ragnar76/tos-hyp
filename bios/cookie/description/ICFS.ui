@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, ICFS
+
+(!B)ICFS(!b) - Iconify-Server
+
+Assigns positions for iconified windows for programs that want to 
+offer iconifying also under old (!nolink [TOS]) versions and MagiC 2.0. The XBRA 
+ID is used under MagiC as of Version 3, which is persuaded by the 
+redirection of TRAP #2 to use ICFS.
+
+!end_node
+
+!else
+
+!begin_node Cookie, ICFS
+
+(!B)ICFS(!b) - Iconify-Server
+
+Vergibt Positionen fÅr ikonifizierte Fenster fÅr 
+Programme, die ein Iconify auch unter alten (!nolink [TOS])-Versionen und MagiC 2.0
+anbieten wollen. Die XBRA-Kennung wird unter MagiC ab Version 3 verwendet, 
+welches durch Verbiegen von Trap #2 dazu Åberredet wird, ICFS zu verwenden.
+
+!end_node
+
+!endif
+ 

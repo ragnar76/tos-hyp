@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, _PCI
+
+(!B)PCI-(!nolink [BIOS])(!b)
+
+See aslo: PCI-BIOS
+
+!end_node
+
+!else
+
+!begin_node Cookie, _PCI
+
+(!B)PCI-(!nolink [BIOS])(!b)
+
+Querverweis: PCI-BIOS
+
+!end_node
+
+!endif
+ 

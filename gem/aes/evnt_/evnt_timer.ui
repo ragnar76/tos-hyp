@@ -1,0 +1,152 @@
+!iflang [english]
+
+!begin_node evnt_timer
+(!begin_liste) [Availability]
+!item [Name:]
+ØEvent TimerÆ - Wait for a given time interval.
+
+!item [Opcode:]
+24
+!item [Syntax:]
+int16_t evnt_timer ( int16_t ev_tlocount, int16_t ev_thicount );
+
+!item [Description:]
+The call evnt_timer waits until a given time has passed before releasing
+(!nolink [control]) to the operating system. The following apply:
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)ev_tlocount(!i) !! Low-WORD of time value in milliseconds
+(!I)ev_thicount(!i) !! High-WORD of time value in milliseconds
+!end_table
+(!B)Note:(!b) One should (!I)always(!i) use this function for delay loops in
+programs. The operating system can then allocate the CPU to another process
+(even without real multitasking).
+
+Under (!nolink [TOS]) 1.0, neither parameter may be set to 0 for a desk
+accessory, otherwise the system will hang.
+
+This function cannot be relied on as an accurate clock. The specified time is
+only the minimum time value, with the function returning at some point after
+this time has passed.
+
+!item [(!nolink [Return]) value:]
+This is always the value 1.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Event library
+
+!item [See also:]
+(!link [Binding] [Bindings for evnt_timer]) ~  Messages
+(!ende_liste)
+
+
+!begin_node Bindings for evnt_timer
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t evnt_timer ( int16_t ev_tlocount, int16_t ev_thicount );
+!item [Binding:]
+!begin_verbatim
+int16_t evnt_timer (int16_t ev_tlocount, int16_t ev_thicount)
+{
+   int_in[0] = ev_tlocount;
+   int_in[1] = ev_thicount;
+
+   return ( crys_if (24) );
+} 
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control !! control[0] !! 24    # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in !! int_in[0] !! ev_tlocount
+int_in+2 !! int_in[1] !! ev_thicount
+int_out !! int_out[0] !! Return value
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node evnt_timer
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØEvent TimerÆ - wartet einen Zeitabschnitt ab.
+!item [AES-Nummer:]
+24
+!item [Deklaration:]
+int16_t evnt_timer ( int16_t ev_tlocount, int16_t ev_thicount );
+
+!item [Beschreibung:]
+Die Funktion wartet bis eine bestimmte Zeit vergangen ist. Es gilt:
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)ev_tlocount(!i) !! Low-Word  der Millisekunden
+(!I)ev_thicount(!i) !! High-Word der Millisekunden
+!end_table
+(!B)Hinweis:(!b) FÅr Warteschleifen in Programmen sollte (!I)immer(!i) diese
+Funktion benutzt werden. Das Betriebssystem kann dann (auch ohne echtes
+Multitasking) einem anderen Prozess die CPU zuteilen.
+
+Unter TOS 1.0 darf in einem Accessorie der Timer
+nicht auf 0 gesetzt werden, sonst hÑngt sich das System auf.
+
+!item [Ergebnis:]
+Als Ergebnis wird immer eine 1 zurÅckgeliefert.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+Ereignisverwaltung
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr evnt_timer]) ~  Nachrichten
+(!ende_liste)
+
+
+!begin_node Bindings fÅr evnt_timer
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t evnt_timer ( int16_t ev_tlocount, int16_t ev_thicount );
+!item [Umsetzung:]
+!begin_verbatim
+int16_t evnt_timer (int16_t ev_tlocount, int16_t ev_thicount)
+{
+   int_in[0] = ev_tlocount;
+   int_in[1] = ev_thicount;
+
+   return ( crys_if (24) );
+} 
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control !! control[0] !! 24    # Opcode der Funktion
+control+2 !! control[1] !! 2     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 0     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in !! int_in[0] !! ev_tlocount
+int_in+2 !! int_in[1] !! ev_thicount
+int_out !! int_out[0] !! Return-Wert
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

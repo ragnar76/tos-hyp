@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, VIRA
+
+(!B)VIRUS Alarm(!b)
+
+A resident program that checks inserted floppy disks for executable 
+boot sectors.
+
+Modifies vector: hdv_bpb.
+
+!end_node
+
+!else
+
+!begin_node Cookie, VIRA
+
+(!B)VIRUS-Alarm(!b)
+
+Ein residentes Programm, das eingelegte Disketten auf 
+ausfÅhrbare Bootsektoren ÅberprÅft.
+
+VerÑnderter Vektor: hdv_bpb.
+
+!end_node
+
+!endif
+ 

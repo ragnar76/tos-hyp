@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, M16X
+
+(!B)CyReL M16 X(!nolink [BIOS]) emulator(!b)
+
+This is entered in the X(!nolink [BIOS]) vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, M16X
+
+(!B)CyReL M16 X(!nolink [BIOS])-Emulator(!b)
+
+Wird im X(!nolink [BIOS])-Vektor eingetragen.
+
+!end_node
+
+!endif
+ 

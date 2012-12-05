@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, JCNT
+
+(!B)COCTEAU(!b) (may still be changed)
+
+Text processing program by Jens C. Neffe. 
+
+Redirected: etv_term.
+
+!end_node
+
+!else
+
+!begin_node Cookie, JCNT
+
+(!B)COCTEAU(!b) (may still be changed)
+
+Textverarbeitungsprogramm von Jens C. Neffe.
+
+Verbogen etv_term.
+
+!end_node
+
+!endif
+ 

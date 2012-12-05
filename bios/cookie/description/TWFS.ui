@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, TWFS
+
+(!B)That's Write File-Selector(!b) accessory
+
+Modifies TRAP #2.
+
+!end_node
+
+!else
+
+!begin_node Cookie, TWFS
+
+(!B)That's-Write-File-Selector(!b)-Accessory
+
+Verbiegt TRAP #2
+
+!end_node
+
+!endif
+ 

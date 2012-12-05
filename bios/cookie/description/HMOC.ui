@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, HMOC
+
+(!B)Object cache for HÑnisch-Modula(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, HMOC
+
+(!B)Object-Cache fÅr HÑnisch-Modula(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, _DOS
+
+(!nolink [GEMDOS]) entry point (in (!nolink [GEMDOS]) 0.30).
+
+!end_node
+
+!else
+
+!begin_node Cookie, _DOS
+
+(!nolink [GEMDOS])-Einsprung (im (!nolink [GEMDOS]) 0.30).
+
+!end_node
+
+!endif
+ 

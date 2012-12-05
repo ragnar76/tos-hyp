@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, EGON
+
+(!B)EGON!(!b)
+
+(!nolink [CD])-ROM Driver.
+
+!end_node
+
+!else
+
+!begin_node Cookie, EGON
+
+(!B)EGON!(!b)
+
+(!nolink [CD])-ROM Driver
+
+!end_node
+
+!endif
+ 

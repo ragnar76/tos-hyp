@@ -1,0 +1,25 @@
+!iflang [english]
+
+!begin_node Cookie, FOse
+
+(!B)Font selector(!b) (ACC or PRG)
+
+Accompanied by add-on program FOSEINST.PRG. 
+
+(!I)ST-Computer(!i) disk PD 430, PD-pool 2239.
+
+!end_node
+
+!else
+
+!begin_node Cookie, FOse
+
+(!B)Fontselector(!b) (ACC oder PRG)
+
+Zusatzprogramm FOSEINST.PRG.
+
+(!I)ST-Computer(!i) PD 430, PD-Pool 2239).
+
+!end_node
+
+!endif

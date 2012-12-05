@@ -1,0 +1,55 @@
+!iflang [english]
+
+!begin_node cdrom_subchnl
+
+!begin_verbatim
+struct cdrom_subchnl
+{
+    /* input parameters */
+
+    int8_t cdsc_format;             /* CDROM_MSF or CDROM_LBA */
+
+    /* output parameters */
+
+    int8_t   cdsc_audiostatus;
+    unsigned cdsc_resvd: 8;         /* Reserved               */
+    unsigned cdsc_adr  : 4;
+    unsigned cdsc_ctrl : 4;
+    int8_t   cdsc_track;            /* Current track          */
+    int8_t   cdsc_ind;              /* Current index          */
+    cd_ad    cdsc_absaddr;          /* Absolute address       */
+    cd_ad    cdsc_reladdr;          /* Track relative address */
+};
+!end_verbatim
+
+See also: (!link [CD-ROM opcodes for Fcntl][Fcntl, CD-ROM commands for])
+!end_node
+
+!else
+
+!begin_node cdrom_subchnl
+
+!begin_verbatim
+struct cdrom_subchnl
+{
+    /* Eingabe-Parameter */
+
+    int8_t cdsc_format;             /* CDROM_MSF oder CDROM_LBA */
+
+    /* Ausgabe-Parameter */
+
+    int8_t   cdsc_audiostatus;
+    unsigned cdsc_resvd: 8;         /* reserviert               */
+    unsigned cdsc_adr  : 4;
+    unsigned cdsc_ctrl : 4;
+    int8_t   cdsc_track;            /* aktueller Track          */
+    int8_t   cdsc_ind;              /* aktueller Index          */
+    cd_ad    cdsc_absaddr;          /* absolute Adresse         */
+    cd_ad    cdsc_reladdr;          /* relative Track-Adresse   */
+};
+!end_verbatim
+
+Querverweis: (!link [CD-ROM Opcodes fÅr Fcntl][Fcntl, CD-ROM-Kommandos fÅr])
+!end_node
+
+!endif

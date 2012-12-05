@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, MGEM
+
+(!B)MultiGEM(!b)
+
+Source: Maxon GmbH.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MGEM
+
+(!B)MultiGEM(!b)
+
+Quelle: Maxon GmbH.
+
+!end_node
+
+!endif
+ 

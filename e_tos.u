@@ -1,0 +1,41 @@
+########################################
+# @(#) TOS - das Betriebssystem
+# @(#) Rolf Kotzian
+########################################
+
+!iflang [english]
+	!docinfo [title] The documentation for
+	!docinfo [program]    TOS
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] TOS (TOS - The Operating System)
+!else
+	!docinfo [title] Die Anleitung zum
+	!docinfo [program]    TOS
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] TOS (TOS - das Betriebssystem)
+!endif
+
+!include config.u
+
+########################################
+
+!begin_document
+
+!ifdest [tech]
+\documentstyle[11pt,german]{article}
+!endif
+!ifdest [stg]
+!begin_raw
+@options "+g -s +x +zz -t4"
+@subject "Programmieren/Atari"
+!end_raw
+!endif
+!ifdest [html]
+!else
+!maketitle
+!tableofcontents
+!endif
+
+!include tos/tosmain.u
+
+!end_document

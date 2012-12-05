@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, HMRS
+
+(!B)Run-time System of H„nisch-Modula2(!b)
+
+Affects exception vectors 2-8.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HMRS
+
+(!B)Runtime-System des HM2-Systems(!b)
+
+Exception 2-8.
+
+!end_node
+
+!endif
+ 

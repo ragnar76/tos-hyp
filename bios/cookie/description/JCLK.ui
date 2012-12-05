@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, JCLK
+
+(!B)Clocky(!b) multi-utility
+
+!end_node
+
+!else
+
+!begin_node Cookie, JCLK
+
+(!B)Clocky(!b) multi-utility
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,51 @@
+########################################
+# @(#) TOS - das Betriebssystem
+########################################
+
+!iflang [english]
+	!docinfo [title] The documentation for
+	!docinfo [program]    Protocols
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] Protocols (TOS - The Operating System)
+!else
+	!docinfo [title] Die Anleitung zum
+	!docinfo [program]    Protokolle
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] Protokolle (TOS - das Betriebssystem)
+!endif
+
+!include config.u
+
+########################################
+
+!begin_document
+
+!ifdest [tech]
+\documentstyle[11pt,german]{article}
+!endif
+!ifdest [stg]
+!begin_raw
+@options "+g -s +x +zz -t4"
+@subject "Programmieren/Atari"
+!end_raw
+!endif
+!maketitle
+!tableofcontents
+
+!include protokol\AV\av.u
+!include protokol\BubbleGEM\bubble.u
+!include protokol\dd.u
+!include protokol\dhst.u
+!include protokol\font.u
+!include protokol\gdps.ui
+!include protokol\ltlproto.u
+!include protokol\olga\olga.u
+!include protokol\seproto\seproto.u
+!include protokol\ssp\ssp.u
+!include protokol\view.u
+!include protokol\vscreen.u
+!include protokol\xacc\xacc.u
+!include protokol\xfsl.u
+!include protokol\xssi.u
+
+!end_document

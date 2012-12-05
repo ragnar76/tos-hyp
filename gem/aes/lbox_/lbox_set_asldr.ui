@@ -1,0 +1,202 @@
+!iflang [english]
+
+!begin_node lbox_set_asldr
+!label lbox_set_slider
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ ØList box set Slider AÆ - Set position of slider A of a list box.
+
+!item [Opcode:]
+175 (sub-opcode 0)
+
+!item [Syntax:]
+void lbox_set_asldr ( LIST_BOX *box, int16_t first, GRECT *rect );
+
+(!I)or(!i)
+
+void lbox_set_slider ( LIST_BOX *box, int16_t first, GRECT *rect );
+
+!item [Description:]
+The call lbox_set_asldr positions the slider A of a list box. The following
+apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+(!I)first(!i) !! Index of the first visible entry
+(!I)rect(!i) !! Pointer to redraw rectangle, or 0L
+!end_table
+
+(!B)Hint:(!b) The contents of the list box will not be updated, so one may have
+to call lbox_update. If (!I)rect(!i) is 0L, then only the position of the slider
+objects will be altered, but the objects will not be drawn.
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_set_asldr]) ~ lbox_scroll_to
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_set_asldr
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_set_asldr ( LIST_BOX *box, int16_t first, GRECT *rect );
+
+(!I)or(!i)
+
+void lbox_set_slider ( ... );
+
+!item [Binding:]
+!begin_verbatim
+void lbox_set_asldr ( LIST_BOX *box, int16_t first,
+                      GRECT *rect )
+
+(!I)or(!i)
+
+void lbox_set_slider ( ... )
+{
+   addr_in[0] = box;
+   addr_in[1] = rect;
+
+   int_in[0] = 0;
+   int_in[1] = first;
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 175   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+addr_in+4 !! addr_in[1] !! rect
+int_in    !! int_in[0]  !! 0     # Sub-opcode
+int_in+2  !! int_in[1]  !! first
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_set_asldr
+!label lbox_set_slider
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Set Slider AÆ - Slider einer Listbox setzen.
+
+!item [AES-Nummer:]
+175 (Unterfunktion 0)
+
+!item [Deklaration:]
+void lbox_set_asldr ( LIST_BOX *box, int16_t first, GRECT *rect );
+
+!item [Beschreibung:]
+Die Funktion positioniert den Slider-A einer Listbox. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+(!I)first(!i) !! Index des ersten sichtbaren Eintrags
+(!I)rect(!i) !! Zeiger auf Redraw-Rechteck, oder NULL
+!end_table
+
+(!B)Hinweis:(!b) Der Inhalt der Listbox wird durch diesen Aufruf
+(!I)nicht(!i) aktualisiert, ggfs. muû also lbox_update aufgerufen werden.
+Besitzt (!I)rect(!i) den Wert NULL, so wird nur die Position der
+Sliderobjekte geÑndert, aber die Objekte selbst werden (!I)nicht(!i)
+gezeichnet.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7])
+(Opcode 7) festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_set_asldr]) ~ lbox_scroll_to
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_set_asldr
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_set_asldr ( LIST_BOX *box, int16_t first, GRECT *rect );
+
+oder
+
+void lbox_set_slider ( ... );
+
+!item [Umsetzung:]
+!begin_verbatim
+void lbox_set_asldr ( LIST_BOX *box, int16_t first,
+                      GRECT *rect )
+
+oder
+
+void lbox_set_slider ( ... )
+{
+   addr_in[0] = box;
+   addr_in[1] = rect;
+
+   int_in[0] = 0;
+   int_in[1] = first;
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 175   # Opcode der Funktion
+control+2 !! control[1] !! 2     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+addr_in+4 !! addr_in[1] !! rect
+int_in    !! int_in[0]  !! 0     # Unterfunktion
+int_in+2  !! int_in[1]  !! first
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

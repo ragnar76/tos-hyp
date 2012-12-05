@@ -1,0 +1,27 @@
+!iflang [english]
+
+!begin_node Cookie, UN*X
+
+(!B)Unixname(!b)
+
+Converts UNIX filenames for all (!nolink [GEMDOS]) calls to a
+(!nolink [GEMDOS])-conforming format (at present only '/' to '\').
+
+Occupies TRAP #1.
+
+!end_node
+
+!else
+
+!begin_node Cookie, UN*X
+
+(!B)Unixname(!b)
+
+Konvertiert UNIX-Filenamen bei allen (!nolink [GEMDOS])-
+Aufrufen in (!nolink [GEMDOS])-konformes Format (im Moment nur '/' nach '\').
+
+Belegt TRAP #1,
+
+!end_node
+
+!endif

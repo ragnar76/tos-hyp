@@ -1,0 +1,138 @@
+!iflang [english]
+
+
+!begin_node Fsymlink
+(!begin_liste) [Availability]
+!item [Name:]
+ØFsymlinkÆ - Create a symbolic link to a file.
+
+!item [Opcode:]
+302
+
+!item [Syntax:]
+int32_t Fsymlink ( int8_t *oldname, int8_t *newname );
+
+!item [Description:]
+The function Fsymlink creates a symbolic link (!I)newname(!i) for the file
+named (!I)oldname(!i). If the call succeeds then the file can later be
+accessed under both names. Deletion with Fdelete for (!I)newname(!i) does
+not affect the file itself, but only the symbolic link. However, if
+(!nolink [Fdelete]) is applied to (!I)oldname(!i), then the file will be
+deleted as usual, and accesses to (!I)newname(!i) are no longer possible.
+
+The difference to hard links lies in the fact that symbolic links can exist
+between different physical devices (and with that even different file-system
+types).
+
+!item [(!nolink [Return]) value:]
+The function can return the following results:
+
+!begin_xlist !short [EINVFN :]
+!item [E_OK :]
+No error has arisen
+!item [EINVFN :]
+The file-system does not support symbolic links
+!end_xlist
+
+!item [Availability:]
+Available when a 'MiNT' cookie with a version of at least 0.90 exists and in
+MagiC as of Version 3.0.
+              
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding][Bindings for Fsymlink]) ~ Flink ~ Freadlink ~ Frename ~
+(!link [XFS-concept][MagiC's XFS-concept])
+(!ende_liste)
+
+
+!begin_node Bindings for Fsymlink
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fsymlink ( int8_t *oldname, int8_t *newname );
+
+!item [Assembler:]
+!begin_verbatim
+pea       newname      ; Offset 6
+pea       oldname      ; Offset 2
+move.w    #302,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+lea       $A(sp),sp    ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Fsymlink
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØFsymlinkÆ - symbolischen Link auf ein File erzeugen.
+
+!item [Gemdosnummer:]
+302
+
+!item [Deklaration:]
+int32_t Fsymlink ( int8_t *oldname, int8_t *newname );
+
+!item [Beschreibung:]
+Die Funktion erzeugt einen symbolischen Link (!I)newname(!i) fÅr die Datei
+mit dem Namen (!I)oldname(!i). Bei erfolgreichem Aufruf kann die Datei
+anschlieûend unter beiden Namen angesprochen werden. Ein Lîschen per Fdelete
+fÅr (!I)newname(!i) berÅhrt die Datei selbst nicht, sondern nur den
+symbolischen Link. Wird hingegen (!nolink [Fdelete]) auf (!I)oldname(!i) angewendet, so
+wird die Datei wie gewohnt gelîscht, und Zugriffe auf (!I)newname(!i) sind
+nicht mehr mîglich.
+
+Der Unterschied zu Hard-Links besteht darin, daû symbolische Links zwischen
+verschiedenen physikalischen GerÑten (und damit sogar verschiedenen
+Filesystem-Typen) bestehen kînnen.
+
+!item [Ergebnis:]
+Die Funktion kann folgende RÅckgabewerte liefern:
+
+!begin_xlist !short [EINVFN :]
+!item [E_OK :]
+kein Fehler aufgetreten.
+!item [EINVFN :]
+das Filesystem unterstÅtzt keine symbolischen Links.
+!end_xlist
+
+!item [VerfÅgbar:]
+VerfÅgbar, wenn ein 'MiNT' Cookie mit einer Versionsnummer von mindestens
+0.90 existiert und in MagiC ab Version 3.0.
+
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Fsymlink]) ~ Flink ~ Freadlink ~ Frename ~
+(!link [XFS-Konzept][Das XFS-Konzept von MagiC])
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Fsymlink
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fsymlink ( int8_t *oldname, int8_t *newname );
+
+!item [Assembler:]
+!begin_verbatim
+pea       newname      ; Offset 6
+pea       oldname      ; Offset 2
+move.w    #302,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+lea       $A(sp),sp    ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

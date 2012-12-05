@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, THRM
+
+Evaluates (!B)Temperature data(!b) via the ST's printer port
+
+Modifies den MFP Busy interrupt vector. The original value of the 
+vector is not contained in the XBRA structure.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, THRM
+
+Auswerten der (!B)Temperaturdaten(!b) mit dem ST Åber den Druckerport. 
+
+Verbiegt den MFP-Busy-Interruptvektor. Der ursprÅngliche Wert 
+des Vektors steht nicht in der XBRA-Struktur.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,36 @@
+!iflang [english]
+
+!begin_node Cookie, DYNL
+
+Identifier of the (!B)Dynamic Link Library driver(!b), with which the 
+dynamic linking of programs is supported on the Atari.
+
+Status: Freeware.
+
+User source: Not yet released.
+
+Uses vectors: TRAP #9.
+
+Warning: Still in development at time of writing!
+
+!end_node
+
+!else
+
+!begin_node Cookie, DYNL
+
+Kennung des (!B)Dynamic Link Library Driver(!b), mit dem das dynamische Linken 
+von Programmen auf dem  Atari unterstÅtzt wird.
+
+Status: Freeware. 
+
+Bezugsquelle: noch nicht freigegeben,
+
+Benutzte Vektoren: TRAP #9.
+
+Achtung: derzeit noch in Entwicklung!
+
+!end_node
+
+!endif
+ 

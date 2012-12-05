@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, JSHD
+
+(!B)Hyper-Density control program(!b)
+
+Source: (!I)ST-Computer(!i) 7/1989.
+
+!end_node
+
+!else
+
+!begin_node Cookie, JSHD
+
+(!B)Hyper-Density Kontrollprogramm(!b)
+
+Quelle: (!I)ST-Computer(!i) 7/1989.
+
+!end_node
+
+!endif
+ 

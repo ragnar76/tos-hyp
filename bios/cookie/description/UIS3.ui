@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, UIS3
+
+(!B)Universal Item Selector 3.(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, UIS3
+
+(!B)Universal Item Selector 3.(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, INXR
+
+(!B)Index generator(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, INXR
+
+(!B)Indexgenerator(!b)
+
+!end_node
+
+!endif
+ 

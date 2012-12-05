@@ -1,0 +1,132 @@
+!iflang [english]
+
+!begin_node Pwait
+(!begin_liste) [Availability]
+!item [Name:]
+¯Pwait® - Try to obtain exit code of waiting or terminated child process.
+
+!item [Opcode:]
+265
+
+!item [Syntax:]
+int32_t Pwait ( void );
+
+!item [Description:]
+The function Pwait is equivalent to Pwait3 (2, NULL) and is offered for
+reasons of backwards compatibility.
+
+According to POSIX, the library function 'wait' should be implemented as
+Pwaitpid (-1, 0, NULL). Hence Pwait should not be used for a
+POSIX-compatible library.
+
+(!B)Warning:(!b) In MagiC the function is implemented as Pwaitpid (-1, 2,
+NULL).
+
+!item [(!nolink [Return]) value:]
+The function can return the following results:
+!begin_xlist !short [EFILNF:]
+!item [>0~~~ :]
+Exit status and PID of the child in the lower and upper 16 bits respectively
+of a 32-bit return code
+!item [~0~~~ :]
+No child processes have terminated.
+!item [EFILNF:]
+No child processes exist
+!end_xlist
+
+!item [Availability:]
+As of the first in MultiTOS integrated MiNT version 1.04, and MagiC as of
+Version 5.04.
+
+!item [Group:]
+Process functions
+
+!item [See also:]
+(!link [Binding] [Bindings for Pwait]) ~ Pwait3 ~ Pwaitpid
+(!ende_liste)
+
+
+!begin_node Bindings for Pwait
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Pwait ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #265,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #2,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Pwait
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Pwait® -  auf Childprozess warten, Exitcode ermitteln.
+
+!item [Gemdosnummer:]
+265
+
+!item [Deklaration:]
+int32_t Pwait ( void );
+
+!item [Beschreibung:]
+Diese Funktion ist „quivalent zu Pwait3 (2, NULL) und wird aus Grnden der
+Abw„rtskompatibilit„t angeboten.
+
+Laut POSIX sollte die Bibliotheksfunktion 'wait' als Pwaitpid (-1, 0, NULL)
+implementiert werden. Daher sollte Pwait fr eine POSIX-kompatible
+Bibliothek nicht benutzt werden.
+
+(!B)Achtung:(!b) In MagiC ist die Funktion als Pwaitpid (-1, 2, NULL)
+implementiert.
+
+!item [Ergebnis:]
+Die Funktion kann folgende Rckgabewerte liefern:
+!begin_xlist !short [EFILNF:]
+!item [>0~~~ :]
+Exit-Status und PID des Childs in den unteren bzw. oberen 16 Bits eines
+32-Bit Returnwerts.
+!item [~0~~~ :]
+Kein Child Prozess ist terminiert.
+!item [EFILNF:]
+es existieren keine Childs.
+!end_xlist
+
+!item [Verfgbar:]
+Seit der ersten in MultiTOS integrierten MiNT Version 1.04 und in MagiC ab
+Version 5.04.
+
+!item [Gruppe:]
+Prozessfunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr Pwait]) ~ Pwait3 ~ Pwaitpid
+(!ende_liste)
+
+
+!begin_node Bindings fr Pwait
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Pwait ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #265,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #2,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

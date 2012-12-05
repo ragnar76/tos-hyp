@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, IMAC
+
+(!B)Bootsector guardian(!b)
+
+Status: PD.
+
+!end_node
+
+!else
+
+!begin_node Cookie, IMAC
+
+(!B)Bootsektor-W„chter(!b)
+
+Status: PD.
+
+!end_node
+
+!endif
+ 

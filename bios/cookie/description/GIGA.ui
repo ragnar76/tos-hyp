@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, GIGA
+
+(!B)GIGA-BOX ST driver(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, GIGA
+
+(!B)GIGA-BOX ST driver(!b)
+
+!end_node
+
+!endif
+ 

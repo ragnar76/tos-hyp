@@ -1,0 +1,93 @@
+!iflang [english]
+
+
+!begin_node 
+(!begin_liste) [Availability]
+
+!item [Name:]
+
+!item [Opcode:]
+
+!item [Syntax:]
+
+
+!item [Description:]
+
+!item [(!nolink [Return]) Value:]
+
+!item [Availability:]
+
+!item [Group:]
+
+!item [See Also:]
+(!link [Binding] [Bindings for ]) ~
+
+(!ende_liste)
+
+
+!begin_node
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+
+!item [Assembler:]
+
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node 
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+
+!item [Opcode:]
+
+!item [Deklaration:]
+
+
+!item [Beschreibung:]
+
+!item [Ergebnis:]
+
+!item [VerfÅgbar:]
+
+!item [Gruppe:]
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr ]) ~
+
+(!ende_liste)
+
+
+!begin_node 
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+
+!item [Assembler:]
+!item [Umsetzung:]
+!item [GEM-Arrays:]
+
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif
+
+
+
+
+
+!iflang [english]
+
+!else
+
+!endif
+
+

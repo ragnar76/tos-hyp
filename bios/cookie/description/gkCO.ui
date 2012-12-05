@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, gkCO
+
+Calamus interface module ((!B)gkCO(!b))
+
+Affects mouse button routine (via (!nolink [VDI:]) vex_butv), and mouse movement 
+(via (!nolink [VDI:]) vex_motv).
+
+!end_node
+
+!else
+
+!begin_node Cookie, gkCO
+
+Calamus OberflÑchenmodul ((!B)gkCO(!b))
+
+Mausknopfroutine (Åber (!nolink [VDI:]): vex_butv)  und
+Mausbewegung (Åber (!nolink [VDI:]): vex_motv)).
+
+!end_node
+
+!endif
+ 

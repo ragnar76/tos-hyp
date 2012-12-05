@@ -1,0 +1,34 @@
+!iflang [english]
+
+!begin_node Cookie, zDCF
+
+(!B)DCF_TIME(!b) receiver
+
+The program decodes the signals of a DCF77 radio receiver in the 
+background. 
+
+Uses vectors: TRAP #1, TRAP #14, joyvec (Kbdvbase), Resetvector (if the
+cookie jar is (!nolink [installed]) anew).
+
+Status: Freeware
+
+!end_node
+
+!else
+
+!begin_node Cookie, zDCF
+
+(!B)DCF_TIME(!b)
+
+Das Programm decodiert im Hintergrund die Signale eines 
+DCF77-Empf„ngers.
+
+Benutzte Vektoren: TRAP #1, TRAP #14, joyvec (Kbdvbase), 
+Resetvektor (falls Cookie Jar neu installiert).
+
+Status: Freeware
+
+!end_node
+
+!endif
+ 

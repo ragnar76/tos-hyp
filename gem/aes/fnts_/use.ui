@@ -1,0 +1,135 @@
+!iflang [english]
+
+!begin_node Font selector in a window
+
+(!begin_liste) !short [Closing the font selector:]
+
+!item [Program start:]
+fnts_create()
+(!nl)
+.
+
+!item [Calling the font selector:]
+fnts_open()
+(!nl)
+.
+
+!item [Event loop:]
+fnts_evnt()
+(!nl)
+.
+(!nl)              
+......Possibly fnts_get_no_styles()/fnts_get_style()/...
+(!nl)
+(depending on the status of the checkboxes)
+(!nl)
+.                                  
+
+!item [Closing the font selector:]
+fnts_close()
+(!nl)
+.
+
+!item [Program end:]
+fnts_delete()
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Font selector in a modal dialog
+
+(!begin_liste) !short [Calling the font selector:]
+
+!item [Program start:]
+fnts_create()
+(!nl)
+.
+
+!item [Calling the font selector:]
+fnts_do()
+(!nl)
+.
+(!nl)
+
+......Possibly fnts_get_no_styles()/fnts_get_style()/...
+(!nl)
+(depending on status of the checkboxes)
+(!nl)
+.
+
+!item [Program end:]
+fnts_delete()
+
+(!ende_liste)
+!end_node
+
+!else
+
+!begin_node Zeichensatzauswahl im Fenster
+
+(!begin_liste) !short [Schliežen der Fontauswahl:]
+
+!item [Programmstart:]
+fnts_create()
+(!nl)
+.
+
+!item [Aufruf der Fontauswahl:]
+fnts_open()
+(!nl)
+.
+
+!item [Event-Loop:]
+fnts_evnt()
+(!nl)
+.
+(!nl)              
+......evtl. fnts_get_no_styles()/fnts_get_style()/...
+(!nl)
+(je nach Status der Checkboxen)
+(!nl)
+.                                  
+
+!item [Schliežen der Fontauswahl:]
+fnts_close()
+(!nl)
+.
+
+!item [Programmende:]
+fnts_delete()
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Zeichensatzauswahl als Dialog
+
+(!begin_liste) !short [Aufruf der Fontauswahl:]
+
+!item [Programmstart:]
+fnts_create()
+(!nl)
+.
+
+!item [Aufruf der Fontauswahl:]
+fnts_do()
+(!nl)
+.
+(!nl)
+
+......evtl. fnts_get_no_styles()/fnts_get_style()/...
+(!nl)
+(je nach Status der Checkboxen)
+(!nl)
+.
+
+!item [Programmende:]
+fnts_delete()
+
+(!ende_liste)
+!end_node
+
+!endif

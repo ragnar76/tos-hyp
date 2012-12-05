@@ -1,0 +1,172 @@
+!iflang [english]
+
+!begin_node lbox_free_items
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box free itemsÆ - Release items list.
+
+!item [Opcode:]
+175 (sub-opcode 2)
+
+!item [Syntax:]
+void lbox_free_items ( LIST_BOX *box );
+
+!item [Description:]
+The call lbox_free_items frees the memory used for the chained list from
+LBOX_ITEM. The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+!end_table
+
+(!B)Hint:(!b) A prerequisite for this is that memory was allocated with Malloc
+for each item of the list.
+
+If custom memory management was used for LBOX_ITEM (e.g. the C standard
+functions), then a custom function must also be called to free the memory.
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_free_items]) ~ lbox_free_list ~
+lbox_delete
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_free_items
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_free_items ( LIST_BOX *box );
+
+!item [Binding:]
+!begin_verbatim
+void lbox_free_items ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 2;
+
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 175   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 2     # Sub-opcode
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_free_items
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Free ItemsÆ - Elementliste freigeben.
+
+!item [AES-Nummer:]
+175 (Unterfunktion 2)
+
+!item [Deklaration:]
+void lbox_free_items ( LIST_BOX *box );
+
+!item [Beschreibung:]
+Die Funktion gibt den Speicherplatz fÅr die Elemente der Listbox zurÅck. Es
+gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+!end_table
+
+(!B)Hinweis:(!b) Voraussetzung fÅr die vollstÑndige Freigabe des
+Speicherplatzes ist, daû fÅr jedes Listenelement der Speicher mit Malloc
+angefordert wurde.
+
+Wurde hingegen eine eigene Speicherverwaltung benutzt (z.B. die der
+C-Standard-Library), so muû auch eine eigene Funktion zum Freigeben des
+Speichers aufgerufen werden.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7])
+(Opcode 7) festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_free_items]) ~ lbox_free_list ~ lbox_delete
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_free_items
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_free_items ( LIST_BOX *box );
+
+!item [Umsetzung:]
+!begin_verbatim
+void lbox_free_items ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 2;
+
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 175   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 2     # Unterfunktion
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, oVDI
+
+(!B)oVDI(!b) - Alternative driver for the NOVA-VDI
+
+Status: not yet published
+
+!end_node
+
+!else
+
+!begin_node Cookie, oVDI
+
+oVDI - alternative Treiber fÅr das NOVA-VDI
+
+Status: noch nicht verîffentlich
+
+!end_node
+
+!endif
+ 

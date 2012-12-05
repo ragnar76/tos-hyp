@@ -1,0 +1,166 @@
+!iflang [english]
+
+!begin_node lbox_free_list
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box free item listÆ - Release items list.
+
+!item [Opcode:]
+175 (sub-opcode 3)
+
+!item [Syntax:]
+void lbox_free_list ( LBOX_ITEM *items );
+
+!item [Description:]
+The call lbox_free_list releases the memory used for the items of the list box.
+The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)items(!i) !! Pointer to linked list with LBOX_ITEM
+!end_table
+
+(!B)Hint:(!b)
+This functions works exactly the same as lbox_free_items. 
+In contrast to that however lbox_free_list is called with the pointer 
+on the first LBOX_ITEM of the list.
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_free_list]) ~ lbox_free_items ~ lbox_delete
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_free_list
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_free_list ( LBOX_ITEM *items );
+
+!item [Binding:]
+!begin_verbatim
+void lbox_free_list ( LBOX_ITEM *items )
+{
+   addr_in[0] = items;
+   int_in[0]  = 3;
+
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 175   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! items
+int_in    !! int_in[0]  !! 3     # Sub-opcode
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_free_list
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Free ItemlistÆ - Elementliste freigeben.
+
+!item [AES-Nummer:]
+175 (Unterfunktion 3)
+
+!item [Deklaration:]
+void lbox_free_list ( LBOX_ITEM *items );
+
+!item [Beschreibung:]
+Die Funktion gibt den Speicherplatz fÅr die Elemente der Listbox zurÅck. Es
+gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)items(!i) !! Zeiger auf eine verkettete Liste der EintrÑge
+!end_table
+
+(!B)Hinweis:(!b) Die Funktion arbeitet wie lbox_free_items. Im Gegensatz
+dazu wird diese Funktion aber mit einem Zeiger auf das erste Listenelement
+aufgerufen.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7])
+(Opcode 7) festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_free_list]) ~ lbox_free_items ~ lbox_delete
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_free_list
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_free_list ( LBOX_ITEM *items );
+
+!item [Umsetzung:]
+!begin_verbatim
+void lbox_free_list ( LBOX_ITEM *items )
+{
+   addr_in[0] = items;
+   int_in[0]  = 3;
+
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 175   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! items
+int_in    !! int_in[0]  !! 3     # Unterfunktion
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

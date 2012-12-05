@@ -1,0 +1,172 @@
+!iflang [english]
+
+!begin_node Malloc
+(!begin_liste) [Availability]
+!item [Name:]
+Ømemory allocationÆ - Reserve a block of memory or inquire free memory.
+
+!item [Opcode:]
+72
+
+!item [Syntax:]
+void *Malloc ( int32_t number );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Malloc reserves a block of memory for an
+application, or calculates the size of the largest free block of memory.
+The following applies for the parameter (!I)number(!i):
+!begin_xlist !short [Other]
+!item [Value]
+Meaning
+!item [~]
+~
+!item [-1]
+Get size of the largest available memory block
+!item [Other]
+Number of bytes to be reserved
+!end_xlist
+(!B)Note:(!b) One should never rely on the number of bytes actually
+allocated corresponding to the number requested. Constructs of the type
+Malloc(Malloc(-1L)) are simply out of the question in multitasking systems
+(catchword: Task-switching).
+
+Under TOS the GEMDOS supported only a limited number of memory blocks.
+For that reason, a programm should not often use the function,
+instead it reserve larger blocks (at least 16KBytes) and
+manage themselves.
+
+(!B)Furthermore one should note the following poins:(!b)
+!begin_itemize
+!item The memory block need not be empty.
+!item Memory blocks allocated consecutively need not necessarily be
+contiguous.
+!item Never access memory blocks that do not belong to one's own process.
+In systems with memory protection this would lead to an exception.
+!end_itemize
+In MagiC this call is implemented as Mxalloc with mode 0 or 3 (depending on
+the configuration bits in the program file header). The configuration bits
+are stored in the basepage at present.
+
+!item [(!nolink [Return]) value:]
+The function returns the start address of the reserved memory block. A
+NULL-pointer means that there is not enough memory available to fulfill the
+request. In the case of (!I)number(!i) = -1, the length of the largest
+available memory block will be returned.
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions. However, prior to (!nolink [GEMDOS])
+Version 0.15, Malloc( 0L ) will return a pointer to invalid memory instead
+of failing as it should.
+
+!item [Group:]
+Memory management
+
+!item [See also:]
+(!link [Bindings for Malloc] [Bindings for Malloc]) ~ Mfree ~ Mxalloc ~
+Maddalt ~ (!link [Program flags][The program flags])
+(!ende_liste)
+
+
+!begin_node Bindings for Malloc
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+void *Malloc ( int32_t number );
+
+!item [Assembler:]
+!begin_verbatim
+move.l    number,-(sp) ; Offset 2
+move.w    #72,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #6,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Malloc
+(!begin_liste) [Beschreibung]
+!item [Name:]
+Ømemory allocationÆ - Speicherplatz reservieren.
+
+!item [Gemdosnummer:]
+72
+
+!item [Deklaration:]
+void *Malloc ( int32_t number );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Malloc reserviert Speicherplatz, oder berechnet die
+Grîûe des verfÅgbaren Speichers. FÅr den Parameter (!I)number(!i) gilt:
+!begin_xlist !short [sonst]
+!item [Wert]
+Bedeutung
+!item [~]
+~
+!item [-1]
+LÑnge des grîûten verfÅgbaren Blocks ermitteln
+!item [sonst]
+Anzahl der zu reservierenden Bytes
+!end_xlist
+(!B)Hinweis:(!b) Man darf sich nie darauf verlassen, daû tatsÑchlich so
+viele Bytes wie gewÅnscht alloziert wurden. Konstruktionen der Art
+Malloc(Malloc(-1L)) sind besonders in Multitasking-Systemen schlicht
+indiskutabel (Stichwort: Task-Wechsel).
+
+Unter TOS untersÅtzt das GEMDOS nur eine begrenzte Anzahl von Speicherblîcke.
+Aus diesem Grund sollte man die Funktion nicht zu hÑÅfig innerhalb eines Programms
+nutzen, sondern grîûere Speicherblîcke (mindestens 16KBytes) reservieren und
+selbst verwalten.
+
+(!B)Ferner sollte man folgende Punkte beachten:(!b)
+!begin_itemize
+!item der Speicherblock muû nicht leer sein
+!item nacheinander allozierte Speicherblîcke mÅssen nicht zwingend
+zusammenhÑngen
+!item niemals auf Speicherbereiche zugreifen, der nicht dem eigenen Prozess
+gehîrt. In Systemen mit Speicherschutz kommt es sonst zu einer Exception.
+!end_itemize
+In MagiC wird dieser Aufruf auf Mxalloc mit den Modi 0 bzw. 3 zurÅckgefÅhrt
+(abhÑngig von den Konfigurationsbits im Programmdatei-Header). Die
+Konfigurationsbits werden z.Zt. in der Basepage abgelegt.
+
+!item [Ergebnis:]
+Die Funktion liefert als Ergebnis die Anfangsadresse des reservierten
+Bereichs. Ein Nullzeiger bedeutet, daû nicht mehr genÅgend Speicher zur
+VerfÅgung steht. Im Fall (!I)number(!i) = -1 wird die LÑnge des grîûten
+verfÅgbaren Speicherblocks zurÅckgegeben.
+
+!item [VerfÅgbar:]
+Alle GEMDOS Versionen. (!nolink [GEMDOS]) Versionen kleiner 0.15 liefern
+fÅr den Aufruf Malloc( 0L ) einen Zeiger auf ungÅltigen Speicher statt
+daû der Aufruf fehlschlÑgt wie er sollte.
+
+!item [Gruppe:]
+Speicherverwaltung
+
+!item [Querverweis:]
+(!link [Bindings fÅr Malloc] [Bindings fÅr Malloc]) ~ Mfree ~ Mxalloc ~
+Maddalt ~ (!link [Programmflags][Die Programmflags])
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Malloc
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+void *Malloc ( int32_t number );
+
+!item [Assembler:]
+!begin_verbatim
+move.l    number,-(sp) ; Offset 2
+move.w    #72,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #6,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

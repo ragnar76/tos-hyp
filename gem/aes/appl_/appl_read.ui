@@ -1,0 +1,182 @@
+!iflang [english]
+
+!begin_node appl_read
+(!begin_liste) [Availability]
+!item [Name:]
+¯Application read® - Receives a message from another application.
+               
+!item [Opcode:]
+11
+!item [Syntax:]
+int16_t appl_read ( int16_t ap_rid, int16_t ap_rlength, void *ap_rpbuff );
+
+!item [Description:]
+The call appl_read aids inter-process communication between processes running under
+the (!nolink [AES]). It will halt the running application until a sufficient number
+of bytes is available from the message pipe. The following apply:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [ap_rid]
+ID of the application from whose event buffer the data should be read
+!item [ap_rlength]
+Number of bytes to be read
+!item [ap_rpbuff]
+Address of the buffer in which the data is to be stored
+!end_xlist
+The function waits if necessary until the demanded number of bytes is actually
+available. In MagiC and MultiTOS the function has been extended in such a way
+that it returns immediately with a suitable message if no messages are waiting at
+present ((!I)ap_rid:(!i) -1).
+
+(!B)Note:(!b) appl_read works destructively, i.e. after the readout the messages are
+removed from the message-pipe. This makes it necessary to evaluate the read message
+in the same way as after a evnt_multi call, say.
+
+The presence of the extended features can be inquired with
+(!link [appl_getinfo][%apgi_6]) (opcode 6).
+                
+!item [(!nolink [Return]) value:]
+If a 0 is returned then an error has occurred, else a positive number is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Application library
+
+!item [See also:]
+(!link [Binding] [Bindings for appl_read]) ~ appl_init ~ appl_write ~
+evnt_mesag ~ evnt_multi
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for appl_read
+!ignore_index
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t appl_read ( int16_t ap_rid, int16_t ap_rlength, void *ap_rpbuff );
+!item [Binding:]
+!begin_verbatim
+int16_t appl_read (int16_t ap_rid, int16_t ap_rlength,
+                   void *ap_rpbuff)
+{
+   int_in[0]  = ap_rid;
+   int_in[1]  = ap_rlength;
+   addr_in[0] = ap_rpbuff;
+
+   return ( crys_if(11) );  
+} 
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element     !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 11    # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in !! int_in[0]  !! ap_rid
+int_in+2  !! int_in[1]  !! ap_rlength
+addr_in !! addr_in[0] !! ap_rpbuff
+int_out !! int_out[0] !! Return value
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node appl_read
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Application read® - empf„ngt eine Mitteilung einer anderen Applikation.
+!item [AES-Nummer:]
+11
+!item [Deklaration:]
+int16_t appl_read ( int16_t ap_rid, int16_t ap_rlength, void *ap_rpbuff );
+
+!item [Beschreibung:]
+Die Funktion liest eine Anzahl von Bytes aus der Message-Pipe. Es gilt:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [ap_rid]
+ID der Applikation, aus deren Ereignispuffer gelesen werden soll.
+!item [ap_rlength]
+Anzahl der zu lesenden Bytes
+!item [ap_rpbuff]
+Adresse des Puffers, in dem die Daten abgelegt werden sollen
+!end_xlist
+Die Funktion wartet ggfs. bis die angeforderte Anzahl an Bytes tats„chlich
+zur Verfgung steht. In MagiC und MultiTOS ist die Funktion so erweitert
+worden, da sie mit einer entsprechenden Meldung zurckkehrt, wenn keine
+Daten vorhanden sind ((!I)ap_rid:(!i) -1).
+
+(!B)Hinweis:(!b) appl_read arbeitet destruktiv, d.h. da Nachrichten nach
+dem Auslesen aus der Message-Pipe entfernt werden. Dies macht es notwendig,
+die gelesene Nachricht so auszuwerten, wie es beispielsweise nach einem
+evnt_multi-Aufruf geschieht.
+
+Das Vorhandensein des erweiterten Feature kann ber (!link [appl_getinfo][%apgi_6])
+(Opcode 6) abgefragt werden.
+!item [Ergebnis:]
+Wird eine Null zurckgegeben, so ist ein Fehler aufgetreten, sonst wird
+eine positive Zahl als Ergebnis zurckgegeben.
+
+!item [Verfgbar:]
+In allen (!nolink [AES]) Versionen.
+
+!item [Gruppe:]
+(!link [Applikationen][Applikationsfunktionen])
+!item [Querverweis:]
+(!link [Binding] [Bindings fr appl_read]) ~ appl_init ~ appl_write ~
+evnt_mesag ~  evnt_multi
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fr appl_read
+!ignore_index
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t appl_read ( int16_t ap_rid, int16_t ap_rlength, void *ap_rpbuff );
+!item [Umsetzung:]
+!begin_verbatim
+int16_t appl_read (int16_t ap_rid, int16_t ap_rlength,
+                   void *ap_rpbuff)
+{
+   int_in[0]  = ap_rid;
+   int_in[1]  = ap_rlength;
+   addr_in[0] = ap_rpbuff;
+
+   return ( crys_if(11) );  
+} 
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 11    # Opcode der Funktion
+control+2 !! control[1] !! 2     # Eintr„ge in int_in
+control+4 !! control[2] !! 1     # Eintr„ge in int_out
+control+6 !! control[3] !! 1     # Eintr„ge in addr_in
+control+8 !! control[4] !! 0     # Eintr„ge in addr_out
+int_in !! int_in[0]  !! ap_rid
+int_in+2  !! int_in[1]  !! ap_rlength
+addr_in !! addr_in[0] !! ap_rpbuff
+int_out !! int_out[0] !! Return-Wert
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, CKJR
+
+Installs an empty (!B)cookie jar(!b) ((!I)ST-Magazin(!i) 3/1990).
+
+Modifies the reset vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CKJR
+
+Installiert einen leeren (!B)Cookie Jar(!b) (!I)(ST-Magazin(!i) 3/1990).
+
+Verbiegt den  Reset-Vektor.
+
+!end_node
+
+!endif
+ 

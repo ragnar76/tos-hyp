@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, MM_2
+
+(!B)Midimaze 2(!b)
+
+Status: Shareware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MM_2
+
+(!B)Midimaze 2(!b)
+
+Status: Shareware.
+
+!end_node
+
+!endif
+ 

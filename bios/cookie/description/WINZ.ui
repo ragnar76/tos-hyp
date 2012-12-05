@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, WINZ
+
+(!B)Luftschož/WINZ RAMdisk(!b) (from the book (!I)Scheibenkleister(!i))
+
+!end_node
+
+!else
+
+!begin_node Cookie, WINZ
+
+(!B)Luftschož/WINZ-RAMdisk(!b) (aus dem Buch (!I)Scheibenkleister(!i))
+
+!end_node
+
+!endif
+ 

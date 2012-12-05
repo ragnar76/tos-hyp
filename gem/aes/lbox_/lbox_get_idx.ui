@@ -1,0 +1,169 @@
+!iflang [english]
+
+!begin_node lbox_get_idx
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØØList box get item indexÆ - Obtain index of an item.
+
+!item [Opcode:]
+174 (sub-opcode 9)
+
+!item [Syntax:]
+int16_t lbox_get_idx ( LBOX_ITEM *items, LBOX_ITEM *search );
+
+!item [Description:]
+The call lbox_get_idx returns the index of a given item of the list box. The
+following apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)items(!i) !! Pointer to the first item of the list
+(!I)search(!i) !! Pointer to the item to be found
+!end_table
+
+!item [(!nolink [Return]) value:]
+This function returns the index of the item. If the item is not an element of
+the list, the return value is -1.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_get_idx]) ~ lbox_get_item ~ lbox_get_first
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_get_idx
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_idx ( LBOX_ITEM *items, LBOX_ITEM *search );
+
+!item [Binding:]
+!begin_verbatim
+int16_t lbox_get_idx ( LBOX_ITEM *items, LBOX_ITEM *search )
+{
+   addr_in[0] = items;
+   addr_in[1] = search;
+   int_in[0]  = 9;
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 174   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! items
+addr_in+4 !! addr_in[1] !! search
+int_in    !! int_in[0]  !! 9     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_get_idx
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Get Item IndexÆ - Index eines Elementes ermitteln.
+
+!item [AES-Nummer:]
+174 (Unterfunktion 9)
+
+!item [Deklaration:]
+int16_t lbox_get_idx ( LBOX_ITEM *items, LBOX_ITEM *search );
+
+!item [Beschreibung:]
+Die Funktion liefert den Index eines bestimmten Elements der Listbox zurÅck.
+Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)items(!i) !! Zeiger auf erstes Listenelement
+(!I)search(!i) !! Zeiger auf zu suchendes Element
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert den Index des Elementes zurÅck, bzw. den Wert -1, falls
+das angegebene Element nicht in der Liste ist.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7])
+(Opcode 7) festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_get_idx]) ~ lbox_get_item ~ lbox_get_first
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_get_idx
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_idx ( LBOX_ITEM *items, LBOX_ITEM *search );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t lbox_get_idx ( LBOX_ITEM *items, LBOX_ITEM *search )
+{
+   addr_in[0] = items;
+   addr_in[1] = search;
+   int_in[0]  = 9;
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 174   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! items
+addr_in+4 !! addr_in[1] !! search
+int_in    !! int_in[0]  !! 9     # Unterfunktion
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

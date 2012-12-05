@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, GMNI
+
+(!B)GEMINI(!b) - The shareware desktop (cookie only in old versions)
+
+!end_node
+
+!else
+
+!begin_node Cookie, GMNI
+
+(!B)GEMINI(!b) - Der Shareware-Desktop (Cookie nur alten Versionen).
+
+!end_node
+
+!endif
+ 

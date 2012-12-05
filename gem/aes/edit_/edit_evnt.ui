@@ -1,0 +1,219 @@
+!iflang [english]
+
+!begin_node edit_evnt
+(!begin_liste) [Availability]
+!item [Name:]
+¯Edit object event® - Process editable object
+!item [Opcode:]
+215
+!item [Syntax:]
+int16_t edit_evnt ( OBJECT *tree, int16_t obj, int16_t whdl,
+                 EVNT *events, int32_t *errcode );
+
+!item [Description:]
+The call edit_evnt causes events, i.e. mouse clicks and key presses, to be
+forwarded to the editable object and processed by it if appropriate. When an
+event has been processed, the corresponding bit in the EVENT structure is
+cleared. The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [tree]
+RSC-tree of object
+!item [obj]
+Object index
+!item [whdl]
+Window handle or -1
+!item [events]
+EVENT structure as for wdlg_evnt, fnts_evnt; the events are processed by the
+dialog if they are intended for the associated window
+!item [errcode]
+Error code (-200 = text buffer full)
+!end_xlist
+
+
+!item [(!nolink [Return]) value:]
+The function returns the value 0 in case of error. The exact error-code in this
+case is stored in the variable (!I)errcode.(!i)
+
+!item [Availability:]
+As of MagiC 5.20 by means of a shared library.
+
+!item [Group:]
+Editable object functions
+
+!item [See also:]
+(!link [Binding] [Bindings for edit_evnt]) ~
+(!link [Keyboard codes][Keyboard codes for G_EDIT])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for edit_evnt
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t edit_evnt ( OBJECT *tree, int16_t obj, int16_t whdl,
+                 EVNT *events, int32_t *errcode );
+!item [Binding:]
+!begin_verbatim
+int16_t edit_evnt ( OBJECT *tree, int16_t obj, int16_t whdl,
+                 EVNT *events, int32_t *errcode )
+{
+   int_in[0]  = obj;
+   int_in[1]  = whdl;
+
+   addr_in[0] = tree;
+   addr_in[1] = events;
+
+   int_out[1] = 0;          /* fr alte SLB */
+   int_out[2] = 0;          /* fr alte SLB */
+
+   crys_if( 215 )
+
+   *errcode = int_out[1..2];
+   
+   
+   return ( int_out[0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 215   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 3     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! whdl
+addr_in   !! addr_in[0]  !! tree
+addr_in+4 !! addr_in[1]  !! events
+int_out   !! int_out[0]  !! Return value
+int_out+2 !! int_out[1..2] !! errcode
+!end_table
+(!ende_liste)
+
+The error-code (!I)errcode(!i) is present only as of Version 7 of the SLB;
+the binding in MT_AES ensures that old SLB versions always return
+NULLs. Vice versa, the new SLB versions recognize via (!nolink [contrl])[2]
+whether an error-code was requested.
+
+!end_node
+!end_node
+
+!else
+
+!begin_node edit_evnt
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Edit Object Event® - bernimmt die Bearbeitung eines Editobjektes.
+!item [AES-Nummer:]
+215
+!item [Deklaration:]
+int16_t edit_evnt ( OBJECT *tree, int16_t obj, int16_t whdl,
+                 EVNT *events, int32_t *errcode );
+
+!item [Beschreibung:]
+Events, d.h. Mausklicks und Tasten, werden an das Edit-Objekt bermittelt
+und von diesem ggf. verarbeitet. Wenn ein Ereignis verarbeitet wurde, wird
+das entsprechende Bit in der EVENT-Struktur gel”scht.
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [tree]
+RSC-Baum des Objekts
+!item [obj]
+Objektnummer
+!item [whdl]
+Fenster-Handle oder -1
+!item [events]
+EVENT-Struktur wie bei wdlg_evnt, fnts_evnt. Die Events werden vom Dialog
+verarbeitet, wenn sie fr das zugeh”rige Fenster bestimmt sind.
+!item [errcode]
+Fehlercode (-200 = Textpuffer voll)
+!end_xlist
+
+
+!item [Ergebnis:]
+Die Funktion liefert im Fehlerfall den Wert 0 zurck. Der genaue Fehlercode
+wird in diesem Fall in der Variablen errcode abgelegt.
+
+!item [Verfgbar:]
+ab MagiC 5.20 mittels SharedLibrary
+
+!item [Gruppe:]
+Editobjekt-Funktionen
+!item [Querverweis:]
+(!link [Binding] [Bindings fr edit_evnt]) ~
+(!link [Tastaturcodes][Tastaturcodes von G_EDIT])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fr edit_evnt
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t edit_evnt ( OBJECT *tree, int16_t obj, int16_t whdl,
+                 EVNT *events, int32_t *errcode );
+!item [Umsetzung:]
+!begin_verbatim
+int16_t edit_evnt ( OBJECT *tree, int16_t obj, int16_t whdl,
+                 EVNT *events, int32_t *errcode )
+{
+   int_in[0]  = obj;
+   int_in[1]  = whdl;
+
+   addr_in[0] = tree;
+   addr_in[1] = events;
+
+   int_out[1] = 0;          /* fr alte SLB */
+   int_out[2] = 0;          /* fr alte SLB */
+
+   crys_if( 215 )
+
+   *errcode = int_out[1..2];
+   
+   
+   return ( int_out[0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 215   # Opcode der Funktion
+control+2 !! control[1] !! 2     # Eintr„ge in int_in
+control+4 !! control[2] !! 3     # Eintr„ge in int_out
+control+6 !! control[3] !! 2     # Eintr„ge in addr_in
+control+8 !! control[4] !! 0     # Eintr„ge in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! whdl
+addr_in   !! addr_in[0]  !! tree
+addr_in+4 !! addr_in[1]  !! events
+int_out   !! int_out[0]  !! Retrurn-Wert
+int_out+2 !! int_out[1..2] !! errcode
+!end_table
+(!ende_liste)
+
+Der Fehlercode (!I)errcode(!i) ist erst ab Version 7 vorhanden, das Binding
+sollte dafr sorgen, da alte SLB-Versionen immer Nullen liefern. Umgekehrt
+erkennen neue SLB-Versionen per (!nolink [contrl])[2], ob ein Fehlercode
+angefordert wurde.
+
+!end_node
+!end_node
+
+!endif

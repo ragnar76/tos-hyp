@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, COLO
+
+(!B)Colos(!b)
+
+Mono -> colour converter.
+
+Distributor: ASH.
+
+!end_node
+
+!else
+
+!begin_node Cookie, COLO
+
+(!B)Colos(!b)
+
+Mono->Color-Converter
+
+Vertrieb :ASH
+
+!end_node
+
+!endif
+ 

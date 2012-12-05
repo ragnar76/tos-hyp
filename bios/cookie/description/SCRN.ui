@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SCRN
+
+(!B)Master-module screen.mmx(!b) - Setting of screen scrolling regions
+
+!end_node
+
+!else
+
+!begin_node Cookie, SCRN
+
+(!B)Master-Modul screen.mmx(!b) - Setzen von Scrolling-Regions
+
+!end_node
+
+!endif
+ 

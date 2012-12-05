@@ -1,0 +1,45 @@
+!iflang [english]
+
+!begin_node tchars
+!html_name tchars
+
+!begin_verbatim
+struct tchars
+{
+    int8_t t_intrc;
+    int8_t t_quitc;
+    int8_t t_startc;
+    int8_t t_stopc;
+    int8_t t_eofc;
+    int8_t t_brkc;
+};
+!end_verbatim
+
+See also: struct tty ~
+(!link [XFS-concept in MagiC][MagiC's XFS-concept])
+
+!end_node
+
+!else
+
+!begin_node tchars
+!html_name tchars
+
+!begin_verbatim
+struct tchars
+{
+    int8_t t_intrc;
+    int8_t t_quitc;
+    int8_t t_startc;
+    int8_t t_stopc;
+    int8_t t_eofc;
+    int8_t t_brkc;
+};
+!end_verbatim
+
+Querverweis: struct tty ~
+(!link [XFS-Konzept in MagiC][Das XFS-Konzept von MagiC])
+
+!end_node
+
+!endif

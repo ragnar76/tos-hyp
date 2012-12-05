@@ -1,0 +1,183 @@
+!iflang [english]
+
+!begin_node pdlg_validate_settings
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØPrint dialog - Validate settingsÆ - Validates the printer settings.
+
+!item [Opcode:]
+205 (sub-opcode 8)
+
+!item [Syntax:]
+int16_t pdlg_validate_settings ( PRN_DIALOG *prn_dialog,
+                              PRN_SETTINGS *settings );
+
+!item [Description:]
+The call pdlg_validate_settings validates the printer settings that were set
+with pdlg_new_settings. The following apply:
+
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)prn_dialog(!i) !! Pointer to management structure
+(!I)settings(!i) !! Printer settings
+!end_table
+
+(!B)Note:(!b) Faulty structure contents will be corrected by the function if
+necessary.
+
+!item [(!nolink [Return]) value:]
+The function returns the value 1 if it operates correctly, else the value 0 in
+case of error.
+
+!item [Availability:]
+The presence of this function can be checked with (!link [appl_getinfo][%apgi_7])
+(opcode 7).
+
+!item [Group:]
+Print dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for pdlg_validate_settings]) ~  WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for pdlg_validate_settings
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_validate_settings ( PRN_DIALOG *prn_dialog,
+                              PRN_SETTINGS *settings );
+
+!item [Binding:]
+!begin_verbatim
+int16_t pdlg_validate_settings ( PRN_DIALOG *prn_dialog,
+                                 PRN_SETTINGS *settings )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = settings;
+
+   int_in[0] = 8;
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 205   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! settings
+int_in    !! int_in[0]  !! 8     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node pdlg_validate_settings
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØPrint Dialog - Validate SettingsÆ - öberprÅfung der Druckereinstellungen.
+
+!item [AES-Nummer:]
+205 (Unterfunktion 8)
+
+!item [Deklaration:]
+int16_t pdlg_validate_settings ( PRN_DIALOG *prn_dialog,
+                              PRN_SETTINGS *settings );
+
+!item [Beschreibung:]
+Die Funktion ÅberprÅft die angegebenen Druckereinstellungen.
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)prn_dialog(!i) !! Zeiger auf Verwaltungsstruktur
+(!I)settings(!i) !! Zeiger auf Druckereinstellungen
+!end_table
+
+(!B)Hinweis:(!b) Fehlerhafte Strukturinhalte werden von der Funktion ggfs.
+korrigiert.
+
+!item [Ergebnis:]
+Die Funktion liefert bei korrekter AusfÅhrung den Wert 1, und im Fehlerfall
+den Wert 0 zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Druckdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr pdlg_validate_settings]) ~  WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr pdlg_validate_settings
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_validate_settings ( PRN_DIALOG *prn_dialog,
+                              PRN_SETTINGS *settings );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t pdlg_validate_settings ( PRN_DIALOG *prn_dialog,
+                                 PRN_SETTINGS *settings )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = settings;
+
+   int_in[0] = 8;
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 205   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! settings
+int_in    !! int_in[0]  !! 8     # Sub-Opcode
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,39 @@
+!iflang [english]
+
+!begin_node Cookie, LTMF
+
+(!B)LETEMFLY.PRG or LET_LGHT.PRG(!b) - Let 'em Fly!
+
+Replaces/extends almost all form_xxxx routines of the (!nolink [AES]). Thanks to 
+this many dialogs are now: a) flight-capable, b) operable via the 
+keyboard and c) provided with additional functions for editable 
+fields. Furthermore, the cookie jar will now offer a flying routine 
+for non-form_do dialogs.
+
+Modifies: TRAP #2 ((!nolink [AES/VDI])), TRAP #13 ((!nolink [BIOS])).
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, LTMF
+
+(!B)LETEMFLY.PRG bzw. LET_LGHT.PRG(!b) - Let 'em Fly!
+
+Ersetzt/erweitert fast alle form_xxxx 
+Routinen des (!nolink [AES]). Dadurch sind jetzt viele Dialoge a) flugfÑhig,
+b) Åber 
+die Tastatur zu bedienen und c) bei Edit-Feldern mit zusÑtzlichen 
+Funktionen ausgestattet. Weiterhin wird Åber den Cookie-Jar eine 
+Flugroutine fÅr non-form_do() Dialoge bereitgestellt.
+
+Verbiegt: TRAP #2 ((!nolink [AES/VDI])), TRAP #13 ((!nolink [BIOS])). 
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

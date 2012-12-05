@@ -1,0 +1,181 @@
+!iflang [english]
+
+!begin_node lbox_get_avisb
+!label lbox_get_visible
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box get number of visible items, Slider AÆ - Obtain number of visible
+items (slider A).
+
+!item [Opcode:]
+174 (sub-opcode 2)
+
+!item [Syntax:]
+int16_t lbox_get_avisb ( LIST_BOX *box );
+
+!item [Description:]
+The call lbox_get_avisb obtains the number of visible items of a list box for
+slider A. The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+The function returns the number of visible items for slider A.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_get_avisb]) ~ lbox_get_tree ~ lbox_get_first
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_get_avisb
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_avisb ( LIST_BOX *box );
+
+(!I)or(!i)
+
+int16_t lbox_get_visible ( ... );
+
+!item [Binding:]
+!begin_verbatim
+int16_t lbox_get_avisb ( LIST_BOX *box )
+
+(!I)or(!i)
+
+int16_t lbox_get_visible ( ... )
+{
+   addr_in[0] = box;
+   int_in[0]  = 2;
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 174   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 2     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_get_avisb
+!label lbox_get_visible
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Get Number Of Visible Items, Slider AÆ - Anzahl der sichtbaren
+Elemente ermitteln.
+
+!item [AES-Nummer:]
+174 (Unterfunktion 2)
+
+!item [Deklaration:]
+int16_t lbox_get_avisb ( LIST_BOX *box );
+
+!item [Beschreibung:]
+Die Funktion ermittelt die Anzahl der sichtbaren EintrÑge einer Listbox fÅr
+Slider-A. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert die Anzahl der sichtbaren EintrÑge der Listbox zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_get_avisb]) ~  lbox_get_tree  ~ lbox_get_first
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_get_avisb
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_avisb ( LIST_BOX *box );
+
+oder
+
+int16_t lbox_get_visible ( ... );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t lbox_get_avisb ( LIST_BOX *box )
+
+oder
+
+int16_t lbox_get_visible ( ... )
+{
+   addr_in[0] = box;
+   int_in[0]  = 2;
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 174   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 2     # Unterfunktion
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

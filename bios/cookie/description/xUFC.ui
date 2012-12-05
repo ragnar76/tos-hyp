@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, xUFC
+
+(!B)Extended Universal Font-Selector Configuration(!b) program
+
+!end_node
+
+!else
+
+!begin_node Cookie, xUFC
+
+(!B)Extended Universal Font-Selector Configuration(!b) program
+
+!end_node
+
+!endif
+ 

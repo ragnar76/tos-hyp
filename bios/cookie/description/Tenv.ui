@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, Tenv
+
+Belongs to terminal program (!B)TRAPIDO(!b) 
+
+Sets enviroment from the AUTO-folder.
+
+Modifies exec_os.
+
+!end_node
+
+!else
+
+!begin_node Cookie, Tenv
+
+Geh”rt zum Terminalprogramm (!B)TRAPIDO(!b)
+
+Setzt Enviroment aus AUTO-Ordner.
+
+Verbiegt exec_os.
+
+!end_node
+
+!endif
+ 

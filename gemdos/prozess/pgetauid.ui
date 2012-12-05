@@ -1,0 +1,89 @@
+!iflang [english]
+
+!begin_node Pgetauid
+(!begin_liste) [Availability]
+!item [Name:]
+¯Pgetauid® - Get user ID of a process at the start.
+!item [Opcode:]
+326 (0x0145)
+!item [Syntax:]
+int16_t Pgetauid ( void );
+
+!item [Description:]
+The function Pgetauid obtains the start user ID of the current process.
+Together with Psetauid one can use it in a multi-user environment to
+ascertain who was the first logged-in user.
+
+!item [(!nolink [Return]) value:]
+The return value is the start user ID of the process.
+
+!item [Availability:]
+From MiNT 1.11 onwards.
+
+!item [Group:]
+Process functions
+
+!item [See also:] (!link [Binding][Bindings for Pgetauid]) ~ Psetauid
+(!ende_liste)
+
+
+!begin_node Bindings for Pgetauid
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Pgetauid ( void );
+!item [Assembler:]
+!begin_verbatim
+move.w    #326,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #2,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Pgetauid
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Pgetauid® - User ID eines Prozesses zu Beginn ermitteln.
+!item [Gemdosnummer:]
+326 (0x0145)
+!item [Deklaration:]
+int16_t Pgetauid ( void );
+
+!item [Beschreibung:]
+Die Funktion ermittelt die Anfangs-User-ID des aktuellen Prozesses. Zusammen
+mit Psetauid kann damit in einer Multiuserumgebung festgestellt werden, wer
+der zuerst eingeloggte Benutzer war.
+
+!item [Ergebnis:]
+Der Rckgabewert ist die Anfangs-User-ID des Prozesses.
+
+!item [Verfgbar:]
+ab MiNT 1.11
+
+!item [Gruppe:]
+Prozessfunktionen
+
+!item [Querverweis:] (!link [Binding] [Bindings fr Pgetauid]) ~ Psetauid
+(!ende_liste)
+
+
+!begin_node Bindings fr Pgetauid
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Pgetauid ( void );
+!item [Assembler:]
+!begin_verbatim
+move.w    #326,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #2,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

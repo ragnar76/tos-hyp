@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, KyMp
+
+(!B)Keyboard Macro & Remapping utility(!b)
+
+Redirected vectors: kbdvbase->ikbdsys and etv_timer).
+
+Status: Public Domain.
+
+!end_node
+
+!else
+
+!begin_node Cookie, KyMp
+
+(!B)Keyboard Macro & Remapping Utility(!b)
+
+Verbogene Vektoren: kbdvbase->ikbdsys und etv_timer.
+
+Status: Public Domain.
+
+!end_node
+
+!endif
+ 

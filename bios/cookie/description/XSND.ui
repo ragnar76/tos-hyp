@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, XSND
+
+(!B)Digi-Sound(!b) - Digital sound generation via the operating system on 
+every ST/E and TT030
+
+Hooks into X(!nolink [BIOS]) and etv_term.
+
+!end_node
+
+!else
+
+!begin_node Cookie, XSND
+
+(!B)Digi-Sound(!b) - per Betriebsystem auf jedem ST/E und TT.
+
+H„ngt im XBIOS und etv_term
+
+!end_node
+
+!endif
+ 

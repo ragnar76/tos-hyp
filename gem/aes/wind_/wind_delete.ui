@@ -1,0 +1,142 @@
+!iflang [english]
+
+!begin_node wind_delete
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+¯Delete window® - Delete a window
+
+!item [Opcode:]
+103
+
+!item [Syntax:]
+int16_t wind_delete ( int16_t wi_dhandle );
+
+!item [Description:]
+The call wind_delete destroys the window with the ID (!I)wi_dhandle(!i) and
+releases the relevant window handle again, as well as releasing any memory
+allocated to it.
+
+(!B)Note:(!b) A window should be closed with wind_close before deleting it.
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Window library
+
+!item [See also:]
+(!link [Binding] [Bindings for wind_delete]) ~ wind_create ~ wind_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for wind_delete
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wind_delete ( int16_t wi_dhandle );
+
+!item [Binding:]
+!begin_verbatim
+int16_t wind_delete (int16_t wi_dhandle)
+{
+   int_in[0] = wi_dhandle;
+   return ( crys_if(103) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 103   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 0     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! wi_dhandle
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node wind_delete
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+¯Delete Window® - l”scht ein Fenster
+
+!item [AES-Nummer:]
+103
+
+!item [Deklaration:]
+int16_t wind_delete ( int16_t wi_dhandle );
+
+!item [Beschreibung:]
+Die Funktion l”scht das Fenster mit der Kennung (!I)wi_dhandle(!i) und gibt
+das entsprechende Windowhandle wieder frei.
+
+!item [Ergebnis:]
+Ein Fehler ist nur dann aufgeteten, wenn als Ergebnis 0 zurckgegeben wird.
+
+!item [Verfgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+Fensterverwaltung
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr wind_delete]) ~ wind_create ~ wind_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fr wind_delete
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wind_delete ( int16_t wi_dhandle );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t wind_delete (int16_t wi_dhandle)
+{
+   int_in[0] = wi_dhandle;
+   return ( crys_if(103) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 103   # Opcode der Funktion
+control+2 !! control[1] !! 1     # Eintr„ge in int_in
+control+4 !! control[2] !! 1     # Eintr„ge in int_out
+control+6 !! control[3] !! 0     # Eintr„ge in addr_in
+control+8 !! control[4] !! 0     # Eintr„ge in addr_out
+int_in    !! int_in[0]  !! wi_dhandle
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

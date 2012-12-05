@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, HAMM
+
+(!B)Software for 'Melody Maker'(!b)
+
+Modifies various timer vectors.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HAMM
+
+(!B)Software zum 'Melody Maker'(!b)
+
+Verbiegt verschiedene Timer-Vektoren.
+
+!end_node
+
+!endif
+ 

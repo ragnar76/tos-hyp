@@ -1,0 +1,61 @@
+!iflang [english]
+
+!begin_node SCRMEMBLK
+
+!label BLK_ERR
+!label BLK_OK
+!label BLK_CLEARED
+!begin_verbatim
+
+ #define BLK_ERR      0
+ #define BLK_OK       1
+ #define BLK_CLEARED  2
+
+typedef struct _scrblk
+{
+  int32_t size;              /* Size of strukture                  */
+  int32_t blk_status;        /* Status bits of blk                 */
+  int32_t blk_start;         /* Start adress                       */
+  int32_t blk_len;           /* Length of memblk                   */
+  int32_t blk_x;             /* X pos in total screen              */
+  int32_t blk_y;             /* Y pos in total screen              */
+  int32_t blk_w;             /* Width                              */
+  int32_t blk_h;             /* Height                             */
+  int32_t blk_wrap;          /* Width in bytes, from: 2000-01-13   */
+} SCRMEMBLK;
+!end_verbatim
+
+See also: Setscreen, Milan ~ Setscreen, ct60
+!end_node
+
+!else
+
+!begin_node SCRMEMBLK
+
+!label BLK_ERR
+!label BLK_OK
+!label BLK_CLEARED
+!begin_verbatim
+
+ #define BLK_ERR      0
+ #define BLK_OK       1
+ #define BLK_CLEARED  2
+
+typedef struct _scrblk
+{
+  int32_t size;              /* Size of strukture                  */
+  int32_t blk_status;        /* Status bits of blk                 */
+  int32_t blk_start;         /* Start adress                       */
+  int32_t blk_len;           /* Length of memblk                   */
+  int32_t blk_x;             /* X pos in total screen              */
+  int32_t blk_y;             /* Y pos in total screen              */
+  int32_t blk_w;             /* Width                              */
+  int32_t blk_h;             /* Height                             */
+  int32_t blk_wrap;          /* Width in bytes, from: 2000-01-13   */
+} SCRMEMBLK;
+!end_verbatim
+
+Querverweise: Setscreen, Milan ~ Setscreen, ct60
+!end_node
+
+!endif

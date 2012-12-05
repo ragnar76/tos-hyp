@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, LAWC
+
+(!B)Look-Ahead Write Cache(!b) V1.10
+
+This cache utility employs the look-ahead process for the reading 
+of sectors and a write-cache for writing.
+
+Used vectors: hdv_rw.
+
+!end_node
+
+!else
+
+!begin_node Cookie, LAWC
+
+(!B)Look-Ahead-Write-Cache(!b) V1.10
+
+Dieses Cache-Utility setzt zum Lesen von Sektoren das Look-Ahead-Verfahren
+und zum Schreiben einen Write-Cache ein.
+
+Benutzte Vektoren: hdv_rw.
+
+!end_node
+
+!endif
+ 

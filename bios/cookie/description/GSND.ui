@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, GSND
+
+(!B)(!nolink [GEM]) Sound(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, GSND
+
+(!B)(!nolink [GEM]) Sound(!b)
+
+!end_node
+
+!endif
+ 

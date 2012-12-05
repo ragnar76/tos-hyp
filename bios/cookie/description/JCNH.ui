@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, JCNH
+
+(!B)Hardcopy program(!b)
+
+Redirected: $100.
+
+!end_node
+
+!else
+
+!begin_node Cookie, JCNH
+
+(!B)Hardcopyprogramm(!b)
+
+Verbogen $100. 
+
+!end_node
+
+!endif
+ 

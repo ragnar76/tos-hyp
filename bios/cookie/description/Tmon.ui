@@ -1,0 +1,20 @@
+!iflang [english]
+
+!begin_node Cookie, Tmon
+!label Cookie, TMON
+
+(!B)Templemon(!b) - Indispensable debugger
+
+!end_node
+
+!else
+
+!begin_node Cookie, Tmon
+!label Cookie, TMON
+
+(!B)Templemon(!b) - Unverzichtbarer Debugger
+
+!end_node
+
+!endif
+ 

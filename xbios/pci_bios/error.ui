@@ -1,0 +1,85 @@
+!iflang [english]
+
+!begin_node PCI-BIOS Error codes
+
+The following error codes can be returned by the PCI BIOS functions:
+
+!label PCI_SUCCESSFUL
+!label PCI_FUNC_NOT_SUPPORTED
+!label PCI_BAD_VENDOR_ID
+!label PCI_DEVICE_NOT_FOUND
+!label PCI_BAD_REGISTER_NUMBER
+!label PCI_SET_FAILED
+!label PCI_BUFFER_TOO_SMALL
+!label PCI_GENERAL_ERROR
+!label PCI_BAD_HANDLE
+!begin_table [|l|l|] !hline
+0x00000000 !! PCI_SUCCESSFUL 
+0xFFFFFFFE !! PCI_FUNC_NOT_SUPPORTED 
+0xFFFFFFFD !! PCI_BAD_VENDOR_ID 
+0xFFFFFFFC !! PCI_DEVICE_NOT_FOUND 
+0xFFFFFFFB !! PCI_BAD_REGISTER_NUMBER 
+0xFFFFFFFA !! PCI_SET_FAILED 
+0xFFFFFFF9 !! PCI_BUFFER_TOO_SMALL 
+0xFFFFFFF8 !! PCI_GENERAL_ERROR 
+0xFFFFFFF7 !! PCI_BAD_HANDLE 
+!hline
+!end_table
+
+The following error codes are not returned by PCI BIOS functions directly,
+but are reserved for use by a library which uses these routines.
+
+!label PCI_BIOS_NOT_INSTALLED
+!label PCI_BIOS_WRONG_VERSION
+!begin_table [|l|l|] !hline
+0xFFFFF001 !! PCI_BIOS_NOT_INSTALLED 
+0xFFFFF000 !! PCI_BIOS_WRONG_VERSION 
+!hline
+!end_table
+
+!end_node 
+
+!else
+
+!begin_node PCI-BIOS Fehlercodes
+
+Die folgende Fehlercodes kînnen im Fehlerfall von den BIOS-Routinen
+zurÅckgeliefert werden.
+
+!label PCI_SUCCESSFUL
+!label PCI_FUNC_NOT_SUPPORTED
+!label PCI_BAD_VENDOR_ID
+!label PCI_DEVICE_NOT_FOUND
+!label PCI_BAD_REGISTER_NUMBER
+!label PCI_SET_FAILED
+!label PCI_BUFFER_TOO_SMALL
+!label PCI_GENERAL_ERROR
+!label PCI_BAD_HANDLE
+!begin_table [|l|l|] !hline
+0x00000000 !! PCI_SUCCESSFUL 
+0xFFFFFFFE !! PCI_FUNC_NOT_SUPPORTED 
+0xFFFFFFFD !! PCI_BAD_VENDOR_ID 
+0xFFFFFFFC !! PCI_DEVICE_NOT_FOUND 
+0xFFFFFFFB !! PCI_BAD_REGISTER_NUMBER 
+0xFFFFFFFA !! PCI_SET_FAILED 
+0xFFFFFFF9 !! PCI_BUFFER_TOO_SMALL 
+0xFFFFFFF8 !! PCI_GENERAL_ERROR 
+0xFFFFFFF7 !! PCI_BAD_HANDLE 
+!hline
+!end_table
+
+Die folgenden beiden Fehlercodes werden zwar nicht von den BIOS-Routinen
+selbst verwendet, sind aber fÅr eine PCI-Library reserviert.
+
+!label PCI_BIOS_NOT_INSTALLED
+!label PCI_BIOS_WRONG_VERSION
+!begin_table [|l|l|] !hline
+0xFFFFF001 !! PCI_BIOS_NOT_INSTALLED 
+0xFFFFF000 !! PCI_BIOS_WRONG_VERSION 
+!hline
+!end_table
+
+
+!end_node 
+
+!endif

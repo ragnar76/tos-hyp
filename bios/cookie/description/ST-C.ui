@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, ST-C
+
+(!B)ST-Cache(!b) - Caching program
+
+Modifies hdv_rw and hdv_mediach.
+
+!end_node
+
+!else
+
+!begin_node Cookie, ST-C
+
+(!B)ST-Cache(!b)
+
+Verbiegt hdv_rw und hdv_mediach.
+
+!end_node
+
+!endif
+ 

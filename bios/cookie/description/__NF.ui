@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, __NF
+
+(!B)Native features proposal(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, __NF
+
+(!B)Native features proposal(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,119 @@
+!iflang [english]
+
+!begin_node Tgetdate
+(!begin_liste) [Availability]
+!item [Name:]
+¯get date® - Obtain date.
+
+!item [Opcode:]
+42
+
+!item [Syntax:]
+uint32_t Tgetdate ( void );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Tgetdate obtains the current date.
+
+!item [(!nolink [Return]) value:]
+The function returns a uint32_t number with the date, which is coded as
+follows:
+!begin_xlist !short [Bits]
+!item [Bits]
+Meaning
+!item [~]
+~
+!item [0-4]
+Day (1-31)
+!item [5-8]
+Month (1-12)
+!item [9-15]
+Year (0-119, 0= 1980)
+!end_xlist
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions.
+
+!item [Group:]
+Date and Time
+
+!item [See also:]
+(!link [Binding][Bindings for Tgetdate]) ~ Tsetdate
+(!ende_liste)
+
+
+!begin_node Bindings for Tgetdate
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+uint32_t Tgetdate ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #42,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #2,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Tgetdate
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯get date® - Tagesdatum ermitteln.
+
+!item [Gemdosnummer:]
+42
+
+!item [Deklaration:]
+uint32_t Tgetdate ( void );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Tgetdate ermittelt das aktuelle Tagesdatum.
+
+!item [Ergebnis:]
+Die Funktion liefert als Ergebnis eine uint32_t-Zahl mit dem Tagesdatum. Das
+Datum ist wie folgt codiert:
+!begin_xlist !short [Bits]
+!item [Bits]
+Bedeutung
+!item [~]
+~
+!item [0-4]
+Tag (1-31)
+!item [5-8]
+Monat (1-12)
+!item [9-15]
+Jahr (0-119, 0= 1980)
+!end_xlist
+
+!item [Verfgbar:]
+Alle GEMDOS Versionen.
+
+!item [Gruppe:]
+Datum und Uhrzeit
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr Tgetdate]) ~ Tsetdate
+(!ende_liste)
+
+
+!begin_node Bindings fr Tgetdate
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+uint32_t Tgetdate ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #42,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #2,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

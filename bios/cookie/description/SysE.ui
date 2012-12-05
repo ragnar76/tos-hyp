@@ -1,0 +1,19 @@
+!iflang [english]
+
+!begin_node Cookie, SysE
+
+(!B)System Editor(!b) - Manages and inserts alterations into the operating 
+system
+
+!end_node
+
+!else
+
+!begin_node Cookie, SysE
+
+(!B)Systemeditor(!b) - Verwaltet und fÅgt énderungen ins Betriebssystem ein
+
+!end_node
+
+!endif
+ 

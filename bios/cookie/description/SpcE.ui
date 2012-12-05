@@ -1,0 +1,31 @@
+!iflang [english]
+
+!begin_node Cookie, SpcE
+
+(!B)Space(!b)
+ 
+Set by AUTO-folder program SPACERES.PRG, which is an alternative and 
+XControl-compatible multitasking control field.
+
+Modifies TRAP #2 ((!nolink [GEM])) and Trap #13 ((!nolink [BIOS])).
+
+Status: Shareware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SpcE
+
+(!B)Space(!b)
+
+Alternatives und XControl-kompatibles Multitasking-Kontrollfeld
+
+Verbiegt TRAP #2 ((!nolink [GEM])) und TRAP #13 ((!nolink [BIOS])).
+
+Status: Shareware.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,41 @@
+!iflang [english]
+
+!begin_node Cookie, MTft
+
+(!B)Trapper(!b) - AUTO-folder TSR
+
+Installs a function table for the (!nolink [BIOS]), X(!nolink [BIOS]),
+(!nolink [GEMDOS]) and (not yet 
+to date) (!nolink [AES]) which the TSRs can use to hook themelves in. 
+
+The cookie contains a pointer that enables accesses to various data 
+structures and various functions.
+
+Modifies TRAP #1, #13, #14 and (not yet) #2.
+
+Status: Version 1.0 is Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MTft
+
+(!B)Trapper(!b) - AUTO-Ordner-TSR
+
+Installiert fÅr (!nolink [BIOS]), X(!nolink [BIOS]), (!nolink [GEMDOS])
+und (bisher 
+noch nicht fÅr) (!nolink [AES]) eine Funktionstabelle, Åber die TSRs sich einfach 
+einhÑngen kînnen.
+
+Cookie enthÑlt Zeiger, der Zugriff auf Datenstruktur und 
+verschiedene Funktionen ermîglicht.
+
+Verbiegt Trap #1, #13, #14 und (noch nicht) #2.
+
+Version 1.0 ist Freeware.
+
+!end_node
+
+!endif
+ 

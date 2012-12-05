@@ -1,0 +1,189 @@
+!iflang [english]
+
+!begin_node fslx_getnxtfile
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØFile selectionX get next fileÆ - Obtains all further selected entries in the
+file-selector.
+
+!item [Opcode:]
+192
+
+!item [Syntax:]
+int16_t fslx_getnxtfile ( void *fsd, int8_t *fname );
+
+!item [Description:]
+The call fslx_getnxtfile otains all the further, selected entries in the
+file-selector. The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [fsd]
+Descriptor that was passed at a successful opening of a file-selector window
+!item [fname]
+Name of the obtained entry
+!end_xlist
+
+(!B)Note:(!b) If the flag GETMULTI was passed with fslx_do or fslx_open, then
+fslx_do or fslx_evnt will return in the parameter (!I)nfiles(!i) the number of
+files that are still selected in addition to the one in (!I)fname.(!i) One
+can call these further files with fslx_getnxtfile. Only after this may one call
+fslx_close.
+
+!item [(!nolink [Return]) value:]
+The function returns the value 0 if no further file is selected, else the value
+1 if one filename was still to be copied.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (opcode 7).
+
+!item [Group:]
+Extended file-selectors
+
+!item [See also:]
+(!link [Binding] [Bindings for fslx_getnxtfile]) ~ fslx_open ~ fslx_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for fslx_getnxtfile
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t fslx_getnxtfile ( void *fsd, int8_t *fname );
+
+!item [Binding:]
+!begin_verbatim
+int16_t fslx_getnxtfile ( void *fsd, int8_t *fname )
+{
+   addr_in[0] = fsd;
+   addr_in[1] = fname;
+
+   crys_if (192);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 192   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! fsd
+addr_in+4 !! addr_in[1] !! fname
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node fslx_getnxtfile
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØFile SelectionX GetNextFileÆ - ermittelt alle weiteren selektierten
+EintrÑge der (!nolink [Dateiauswahl]).
+
+!item [AES-Nummer:]
+192
+
+!item [Deklaration:]
+int16_t fslx_getnxtfile ( void *fsd, int8_t *fname );
+
+!item [Beschreibung:]
+Die Funktion ermittelt alle weiteren, selektierten EintrÑge der
+(!nolink [Dateiauswahl]). Es gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [fsd]
+Deskriptor, der beim ôffnen der Auswahl zurÅckgeliefert wurde
+!item [fname]
+Name des ermittelten Eintrags
+!end_xlist
+
+(!B)Hinweis:(!b) Wurde das Flag GETMULTI bei fslx_do oder fslx_open
+Åbergeben, wird durch (!nolink [fslx_do]) bzw. fslx_evnt im Parameter (!I)nfiles(!i) die
+Anzahl der Dateien zurÅckgegeben, die zusÑtzlich zu dem in (!I)fname(!i)
+zurÅckgegebenen noch selektiert sind. Man kann die weiteren Dateien mit
+fslx_getnxtfile abrufen. Erst danach darf man fslx_close aufrufen.
+
+!item [Ergebnis:]
+Die Funktion liefert den Wert 0, wenn keine weitere Datei ausgewÑhlt ist,
+bzw. den Wert 1, falls noch ein Dateiname kopiert wurde.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Fileselektoren
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr fslx_getnxtfile]) ~ fslx_open ~ fslx_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr fslx_getnxtfile
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t fslx_getnxtfile ( void *fsd, int8_t *fname );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t fslx_getnxtfile ( void *fsd, int8_t *fname )
+{
+   addr_in[0] = fsd;
+   addr_in[1] = fname;
+
+   crys_if (192);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 192   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! fsd
+addr_in+4 !! addr_in[1] !! fname
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

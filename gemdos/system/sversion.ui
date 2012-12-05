@@ -1,0 +1,199 @@
+!iflang [english]
+
+!begin_node Sversion
+!label GEMDOS, Version number
+!label Version number of the GEMDOS
+(!begin_liste) [Availability]
+!item [Name:]
+ØOperating system versionÆ - Obtain the number of the current
+(!nolink [GEMDOS]) version.
+
+!item [Opcode:]
+48
+
+!item [Syntax:]
+uint16_t Sversion ( void );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Sversion obtains the version number of the
+(!nolink [GEMDOS]). At the present time, the following versions are known:
+!begin_xlist [Version]
+!item [Version]
+Explanation
+!item [0.13]
+Found in (!nolink [TOS]) 1.00 and 1.02. This version distinguishes itself
+with several errors, so should not be used any more.
+!item [0.14]
+Number of the Turbo-DOS, which was issued for a short time by Atari with
+hard drives. Fast, but also very unsafe. KAOS 1.2.x also has this version
+number.
+!item [0.15]
+Found in (!nolink [TOS]) 1.04 and 1.06. This version is relatively fast and
+stable.
+!item [0.16]
+KAOS 1.4.x
+!item [0.17]
+Found in (!nolink [TOS]) 1.62. The difference from version 0.15 lies only in
+the fact that the patch program POOLFIX3.PRG is no longer required.
+!item [0.19]
+Normally found in (!nolink [TOS]) 2.01, 2.05, 2.06, 3.01, 3.05, 3.06. This
+version was mainly extended by functions for managing alternate memory, and
+is also reported by (!nolink [MagiC]) up to Version 6.10.
+!item [0.20]
+(!nolink [TOS]) 2.06 up to 2.95 and (!nolink [TOS]) 3.06 have the
+(!nolink [GEMDOS]) version 0.20. Only change known so far: Media with only
+one FAT are supported.(!nl)
+!item [0.30]
+(!nolink [TOS]) 4.00 bis 4.04, also MultiTOS 1.00 and 1.08.
+
+!item [0.31] Milan-(!nolink [TOS]) 4.05. Mxalloc ignores bit 2 to 15 of
+mode.
+# Source: Mail from Michael Schwingen in Maus.Computer.Atari.Programmieren
+#         <199811051051.a48943@ac2.maus.de>
+
+!item [0.32] Milan-(!nolink [TOS]) 4.08, Release 08.07.1999
+ 
+!item [0.33] Milan-(!nolink [TOS]) 4.08, Release 15.06.2001
+
+!item [0.40] FreeMiNT
+!end_xlist
+!item [(!nolink [Return]) value:]
+The function returns the named version number, in the following manner:
+!begin_xlist !short [High byte :]
+!item [Low byte :]
+(!nolink [Main]) version number
+!item [High byte :]
+Minor version number
+!end_xlist
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions.
+
+!item [Group:]
+System functions
+
+!item [See also:]
+(!link [Binding] [Bindings for Sversion]) ~ Sysconf ~ TOS list
+(!ende_liste)
+
+# Quelle: Im ST-Computer 1/90 S. 122 stehen ganz andere Werte?
+# Quelle: Im ST-Magazin  xxxx S. 66 stehen ganz andere Werte?
+
+
+!begin_node Bindings for Sversion
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+uint16_t Sversion ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #48,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #2,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Sversion
+!label GEMDOS, Versionsnummer
+!label Versionsnummer des GEMDOS
+(!begin_liste) [Beschreibung]
+!item [Name:]
+Øoperating system versionÆ - ermittelt die Nummer der
+(!nolink [GEMDOS])-Version.
+
+!item [Gemdosnummer:]
+48
+
+!item [Deklaration:]
+uint16_t Sversion ( void );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Sversion ermittelt die Versionsnummer des
+(!nolink [GEMDOS]). Zur Zeit sind folgende Versionen bekannt:
+!begin_xlist [Version]
+!item [Version]
+ErklÑrung
+
+!item [0.13]
+Findet sich in TOS 1.00 und 1.02. Diese Version zeichnet sich durch etliche
+Fehler aus, sollte daher nicht mehr benutzt werden.
+!item [0.14]
+Nummer des Turbo-DOS, welches fÅr eine kurze Zeit von Atari mit Festplatten
+ausgeliefert wurde. Schnell, aber auch sehr unsicher. Auch KAOS 1.2.x
+besitzt diese Versionsnummer
+!item [0.15]
+Findet sich in TOS 1.04 und 1.06. Diese Version ist relativ schnell und
+stabil.
+!item [0.16]
+KAOS 1.4.x
+!item [0.17]
+Findet sich in TOS 1.62. Der Unterschied zur Version 0.15 liegt lediglich
+darin, daû das Patchprogramm POOLFIX3.PRG nicht mehr benîtigt wird.
+!item [0.19]
+Findet sich in (!nolink [TOS]) 2.01, 2.05, 2.06, 3.01, 3.05, 3.06. Diese
+Version wurde im wesentlichen um Funktionen zur Verwaltung des
+Alternate-Memory erweitert, und wird auch von (!nolink [MagiC]) bis Version
+6.10 angezeigt.
+!item [0.20]
+TOS 2.06 bis TOS 2.095 und TOS 3.06 haben die (!nolink [GEMDOS])-Version
+0.20. Einzige bislang bekannte énderung: Medien mit nur einer FAT werden
+unterstÅtzt.(!nl)
+(!nolink [MagiC]) 6.20 gibt ebenfalls 0.20 zurÅck.
+!item [0.30]
+TOS 4.00 bis 4.04, auch MultiTOS 1.00 und 1.08.
+
+!item [0.31] Milan-TOS 4.05. Mxalloc() ignoriert Bit 2 bis 15 von mode.
+# Source: Mail from Michael Schwingen in Maus.Computer.Atari.Programmieren
+#         <199811051051.a48943@ac2.maus.de>
+
+!item [0.32] Milan-TOS 4.08, Release 08.07.1999
+ 
+!item [0.33] Milan-TOS 4.08, Release 15.06.2001
+
+!item [0.40] FreeMiNT
+!end_xlist
+!item [Ergebnis:]
+Die Funktion liefert die genannte Versionsnummer, und zwar wie folgt:
+!begin_xlist !short [High-Byte :]
+!item [Low-Byte :]
+Haupt-Versionsnummer
+!item [High-Byte :]
+Neben-Versionsnummer
+!end_xlist
+
+!item [VerfÅgbar:]
+Alle (!nolink [GEMDOS]) Versionen
+
+!item [Gruppe:]
+Systemfunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Sversion]) ~ Sysconf ~ TOS Liste
+(!ende_liste)
+
+# Quelle: Im ST-Computer 1/90 S. 122 stehen ganz andere Werte?
+# Quelle: Im ST-Magazin  xxxx S. 66 stehen ganz andere Werte?
+
+
+!begin_node Bindings fÅr Sversion
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+uint16_t Sversion ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #48,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #2,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

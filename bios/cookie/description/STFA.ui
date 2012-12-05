@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, STFA
+
+(!B)Sound driver for Atari(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, STFA
+
+(!B)Sound Treiber fÅr Atari(!b)
+
+!end_node
+
+!endif
+ 

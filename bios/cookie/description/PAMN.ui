@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, PAMN
+
+(!B)Driver software for PAM's-Net(!b) network
+
+!end_node
+
+!else
+
+!begin_node Cookie, PAMN
+
+(!B)Treibersoftware zum PAM's-Net(!b).
+
+!end_node
+
+!endif
+ 

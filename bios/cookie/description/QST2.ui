@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, QST2
+
+(!B)Quick ST 2(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, QST2
+
+(!B)Quick ST 2(!b)
+
+!end_node
+
+!endif
+ 

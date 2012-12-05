@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, NTK4
+
+(!B)NTK4(!b) - Falcon MOD player
+
+!end_node
+
+!else
+
+!begin_node Cookie, NTK4
+
+(!B)NTK4(!b) - Falcon MOD player
+
+!end_node
+
+!endif
+ 

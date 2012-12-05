@@ -1,0 +1,32 @@
+!iflang [english]
+
+!begin_node Cookie, MSPO
+
+(!B)MS_SPOOL.PRG(!b) - Magic Spooler
+
+Printer spooler, print to file, swap to disk.
+
+Modified vectors: (!nolink [BIOS]), busy_int, hz_200, resvector, prv_lsto, 
+prv_lst, vbl_slot.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MSPO
+
+(!B)MS_SPOOL.PRG(!b) - MagicSpooler
+
+Druckerspooler, Drucken in Datei, Swappen auf Disk.
+
+Vektoren, die verbogen werden: (!nolink [BIOS]), BUSY_INT, HZ_200, 
+RESVECTOR, PRV_LSTO, PRV_LST, VBL_SLOT.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

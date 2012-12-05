@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, LoSe
+
+(!B)SER-LOG (!b) - Logs output from and to the modem.
+
+Alters xconin and xconout for AUX.
+
+!end_node
+
+!else
+
+!begin_node Cookie, LoSe
+
+(!B)SER-LOG (!b) - Protokolliert Ausgaben von und an das Modem.
+
+VerÑndert xconin und xconout fÅr AUX.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, MUPF
+
+(!B)Mupfel(!b) - Unix-like shell, up to Version 1.2x
+
+!end_node
+
+!else
+
+!begin_node Cookie, MUPF
+
+(!B)Mupfel(!b) - Unix-Shell, bis Version 1.2x
+
+!end_node
+
+!endif
+ 

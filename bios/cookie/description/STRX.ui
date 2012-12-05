@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, STRX
+
+(!B)SAT-Trax(!b)
+
+Driver for controlling antenna positioning in a satellite observation 
+program.
+
+!end_node
+
+!else
+
+!begin_node Cookie, STRX
+
+(!B)SAT-Trax(!b)
+
+Treiber fÅr Antennensteuerung in einem Satellitenbeobachtungsprogramm.
+
+!end_node
+
+!endif
+ 

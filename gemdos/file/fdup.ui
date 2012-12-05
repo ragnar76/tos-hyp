@@ -1,0 +1,166 @@
+!iflang [english]
+
+
+!begin_node Fdup
+(!begin_liste) [Availability]
+!item [Name:]
+¯File duplicate® - Duplicate a file handle.
+
+!item [Opcode:]
+69
+
+!item [Syntax:]
+int16_t Fdup ( int16_t handle );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Fdup duplicates a standard file handle (0-5)
+and assigns it a new handle (>6) for a standard channel. The following
+apply:
+
+!begin_xlist !short [handle]
+!item [handle]
+Meaning
+!item [~]
+~
+!item [0]
+Keyboard (stdin:)
+!item [1]
+Screen (stdout:)
+!item [2]
+Serial port (stdaux:)
+!item [3]
+Parallel port (stdprn:)
+!end_xlist
+
+(!B)Note:(!b) In all known (!nolink [GEMDOS]) versions (up to and including
+0.19) errors occur if, after an Fdup, a program is started with Pexec. As of
+MagiC 4, one can also use this function to the device files -1, -2, -3
+(system (!nolink [global])) and -4 (NULL device).
+
+!item [(!nolink [Return]) value:]
+The function returns the following results:
+
+!begin_xlist !short [Otherwise :]
+!item [ENHNDL :]
+No more handles available.
+!item [EIHNDL :]
+Incorrect file handle.
+!item [Otherwise :]
+The desired new handle.
+!end_xlist
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions.
+
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding][Bindings for Fdup]) ~ Fforce
+(!ende_liste)
+
+
+!begin_node Bindings for Fdup
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Fdup ( int16_t handle );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    handle,-(sp)  ; Offset 2
+move.w    #69,-(sp)     ; Offset 0
+trap      #1            ; GEMDOS
+addq.l    #4,sp         ; Correct stack
+!end_verbatim
+
+!item [GFA-Basic]
+Phys_channel%=Gemdos(&H45,W:handle%)
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Fdup
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯file duplicate® - Datei-Handle duplizieren.
+
+!item [Gemdosnummer:]
+69
+
+!item [Deklaration:]
+int16_t Fdup ( int16_t handle );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Fdup erzeugt fr einen Standardkanal (0-5) eine Kopie und
+liefert eine neue Kennung (>6) fr einen Standardkanal. Es gilt:
+
+!begin_xlist !short [handle]
+!item [handle]
+Bedeutung
+!item [~]
+~
+!item [0]
+Tastatur (stdin)
+!item [1]
+Bildschirm (stdout)
+!item [2]
+serielle Schnittstelle (stdaux)
+!item [3]
+parallele Schnittstelle (stdprn)
+!end_xlist
+
+(!B)Hinweis:(!b) In allen bekannten (!nolink [GEMDOS])-Versionen (bis
+einschlielich 0.19) treten Fehler auf, wenn nach einem Fdup, ein Programm
+per Pexec gestartet wird. Ab MagiC 4 kann man mit Hilfe dieser Funktion auch
+die Ger„tedateien -1,-2, -3 (systemglobal) und -4 (NULL Device) ermitteln.
+
+!item [Ergebnis:]
+Die Funktion liefert folgende Resultate:
+
+!begin_xlist !short [ENHNDL :]
+!item [ENHNDL :]
+keine Kennung mehr frei
+!item [EIHNDL :]
+falsche Kennung
+!item [sonst :]
+die gewnschte neue Kennung
+!end_xlist
+
+!item [Verfgbar:]
+Alle GEMDOS Versionen.
+
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr Fdup]) ~ Fforce
+(!ende_liste)
+
+
+!begin_node Bindings fr Fdup
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Fdup ( int16_t handle );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    handle,-(sp)  ; Offset 2
+move.w    #69,-(sp)     ; Offset 0
+trap      #1            ; GEMDOS aufrufen
+addq.l    #4,sp         ; Stack korrigieren
+!end_verbatim
+
+!item [GFA-Basic]
+Phys_channel%=Gemdos(&H45,W:handle%)
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

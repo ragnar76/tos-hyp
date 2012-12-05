@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SM01
+
+(!B)ReProK(!b) - Office management DUO (see Cookie, SM02)
+
+!end_node
+
+!else
+
+!begin_node Cookie, SM01
+
+(!B)ReProK(!b) - Office management DUO (siehe Cookie, SM02)
+
+!end_node
+
+!endif
+ 

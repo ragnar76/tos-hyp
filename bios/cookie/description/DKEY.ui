@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, DKEY
+
+(!B)Dead Key(!b) from Brainstorm
+
+!end_node
+
+!else
+
+!begin_node Cookie, DKEY
+
+(!B)Dead Key(!b) von Brainstorm
+
+!end_node
+
+!endif
+ 

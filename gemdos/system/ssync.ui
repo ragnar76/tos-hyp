@@ -1,0 +1,105 @@
+!iflang [english]
+
+
+!begin_node Ssync
+!label Sync
+(!begin_liste) [Availability]
+!item [Name:]
+ØSsyncÆ - Synchronise all mounted file-systems.
+
+!item [Opcode:]
+336 (0x0150)
+
+!item [Syntax:]
+void Ssync ( void );
+
+!item [Description:]
+The function Ssync synchronises all mounted file-systems.
+
+(!B)Warning:(!b) In MiNT this function is designated as Sync.
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+MagiC as of Version 4.01, and under all MiNT versions integrated with
+MultiTOS.
+
+!item [Group:]
+System functions
+
+!item [See also:]
+(!link [Binding] [Bindings for Ssync]) ~ Shutdown
+(!ende_liste)
+
+
+!begin_node Bindings for Ssync
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+void Ssync ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #336,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #2,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Ssync
+!label Sync
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØSsyncÆ - synchronisiert alle gemounteten Dateisysteme.
+
+!item [Gemdosnummer:]
+336 (0x0150)
+
+!item [Deklaration:]
+void Ssync ( void );
+
+!item [Beschreibung:]
+Die Funktion synchronisiert alle gemounteten Dateisysteme.
+
+(!B)Achtung:(!b) In MiNT wird diese Funktion mit Sync bezeichnet.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck.
+
+!item [VerfÅgbar:]
+MagiC ab Version 4.01 und seit der ersten in MultiTOS integrierten MiNT
+Version 1.04.
+
+!item [Gruppe:]
+Systemfunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Ssync]) ~ Shutdown
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Ssync
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+void Ssync ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #336,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #2,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

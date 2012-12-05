@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, XWin
+
+(!B)Extended-Windows(!b) module
+
+!end_node
+
+!else
+
+!begin_node Cookie, XWin
+
+(!B)Extended-Windows(!b)-Modul.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,91 @@
+!iflang [english]
+
+!begin_node Cookie, Gnva
+
+(!B)Geneva multi-tasking (!nolink [AES])(!b)
+
+This cookie either contains a pointer to the G_COOKIE structure or 
+it contains zero. If it contains zero, this means that Geneva was 
+previously (!nolink [installed]), but is no longer.
+
+!begin_verbatim
+typedef struct
+{
+  int16_t ver;
+  int8_t *process_name;
+  int16_t apid;
+  int16_t (**aes_funcs)();
+  int16_t (**xaes_funcs)();
+} G_COOKIE;
+!end_verbatim
+
+!begin_xlist [process_name]
+
+!item [ver]
+Geneva version, 0x0102 means 1.02
+
+!item [process_name]
+Points to the name of the process currently using Geneva; this is in
+appl_find format
+
+!item [apid]
+Application ID of the process
+
+!item [aes_funcs]
+Internal table of (!nolink [AES]) functions
+
+!item [xaes_funcs]
+Internal table of extended functions
+
+!end_xlist
+
+(!B)Note:(!b) The function tables are subject to change in future versions.
+!end_node
+
+!else
+
+!begin_node Cookie, Gnva
+
+(!B)Geneva Multi-Tasking (!nolink [AES])(!b)
+
+This cookie either contains a pointer to the G_COOKIE structure or 
+it contains zero. If it contains zero, this means that Geneva was 
+previously (!nolink [installed]), but is no longer.
+
+!begin_verbatim
+typedef struct
+{
+  int16_t ver;
+  int8_t *process_name;
+  int16_t apid;
+  int16_t (**aes_funcs)();
+  int16_t (**xaes_funcs)();
+} G_COOKIE;
+!end_verbatim
+
+!begin_xlist [process_name]
+
+!item [ver]
+Geneva version, 0x0102 means 1.02
+
+!item [process_name]
+Points to the name of the process currently using Geneva; this is in
+appl_find format
+
+!item [apid]
+Application ID of the process
+
+!item [aes_funcs]
+Internal table of (!nolink [AES]) functions
+
+!item [xaes_funcs]
+Internal table of extended functions
+
+!end_xlist
+
+(!B)Note:(!b) The function tables are subject to change in future versions.
+
+!end_node
+
+!endif
+ 

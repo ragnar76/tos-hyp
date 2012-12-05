@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, RGUS
+
+(!B)Argus-XBRA(!b) - Shows track/sector addresses
+
+Modifies hdv_rw and Floprd.
+
+!end_node
+
+!else
+
+!begin_node Cookie, RGUS
+
+(!B)Argus-XBRA(!b) - zeigt Track-/Sektoradressen ab.
+
+Verbiegt hdv_rw und Floprd.
+
+!end_node
+
+!endif
+ 

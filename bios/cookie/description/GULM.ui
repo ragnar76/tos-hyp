@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, GULM
+
+(!B)Gul„m command shell(!b)
+
+Modifies: _shell_p.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GULM
+
+(!B)Gul„m, Command-Shell(!b)
+
+verbiegt: _shell_p
+
+!end_node
+
+!endif
+ 

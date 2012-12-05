@@ -1,0 +1,137 @@
+!iflang [english]
+
+!begin_node SCREENINFO
+
+!label SCRINFO_OK
+!label NO_CLUT
+!label HARD_CLUT
+!label SOFT_CLUT
+!label INTERLEAVE_PLANES
+!label STANDARD_PLANES
+!label PACKEDPIX_PLANES
+!label STANDARD_BITS
+!label FALCON_BITS
+!label INTEL_BITS
+!begin_verbatim
+/* scrFlags */
+ #define SCRINFO_OK 1
+
+/* scrClut */
+ #define NO_CLUT    0
+ #define HARD_CLUT  1
+ #define SOFT_CLUT  2
+
+/* scrFormat */
+ #define INTERLEAVE_PLANES  0
+ #define STANDARD_PLANES    1
+ #define PACKEDPIX_PLANES   2
+
+/* bitFlags */
+ #define STANDARD_BITS  1
+ #define FALCON_BITS    2
+ #define INTEL_BITS     8
+
+typedef struct screeninfo
+{
+  int32_t size;        /* Size of structur           */
+  int32_t devID;       /* Device ID number           */
+  int8_t  name[64];    /* Friendly name of Screen    */
+  int32_t scrFlags;    /* Some flags                 */
+  int32_t frameadr;    /* Adress of framebuffer      */
+  int32_t scrHeight;   /* Visible X res              */
+  int32_t scrWidth;    /* Visible Y res              */
+  int32_t virtHeight;  /* Virtual X res              */
+  int32_t virtWidth;   /* Virtual Y res              */
+  int32_t scrPlanes;   /* color Planes               */
+  int32_t scrColors;   /* # of colors                */
+  int32_t lineWrap;    /* # of bytes to next line    */
+  int32_t planeWarp;   /* # of bytes to next plane   */
+  int32_t scrFormat;   /* Screen format              */
+  int32_t scrClut;     /* Type of clut               */
+  int32_t redBits;     /* Mask of Red Bits           */
+  int32_t greenBits;   /* Mask of Green Bits         */
+  int32_t blueBits;    /* Mask of Blue Bits          */
+  int32_t alphaBits;   /* Mask of Alpha Bits         */
+  int32_t genlockBits; /* Mask of Genlock Bits       */
+  int32_t unusedBits;  /* Mask of unused Bits        */
+  int32_t bitFlags;    /* Bits organisation flags    */
+  int32_t maxmem;      /* Max. memory in this mode   */
+  int32_t pagemem;     /* Needed memory for one page */
+  int32_t max_x;       /* Max. possible width        */
+  int32_t max_y;       /* Max. possible heigth       */
+}SCREENINFO;
+!end_verbatim
+
+See also: Setscreen, Milan ~ Setscreen, ct60
+
+!end_node
+
+!else
+
+!begin_node SCREENINFO
+
+!label SCRINFO_OK
+!label NO_CLUT
+!label HARD_CLUT
+!label SOFT_CLUT
+!label INTERLEAVE_PLANES
+!label STANDARD_PLANES
+!label PACKEDPIX_PLANES
+!label STANDARD_BITS
+!label FALCON_BITS
+!label INTEL_BITS
+!begin_verbatim
+/* scrFlags */
+ #define SCRINFO_OK 1
+
+/* scrClut */
+ #define NO_CLUT    0
+ #define HARD_CLUT  1
+ #define SOFT_CLUT  2
+
+/* scrFormat */
+ #define INTERLEAVE_PLANES  0
+ #define STANDARD_PLANES    1
+ #define PACKEDPIX_PLANES   2
+
+/* bitFlags */
+ #define STANDARD_BITS  1
+ #define FALCON_BITS    2
+ #define INTEL_BITS     8
+
+typedef struct screeninfo
+{
+  int32_t size;        /* Size of structur           */
+  int32_t devID;       /* Device ID number           */
+  int8_t  name[64];    /* Friendly name of Screen    */
+  int32_t scrFlags;    /* Some flags                 */
+  int32_t frameadr;    /* Adress of framebuffer      */
+  int32_t scrHeight;   /* Visible X res              */
+  int32_t scrWidth;    /* Visible Y res              */
+  int32_t virtHeight;  /* Virtual X res              */
+  int32_t virtWidth;   /* Virtual Y res              */
+  int32_t scrPlanes;   /* color Planes               */
+  int32_t scrColors;   /* # of colors                */
+  int32_t lineWrap;    /* # of bytes to next line    */
+  int32_t planeWarp;   /* # of bytes to next plane   */
+  int32_t scrFormat;   /* Screen format              */
+  int32_t scrClut;     /* Type of clut               */
+  int32_t redBits;     /* Mask of Red Bits           */
+  int32_t greenBits;   /* Mask of Green Bits         */
+  int32_t blueBits;    /* Mask of Blue Bits          */
+  int32_t alphaBits;   /* Mask of Alpha Bits         */
+  int32_t genlockBits; /* Mask of Genlock Bits       */
+  int32_t unusedBits;  /* Mask of unused Bits        */
+  int32_t bitFlags;    /* Bits organisation flags    */
+  int32_t maxmem;      /* Max. memory in this mode   */
+  int32_t pagemem;     /* Needed memory for one page */
+  int32_t max_x;       /* Max. possible width        */
+  int32_t max_y;       /* Max. possible heigth       */
+}SCREENINFO;
+!end_verbatim
+
+Querverweise: Setscreen, Milan ~ Setscreen, ct60
+
+!end_node
+
+!endif

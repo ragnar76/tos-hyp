@@ -1,0 +1,180 @@
+!iflang [english]
+
+!begin_node edit_get_buf
+(!begin_liste) [Availability]
+!item [Name:]
+ØEdit Object Get BufferÆ - Examine settings: Text buffer
+!item [Opcode:]
+216 (sub-opcode 0)
+!item [Syntax:]
+int16_t edit_get_buf ( OBJECT *tree, int16_t obj, int8_t **buf,
+                    int32_t *buflen, int32_t *txtlen );
+
+!item [Description:]
+The call edit_get_buf obtains the settings of the text buffer. The following
+apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)tree(!i) !! RSC-tree of object
+(!I)obj(!i) !! Object index
+(!I)buf(!i) !! Address of buffer
+(!I)buflen(!i) !! Buffer length
+(!I)txtlen(!i) !! Current text length without EOS
+!end_table
+
+!item [(!nolink [Return]) value:]
+0 for error, else 1
+
+!item [Availability:]
+As of MagiC 5.20 by means of a shared library.
+
+!item [Group:]
+Editable object functions
+
+!item [See also:]
+(!link [Binding] [Bindings for edit_get_buf])
+(!ende_liste)
+
+
+
+!begin_node Bindings for edit_get_buf
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t edit_get_buf ( OBJECT *tree, int16_t obj, int8_t **buf,
+                    int32_t *buflen, int32_t *txtlen );
+!item [Binding:]
+!begin_verbatim
+int16_t edit_get_buf ( OBJECT *tree, int16_t obj, int8_t **buf,
+                       int32_t *buflen, int32_t *txtlen )
+{
+   int_in[0]  = obj;
+   int_in[1]  = 0;      /* Sub-opcode for function */
+
+   addr_in[0] = tree;
+
+   crys_if( 216 );
+
+   *buflen = int_out[1..2];
+   *txtlen = int_out[3..4];
+   
+   *buf = addr_out[0];
+   
+   return ( int_out[0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 216   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 5     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 1     # Entry in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! 0     # Sub-opcode
+addr_in   !! addr_in[0] !! tree
+int_out   !! int_out[0]  !! Return value
+int_out+2 !! int_out[1..2]  !! buflen
+int_out+6 !! int_out[3..4]  !! txtlen
+addr_out   !! addr_out[0] !! buf
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node edit_get_buf
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØEdit Object Get BufferÆ - ermittelt den aktuellen Text eines Editobjektes.
+
+!item [AES-Nummer:]
+216 (Unterfunktion 0)
+
+!item [Deklaration:]
+int16_t edit_get_buf ( OBJECT *tree, int16_t obj, int8_t **buf,
+                    int32_t *buflen, int32_t *txtlen );
+
+!item [Beschreibung:]
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)tree(!i) !! RSC-Baum des Objekts
+(!I)obj(!i) !! Objektnummer
+(!I)buf(!i) !! Adresse des Puffers
+(!I)buflen(!i) !! Puffer-LÑnge
+(!I)txtlen(!i) !! aktuelle TextlÑnge ohne EOS
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert bei erfolgreicher AusfÅhrung den Wert 1 bzw. im
+Fehlerfall den Wert 0 zurÅck.
+
+!item [VerfÅgbar:]
+ab MagiC 5.20 mittels SharedLibrary
+
+!item [Gruppe:]
+Editobjekt-Funktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr edit_get_buf])
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr edit_get_buf
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t edit_get_buf ( OBJECT *tree, int16_t obj, int8_t **buf,
+                    int32_t *buflen, int32_t *txtlen );
+!item [Umsetzung:]
+!begin_verbatim
+int16_t edit_get_buf ( OBJECT *tree, int16_t obj, int8_t **buf,
+                       int32_t *buflen, int32_t *txtlen )
+{
+   int_in[0]  = obj;
+   int_in[1]  = 0;      /* Subcode fÅr Funktion */
+
+   addr_in[0] = tree;
+
+   crys_if( 216 );
+
+   *buflen = int_out[1..2];
+   *txtlen = int_out[3..4];
+   
+   *buf = addr_out[0];
+   
+   return ( int_out[0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 216   # Opcode der Funktion
+control+2 !! control[1] !! 2     # EintrÑge in int_in
+control+4 !! control[2] !! 5     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 1     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! 0     # Sub-Opcode
+addr_in   !! addr_in[0] !! tree
+int_out   !! int_out[0]  !! Return-Wert
+int_out+2 !! int_out[1..2]  !! buflen
+int_out+6 !! int_out[3..4]  !! txtlen
+addr_out   !! addr_out[0] !! buf
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

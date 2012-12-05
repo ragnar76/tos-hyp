@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, GEHD
+
+(!B)Hard disk driver(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, GEHD
+
+(!B)Harddisktreiber(!b)
+
+!end_node
+
+!endif
+ 

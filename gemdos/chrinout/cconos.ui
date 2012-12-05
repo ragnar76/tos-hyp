@@ -1,0 +1,124 @@
+!iflang [english]
+
+!begin_node Cconos
+(!begin_liste) [Availability]
+!item [Name:]
+ØCharacter console output statusÆ - Check status of standard output device.
+
+!item [Opcode:]
+16
+
+!item [Syntax:]
+int16_t Cconos ( void );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Cconos checks whether a character may be
+output to (!nolink [GEMDOS]) handle 1 - normally the standard output device
+con:.
+
+(!B)Note:(!b) The function works correctly with redirection of input/output
+only as of (!nolink [GEMDOS]) Version 0.15.
+
+!item [(!nolink [Return]) value:]
+The function returns the status of the standard output device, as follows:
+!begin_xlist !short [Value]
+!item [Value]
+Meaning
+!item [~]
+~
+!item [0]
+Character can not be output
+!item [1]
+At least one character can be output
+!end_xlist
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions.
+
+!item [Group:]
+Character input/output
+
+!item [See also:]
+(!link [Binding] [Bindings for Cconos]) ~ Cconout
+(!ende_liste)
+
+
+!begin_node Bindings for Cconos
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Cconos ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #16,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #2,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Cconos
+(!begin_liste) [Beschreibung]
+!item [Name:]
+Øcharacter console output statusÆ - prÅft den Status des
+StandardausgabegerÑtes.
+
+!item [Gemdosnummer:]
+16
+
+!item [Deklaration:]
+int16_t Cconos ( void );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Cconos ÅberprÅft den Status von Handle 1 - normalerweise
+das StandardausgabegerÑt, dahingehend, ob Zeichen ausgegeben werden kînnen.
+
+(!B)Hinweis:(!b) Die Funktion arbeitet bei Umlenkung der Ein-/Ausgabe erst
+ab (!nolink [GEMDOS])-Version 0.15 korrekt.
+
+!item [Ergebnis:]
+Die Funktion liefert als Ergebnis den Status des StandardausgabegerÑts, und
+zwar wie folgt:
+!begin_xlist !short [Wert]
+!item [Wert]
+Bedeutung
+!item [~]
+~
+!item [0]
+Zeichen kann nicht ausgegeben werden
+!item [1]
+Zeichen kann ausgegeben werden
+!end_xlist
+
+!item [VerfÅgbar:]
+Alle GEMDOS Versionen.
+
+!item [Gruppe:]
+Zeichenweise Ein-/Ausgabe
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Cconos]) ~ Cconout
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Cconos
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Cconos ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #16,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #2,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

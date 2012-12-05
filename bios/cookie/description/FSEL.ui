@@ -1,0 +1,25 @@
+!iflang [english]
+
+!begin_node Cookie, FSEL
+
+(!B)Extended File-Selector(!b)
+
+The presence of this cookie signals that the (!nolink [AES]) call 'fsel_exinput' 
+may be made (is set by some file-selectors).
+
+!end_node
+
+!else
+
+!begin_node Cookie, FSEL
+
+(!B)Extended File-Selector(!b)
+
+Das Vorhandensein dieses Cookie signalisiert, daž der (!nolink [AES])-Aufruf 
+'fsel_exinput' gemacht werden darf (wird von einigen File-Select-Boxen 
+gesetzt).
+
+!end_node
+
+!endif
+ 

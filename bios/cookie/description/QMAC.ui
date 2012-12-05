@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, QMAC
+
+(!B)Quick mouse driver(!b) desk accessory
+
+Status: PD.
+
+!end_node
+
+!else
+
+!begin_node Cookie, QMAC
+
+(!B)Quickmaustreiber(!b)-Acc
+
+Status: PD.
+
+!end_node
+
+!endif
+ 

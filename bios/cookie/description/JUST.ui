@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, JUST
+
+(!B)Justify(!b)
+
+Registers all program- and their file-calls and saves these. This 
+information can then be evaluated. 
+
+Redirected: (!nolink [GEMDOS])-trap.
+
+!end_node
+
+!else
+
+!begin_node Cookie, JUST
+
+(!B)Justify(!b)
+
+Registriert alle Programm- und deren Datei-Aufrufe und 
+sichert diese. Diese Informationen k”nnen dann ausgewertet werden. 
+
+Verbogen: (!nolink [GEMDOS])-Trap.
+
+!end_node
+
+!endif
+ 

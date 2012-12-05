@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, VSTM
+
+(!B)Transfer(!b) (via MIDI)
+
+Status: PD.
+
+!end_node
+
+!else
+
+!begin_node Cookie, VSTM
+
+(!B)Transfer(!b) (Åber MIDI)
+
+Status: PD.
+
+!end_node
+
+!endif
+ 

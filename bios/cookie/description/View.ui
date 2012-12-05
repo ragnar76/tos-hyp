@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, View
+
+(!B)View(!b) protocol
+
+!end_node
+
+!else
+
+!begin_node Cookie, View
+
+(!B)View(!b) protocol
+
+!end_node
+
+!endif
+ 

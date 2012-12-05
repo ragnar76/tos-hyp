@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, WINX
+
+(!B)WINX(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, WINX
+
+(!B)WINX(!b)
+
+!end_node
+
+!endif
+ 

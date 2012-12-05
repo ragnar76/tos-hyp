@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, TL3D
+
+
+(!nolink [BIOS])-driver for addressing a (!B)third floppy drive(!b). Also supports
+40-track disks (5.25") in an 80-track drive without special hardware
+switching.
+
+Modifies vectors: X(!nolink [BIOS]).
+
+!end_node
+
+!else
+
+!begin_node Cookie, TL3D
+
+(!nolink [BIOS])-Treiber zur Ansteuerung einer (!B)dritten Floppy(!b). UnterstÅtzt
+auch 40-Track-Disketten (5,25") in einem 80-Track-Laufwerk ohne spezielle
+HW-Umschaltung.
+
+Verbogene Vektoren: X(!nolink [BIOS]).
+
+!end_node
+
+!endif

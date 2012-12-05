@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, LP/2
+
+Modifies (!B)Malloc/2, (!nolink [GEMDOS]) vector(!b)
+
+Introduced in (!I)ST-Magazin(!i) 3/91.
+
+!end_node
+
+!else
+
+!begin_node Cookie, LP/2
+
+Ver„ndert Malloc/2, (!nolink [GEMDOS])-Vektor.
+
+Vorgestellt im (!I)ST-Magazin(!i) 3/91.
+
+!end_node
+
+!endif
+ 

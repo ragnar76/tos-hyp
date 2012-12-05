@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, OVDJ
+
+(!B)OVER_DJT(!b) - Overscan hardcopy driver for HP-DeskJet as of V 2.0
+
+Ω Patrick Dubbrow
+
+!end_node
+
+!else
+
+!begin_node Cookie, OVDJ
+
+(!B)OVER_DJT(!b) -   Overscanv Hardcopytreiber fÅr HP-DeskJet ab V 2.0
+
+(c) Patrick Dubbrow
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, zCAC
+
+(!B)680x0 Cache Control(!b) CPX
+
+!end_node
+
+!else
+
+!begin_node Cookie, zCAC
+
+(!B)680x0 Cache Control(!b) CPX
+
+!end_node
+
+!endif
+ 

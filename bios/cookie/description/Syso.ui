@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, Syso
+
+(!B)ST Sysop(!b) - PC-Net compatible mailbox for Atari
+
+Modifies various exception vectors, (!nolink [BIOS]) vectors and one entry of 
+the VBL-queue.
+
+!end_node
+
+!else
+
+!begin_node Cookie, Syso
+
+(!B)ST-Sysop(!b) - PC-Net kompatible Mailbox fuer Atari
+
+Verbiegt versch. Exception-Vektoren, (!nolink [BIOS])-Vektoren und einen
+Eintrag der VBL-Queue.
+
+!end_node
+
+!endif
+ 

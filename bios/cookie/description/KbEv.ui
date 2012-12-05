@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, KbEv
+
+(!B)Keyboard-Event handling module(!b) for Megamax Modula2
+
+!end_node
+
+!else
+
+!begin_node Cookie, KbEv
+
+(!B)Keyboard-Handling-Modu(!b)l fÅr Megamax Modula2.
+
+!end_node
+
+!endif
+ 

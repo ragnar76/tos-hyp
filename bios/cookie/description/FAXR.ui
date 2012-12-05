@@ -1,0 +1,34 @@
+!iflang [english]
+
+!begin_node Cookie, FAXR
+
+(!B)Fax Redirector(!b)
+
+Serves for the automatic diversion of GDOS printer output to the 
+FAX device number.
+
+Modifies TRAP #2, but is normally invisible (as the trap is subse-
+quently modified by the (!nolink [AES]).
+
+Freely available for Tele-Office users from TKR.
+
+!end_node
+
+!else
+
+!begin_node Cookie, FAXR
+
+(!B)FaxRedirector(!b)
+
+Sorgt fÅr die automatische Umlenkung von GDOS-Druckerausgaben auf die
+FAX-GerÑtenummer.
+
+Verbiegt TRAP #2, ist aber normalerweise unsichtbar (da der TRAP
+anschlieûend noch vom (!nolink [AES]) verbogen wird).
+
+FÅr Tele-Office-Benutzer bei TKR frei erhÑltlich.
+
+!end_node
+
+!endif
+ 

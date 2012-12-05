@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, IBMP
+
+(!B)IBMPRINT.PRG(!b)
+
+Converts Norwegian characters to IBM standard printer characters.
+
+!end_node
+
+!else
+
+!begin_node Cookie, IBMP
+
+(!B)IBMPRINT.PRG(!b)
+
+Converts Norwegian characters to IBM standard printer characters.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SVGA
+
+(!B)(!nolink [Super]) VGA emulator(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, SVGA
+
+(!B)(!nolink [Super]) VGA Emulator(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, _ISO
+
+Specifies the (!B)real keyboard/font nationality(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, _ISO
+
+Specifies the (!B)real keyboard/font nationality(!b)
+
+!end_node
+
+!endif
+ 

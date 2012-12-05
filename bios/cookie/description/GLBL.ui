@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, GLBL
+
+(!B)GLBX_EXT.PRG (!b) - GEMLABEL system extension
+
+Modified: Reset vector, (!nolink [GEMDOS])-trap. 
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GLBL
+
+(!B)GLBX_EXT.PRG(!b) - GEMLABEL System Extension
+
+Verbogen: Resetvektor, GEMDOS-Trap.
+ 
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

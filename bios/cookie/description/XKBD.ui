@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, XKBD
+
+(!B)Extended Keyboard(!b) - current version
+
+Originally published in (!I)ST-Computer(!i) 6/1988.
+
+!end_node
+
+!else
+
+!begin_node Cookie, XKBD
+
+(!B)Extended Keyboard(!b) - aktuelle Version
+
+UrsprÅnglich verîffentlicht in (!I)ST-Computer(!i) 6/1988.
+
+!end_node
+
+!endif
+ 

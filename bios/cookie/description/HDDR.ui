@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, HDDR
+
+(!B)HD Driver(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, HDDR
+
+(!B)HD Driver(!b)
+
+!end_node
+
+!endif
+ 

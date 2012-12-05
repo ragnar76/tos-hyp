@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SWAP
+
+(!B)OUTSIDE.PRG (!b) - Virtual memory management for TT
+
+!end_node
+
+!else
+
+!begin_node Cookie, SWAP
+
+(!B)OUTSIDE.PRG(!b) - Virtuelle Speicherverwaltung fÅr TT
+
+!end_node
+
+!endif
+ 

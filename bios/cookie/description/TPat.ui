@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, TPat
+
+(!B)(!nolink [TOS]) Patch for vr_trnfm(!b)
+
+Corrects the int-overflow error in the vr_trnfm routine of (!nolink [TOS]).
+
+Modifies (!nolink [VDI/AES])- and (!nolink [BIOS])-traps.
+
+!end_node
+
+!else
+
+!begin_node Cookie, TPat
+
+(!B)(!nolink [TOS]) Patch fÅr vr_trnfm(!b)
+
+Behebt den int-overflow-Fehler in der vr_trnfm-Routine des (!nolink [TOS]).
+
+Verbiegt (!nolink [VDI/AES])- und (!nolink [BIOS])-Traps.
+
+!end_node
+
+!endif
+ 

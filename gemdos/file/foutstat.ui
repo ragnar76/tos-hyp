@@ -1,0 +1,141 @@
+!iflang [english]
+
+!begin_node Foutstat
+(!begin_liste) [Availability]
+!item [Name:]
+¯Foutstat® - Determine the output status of a file.
+
+!item [Opcode:]
+262
+
+!item [Syntax:]
+int32_t Foutstat ( int16_t fh );
+
+!item [Description:]
+The function Foutstat returns the number of bytes that may be written to the
+file with the handle (!I)fh(!i) without blocking the corresponding process.
+
+If the exact number of bytes cannot be specified, then the value 1 will be
+returned.
+
+(!B)Note:(!b) In MagiC, the kernel first tries to implement the call in
+Fcntl (FIONWRITE). If this subfunction of dev_ioctl does not exist (i.e. the
+file driver returns EINVFN), then dev_stat will be called. In that case this
+can only result in the statement "One character can be written" (return ==
+1) or "No character can be written" (return == 0). FAT files always return
+the value 1, (!link [shared memory][Shared memory]) returns the actual file
+length minus the current position. Pipes return the number of bytes still
+free in the block.
+
+!item [(!nolink [Return]) value:]
+The function can return the following results:
+!begin_xlist !short [EIHNDL :]
+!item [>= 0 :]
+No error arisen (number of bytes)
+!item [EIHNDL :]
+Invalid file handle.
+!end_xlist
+Note that currently this function always returns 1 for disk files
+
+!item [Availability:]
+As of the first in MultiTOS integrated MiNT version 1.04, and in
+(!nolink [MagiC]) as of Version 3.0.
+              
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding][Bindings for Foutstat]) ~ Cauxos ~ Cconos ~ Cprnos ~
+Fcntl ~ Finstat
+(!ende_liste)
+
+
+!begin_node Bindings for Foutstat
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Foutstat ( int16_t fh );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    fh,-(sp)     ; Offset 2
+move.w    #262,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #4,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Foutstat
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Foutstat® - Ausgabestatus fr ein File festlegen.
+
+!item [Gemdosnummer:]
+262
+
+!item [Deklaration:]
+int32_t Foutstat ( int16_t fh );
+
+!item [Beschreibung:]
+Die Funktion Foutstat gibt die Anzahl der Bytes zurck, die in die Datei mit
+der Handle (!I)fh(!i) ausgegeben werden k”nnen, ohne den entsprechenden
+Proze zu blockieren.
+
+Wenn die Anzahl der Bytes nicht genau angegeben werden kann, wird der Wert 1
+zurckgeliefert.
+
+(!B)Hinweis:(!b) In MagiC versucht der Kernel zun„chst, den Aufruf auf Fcntl
+(FIONWRITE) zurckzufhren. Wenn diese Subfunktion von dev_ioctl nicht
+existiert (d.h. der Dateitreiber liefert EINVFN), wird dev_stat aufgerufen.
+In diesem Fall kann nur die Aussage getroffen werden "ein Zeichen kann
+geschrieben werden" (Rckgabe == 1) bzw. "kein Zeichen kann geschrieben
+werden" (Rckgabe == 0). FAT-Dateien liefern stets den Wert 1, Shared Memory
+die tats„chliche Dateil„nge minus der aktuellen Position. Pipes liefern die
+Anzahl der noch freien Bytes im Block.
+
+!item [Ergebnis:]
+Die Funktion kann folgende Rckgabewerte liefern:
+!begin_xlist !short [EIHNDL :]
+!item [>= 0 :]
+kein Fehler aufgetreten (Anzahl der Bytes).
+!item [EIHNDL :]
+ungltiges Datei-Handle.
+!end_xlist
+Derzeit liefert diese Funktion immer 1 fr Dateien auf Massenspeicher
+zurck.
+
+!item [Verfgbar:]
+Seit der ersten in MultiTOS integrierten MiNT Version 1.04 und in
+(!nolink [MagiC]) ab Version 3.0.
+              
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr Foutstat]) ~ Cauxos ~ Cconos ~ Cprnos ~
+Fcntl ~ Finstat
+(!ende_liste)
+
+
+!begin_node Bindings fr Foutstat
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Foutstat ( int16_t fh );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    fh,-(sp)     ; Offset 2
+move.w    #262,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #4,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

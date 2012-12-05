@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, XMMU
+
+(!B)TK40's interface for PMMU setting(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, XMMU
+
+(!B)TK40's interface for PMMU setting(!b)
+
+!end_node
+
+!endif
+ 

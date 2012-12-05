@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, OVUT
+
+(!B)OVERUTIL(!b) - Overscan screensaver, desktop clock (mouse speeder iV)
+
+!end_node
+
+!else
+
+!begin_node Cookie, OVUT
+
+(!B)OVERUTIL(!b) - Bildschirmschoner, Desktopuhr (Mousespeeder iV)
+
+!end_node
+
+!endif
+ 

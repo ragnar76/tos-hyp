@@ -1,0 +1,20 @@
+!iflang [english]
+
+!begin_node Cookie, TIM5
+
+(!B)TIMEDRV5.PRG(!b) - Same as (!link [TIMEDRV3.PRG][Cookie, TIM3]) but with
+screen protector
+
+!end_node
+
+!else
+
+!begin_node Cookie, TIM5
+
+(!B)TIMEDRV5.PRG(!b) - Same as (!link [TIMEDRV3.PRG][Cookie, TIM3]) but with
+screen protector
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,32 @@
+!iflang [english]
+
+!begin_node Cookie, SDCH
+
+(!B)2C - Second Chance(!b)
+
+Changes file deletions with Fdelete to Frename in the folder named 
+-TRASH- in the root directory (if present).
+
+Modifies vector 33 (!nolink [GEMDOS]).
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SDCH
+
+(!B)2C - Second Chance(!b)
+
+Žndert L”schungen per Fdelete in Frename in Ordner 
+namens -TRASH- im Rootdirectory (sofern vorhanden).
+
+Verbiegt Vektor 33 (!nolink [GEMDOS]).
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

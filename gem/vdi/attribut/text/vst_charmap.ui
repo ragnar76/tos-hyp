@@ -1,0 +1,221 @@
+!iflang [english]
+
+!begin_node vst_charmap
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØSet character mapping modeÆ - Select the type of font indexing.
+
+!item [Opcode:]
+236
+
+!item [Syntax:]
+void vst_charmap ( int16_t handle, int16_t mode );
+
+!item [Description:]
+The call vst_charmap sets the type of font indexing, offering a choice between
+the standard Atari ASCII interpretation of text strings or the Bitstream
+character indices. The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [handle]
+Workstation identifier
+!item [mode]
+Mapping mode:
+!begin_xlist !short
+!item [0 =]
+Direct mapping (WORD), i.e. no translation of the character index
+!item [1 =]
+ASCII mapping (byte-sized)
+!end_xlist
+!end_xlist
+For SpeedoGDOS the following applies:
+!begin_xlist !short [Parameter]
+!item [mode]
+Type of indexing:
+!begin_xlist !short
+!item [0 =]
+Atari characters
+!item [1 =]
+Bitstream
+!end_xlist
+!end_xlist
+
+(!B)Note:(!b) If you switch to direct mapping, the number of characters per
+font ((!I)minADE(!i) and (!I)maxADE(!i)/vqt_fontinfo) is changed to the number
+of really existing characters.
+
+As of NVDI 4.00 there is an extended version: vst_map_mode
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+SpeedoGDOS 4.0, NVDI 3.00
+
+!item [Group:]
+Text attributes
+
+!item [See also:]
+(!link [Binding] [Bindings for vst_charmap]) ~ vst_map_mode ~ vqt_fontinfo ~ ASCII table
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings for vst_charmap
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void vst_charmap ( int16_t handle, int16_t mode );
+
+!item [Binding:]
+!begin_verbatim
+void vst_charmap (int16_t handle, int16_t mode)
+{
+   intin[0] = mode;
+
+   contrl[0] = 236;
+   contrl[1] = 0;
+   contrl[3] = 2;
+   contrl[6] = handle;
+
+   vdi ();
+
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! Contents
+!hline
+contrl    !! contrl[0] !! 236   # Function Opcode
+contrl+2  !! contrl[1] !! 0     # entry in ptsin
+contrl+4  !! contrl[2] !! 0     # entry in ptsout
+contrl+6  !! contrl[3] !! 1     # entry in intin
+contrl+8  !! contrl[4] !! 0     # entry in intout
+contrl+12 !! contrl[6] !! handle
+intin     !! intin[0]  !! mode
+!end_table
+
+(!ende_liste)
+!end_node
+
+!else
+
+!begin_node vst_charmap
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØSet character mapping modeÆ - wÑhlt die Art der Zeichensatzindizierung
+
+!item [VDI-Nummer:]
+236
+
+!item [Deklaration:]
+void vst_charmap ( int16_t handle, int16_t mode );
+
+!item [Beschreibung:]
+Die Funktion legt die Art der Zeichensatzindizierung fest. Es gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [handle]
+Kennung der Workstation
+!item [mode]
+Art der Indizierung
+!begin_xlist !short
+!item [0 =]
+direktes Mapping, d.h. keine Umsetzung des Zeichen-Index
+!item [1 =]
+Zeichen-Index wird als ASCII-Wert interpretiert
+!end_xlist
+!end_xlist
+FÅr SpeedoGDOS gilt:
+!begin_xlist !short [Parameter]
+!item [mode]
+Art der Indizierung
+!begin_xlist !short
+!item [0 =]
+Atari characters
+!item [1 =]
+Bitstream
+!end_xlist
+!end_xlist
+
+(!B)Hinweis:(!b) Durch Umschalten auf direktes (!nolink [Mapping]) Ñndert sich die
+Anzahl der vorhandenen Zeichen pro Font von 256 auf die tatsÑchlich
+verfÅgbare Zahl an Zeichen.
+
+Ab NVDI 4.00 gibt es einer erweiterte Version: vst_map_mode
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck
+
+!item [VerfÅgbar:]
+SpeedoGDOS 4.0, NVDI 3.00
+
+!item [Gruppe:]
+Text-Attribute
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr vst_charmap]) ~ vst_map_mode ~  vqt_fontinfo ~  ASCII-Tabelle
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings fÅr vst_charmap
+!ignore_index
+
+(!begin_liste) [Umsetzung]
+
+!item [C:]
+void vst_charmap ( int16_t handle, int16_t mode );
+
+!item [Umsetzung:]
+!begin_verbatim
+void vst_charmap (int16_t handle, int16_t mode)
+{
+   intin[0] = mode;
+
+   contrl[0] = 236;
+   contrl[1] = 0;
+   contrl[3] = 2;
+   contrl[6] = handle;
+
+   vdi ();
+
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+contrl    !! contrl[0] !! 236   # Opcode der Funktion
+contrl+2  !! contrl[1] !! 0     # EintrÑge in ptsin
+contrl+4  !! contrl[2] !! 0     # EintrÑge in ptsout
+contrl+6  !! contrl[3] !! 1     # EintrÑge in intin
+contrl+8  !! contrl[4] !! 0     # EintrÑge in intout
+contrl+12 !! contrl[6] !! handle
+intin     !! intin[0]  !! mode
+!end_table
+
+(!ende_liste)
+!end_node
+
+!endif

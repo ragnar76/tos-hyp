@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, DYDL
+
+(!B)DIR_LWR(!b)
+
+Supplementary program for patching ‚gale.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DYDL
+
+(!B)DIR_LWR(!b)
+
+Zusatzprogramm zum Patch von ‚gale.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, DYwl
+!label Cookie, DYWL
+
+(!B)WIN_LNK(!b)
+
+This program makes possible for MagiC PC to use Windows connections 
+as full-blown links.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DYwl
+!label Cookie, DYWL
+
+(!B)WIN_LNK(!b)
+
+Dieses Programm ermîglicht MagiC PC die WindowsverknÅpfungen 
+als vollwertige Links zu nutzen.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, PROT
+
+(!B)Protos(!b)
+
+Screen utility.
+
+Distribution: Application Systems Heidelberg
+
+!end_node
+
+!else
+
+!begin_node Cookie, PROT
+
+(!B)Protos(!b)
+
+Screen-Utility
+
+Vertrieb: Application Systems Heidelberg
+
+!end_node
+
+!endif
+ 

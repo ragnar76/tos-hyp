@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, VECS
+
+(!B)Vecshow(!b) - Displays system vectors
+
+Modifies: Bus-error.
+
+!end_node
+
+!else
+
+!begin_node Cookie, VECS
+
+(!B)Vecshow(!b) - zeigt Systemvektoren an
+
+Verbiegt: Bus error.
+
+!end_node
+
+!endif
+ 

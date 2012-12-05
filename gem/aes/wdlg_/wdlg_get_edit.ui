@@ -1,0 +1,194 @@
+!iflang [english]
+
+!begin_node wdlg_get_edit
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØWindow-dialog get editÆ - Obtain current editable field
+
+!item [Opcode:]
+164 (sub-opcode 1)
+
+!item [Syntax:]
+int16_t wdlg_get_edit ( DIALOG *dialog, int16_t *cursor );
+
+!item [Description:]
+The function wdlg_get_edit returns the index of the current editable object.
+The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [dialog]
+Pointer to the dialog structure
+!item [cursor]
+Index of the character
+!end_xlist
+
+(!B)Note:(!b) With old WDIALOG versions (!I)cursor(!i) is not returned. The
+binding ensures that -1 is entered in this case.
+
+!item [(!nolink [Return]) value:]
+This function returns the index of the current editable object. If the result is
+0, then no editable object is active at the present time.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+Window-dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for wdlg_get_edit]) ~ wdlg_open ~ wdlg_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for wdlg_get_edit
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_get_edit ( DIALOG *dialog, int16_t *cursor );
+
+!item [Binding:]
+!begin_verbatim
+int16_t wdlg_get_edit ( DIALOG *dialog, int16_t *cursor )
+{
+   addr_in[0] = dialog;
+
+   int_in[0] = 1;
+
+   int_out[1] = -1;
+
+   crys_if (164);
+
+   *cursor = int_out[1];
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 164   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 2     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! dialog
+int_in    !! int_in[0]  !! 1     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+int_out+2 !! int_out[1] !! cursor
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node wdlg_get_edit
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØWindowDialog GetEditÆ - aktuelles Editfeld ermitteln.
+
+!item [AES-Nummer:]
+164 (Unterfunktion 1)
+
+!item [Deklaration:]
+int16_t wdlg_get_edit ( DIALOG *dialog, int16_t *cursor );
+
+!item [Beschreibung:]
+Die Funktion ermittelt die Nummer des aktuellen Editobjektes. Es gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [dialog]
+Zeiger auf den Dialog
+!item [cursor]
+Index des Zeichens
+!end_xlist
+
+(!B)Achtung:(!b) In alten WDIALOG-Versionen wird der Parameter cursor
+(!I)nicht(!i) zurÅckgeliefert; das Binding in WDIAL_A.S (vgl. original
+MagiC Dokumentation) sorgt dafÅr, daû in diesem Fall der Wert -1 eingetragen
+wird.
+
+!item [Ergebnis:]
+Die Funktion liefert die Nummer des aktuellen Editobjektes zurÅck. Ein Wert
+von 0 bedeutet, daû momentan kein Editobjekt aktiv ist.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Fensterdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr wdlg_get_edit]) ~  wdlg_open ~  wdlg_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr wdlg_get_edit
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_get_edit ( DIALOG *dialog, int16_t *cursor );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t wdlg_get_edit ( DIALOG *dialog, int16_t *cursor )
+{
+   addr_in[0] = dialog;
+
+   int_in[0] = 1;
+
+   int_out[1] = -1;
+
+   crys_if (164);
+
+   *cursor = int_out[1];
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 164   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 2     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! dialog
+int_in    !! int_in[0]  !! 1     # Unterfunktion
+int_out   !! int_out[0] !! Return-Wert
+int_out+2 !! int_out[1] !! cursor
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

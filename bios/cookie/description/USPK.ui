@@ -1,0 +1,32 @@
+!iflang [english]
+
+!begin_node Cookie, USPK
+
+(!B)AUTOPARK.PRG(!b)
+
+Program for the AUTO-folder to support the AUTOPARK accessory in 
+versions < 4.0. AUTOPARK parks hard drives automatically after a 
+given time has pased since the last access. An XHDI-compatible hard 
+disk driver is required.
+
+(AUTOPARK is a part of the HDDRIVER hard disk software.)
+
+!end_node
+
+!else
+
+!begin_node Cookie, USPK
+
+(!B)AUTOPARK.PRG(!b)
+
+Programm fr den AUTO-Ordner zur Untersttzung des 
+AUTOPARK-Accessories in Versionen < 4.0. AUTOPARK parkt Platten eine 
+gewisse Zeit nach dem letzten Zugriff automatisch. Es wird ein 
+XHDI-kompatibler Festplattenreiber ben”tigt.
+
+(AUTOPARK ist Bestandteil der HDDRIVER-Festplattensoftware.)
+
+!end_node
+
+!endif
+ 

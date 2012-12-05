@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, OVEP
+
+(!B)Overscan hardcopy driver for 9-pin printers(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, OVEP
+
+(!B)Hardcopytreiber fÅr 9 Nadel-Drucker(!b)
+
+!end_node
+
+!endif
+ 

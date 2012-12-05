@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, GOff
+
+(!B)Grow-/shrink-boxes Off-switch(!b)
+
+Modifies: TRAP #2.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GOff
+
+(!B)Grow- und Shrinkboxen abschalten(!b)
+
+Verbogen: Trap #2.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,117 @@
+!iflang [english]
+
+
+!begin_node Psetuid
+(!begin_liste) [Availability]
+!item [Name:]
+ØPsetuidÆ - Alter the user ID of a process.
+
+!item [Opcode:]
+272
+
+!item [Syntax:]
+int16_t Psetuid ( int16_t id );
+
+!item [Description:]
+The function Psetuid sets the user ID of the current process to (!I)id(!i).
+This must be a number between 0 and 255. The function fails if the user ID
+of the process does not have the value 0, i.e. once set, the user ID can no
+longer be altered.
+
+!item [(!nolink [Return]) value:]
+The function can return the following results:
+!begin_xlist !short [EACCDN:]
+!item [0-255 :]
+No error has occurred (the new ID)
+!item [EACCDN:]
+The process does not have authority to alter its ID
+!end_xlist
+
+!item [Availability:]
+As of the first in MultiTOS integrated MiNT version 1.04.
+
+!item [Group:]
+Process functions
+
+!item [See also:]
+(!link [Binding][Bindings for Psetuid]) ~ Psetgid
+(!ende_liste)
+
+
+!begin_node Bindings for Psetuid
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Psetuid ( int16_t id );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    id,-(sp)     ; Offset 2
+move.w    #272,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #4,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Psetuid
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØPsetuidÆ - User ID eines Prozesses verÑndern.
+
+!item [Gemdosnummer:]
+272
+
+!item [Deklaration:]
+int16_t Psetuid ( int16_t id );
+
+!item [Beschreibung:]
+Die Funktion setzt die User ID des aktuellen Prozesses auf (!I)id(!i). Dies
+muû eine Zahl von 0 bis 255 sein. Die Funktion schlÑgt fehl, wenn die
+User-ID des Prozesses nicht den Wert 0 besitzt, d.h. einmal gesetzt, kann
+die User-ID nicht mehr verÑndert werden.
+
+!item [Ergebnis:]
+Die Funktion kann folgende RÅckgabewerte liefern:
+!begin_xlist !short [EACCDN:]
+!item [0-255 :]
+kein Fehler aufgetreten (die neue ID).
+!item [EACCDN:]
+der Prozess hat keine Berechtigung, seine ID zu verÑndern.
+!end_xlist
+
+!item [VerfÅgbar:]
+Seit der ersten in MultiTOS integrierten MiNT Version 1.04.
+
+!item [Gruppe:]
+Prozessfunktionen
+
+!item [Querverweis:]
+(!link [Binding][Bindings fÅr Psetuid]) ~ Psetgid
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Psetuid
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Psetuid ( int16_t id );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    id,-(sp)     ; Offset 2
+move.w    #272,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #4,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

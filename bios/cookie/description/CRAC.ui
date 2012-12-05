@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, CRAC
+
+(!B)Protar hard disk driver(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, CRAC
+
+(!B)Protar-Festplattentreiber(!b)
+
+!end_node
+
+!endif
+ 

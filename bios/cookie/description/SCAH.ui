@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, SCAH
+
+(!B)Speed Cache(!b) - Hard disk cache for (!nolink [TOS])-versions prior to 1.04
+
+Modifies the (!nolink [BIOS]) hard disk vectors.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SCAH
+
+(!B)Speed Cache(!b) - Festplattencache fÅr (!nolink [TOS])-Versionen vor 1.04
+
+Verbiegt die (!nolink [BIOS])-Festplattenvektoren.
+
+!end_node
+
+!endif
+ 

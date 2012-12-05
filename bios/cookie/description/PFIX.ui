@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, PFIX
+
+(!B)PTSINFIX (!b)
+
+Remedies an error in the (!nolink [VDI of TOS]) 3.01).
+
+!end_node
+
+!else
+
+!begin_node Cookie, PFIX
+
+(!B)PTSINFIX(!b)
+
+Behebt einen Fehler im (!nolink [VDI des TOS]) 3.01.
+
+!end_node
+
+!endif
+ 

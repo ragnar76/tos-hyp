@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SYNL
+
+(!B)Dynamic Link Library(!b) driver
+
+!end_node
+
+!else
+
+!begin_node Cookie, SYNL
+
+(!B)Dynamic Link Library(!b) Driver
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, LMus
+
+(!B)(!link [LaceScan][Cookie, Lace]) mouse accelerator(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, LMus
+
+(!B)(!link [LaceScan][Cookie, Lace]) mouse accelerator(!b)
+
+!end_node
+
+!endif
+ 

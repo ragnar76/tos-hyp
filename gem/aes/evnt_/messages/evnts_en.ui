@@ -1,0 +1,695 @@
+!begin_node Messages
+!label AES messages
+
+(!B)Standard messages of the (!link [screen-manager][The screen-manager]) are
+built up as follows:(!b)
+
+!begin_xlist [msg___]
+!item [msg[0!]]
+Message type
+!item [msg[1!]]
+Application ID of sender
+!item [msg[2!]]
+Length of additional data; if non-zero, use appl_read to read the additional
+data. Always 0 in messages sent by the (!nolink [AES]).
+!end_xlist
+
+(!B)Types of standard messages:(!b)
+
+!begin_xlist [RESCH_COMPLETED (61)]
+!item [Message]
+Meaning
+!item [~]
+~
+
+!label AC_CLOSE
+!item [AC_CLOSE (41)]
+This is sent to a desk accessory when the current application terminates, the
+screen is cleared and the window manager is reinitialized
+!begin_xlist !short
+!item [msg[3!]]
+Identifier of the desk accessory
+!end_xlist
+(!B)Note:(!b) This message plays practically no role in multitasking systems
+any more, and is also no longer present in MagiC!
+
+!label AC_OPEN
+!item [AC_OPEN (40)]
+A desk accessory has been activated
+!begin_xlist !short
+!item [msg[4!]]
+Identifier of the desk accessory; (!nl)
+PC-(!nolink [GEM]) returns this information in msg[3]!, while KAOS 1.4.2 sets
+both entries
+!end_xlist
+
+Geneva has the following extension: (!nl)
+If an application sends an AC_OPEN message to another application, it can
+optionally set WORD 4 of the message to -1; in this case, Geneva will
+automatically substitute the correct menu identifier for the application in
+WORD 4. (!I)Example to open application with ID #5:(!i)
+
+int buf[8]im { AC_OPEN, 5, 0, my_apid, -1 }; (!nl)
+appl_write( 5, 16, buf );
+
+Sending an AC_OPEN message to a desk accessory will cause it to open if it is
+not already open, or it will make its window topmost (by sending a WM_TOPPED
+message) if the desk accessory has a window open; an application will receive
+a WM_TOPPED message, if it has a window open.
+
+!label AP_DRAGDROP
+!item [AP_DRAGDROP (63)]
+This is a part of the Drag&Drop protocol and is sent by the sender to the
+receiver
+!begin_xlist !short
+!item [msg[3!]]
+ID (handle) of the destination window
+!item [msg[4!]]
+X-position of the mouse pointer
+!item [msg[5!]]
+Y-position of the mouse pointer
+!item [msg[6!]]
+Keyboard Shift status
+!item [msg[7!]]
+2-byte ASCII packed pipe identifier
+!end_xlist
+(!B)Note:(!b) If a value of -1 is passed instead of a valid window ID, then the
+destination of the Drag&Drop operation is no specific window, but the application
+itself; in that case normally one should open an additional window for the
+specified data.
+
+!label AP_RESCHG
+!item [AP_RESCHG (57)]
+With this message, which is a sub-command only found as a possible value in
+AP_TERM (50), the relevant application is informed that a resolution change is
+to take place; the receiver of this message should then terminate itself as
+soon as possible
+
+!label AP_TERM
+!item [AP_TERM (50)]
+The operating system requests the application to terminate itself; this may be
+necessary for a (!link [resolution change][Resolution change]), for instance, or
+triggered by a general Shutdown utility
+!begin_xlist !short
+!item [msg[5!]]
+Reason for the shutdown, so e.g.
+!begin_xlist [AP_RESCHG] !short
+!item [AP_TERM]
+(General termination)
+!item [AP_RESCHG]
+((!nolink [Resolution change]))
+!end_xlist
+!end_xlist
+(!B)Warning:(!b) Contrary to the usual convention, the value -1 (!I)must(!i) be
+entered in msg[1], as according to MagiC documentation one can not
+guarantee otherwise that the desktop will react to an
+[Alternate]-[Control]-[Delete] Shutdown sequence
+
+(!B)Note:(!b) Desk accesories will always be sent AC_CLOSE messages, not AP_TERM
+
+!label AP_TFAIL
+!item [AP_TFAIL (51)]
+This is sent by the receiver of an AC_CLOSE or AP_TERM message if this does
+(!I)not wish to(!i) or (!I)cannot(!i) terminate itself
+
+!label CH_EXIT
+!item [CH_EXIT (90)]
+This is sent to the parent process when a child terminates
+!begin_xlist !short
+!item [msg[3!]]
+Child's application ID
+!item [msg[4!]]
+Child's exit code
+!end_xlist
+
+!label CT_KEY
+!item [CT_KEY (53)]
+This is sent by the modular control field XCONTROL to be able to evaluate
+key-presses that can have no efect on editable fields, such as [Help] or [Undo],
+for instance
+!begin_xlist !short
+!item [msg[3!]]
+High byte: Scancode of the pressed key
+(!nl)
+Low byte : ASCII-code of the key
+!end_xlist
+
+!label FNT_CHANGED
+!item [FNT_CHANGED (83)]
+This is sent if GDOS fonts were loaded or unloaded at run-time.
+(!nl)
+At the receipt of this message the reaction should be vst_unload_fonts, followed
+directly by vst_load_fonts; this ensures that the application can work with the
+current fonts
+
+!label MN_SELECTED
+!item [MN_SELECTED (10)]
+This is sent when a menu option is chosen
+!begin_xlist !short
+!item [msg[3!]]
+The object index of the menu title selected
+!item [msg[4!]]
+The object index of the menu item selected
+!item [msg[5!]]
+Pointer to the OBJECT structure of the menu tree, as also passed in
+!item [msg[6!]]
+menu_bar
+!item [msg[7!]]
+Parent of the selected entry, i.e. the object index of the 'dropped down' box
+that contains the entry
+!end_xlist
+(!B)Note:(!b) The presence of the extended message (msg[5] and following) is
+best inquired with (!link [appl_getinfo][%apgi_9]) (opcode 9)
+
+!label PRN_CHANGED
+!item [PRN_CHANGED (82)]
+This message is sent by the GDOS configuration program to all reachable
+applications, to inform them about changes to device drivers; the following
+apply:
+!begin_xlist !short
+!item [msg[3!]]
+Device number
+!item [msg[4!]]
+Action
+!begin_table [c c l]
+0 !! = !! New
+1 !! = !! Changed
+2 !! = !! Removed
+!end_table
+!end_xlist
+After receipt of this message, an application can re-open the corresponding
+workstation, for instance, obtain the current settings, and perhaps offer a
+new preview
+
+!label RESCH_COMPLETED
+!item [RESCH_COMPLETED (61)]
+This message is sent to the application that initiated a
+(!link [resolution change][Resolution change]); if no error has arisen, this
+must now terminate itself
+!begin_xlist !short
+!item [msg[3!]]
+Status (0 = error, 1 = OK)
+!end_xlist
+
+!label SC_CHANGED
+!item [SC_CHANGED (80)]
+This message should be sent by a program to all other applications in the
+system when the contents of the (!nolink [GEM]) clipboard have been changed
+!begin_xlist !short
+!item [msg[3!]]
+Description of the file format:
+!begin_xlist [0x0000 =] !short
+!item [0x0000 =]
+No more exact specification
+!item [0x0001 =]
+Data for a database
+!item [0x0002 =]
+Text files
+!item [0x0004 =]
+Vector graphics
+!item [0x0008 =]
+Raster graphics
+!item [0x0010 =]
+Spreadsheet data
+!item [0x0020 =]
+Samples, MIDI files, Sound
+!item [0x0040 =]
+Archive files (e.g. ".zip", ".lzh")
+!item [0x8000 =]
+System files (e.g. colour palettes)
+!end_xlist
+If possible the format 0x0000 should be avoided!
+!item [msg[4!]]
+4 characters that describe the "best" (!U)and(!u) format (least loss of
+information) for
+!item [msg[5!]]
+the data import; example ".RTF" rather than ".TXT"
+!item [msg[6!]]
+Reserved, 0
+!item [msg[7!]]
+Reserved, 0
+!end_xlist
+
+!label SH_WDRAW
+!item [SH_WDRAW (72)]
+This message should be sent by an application to the system shell when the
+contents of a drive has been changed; following this the shell can update the
+corresponding window
+!begin_xlist !short
+!item [msg[3!]]
+Drive (0 = A:, 1 = B:, etc)
+!end_xlist
+(!B)Note:(!b) A value of -1 means that the shell should update all windows
+
+!label SHUT_COMPLETED
+!item [SHUT_COMPLETED (60)]
+This is sent by the operating system to the initiator of a Shutdown when all
+other applications have already been informed about this and have reacted
+positively
+
+!label SM_M_SPECIAL
+!label Application, Freezing of an
+!label Process, Freezing of a
+!label Freezing on an application
+!label Application, Thawing of an
+!label Process, Thawing of a
+!label Thawing on an application
+!label Application, Switching to
+!label Process, Switching to a
+!label Switching to an application
+!item [SM_M_SPECIAL (101)]
+This message is only available under (!nolink [MagiC]) (as of Version 2.0), and
+must be sent to the (!link [screen-manager][The screen-manager])
+!begin_xlist !short
+!item [msg[3!]]
+0
+!item [msg[4!]]
+'MA'
+!item [msg[5!]]
+'GX'
+!item [msg[6!]]
+Desired action; the following apply:
+!begin_xlist [0 =] !short
+!item [0 =]
+Perform a redraw
+!item [1 =]
+Terminate an application
+!item [2 =]
+Switch to an application
+!item [3 =]
+Freeze an application
+!item [4 =]
+Thaw out an application again
+!item [5 =]
+No information known at present
+!item [6 =]
+Unhide all applications
+!item [7 =]
+Hide other applications
+!item [8 =]
+Hide current application
+!end_xlist
+!item [msg[7!]]
+0
+!end_xlist
+(!B)Note:(!b) The codes 6..8 of msg[6] are available only as of MagiC Version
+3.1. For "Perform a redraw" and "Unhide all applications" the ID to be passed
+must be that of the (!link [screen-manager][The screen-manager]) (1).
+
+!label THR_EXIT
+!item [THR_EXIT (88)]
+This message is sent to the thread or the application that created the
+terminated thread; the following apply:
+!begin_xlist !short
+!item [msg[3!]]
+(!nolink [AES]) ID of the terminated thread
+!item [msg[4!]]
+Return value or error-code as a
+!item [msg[5!]]
+LONG value
+!end_xlist
+
+!label WM_ALLICONIFY
+!item [WM_ALLICONIFY (36)]
+All windows of the application should be collected up in one iconified window
+!begin_xlist !short
+!item [msg[4!]]
+X-coordinate, (!U)and(!u)
+!item [msg[5!]]
+Y-coordinate of top left of the iconified window
+!item [msg[6!]]
+Width, (!U)and(!u)
+!item [msg[7!]]
+ Height of the iconified window
+!end_xlist
+
+!label WM_ARROWED
+!label WA_UPPAGE
+!label WA_DNPAGE
+!label WA_UPLINE
+!label WA_DNLINE
+!label WA_LFPAGE
+!label WA_RTPAGE
+!label WA_LFLINE
+!label WA_RTLINE
+!label WA_WHEEL
+!item [WM_ARROWED (24)]
+This message is sent to an application to tell it that one of its slider
+widgets (arrow or scroll bar) was clicked on; the following apply:
+!begin_xlist !short
+!item [msg[3!]]
+The handle (ID) of the window
+!item [msg[4!]]
+One of the following values:
+!begin_xlist !short
+!item [WA_UPPAGE (0) =]
+Page up
+!item [WA_DNPAGE (1) =]
+Page down
+!item [WA_UPLINE (2) =]
+Row up
+!item [WA_DNLINE (3) =]
+Row down
+!item [WA_LFPAGE (4) =]
+Page left
+!item [WA_RTPAGE (5) =]
+Page right
+!item [WA_LFLINE (6) =]
+Column left
+!item [WA_RTLINE (7) =]
+Column right
+!item [WA_WHEEL ~(8) =]
+See below
+!end_xlist
+!end_xlist
+
+As of (!nolink [XaAES]) v0.960 there is an extension of this message, since it
+has new drivers for a wheeled mouse:
+!begin_xlist
+!item [msg[5!]]
+'MW' (0x4d57) or 'Mw' (0x4d77) (!nl)
+'MW' (0x4d57) For the first mouse-wheel turn (!nl)
+'Mw' (0x4d77) For each further turn
+!item [msg[6!]]
+0
+!item [msg[7!]]
+Current number of mouse-wheel turns; with this one can add together several
+turns, for instance for movement of the slider
+!end_xlist
+
+But there is also the possibility of obtaining with WF_WHEEL real messages
+about mouse-wheel
+!begin_xlist
+!item [msg[4!]]
+WA_WHEEL (8)
+!item [msg[6!]]
+Index of the wheel
+!item [msg[7!]]
+Number of mouse-wheel turns; with this one can add together several turns, for
+instance for movement of the slider
+!end_xlist
+
+If WINX is installed one can get an extended WM_ARROWED message:
+!begin_xlist
+!item [msg[5!]]
+Negates the speed factor for msg[4]
+!item [msg[6!]]
+Scroll type and direction, possible values as in msg[4]
+!item [msg[7!]]
+Negated speed factor for msg[6]
+!end_xlist
+
+One should proceed as follows: (!nl)
+If [5] >=0, then we are dealing with a normal scroll message (!nl)
+If [5] < 0, then one negates the value and obtains the factor for [4] (!nl)
+If [7] < 0, then one negates the value and obtains the factor for [6] (!nl)
+Otherwise [6] will be ignored
+
+(!B)Example:(!b)  (!nl)
+If one receives [WM_ARROWED 1 0 win WA_DNLINE -2 WA_RTLINE -1] for instance,
+then one should scroll two lines downwards and one column to the right
+
+!label WM_BACKDROPPED
+!item [WM_BACKDROPPED (31)]
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window in question
+!end_xlist
+The application receives this message when operating the backdrop button of
+the window. This message is present only in KAOS 1.4.2 as well as MagiC 1 and
+2; since MagiC Version 3, WM_BOTTOMED is sent.
+
+!label WM_BOTTOMED
+!item [WM_BOTTOMED (33)]
+This is used by the (!nolink [screen-manager][The screen-manager]) to request
+that the application should place a window in the background. In some
+(!nolink [TOS]) versions this is triggered by [Shift]-clicking on the window's
+mover bar; with MagiC (as of version 3) there is an
+(!link [extra widget][The components of a window]) for this (3rd from the right
+at the top).
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window in question
+!end_xlist
+(!B)Note:(!b) The window can then be simply placed by the application in the
+background with wind_set (msg[3], WF_BOTTOM, 0, 0 ,0, 0). Under MagiC 2.0 this
+message is still called WM_M_BDROPPED.
+
+!label WM_CLOSED
+!item [WM_CLOSED (22)]
+This message is sent when the user clicks on a window's
+'(!link [Closer][The components of a window])' widget (top left corner),
+signalling that the topped window should be closed
+!begin_xlist !short
+!item [msg[3!]]
+The handle (ID) of the window
+!end_xlist
+
+!label WM_FULLED
+!item [WM_FULLED (23)]
+This message is sent when the user clicks on the top window's
+'(!link [Fuller][The components of a window])' widget (top right corner)
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window that is to be brought to its full size
+!end_xlist
+
+!label WM_HSLID
+!item [WM_HSLID (25)]
+This message is sent when the
+(!link [horizontal slider][The components of a window]) of the scroll bar has
+been moved
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window
+!item [msg[4!]]
+The new slider position:
+!begin_table [c c l]
+0000 !! = !! Far left
+1000 !! = !! Far right
+!end_table
+!end_xlist
+
+!label WM_ICONIFY
+!item [WM_ICONIFY (34)]
+This message is sent when the user clicks on the
+'(!link [Iconify][The components of a window])' widget of a window (top, second
+rom the right), signifying that a window of the application is to be iconified
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window in question
+!item [msg[4!]]
+X-coordinate, (!U)and(!u)
+!item [msg[5!]]
+Y-coordinate of top left of the iconified window
+!item [msg[6!]]
+Width, (!U)and(!u)
+!item [msg[7!]]
+Height of the iconified window
+!end_xlist
+
+!label WM_M_BDROPPED
+!item [WM_M_BDROPPED (100)]
+This is used by the (!link [screen-manager][The screen-manager]) to request
+that the application should place a window in the background (say when the
+'(!link [Backdrop][The components of a window])' button is activated). As of
+MagiC 3 this opcode is no longer sent, but WM_BOTTOMED is used instead.
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window in question
+!end_xlist
+
+!label WM_MOVED
+!item [WM_MOVED (28)]
+This message is sent when the user moves the whole window by dragging a
+window's (!link [title-bar][The components of a window])
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window
+!item [msg[4!]]
+New X-coordinate, (!U)and (!u)
+!item [msg[5!]]
+New Y-coordinate of top left of window
+!item [msg[6!]]
+New window width (unchanged)
+!item [msg[7!]]
+New window height (unchanged)
+!end_xlist
+
+!label WM_NEWTOP
+!item [WM_NEWTOP (29)]
+This message is sent when a window has been topped (brought to the front)
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window
+!end_xlist
+
+!label WM_ONTOP
+!item [WM_ONTOP (31)]
+This message is sent when a window (after closing or deactivating another
+window) becomes the top (current or active) one
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window in question
+!end_xlist
+(!B)Note:(!b) By the time the message arrives the window stack may have already
+changed again; the message is sent only when the application has not itself
+issued a call to place the window in the foreground
+
+Messages of this type are coalesced in the (!nolink [AES]) message buffer. It
+follows from this that at all times the last message of this type will be
+received; thus there cannot be several of these messages in the buffer.
+
+!label WM_REDRAW
+!item [WM_REDRAW (20)]
+This message warns an application that a part of the window area must be
+redrawn
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window
+!item [msg[4!]]
+X-coordinate of the top left corner of the window area to redraw
+!item [msg[5!]]
+Y-coordinate of the top left corner of the window area to redraw
+!item [msg[6!]]
+Width of the portion of the window area to redraw
+!item [msg[7!]]
+Height of the portion of the window area to redraw
+!end_xlist
+
+
+!label WM_SHADED
+!item [WM_SHADED (22360)]
+This message is sent when a window has been 'shaded' (by double-clicking its
+(!link [title-bar][The components of a window]) so that only the title-bar
+remains visible
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window
+!end_xlist
+
+
+!label WM_SIZED
+!item [WM_SIZED (27)]
+This message occurs when the user alters the window's size (by dragging the
+window's '(!link [Sizer][The components of a window])' widget at the bottom
+right corner)
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window
+!item [msg[4!]]
+New X-coordinate, (!U)and(!u)
+!item [msg[5!]]
+New Y-coordinate of the window's top left corner (both unchanged)
+!item [msg[6!]]
+New window width
+!item [msg[7!]]
+New window height
+!end_xlist
+
+!label WM_TOOLBAR
+!item [WM_TOOLBAR (37)]
+This message is sent when a (!link [toolbar][The components of a window])
+object is clicked on; the following apply:
+!begin_xlist [msg___] !short
+!item [msg[3!]]
+Handle (ID) of the window
+!item [msg[4!]]
+Object clicked on
+!item [msg[5!]]
+Number of mouse clicks
+!item [msg[6!]]
+Keyboard state of [Shift], [Alternate] and [Control]
+!end_xlist
+(!B)Note:(!b) All objects of the toolbox should have the TOUCHEXIT flag set.
+This does not apply for (!nolink [XaAES]), for which there is an additional
+value:
+!begin_xlist [msg___]
+!item [msg[7!]]
+Current object in which the text cursor is positioned
+!end_xlist
+
+
+!label WM_TOPPED
+!item [WM_TOPPED (21)]
+This message is sent when an application window which is not currently topped
+is clicked on by the user to move it to the top (made active)
+!begin_xlist !short
+!item [msg[3!]]
+The handle (ID) of the window
+!end_xlist
+
+!label WM_UNICONIFY
+!item [WM_UNICONIFY (35)]
+This message is sent when the user double-clicks one or more iconified windows
+of an application to uniconify it/them; if several windows are affected
+(WM_ALLICONIFY) then it is up to the application alone to process this,
+as the (!nolink [AES]) does not make available any information about the windows
+in question, including their positions or dimensions
+
+!begin_xlist [msg___] !short
+!item [msg[3!]]
+Handle (ID) of the window in question
+!item [msg[4!]]
+X-coordinate, (!U)and(!u)
+!item [msg[5!]]
+Y-coordinate of top left corner of the uniconified window
+!item [msg[6!]]
+Width, (!U)and(!u)
+!item [msg[7!]]
+Height of the uniconified window
+!end_xlist
+
+!label WM_UNSHADED
+!item [WM_UNSHADED (22361)]
+This message is sent when a window has been 'unshaded' (by again double-clicking
+its title-line) to make the whole window visible
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window
+!end_xlist
+
+!label WM_UNTOPPED
+!item [WM_UNTOPPED (30)]
+This message is sent when the current window has been sent behind one or more
+windows due to another window becoming the active one
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window in question
+!end_xlist
+(!B)Note:(!b) By the time the message arrives the window stack may have already
+changed again; the message is sent only when the application has not itself
+issued a call to place the window in the background
+
+
+!label WM_VSLID
+!item [WM_VSLID (26)]
+This message indicates that the
+(!link [vertical slider][The components of a window]) of the scroll bar has been
+moved
+!begin_xlist !short
+!item [msg[3!]]
+Handle (ID) of the window
+!item [msg[4!]]
+The new slider position:
+!begin_table [c c l]
+0000 !! = !! At the very top
+1000 !! = !! At the very bottom
+!end_table
+!end_xlist
+!end_xlist
+
+Support of the newer message types can be inquired with
+(!link [appl_getinfo][%apgi_12]) (opcode 12). Incidentally, for user-defined
+messages (!I)Digital Research(!i) has suggested message numbers beyond 1024.
+
+About the size of the message buffer:
+
+An individual application should not use more than 16 windows under MagiC 2.0,
+as otherwise the message buffer of the system can overflow and possibly
+redraws can no longer be performed.
+
+See also: evnt_multi ~ evnt_mesag ~ AV protocol ~ OLGA protocol ~
+             (!link [Drag&Drop][Drag&Drop protocol])
+!end_node
+

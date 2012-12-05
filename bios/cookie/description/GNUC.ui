@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, GNUC
+
+(!B)GNU-C library(!b)
+
+Modified: all traps from Buserror to Tracetrap, kbd_vecs->ikbdsys, 
+VBL, etv_term, etv_timer, resvector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GNUC
+
+(!B)GNU-CC Libraries(!b)
+
+Vverbogen: alle Traps von Buserror bis Tracetrap, 
+kbd_vecs->ikbdsys, VBL, etv_term, etv_timer, resvector.
+
+!end_node
+
+!endif
+ 

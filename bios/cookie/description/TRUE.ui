@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, TRUE
+
+(!B)TrueDisk(!b) - A fast, resident RAMdisk, Version 2.2 (2.1.94)
+ 
+Modified via XBRA: hdv_bpb, hdv_rw, hdv_mediach.
+
+Status: PD.
+
+!end_node
+
+!else
+
+!begin_node Cookie, TRUE
+
+(!B)TrueDisk(!b) - Eine schnelle residente RAM-Disk. Version 2.2 (2.1.94)
+
+šber XBRA verbogen: hdv_bpb, hdv_rw, hdv_mediach.
+
+Status: PD.
+
+!end_node
+
+!endif
+ 

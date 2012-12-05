@@ -1,0 +1,43 @@
+!iflang [english]
+
+!begin_node Cookie, MaTC
+
+(!B)Matrix True Colour graphics card(!b)
+
+!begin_verbatim
+typedef struct
+{
+  int16_t version, release;
+  int8_t *date;
+
+  SCREENparameter *scr_par;
+  BOARDparameter  *brd_par;
+  TCXXtables      *tables;
+  E2Pparameter    *e2p_par;
+} TCXXparameterBlock;
+!end_verbatim
+
+!end_node
+
+!else
+
+!begin_node Cookie, MaTC
+
+(!B)Matrix True Colour Graphics Card(!b)
+
+!begin_verbatim
+typedef struct
+{
+  int16_t version, release;
+  int8_t *date;
+
+  SCREENparameter *scr_par;
+  BOARDparameter  *brd_par;
+  TCXXtables      *tables;
+  E2Pparameter    *e2p_par;
+} TCXXparameterBlock;
+!end_verbatim
+
+!end_node
+
+!endif

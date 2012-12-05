@@ -1,0 +1,32 @@
+!iflang [english]
+
+!begin_node Cookie, MDIA
+
+(!B)Multi-Dialog(!b) - Moves any dialog to a window
+
+The cookie jar contains pointers to various sets of information.
+
+Modifies: TRAP #2 ((!nolink [AES])), TRAP #13 ((!nolink [BIOS])) and
+etv_term ((!nolink [GEMDOS]) vector #258).
+
+Status: Freeware
+
+!end_node
+
+!else
+
+!begin_node Cookie, MDIA
+
+(!B)MultiDialog(!b) - bef”rdert beliebige Dialoge in Fenster.
+
+Cookie-Jar enth„lt Zeiger auf diverse Informationen.
+
+Verbiegt: TRAP #2 ((!nolink [AES])), TRAP #13 ((!nolink [BIOS])),
+etv_term ((!nolink [GEMDOS])-Vektor #258).
+
+Status: Freeware
+
+!end_node
+
+!endif
+ 

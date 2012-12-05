@@ -1,0 +1,182 @@
+!iflang [english]
+
+
+!begin_node Pwait3
+(!begin_liste) [Availability]
+!item [Name:]
+¯Pwait3® - Get exit code of any waiting or terminated children of the
+calling process.
+
+!item [Opcode:]
+284
+
+!item [Syntax:]
+int32_t Pwait3 ( int16_t flag, int32_t *rusage );
+
+!item [Description:]
+The function Pwait3 is equivalent to a call of Pwaitpid (-1, flag, rusage)
+and determines with it the exit code as well as the CPU load of a
+terminated or stopped child process.
+
+(!I)flag(!i) is a bit-mask showing the specifics of this call as follows:
+
+!begin_xlist !short
+!item [Value]
+Meaning
+!item [~]
+~
+!item [1]
+If set, the function will not block the calling process if no child has
+been stopped or terminated, but will just return 0; if not set (clear), the
+process will be blocked until a child of the process has been terminated or
+stopped
+!item [2]
+If set, returns exit codes for processes that have been terminated as well
+as stopped; if clear, only returns exit codes for processes that have
+actually terminated
+!end_xlist
+
+(!I)rusage(!i) points to an array of two LONGs that are filled in with
+information about resource usage of the stopped or terminated process. The
+first LONG holds the number of milliseconds used by the child in user
+space; the second LONG shows the number of milliseconds spent by the
+process in kernel space. If this information is not required,
+(!I)rusage(!i) may be set to NULL.
+
+!item [(!nolink [Return]) value:]
+The function can return the following results:
+
+!begin_xlist !short [EFILNF:]
+!item [>0~~~ :]
+Exit status and PID of the child in the lower and upper 16 bits respectively
+of a 32-bit return code
+!item [~0~~~ :]
+No child processes have been stopped and/or terminated, or, if bit 0 of the
+parameter (!I)flag(!i) is set, the function would be blocked when waiting
+for the exit or the stopping of the child process
+!item [EFILNF:]
+No child processes exist
+!end_xlist
+
+!item [Availability:]
+As of the first in MultiTOS integrated MiNT version 1.04, and MagiC as of
+Version 5.04.
+
+!item [Group:]
+Process functions
+
+!item [See also:]
+(!link [Binding][Bindings for Pwait3]) ~ Pwait ~ Pwaitpid
+(!ende_liste)
+
+
+!begin_node Bindings for Pwait3
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Pwait3 ( int16_t flag, int32_t *rusage );
+
+!item [Assembler:]
+!begin_verbatim
+pea       rusage       ; Offset 4
+move.w    flag,-(sp)   ; Offset 2
+move.w    #284,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #8,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Pwait3
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Pwait3® - auf Childprozess warten, Exitcode ermitteln.
+
+!item [Gemdosnummer:]
+284
+
+!item [Deklaration:]
+int32_t Pwait3 ( int16_t flag, int32_t *rusage );
+
+!item [Beschreibung:]
+Diese Funktion ist „quivalent zu einem Aufruf von Pwaitpid (-1, flag,
+rusage) und ermittelt damit den Exit-Status sowie die CPU-Auslastung eines
+terminierten oder beendeten Child-Prozesses.
+
+(!I)flag(!i) ist eine Bitmaske, die das Verhalten des Funktionsaufrufs
+wie folgt festlegt:
+
+!begin_xlist !short
+!item [Wert]
+Bedeutung
+!item [~]
+~
+!item [1]
+Wenn gesetzt, blockiert die Funktion nicht den aufrufenden Prozess und
+liefert 0 zurck. Wenn nicht gesetzt (gel”scht), wird der Prozess solange
+blockiert bis das Child sich beendet oder gestoppt wurde.
+!item [2]
+Wenn gesetzt, werden die Returnwerte von Prozessen die beendet wurden
+genauso wie von gestoppten zurckgeliefert. Wenn gel”scht, werden nur
+Returnwerte von Prozessen die aktuell beendet wurden, zurckgeliefert.
+!end_xlist
+
+(!I)rusage(!i) zeigt auf ein Feld mit zwei LONGS, die mit Informationen
+ber den Verbrauch von Resourcen des beendeten oder gestoppten Prozesses
+gefllt werden. Der erste LONG enth„lt die Anzahl Millisekunden, die vom
+Child verbraucht wurden. Der zweite LONG enth„lt die Anzahl Millisekunden,
+die der Prozess im Kernelspace verbracht hat. Wird diese Information nicht
+gewnscht, kann (!I)rusage(!i) auf NULL gesetzt werden.
+
+!item [Ergebnis:]
+Die Funktion kann folgende Rckgabewerte liefern:
+
+!begin_xlist !short [EFILNF:]
+!item [>0~~~ :]
+Exit-Status und PID des Childs im unteren und oberen 16 bit des 32 Bit
+Returnwerts.
+!item [~0~~~ :]
+Kein Child Prozess wurde gestoppt oder beendet, oder, falls Bit-0 des
+Parameters (!I)flag(!i) gesetzt ist, die Funktion wrde beim Warten auf das
+Exit bzw. Stop des Childs blockiert werden.
+!item [EFILNF:]
+es existieren keine Childs.
+!end_xlist
+
+!item [Verfgbar:]
+Seit der ersten in MultiTOS integrierten MiNT Version 1.04 und in MagiC ab
+Version 5.04.
+
+!item [Gruppe:]
+Prozessfunktionen
+
+!item [Querverweis:]
+(!link [Binding][Bindings fr Pwait3]) ~ Pwait ~ Pwaitpid
+(!ende_liste)
+
+
+!begin_node Bindings fr Pwait3
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Pwait3 ( int16_t flag, int32_t *rusage );
+
+!item [Assembler:]
+!begin_verbatim
+pea       rusage       ; Offset 4
+move.w    flag,-(sp)   ; Offset 2
+move.w    #284,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #8,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

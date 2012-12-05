@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SCRW
+
+(!B)SCREENWATCH.PRG(!b) - Warning tone at 'dirty' screen accesses
+
+!end_node
+
+!else
+
+!begin_node Cookie, SCRW
+
+(!B)SCREENWATCH.PRG(!b) - Warnton bei unsauberen Bildschirmzugriffen
+
+!end_node
+
+!endif
+ 

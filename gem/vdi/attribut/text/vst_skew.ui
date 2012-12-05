@@ -1,0 +1,189 @@
+!iflang [english]
+
+!begin_node vst_skew
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+¯Set outline font skew® - Set the slope for 'italic' text.
+
+!item [Opcode:]
+253
+
+!item [Syntax:]
+int16_t vst_skew ( int16_t handle, int16_t skew );
+
+!item [Description:]
+The call vst_skew sets the skew of vector font characters in steps of 1/10
+degrees. The skewing angle is independent of vst_effects and must be in a
+range between -90 and +90 degrees. Positive angles will lean the characters
+to the left, whereas negative angles will lean them to the right.
+
+!begin_xlist
+!item [Parameter]
+Meaning
+!item [handle]
+Workstation identifier
+!item [skew]
+Angle in 1/10 degrees
+!end_xlist
+
+(!B)Note:(!b) This function can really only be seen as a bit of a lark, as
+characters created in this way basically look worse than a true italic font
+(which should be available for most font families).
+               
+!item [(!nolink [Return]) value:]
+The function returns the set skew angle.
+
+!item [Availability:]
+FSM-GDOS, SpeedoGDOS as of Version 4.00, and NVDI 3.00 onwards.
+
+!item [Group:]
+Text attributes
+
+!item [See also:]
+(!link [Binding] [Bindings for vst_skew]) ~ vst_effects ~ SpeedoGDOS ~ NVDI
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings for vst_skew
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t vst_skew ( int16_t handle, int16_t skew );
+
+!item [Binding:]
+!begin_verbatim
+int16_t vst_skew (int16_t handle, int16_t skew)
+{
+   intin[0] = skew;
+
+   contrl[0] = 253;
+   contrl[1] = 0;
+   contrl[3] = 1;
+   contrl[6] = handle;
+
+   vdi ();
+
+   return ( intout[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! Contents
+!hline
+contrl    !! contrl[0] !! 253   # Function Opcode
+contrl+2  !! contrl[1] !! 0     # entry in ptsin
+contrl+4  !! contrl[2] !! 0     # entry in ptsout
+contrl+6  !! contrl[3] !! 1     # entry in intin
+contrl+8  !! contrl[4] !! 1     # entry in intout
+contrl+12 !! contrl[6] !! handle
+intin     !! intin[0]  !! skew
+intout    !! intout[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+
+!else
+
+!begin_node vst_skew
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+¯Set outline font skew® - Setzen des Neigungsgrades fr kursive Schrift.
+
+!item [VDI-Nummer:]
+253
+
+!item [Deklaration:]
+int16_t vst_skew ( int16_t handle, int16_t skew );
+
+!item [Beschreibung:]
+Die Funktion setzt den Neigungsgrad fr Kursivschrift. Es gilt:
+
+!begin_xlist
+!item [Parameter]
+Bedeutung
+!item [handle]
+Kennung der Workstation
+!item [skew]
+gewnschter Winkel
+!end_xlist
+
+(!B)Hinweis:(!b) Der Winkel wird in zehntel Grad angegeben und darf zwischen
+-90ø und +90ø variieren. Wie berall im VDI sind auch hier die Winkel
+entgegen dem Uhrzeigersinn gerichtet. Positive Winkel fhren zu einer
+Neigung nach links, wogegen negative Winkel Zeichen nach rechts neigen.
+
+Diese Funktion kann eigentlich nur als nette Spielerei angesehen werden, da
+die erzeugten Zeichen grunds„tzlich schlechter aussehen, als ein richtiger
+Italic Zeichensatz.
+
+!item [Ergebnis:]
+Die Funktion liefert den gesetzten Neigungsgrad zurck.
+
+!item [Verfgbar:]
+Beim FSM-GDOS, SpeedoGDOS ab Version 4.00 und ab NVDI 3.00.
+
+!item [Gruppe:]
+Text-Attribute
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr vst_skew]) ~  vst_effects ~  SpeedoGDOS ~ NVDI
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings fr vst_skew
+!ignore_index
+
+(!begin_liste) [Umsetzung]
+
+!item [C:]
+int16_t vst_skew ( int16_t handle, int16_t skew );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t vst_skew (int16_t handle, int16_t skew)
+{
+   intin[0] = skew;
+
+   contrl[0] = 253;
+   contrl[1] = 0;
+   contrl[3] = 1;
+   contrl[6] = handle;
+
+   vdi ();
+
+   return ( intout[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+contrl    !! contrl[0] !! 253   # Opcode der Funktion
+contrl+2  !! contrl[1] !! 0     # Eintr„ge in ptsin
+contrl+4  !! contrl[2] !! 0     # Eintr„ge in ptsout
+contrl+6  !! contrl[3] !! 1     # Eintr„ge in intin
+contrl+8  !! contrl[4] !! 1     # Eintr„ge in intout
+contrl+12 !! contrl[6] !! handle
+intin     !! intin[0]  !! skew
+intout    !! intout[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+
+!endif

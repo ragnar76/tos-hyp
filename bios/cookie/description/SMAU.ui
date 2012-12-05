@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SMAU
+
+(!B)Set Maus(!b) accessory
+
+!end_node
+
+!else
+
+!begin_node Cookie, SMAU
+
+(!B)Set-Maus(!b)-Accessory.
+
+!end_node
+
+!endif
+ 

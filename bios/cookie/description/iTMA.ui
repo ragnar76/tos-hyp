@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, iTMA
+
+(!B)MFP Timer A interrupt handler(!b)
+
+Interrupt-controlled floppy disk operations (read/write/format). 
+
+Installed by E-Copy as of 2.0, E-Backup as of 2.0, Kobold as of 3.0.
+
+!end_node
+
+!else
+
+!begin_node Cookie, iTMA
+
+(!B)MFP-Timer-A-Interrupthandler(!b)
+
+Interruptgesteuerte Diskettenoperationen (Lesen/Schreiben/Formatieren).
+
+Installiert von E-Copy ab 2.0, E-Backup ab 2.0, Kobold ab 3.0
+
+!end_node
+
+!endif
+ 

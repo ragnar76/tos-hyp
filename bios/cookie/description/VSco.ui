@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, VSco
+
+(!B)Virus Scope(!b)
+
+Source: Maxon PD-Disk 227.
+
+!end_node
+
+!else
+
+!begin_node Cookie, VSco
+
+(!B)Virusscope(!b)
+
+Quelle: Maxon PD-Disk 227.
+
+!end_node
+
+!endif
+ 

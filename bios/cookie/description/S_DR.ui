@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, S_DR
+
+(!B)(!nolink [CD])-ROM SCSI driver(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, S_DR
+
+(!B)CDROM SCSI driver(!b)
+
+!end_node
+
+!endif
+ 

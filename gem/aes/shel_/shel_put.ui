@@ -1,0 +1,183 @@
+!iflang [english]
+
+!begin_node shel_put
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØShell putÆ - Writes to the (!nolink [GEM]) environment buffer.
+
+!item [Opcode:]
+123
+
+!item [Syntax:]
+int16_t shel_put ( int8_t *sh_paddr, uint16_t sh_plen );
+
+!item [Description:]
+The call shel_put copies information to the environment shell buffer of the
+(!nolink [AES]). The following apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)sh_paddr(!i) !! Address of source buffer (in user memory)
+(!I)sh_plen(!i) !! Number of characters to be written
+!end_table
+
+(!B)Note:(!b) The desktop uses this buffer to store the DESKTOP.INF or
+NEWDESK.INF file. Although the format of these files is (!I)not(!i) officially
+documented, a current description can be found in newdesk.hyp.
+
+The permissible length of the buffer lies since MagiC 3 between 4192 and 65534
+bytes, while in very old (!nolink [TOS]) versions it was restricted to 1024 bytes.
+
+Prior to (!nolink [AES]) version 4.0 this function would only copy as many bytes
+as would fit into the current buffer. As of version 4.0, the (!nolink [AES]) will
+dynamically allocate more memory as needed (up to 32767 bytes) for the shell
+buffer.
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Shell library
+
+!item [See also:]
+(!link [Binding] [Bindings for shel_put]) ~ shel_get ~ shel_envrn ~ shel_find
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for shel_put
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t shel_put ( int8_t *sh_paddr, uint16_t sh_plen );
+
+!item [Binding:]
+!begin_verbatim
+int16_t shel_put (int8_t *sh_paddr, uint16_t sh_plen)
+{
+   int_in[0]  = sh_plen;
+   addr_in[0] = sh_paddr;
+
+   return ( crys_if(123) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 123   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! sh_plen
+addr_in   !! addr_in[0] !! sh_paddr
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node shel_put
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØShell putÆ - schreibt in den GEM-Environment-Puffer.
+
+!item [AES-Nummer:]
+123
+
+!item [Deklaration:]
+int16_t shel_put ( int8_t *sh_paddr, uint16_t sh_plen );
+
+!item [Beschreibung:]
+Die Funktion schreibt in den Environment-Speicher des AES. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)sh_paddr(!i) !! Adresse des Quellpuffers
+(!I)sh_plen(!i) !! Anzahl der zu schreibenden Zeichen
+!end_table
+
+(!B)Hinweis:(!b) Das Desktop nutzt diesen Speicher zur Aufbewahrung der
+DESKTOP.INF bzw. NEWDESK.INF Datei. Das Format dieser Dateien ist allerdings
+(!I)nicht(!i) offiziell dokumentiert. Eine aktuelle Beschreibung findet sich
+jedoch in newdesk.hyp.   
+
+Die zulÑssige LÑnge des Puffers liegt seit MagiC 3 zwischen 4192 und 65534
+Bytes, wÑhrend sie in ganz alten TOS-Versionen noch bei 1024 Bytes lag.
+
+Prior to AES version 4.0 this function would only copy as
+many bytes as would fit into the current buffer. As of
+version 4.0, the AES will dynamically allocate more memory
+as needed (up to 32767 bytes) for the shell buffer.
+               
+!item [Ergebnis:]
+Ein RÅckgabewert von Null signalisiert einen Fehler.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+(!link [Shell-Kommunikation][Shellfunktionen])
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr shel_put]) ~ shel_get ~ shel_envrn ~ shel_find
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr shel_put
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t shel_put ( int8_t *sh_paddr, uint16_t sh_plen );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t shel_put (int8_t *sh_paddr, uint16_t sh_plen)
+{
+   int_in[0]  = sh_plen;
+   addr_in[0] = sh_paddr;
+
+   return ( crys_if(123) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 123   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! sh_plen
+addr_in   !! addr_in[0] !! sh_paddr
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

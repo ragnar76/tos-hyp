@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, USRS
+
+(!B)ROMSPEED(!b)
+
+On 68030-machines moves the contents of the ROMs to RAM. 
+
+Source: Contained in the 'Outside' package. If necessary it is also 
+created by Outside.
+
+!end_node
+
+!else
+
+!begin_node Cookie, USRS
+
+(!B)ROMSPEED(!b)
+
+Verlegt auf 68030-Maschinen das ROM ins RAM,
+
+Quelle: Im Lieferumfang von Outside enthalten. Wird ggfs. auch von Outside
+angelegt.
+
+!end_node
+
+!endif
+ 

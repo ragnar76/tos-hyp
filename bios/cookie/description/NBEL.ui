@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, NBEL
+
+(!B)SOUND.PRG(!b)
+
+Hooks itself into bell_hook and outputs a DMA sound.
+
+!end_node
+
+!else
+
+!begin_node Cookie, NBEL
+
+(!B)SOUND.PRG(!b)
+
+H„ngt sich in bell_hook und gibt eine DMA-Sound aus.
+
+!end_node
+
+!endif
+ 

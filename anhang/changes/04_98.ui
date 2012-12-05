@@ -1,0 +1,967 @@
+!begin_node Version 4.98
+
+!begin_verbatim
+
+2008-11-19 Wednesday 17:49  Gerhard Stoll
+
+  * config.u, e_aes.u, e_bios.u, e_cpxdok.u, e_funk_l.u, e_gemdos.u,
+  e_linea.u, e_magic.u, e_olga.u, e_protok.u, e_tos.u, e_tos_li.u,
+  e_vdi.u, e_view.u, e_vt52.u, e_xbios.u, e_xbra.u, e_xhdi.u,
+  tos_hyp.u, gem/aes/evnt_/messages/messages.u, gemdos/filesys.u,
+  gemdos/*, xbios/*:
+
+  Change line end
+
+2008-11-18 Tuesday 20:19  Gerhard Stoll
+
+  * doc/liesmich, doc/styl.u, emulator.en/sonstige.u,
+  emulator.en/stem.u, emulator.en/tos2win.u, gem/*,
+  linea/*, magic/*, n_aes/n_aes.u, protokol/*,
+  tos/tos_de.ui, tos/tos_en.ui, tos/tosmain.u,
+  xaaes/xaaes.u:
+
+  Change lineend
+
+2008-11-16 Sunday 14:25  Gerhard Stoll
+
+  * gem/aes/: appl_/*, edit_/*, evnt_/*:
+
+  Change line end
+
+2008-11-16 Sunday 14:24  Gerhard Stoll
+
+  * xbios/xbios_f.u:
+
+  Add function form ct60
+
+2008-11-09 Sunday 14:30  Gerhard Stoll
+
+  * anhang/*, bios/*:
+
+  Change line end to unix
+
+2008-11-09 Sunday 08:51  Gerhard Stoll
+
+  * gem/vdi/output/v_arc.ui:
+
+  Test upload
+
+2008-11-06 Thursday 20:38  Michael Bernstein
+
+  * gemdos/system/ssystem.ui:
+
+  Syntaxfehler in begin_table end_tabel in deutschen Teil behoben.
+
+  Bugfix of syntax error with begin_table end_table in german part.
+
+2008-11-05 Wednesday 21:04  Michael Bernstein
+
+  * gemdos/: argv.u, gemdos_f.u, chrinout/cauxin.ui,
+  chrinout/cauxos.ui, chrinout/cauxout.ui, chrinout/cconis.ui,
+  chrinout/cconout.ui, chrinout/cconrs.ui, chrinout/cconws.ui,
+  chrinout/cprnos.ui, chrinout/crawcin.ui, chrinout/crawio.ui,
+  datetime/tgettime.ui, datetime/tsettime.ui, dir/dclosedi.ui,
+  dir/dcntl.ui, dir/dcreate.ui, dir/ddelete.ui, dir/dfree.ui,
+  dir/dgetcwd.ui, dir/dgetdrv.ui, dir/dgetpath.ui, dir/dreadlab.ui,
+  dir/dsetdrv.ui, dir/dsetpath.ui, dir/dwritela.ui, dir/dxopendir.ui,
+  dir/dxreaddi.ui, file/fattrib.ui, file/fclose.ui, file/fdatime.ui,
+  file/fdelete.ui, file/fgetdta.ui, file/fread.ui, file/fsnext.ui,
+  file/fwrite.ui, memory/mfree.ui, memory/mshrink.ui,
+  memory/mxalloc.ui, network/Nversion.ui, prozess/pseteuid.ui,
+  prozess/psigintr.ui, prozess/pterm.ui, prozess/pterm0.ui,
+  structures/DISKINFO.ui, structures/DTA.ui, structures/FILEPTR.ui,
+  structures/LINE.ui, structures/PD.ui, structures/XATTR.ui,
+  structures/cd_ad.ui, structures/cdrom_tocentry.ui,
+  structures/fcookie.ui, structures/mutimbuf.ui,
+  structures/ploadinfo.ui, structures/tty.ui, structures/winsize.ui,
+  structures/xkey.ui, system/slbclose.ui, system/slbopen.ui,
+  system/super.ui:
+
+  Doppelte ZeilenumbrÅch entfernt, die aus jeder Zeile einen Absatz
+  gemacht hatten.
+
+  Remove double newlines which case UDO to take every line as a
+  separate paragraph
+
+2008-11-02 Sunday 21:48  Michael Bernstein
+
+  * gemdos/: chrinout/chrinout.u, system/system.u:
+
+  Fehler in Verschachtelung iflang-endif mit begin_node end_node
+
+  Bugfix in iflang-endif with begin_node end_node
+
+2008-11-01 Saturday 18:29  Michael Bernstein
+
+  * gemdos/system/ssystem.ui:
+
+  Syntaxfehler in Item eienr XLIST im deutschen Teil behoben.
+
+  Bugfix in item part of xlist from german part.
+
+2008-10-31 Friday 08:31  Gerhard Stoll
+
+  * gem/vdi/attribut/bitmap/vsr_bg_color.ui,
+  gem/vdi/attribut/text/vst_error.ui, gemdos/gemdos.u,
+  gemdos/signale.u, gemdos/dir/dclosedi.ui, gemdos/dir/dcntl.ui,
+  gemdos/dir/dcreate.ui, gemdos/dir/ddelete.ui, gemdos/dir/dfree.ui,
+  gemdos/dir/dgetcwd.ui, gemdos/dir/dgetdrv.ui,
+  gemdos/dir/dgetpath.ui, gemdos/dir/dlock.ui,
+  gemdos/dir/dopendir.ui, gemdos/dir/dpathcon.ui,
+  gemdos/dir/dreaddir.ui, gemdos/dir/dreadlab.ui,
+  gemdos/dir/drewindd.ui, gemdos/dir/dsetdrv.ui,
+  gemdos/dir/dsetpath.ui, gemdos/dir/dwritela.ui,
+  gemdos/dir/dxopendir.ui, gemdos/dir/dxreaddi.ui,
+  gemdos/file/fchown.ui, gemdos/file/fsnext.ui,
+  xbios/intrface/dosound.ui, xbios/laufwerk/floprd.ui,
+  xbios/spezial/blitmode.ui, xbios/spezial/cachectr.ui,
+  xbios/spezial/cjar.ui, xbios/spezial/dbmsg.ui,
+  xbios/spezial/janus.ui, xbios/spezial/puntaes.ui,
+  xbios/spezial/random.ui, xbios/spezial/ssbrk.ui,
+  xbios/spezial/supexec.ui, xbios/spezial/trapper.ui,
+  xbios/spezial/wdgctrl.ui, xbios/startrac/hardplay.ui:
+
+  Correct links
+
+2008-10-27 Monday 19:52  Gerhard Stoll
+
+  * anhang/hilfe.u:
+
+  Add address
+
+2008-10-27 Monday 19:37  Gerhard Stoll
+
+  * anhang/anhang/tos_vers.u:
+
+  Some more AES versions
+
+2008-10-25 Saturday 20:51  Michael Bernstein
+
+  * gemdos/: chrinout/chrinout.u, datetime/datetime.u,
+  datetime/talarm.ui, datetime/tgettofd.ui, datetime/tsetitim.ui,
+  dir/dclosedi.ui, dir/dcntl.ui, dir/dgetcwd.ui, dir/dir.u,
+  dir/dlock.ui, dir/dopendir.ui, dir/dreaddir.ui, dir/drewindd.ui,
+  file/fchmod.ui, file/fchown.ui, file/file.u, file/flink.ui,
+  file/fmidipip.ui, file/fpipe.ui, file/freadlin.ui,
+  file/fsymlink.ui, memory/memory.u, network/network.u,
+  prozess/pgetegid.ui, prozess/pgeteuid.ui, prozess/pmsg.ui,
+  prozess/prenice.ui, prozess/prozess.u, prozess/psemapho.ui,
+  prozess/psetauid.ui, prozess/psigacti.ui, prozess/psigpaus.ui,
+  prozess/pumask.ui, prozess/pwaitpid.ui, structures/timeval.ui,
+  structures/timezone.ui, system/salert.ui, system/ssync.ui,
+  system/system.u:
+
+  kleine englische Teile im deutschen Zweig aud deutsch Åbersetzt.
+
+  Translate small english parts in german part to german.
+
+2008-10-19 Sunday 18:50  Michael Bernstein
+
+  * gemdos/: filesys.u, gemdos.u, signale.u, chrinout/cnecin.ui,
+  datetime/talarm.ui, dir/dcntl.ui, dir/dir.u, dir/dopendir.ui,
+  file/fchmod.ui, file/fcntl.ui, file/fdup.ui, file/fforce.ui,
+  file/file.u, file/flock.ui, file/fsfirst.ui, memory/memory.u,
+  network/network.u, prozess/pause.ui, prozess/prozess.u,
+  prozess/prusage.ui, prozess/psigpaus.ui, structures/cdrom.ui,
+  structures/sigaction.ui, system/salert.ui, system/ssystem.ui,
+  system/system.u:
+
+  éndern einiger Formatierungen nach Vorlagen von Peter West,
+  soweit mit UDO mîglich. Korrektur von verschachtelten
+  if-else mit begin_node end_node.
+
+  Modify some formats found by Peter West if they can be done with
+  UDO. Bugfix in some nested if-else with begin_node end_node
+
+2008-10-17 Friday 21:02  Michael Bernstein
+
+  * gemdos/: dir/dpathcon.ui, file/fcntl.ui, file/fgetchar.ui,
+  file/finstat.ui, file/foutstat.ui, file/fputchar.ui,
+  file/fselect.ui, prozess/pause.ui, prozess/pdomain.ui,
+  prozess/pfork.ui, prozess/pgetgid.ui, prozess/pgetpgrp.ui,
+  prozess/pgetppid.ui, prozess/pgetuid.ui, prozess/pkill.ui,
+  prozess/pnice.ui, prozess/prusage.ui, prozess/psetgid.ui,
+  prozess/psetlimi.ui, prozess/psetpgrp.ui, prozess/psetuid.ui,
+  prozess/psigbloc.ui, prozess/psignal.ui, prozess/psigpend.ui,
+  prozess/psigretu.ui, prozess/psigsetm.ui, prozess/pusrval.ui,
+  prozess/pvfork.ui, prozess/pwait.ui, prozess/pwait3.ui,
+  system/shutdown.ui, system/sysconf.ui:
+
+  Beschreibung der VerfÅgbarkeit fÅr ab MultiTOS vorhandene
+  Funktionen um MiNT Versionsnummer 1.04 erweitert
+
+  Expand description of availability for functions which are
+  available as of MultiTOS by MiNT version number 1.04
+
+2008-10-12 Sunday 16:52  Gerhard Stoll
+
+  * bios/cookie/description/: _FDC.ui, hade.ui:
+
+  Add some infos from the Hades
+
+2008-10-05 Sunday 07:48  Gerhard Stoll
+
+  * protokol/vscreen.u:
+
+  Add a table with program and identifier
+
+2008-10-05 Sunday 07:47  Gerhard Stoll
+
+  * gemdos/gemdos_f.u:
+
+  Add function from SysMon
+
+2008-10-03 Friday 15:19  Gerhard Stoll
+
+  * gem/aes/appl_/appl_exit.ui, gem/vdi/*,
+  gemdos/datetime/tgettime.ui, gemdos/datetime/tsettime.ui,
+  gemdos/dir/dcreate.ui, gemdos/dir/ddelete.ui, gemdos/dir/dfree.ui,
+  gemdos/dir/dgetdrv.ui, gemdos/dir/dsetpath.ui,
+  gemdos/file/fattrib.ui, gemdos/file/fchown.ui,
+  gemdos/file/fclose.ui, gemdos/file/fdatime.ui,
+  gemdos/file/fdelete.ui, gemdos/file/fforce.ui,
+  gemdos/file/fgetdta.ui, gemdos/file/fwrite.ui,
+  gemdos/memory/mfree.ui, gemdos/memory/mshrink.ui,
+  gemdos/prozess/pseteuid.ui, gemdos/prozess/pterm.ui,
+  gemdos/prozess/pterm0.ui, gemdos/system/slbclose.ui, magic/magic.u,
+  xbios/bildscrm/cursconf.ui, xbios/bildscrm/getrez.ui,
+  xbios/interrpt/jenabint.ui, xbios/intrface/dosound.ui,
+  xbios/intrface/giaccess.ui, xbios/intrface/ikbdws.ui,
+  xbios/intrface/iorec.ui, xbios/intrface/kbdvbase.ui,
+  xbios/intrface/mfpint.ui, xbios/intrface/midiws.ui,
+  xbios/intrface/offgibit.ui, xbios/intrface/ongibit.ui,
+  xbios/intrface/rsconf.ui, xbios/laufwerk/flopfmt.ui,
+  xbios/laufwerk/floprd.ui, xbios/laufwerk/flopver.ui,
+  xbios/laufwerk/flopwr.ui, xbios/laufwerk/protobt.ui,
+  xbios/spezial/blitmode.ui, xbios/spezial/cachectr.ui,
+  xbios/spezial/cjar.ui, xbios/spezial/dbmsg.ui,
+  xbios/spezial/janus.ui, xbios/spezial/puntaes.ui,
+  xbios/spezial/random.ui, xbios/spezial/ssbrk.ui,
+  xbios/spezial/supexec.ui, xbios/spezial/trapper.ui,
+  xbios/spezial/wdgctrl.ui:
+
+  Add some nolink
+
+2008-09-23 Tuesday 21:02  Michael Bernstein
+
+  * gemdos/gemdos.u:
+
+  Shorten paragraph about mint compatible function in introduction
+  because the same text occures in the chapter about filesystems.
+
+  KÅrzen des Absatz Åber Mint kompatible Funktionen in der Einleitung,
+  da der Text ganauso im Kapitel Åner Dateisystem erscheint.
+
+2008-09-21 Sunday 20:58  Michael Bernstein
+
+  * gemdos/prozess/pusrval.ui:
+
+  remove short part which cause problem for translation and gives
+  not additional information
+
+  kurze Passage entfernt, die keine Zusatzinformation liefert, aber
+  Probleme mit der öbersetzung machte
+
+2008-09-21 Sunday 20:53  Michael Bernstein
+
+  * gemdos/prozess/prozess.u:
+
+  modify short description of Psigaction
+
+  Kurzbeschreibung von Psigaction geÑndert
+
+2008-09-21 Sunday 20:50  Michael Bernstein
+
+  * gemdos/prozess/pexec.ui:
+
+  modify names of some modes to names given by atari compendium
+
+  Namen einiger Modi auf die Namen geÑndert, die das Atari
+  Compendium benutzt
+
+2008-09-18 Thursday 18:26  Gerhard Stoll
+
+  * gem/aes/evnt_/messages/description/cab.ui:
+
+  Translation by Peter A. West
+
+2008-09-17 Wednesday 17:53  Gerhard Stoll
+
+  * xbios/: xbios.u, bildscrm/*, centscrn/*,
+  crazydot/*, ct60/*, datetime/datetime.ui, datetime/gettime.ui,
+  datetime/nvmacces.ui, datetime/settime.ui, datetime/xbtimer.ui,
+  drucker/*, dsp56001/*, interrpt/*, intrface/*,
+  laufwerk/*, overscan/*, pci_bios/*, sound/*,
+  startrac/*, tastatur/*:
+
+  Change the psition of Group and Availability
+
+2008-09-09 Tuesday 15:02  Gerhard Stoll
+
+  * gemdos/network/Nversion.ui, gemdos/network/network.u,
+  gem/vdi/escape/camera/vqp_error.ui,
+  gem/vdi/escape/camera/vqp_films.ui,
+  gem/vdi/escape/camera/vqp_state.ui,
+  gem/vdi/escape/camera/vsp_save.ui,
+  gem/vdi/escape/camera/vsp_state.ui:
+
+  Translation by Peter A. West
+
+2008-09-09 Tuesday 15:01  Gerhard Stoll
+
+  * bios/bios_en.ui, bios/bios_trap.ui, bios/sys_var_en.u,
+  bios/sys_vec_en.ui, bios/vt52.u, bios/xbra.u,
+  bios/cookie/cookie_en.ui, bios/cookie/description/_FSR.ui,
+  bios/function/bconin.u, bios/function/bconout.u,
+  bios/function/bconstat.u, bios/function/bcostat.u,
+  bios/function/drvmap.u, bios/function/getbpb.u,
+  bios/function/getmpb.u, bios/function/kbshift.u,
+  bios/function/mediach.u, bios/function/rwabs.u,
+  bios/function/setexc.u, bios/function/tickcal.u,
+  bios/structures/bpb.ui, bios/structures/md.ui,
+  bios/structures/mpb.ui, bios/structures/pun_info.ui, tos/tos_en.ui:
+
+  Correct some text and links
+
+2008-09-09 Tuesday 13:27  Gerhard Stoll
+
+  * tos_hyp.u, anhang/gpl.ui, anhang/hilfe.u:
+
+  Add GPL
+
+2008-09-03 Wednesday 23:39  Gerhard Stoll
+
+  * anhang/typedefs.u, anhang/anhang/anhang.u, anhang/anhang/pmmu.u,
+  anhang/anhang/xhdi/xhdi_en.ui, emulator.en/stem.u, magic/magic.u,
+  magic/magic_en.u, magic/magicerr.u, magic/magicinf.u,
+  magic/sharelib.u, magic/DFS/dfs_en.ui,
+  magic/MagiC_PC/magicpc_en.ui, magic/XFS/xfs_en.ui,
+  magic/threads/threads.u, protokol/dd.u, protokol/dhst.u,
+  protokol/font.u, protokol/gdps.ui, protokol/ltlproto.u,
+  protokol/xfsl.u, protokol/AV/av_en.ui,
+  protokol/BubbleGEM/bubble_en.ui, protokol/olga/olga_en.ui,
+  protokol/xacc/xacc_en.ui:
+
+  Correct links and wrong UDO commandos
+
+2008-09-03 Wednesday 07:45  Gerhard Stoll
+
+  * gem/cpxdoku.u:
+
+  Correct links
+
+2008-09-03 Wednesday 07:44  Gerhard Stoll
+
+  * bios/cookie/cookie_en.ui, gem/*, gemdos/*, linea/*,
+  protokol/ssp/ssp.u, xbios/laufwerk/laufwerk.u:
+
+  Correct links and wrong UDO commandos
+
+2008-09-01 Monday 12:28  Gerhard Stoll
+
+  * magic/magic_en.u, magic/DFS/dfs_en.ui,
+  magic/MagiC_Mac/magicmac_en.ui, magic/shutdown/shutdown_en.ui,
+  tos/tos_en.ui, tos_hyp.u, xbios/intrface/giaccess.ui,
+  xbios/intrface/ikbdws.ui, xbios/intrface/iorec.ui,
+  xbios/laufwerk/flopfmt.ui, xbios/overscan/oscanscr.ui,
+  xbios/overscan/oscanvb.ui, xbios/pci_bios/pci_bios.u,
+  xbios/pci_bios/read_config_byte.ui,
+  xbios/pci_bios/read_config_longword.ui,
+  xbios/pci_bios/read_config_word.ui,
+  xbios/pci_bios/set_interrupt.ui, xbios/pci_bios/special_cycle.ui,
+  xbios/pci_bios/unhook_interrupt.ui, xbios/sound/sound.u,
+  xbios/sound/soundcmd.ui, xbios/startrac/wr_dconv.ui,
+  xbios/startrac/wr_dpat1.ui, xbios/startrac/wr_dpat2.ui,
+  xbios/startrac/wr_dpdat.ui, xbios/startrac/wr_dport.ui,
+  xbios/startrac/wr_raes.ui, xbios/startrac/wr_rdsp.ui,
+  xbios/startrac/wr_rhi.ui, xbios/startrac/wr_rlow.ui,
+  xbios/structures/DSPBLOCK.ui, xbios/structures/OVERPATCH.ui,
+  xbios/structures/PBDEF.ui, xbios/tastatur/keytbl.ui,
+  gem/guidelns/style_en.u, gem/vdi/vdi_en.u, gemdos/gemdos.u,
+  gemdos/file/fforce.ui, gem/aes/shel_/shel_write.ui,
+  gem/aes/fnts_/fnts_.u, gem/aes/fnts_/fnts_add.ui,
+  gem/aes/fnts_/fnts_close.ui, gem/aes/fnts_/fnts_create.ui,
+  gem/aes/fnts_/fnts_delete.ui, gem/aes/fnts_/fnts_do.ui,
+  gem/aes/fnts_/fnts_evnt.ui, gem/aes/fnts_/fnts_get_info.ui,
+  gem/aes/fnts_/fnts_get_name.ui,
+  gem/aes/fnts_/fnts_get_no_styles.ui,
+  gem/aes/fnts_/fnts_get_style.ui, gem/aes/fnts_/fnts_open.ui,
+  gem/aes/fnts_/fnts_remove.ui, gem/aes/fnts_/fnts_update.ui,
+  anhang/typedefs.u, anhang/anhang/anhang.u, anhang/anhang/ascii.ui,
+  anhang/anhang/pmmu.u, anhang/anhang/scan-code.ui,
+  anhang/anhang/tos_vers.u, anhang/anhang/xhdi/xhdi_en.ui,
+  bilder/farbe/olga_1.img, bilder/farbe/olga_2.img,
+  bilder/farbe/olga_3.img, bilder/farbe/olga_4.img,
+  bilder/gif/olga_1.gif, bilder/gif/olga_2.gif,
+  bilder/gif/olga_3.gif, bilder/gif/olga_4.gif,
+  bilder/mono/olga_1.img, bilder/mono/olga_2.img,
+  bilder/mono/olga_3.img, bilder/mono/olga_4.img, bios/bios_en.ui,
+  bios/sys_var_en.u, bios/xbra.u, bios/cookie/cookie_en.ui,
+  bios/function/bconin.u, bios/function/getmpb.u:
+
+  Change links
+
+2008-09-01 Monday 12:27  Gerhard Stoll
+
+  * protokol/: xfsl.u, xssi.u, olga/olga_de.ui, olga/olga_en.ui,
+  ssp/ssp.u:
+
+  Translation by Peter A. West
+
+2008-08-26 Tuesday 13:59  Gerhard Stoll
+
+  * protokol/: dd.u, dhst.u, font.u, gdps.ui, ltlproto.u, view.u,
+  vscreen.u, AV/av_en.ui, BubbleGEM/bubble_de.ui,
+  BubbleGEM/bubble_en.ui, olga/olga_de.ui, olga/olga_en.ui,
+  seproto/seproto_de.ui, seproto/seproto_en.ui, ssp/ssp.u,
+  xacc/xacc_de.ui, xacc/xacc_en.ui:
+
+  Translation by Peter A. West
+
+2008-08-03 Sunday 09:47  Gerhard Stoll
+
+  * config.u, bios/bios_trap.ui, bios/sys_vec_en.ui,
+  gem/aes/appl_/appl_search.ui, gem/aes/fslx_/fslx_.u,
+  gem/aes/menu_/menu_settings.ui, gem/aes/objc_/objc_sysvar.ui,
+  gem/guidelns/style_en.u, gemdos/dir/dreadlab.ui,
+  gemdos/prozess/prozess.u, magic/DFS/dfs_en.ui, magic/XFS/xfs_en.ui,
+  xbios/laufwerk/laufwerk.u:
+
+  Correct links
+
+2008-07-31 Thursday 18:00  Gerhard Stoll
+
+  * bilder/: farbe/img2035_en.img, farbe/img2037_en.img,
+  farbe/img2040_en.img, farbe/img2041_en.img, farbe/img2042_en.img,
+  farbe/img2043_en.img, farbe/img2044_en.img, farbe/img2045_en.img,
+  gif/img2035_en.gif, gif/img2037_en.gif, gif/img2040_en.gif,
+  gif/img2041_en.gif, gif/img2042_en.gif, gif/img2043_en.gif,
+  gif/img2044_en.gif, gif/img2045_en.gif, mono/img2035_en.img,
+  mono/img2037_en.img, mono/img2040_en.img, mono/img2041_en.img,
+  mono/img2042_en.img, mono/img2043_en.img, mono/img2044_en.img,
+  mono/img2045_en.img:
+
+  Translation by Peter A. West
+
+2008-07-31 Thursday 17:54  Gerhard Stoll
+
+  * xbios/pci_bios/: get_routing.ui, set_interrupt.ui,
+  special_cycle.ui:
+
+  Wrong UDO syntax
+
+2008-07-31 Thursday 17:49  Gerhard Stoll
+
+  * gem/aes/: appl_/appl_control.ui, wind_/wind_set.ui:
+
+  Wrong UDO commando
+
+2008-07-31 Thursday 17:49  Gerhard Stoll
+
+  * emulator.en/sonstige.u, emulator.en/stem.u,
+  emulator.en/tos2win.u, gem/guidelns/style_en.u, magic/XFS/xfs.u,
+  n_aes/n_aes.u, 
+  * magic/:
+  * xaaes/xaaes.u, tos_hyp.u, e_magic.u:
+
+  Translation by Peter A. West
+
+2008-07-27 Sunday 15:28  Michael Bernstein
+
+  * gemdos/: gemdos.u, datetime/talarm.ui, datetime/tgetdate.ui,
+  dir/dopendir.ui, file/fcntl.ui, file/fgetdta.ui, file/finstat.ui,
+  file/flink.ui, file/foutstat.ui, file/fputchar.ui, file/fread.ui,
+  prozess/pexec.ui, prozess/psetpgrp.ui, prozess/psigbloc.ui,
+  prozess/psigpaus.ui, prozess/pwait.ui, structures/DTA.ui,
+  system/sversion.ui, system/sysconf.ui:
+
+  Bugfixes aufgrund von Anmerkungen, die Peter West beim Vergleich
+  mit dem Atari Compendium bei der öbersetzung gemacht hatte.
+
+  Bugfixes made because of annotations made by Peter West as a result
+  of comparing with Atari Compendium while translating from german to
+  english.
+
+2008-07-19 Saturday 18:39  Gerhard Stoll
+
+  * magic/:
+  * gem/cpxdoku.u, gem/guidelns/style.u, gem/guidelns/style_en.u:
+
+  Translation by Peter A. West
+
+2008-06-29 Sunday 13:46  Gerhard Stoll
+
+  * anhang/hilfe.u, anhang/typedefs.u, anhang/anhang/anhang.u,
+  anhang/changes/04_90.ui, anhang/changes/04_93.ui,
+  anhang/changes/04_95.ui, anhang/changes/old.ui, bios/sys_vec_de.ui,
+  bios/sys_vec_en.ui, bios/vt52.u, bios/cookie/list.ui,
+  bios/cookie/description/DYJD.ui, bios/cookie/description/DYwl.ui,
+  bios/cookie/description/MagX.ui, bios/cookie/description/MgMc.ui,
+  bios/cookie/description/MgMx.ui, bios/cookie/description/MgSn.ui,
+  bios/cookie/description/StIc.ui, bios/cookie/description/SwTm.ui,
+  bios/cookie/description/WICO.ui, bios/cookie/description/_FDC.ui,
+  bios/cookie/description/_FLK.ui, gem/aes/aes_f.u,
+  gem/aes/evnt_/messages/evnts_de.ui,
+  gem/aes/evnt_/messages/messages.u, gem/aes/fnts_/fnts_.u,
+  gem/aes/fsel_/fsel_.u, gem/aes/fsel_/fsel_boxinput.ui,
+  gem/aes/fslx_/fslx_.u, gem/aes/fslx_/use.ui, gem/aes/lbox_/lbox_.u,
+  gem/aes/menu_/menu_.u, gem/aes/objc_/objc_.u,
+  gem/aes/objc_/objc_sysvar.ui, gem/aes/shel_/shel_.u,
+  gem/aes/shel_/shel_get.ui, gem/aes/shel_/shel_put.ui,
+  gem/aes/shel_/shel_write.ui, gem/aes/structures/hndl_obj.ui,
+  gem/aes/structures/prn_settings.ui, gem/aes/wdlg_/wdlg_.u,
+  gem/aes/wdlg_/wdlg_get_edit.ui, gem/aes/wind_/wind_create.ui,
+  gem/aes/wind_/wind_get.ui, gem/aes/wind_/wind_open.ui,
+  gem/aes/wind_/wind_set.ui, gem/guidelns/style.u,
+  gem/guidelns/style_en.u, gem/vdi/vdi.u, gem/vdi/vdi_en.u,
+  gemdos/dir/dfree.ui, gemdos/dir/dgetdrv.ui, gemdos/dir/dsetdrv.ui,
+  gemdos/file/fcreate.ui, gemdos/file/fdelete.ui,
+  gemdos/file/fdup.ui, gemdos/file/fforce.ui, gemdos/file/frename.ui,
+  gemdos/file/fselect.ui, gemdos/file/fsfirst.ui,
+  gemdos/system/sconfig.ui, gemdos/system/slbclose.ui,
+  gemdos/system/slbopen.ui, magic/magic.u, magic/magicinf.u,
+  magic/magicmac.u, magic/magicpc.u, magic/xfs.u,
+  magic/shutdown/shutdown_de.ui, magic/threads/threads.u,
+  protokol/ltlproto.u, tos/tos_de.ui, tos/tos_en.ui, xbios/xbios.u,
+  xbios/drucker/prtblk.ui, xbios/drucker/scrdmp.ui,
+  xbios/laufwerk/floprate.ui, xbios/pci_bios/pci_bios.u,
+  xbios/spezial/blitmode.ui, xbios/spezial/ssbrk.ui,
+  xbios/structures/META_INFO_2.ui, xbios/structures/bconmap.ui:
+
+  Change MagiCMac and MagiCPC to MagiC Mac and MagiC PC
+
+2008-06-12 Thursday 17:59  Gerhard Stoll
+
+  * gem/aes/:
+  * gem/structures/:
+  * gem/aes/appl_/:
+  * gem/aes/shel_/:
+
+  Translation by Peter A. West
+
+2008-06-08 Sunday 07:07  Gerhard Stoll
+
+  * gem/aes/wind_/wind_get_set.ui:
+
+  Add source from WF_MINXYWH and WF_INFOXYWH
+
+2008-06-08 Sunday 07:07  Gerhard Stoll
+
+  * gem/aes/objc_/:
+  * gem/aes/rsrc_/:
+  * gem/aes/menu_/:
+  * gem/aes/xgrf_/:
+  * gem/aes/lbox_/:
+
+  Translation by Peter A. West
+
+2008-06-03 Tuesday 19:24  Gerhard Stoll
+
+  * gem/aes/appl_/appl_getinfo.ui:
+
+  Wrong number fron WinX
+
+2008-05-31 Saturday 06:14  Gerhard Stoll
+
+  * gem/aes/:
+  * gem/scrp_/:
+  * gem/aes/form_/:
+
+  Translation by Peter A. West
+
+2008-05-27 Tuesday 16:14  Gerhard Stoll
+
+  * bios/cookie/: cookie.u, list.ui, description/AMCG.ui:
+
+  Add the cookie AMCG (AMC-GDOS)
+
+2008-05-27 Tuesday 16:11  Gerhard Stoll
+
+  * xbios/: xbios_f.u, xbios_f.u:
+
+  Wrong opcode by GetActiveFeatures
+
+2008-05-23 Friday 07:39  Gerhard Stoll
+
+  * gem/aes/fslx_/:
+  * gem/aes/wind_/:
+  * gem/aes/wdlg_/:
+  * gem/aes/evnt_/:
+  * gem/aes/edit_/:
+  * gem/aes/pdlg_/:
+  * gem/aes/fsel_/:
+  * gem/aes/: aes_f.u, toolbar.ui
+  * gem/aes/appl_/:
+
+  Translation by Peter A. West
+
+2008-05-13 Tuesday 14:11  Gerhard Stoll
+
+  * xbios/: xbios_f.u, pci_bios/get_routing.ui, pci_bios/pci_bios.u,
+  pci_bios/set_interrupt.ui, pci_bios/special_cycle.ui:
+
+  Add more PCI-XBIOS function
+
+2008-05-01 Thursday 16:55  Gerhard Stoll
+
+  * gem/aes/: aes.u, aes_en.u, toolbar.ui:
+
+  Translation by Peter A. West
+
+2008-05-01 Thursday 16:54  Gerhard Stoll
+
+  * bilder/: gif/fenster_en.gif, farbe/fenster_en.img,
+  mono/fenster_en.img:
+
+  New picture from Peter A. West
+
+2008-03-30 Sunday 09:31  Gerhard Stoll
+
+  * gem/vdi/raster/:
+
+  Translation by Peter A. West
+
+2008-03-29 Saturday 20:21  Gerhard Stoll
+
+  * gem/vdi/attribut/:
+  * gem/vdi/control/:
+  * gem/vdi/inquire/:
+  * gem/vdi/output/:
+  * gem/vdi/colortable/:
+  * gem/vdi/escape/:
+  * bios/bios_en.ui, bios/sys_vec_en.ui, gem/aes/aes_en.u,
+  * gem/aes/appl_/appl_getinfo.ui, gem/vdi/vdi_en.u,
+  gem/vdi/attribut/text/*, gem/vdi/attribut/uebergeordnete/*,
+  gem/vdi/escape/metafile/*, gem/vdi/output/*,
+  gem/vdi/structures/xfnt_info.ui, gemdos/gemdos.u, gemdos/signale.u,
+  gemdos/file/fforce.ui, gemdos/file/fopen.ui, xbios/xbios.u:
+
+  Translation by Peter A. West
+
+2008-03-22 Saturday 09:06  Gerhard Stoll
+
+  * gem/vdi/input/: input.u, v_hide_c.ui, v_show_c.ui, vex_butv.ui,
+  vex_curv.ui, vex_motv.ui, vex_timv.ui, vex_wheelv.ui, vq_key_s.ui,
+  vq_mouse.ui, vrq_choice.ui, vrq_locator.ui, vrq_string.ui,
+  vrq_valuator.ui, vsc_form.ui, vsin_mode.ui, vsm_choice.ui,
+  vsm_locator.ui, vsm_string.ui, vsm_valuator.ui:
+
+  Translation by Peter A. West
+
+2008-03-21 Friday 14:41  Gerhard Stoll
+
+  * gem/vdi/inquire/: disable_nvdi.ui, fontheader.ui, inquire.u,
+  v_create_driver_info.ui, v_delete_driver_info.ui,
+  v_get_driver_info.ui, v_getbitmap_info.ui,
+  v_read_default_settings.ui, v_write_default_settings.ui,
+  vq_cellarray.ui, vq_color.ui, vq_devinfo.ui, vq_ext_devinfo.ui,
+  vq_extnd.ui, vq_scrninfo.ui, vqf_attributes.ui, vqf_bg_color.ui,
+  vqf_fg_color.ui, vqin_mode.ui, vql_attributes.ui, vql_bg_color.ui,
+  vql_fg_color.ui, vqm_attributes.ui, vqm_bg_color.ui,
+  vqm_fg_color.ui, vqr_bg_color.ui, vqr_fg_color.ui, vqt_advance.ui,
+  vqt_advance32.ui, vqt_attributes.ui, vqt_bg_color.ui,
+  vqt_cachesize.ui, vqt_char_index.ui, vqt_ext_name.ui,
+  vqt_extent.ui, vqt_f_extent.ui, vqt_fg_color.ui, vqt_fontheader.ui,
+  vqt_fontinfo.ui, vqt_get_table.ui, vqt_justified.ui, vqt_name.ui,
+  vqt_name_and_id.ui, vqt_pairkern.ui, vqt_real_extent.ui,
+  vqt_trackkern.ui, vqt_width.ui, vqt_xfntinfo.ui:
+
+  Translation by Peter A. West
+
+2008-03-17 Monday 13:25  Gerhard Stoll
+
+  * gemdos/gemdos_f.u:
+
+  Wrong opcode from Maccess
+
+2008-03-16 Sunday 16:34  Gerhard Stoll
+
+  * gem/vdi/output/: output.u, v_arc.ui, v_bar.ui, v_bez.ui,
+  v_bez_fill.ui, v_cellarray.ui, v_circle.ui, v_contourfill.ui,
+  v_ellarc.ui, v_ellipse.ui, v_ellpie.ui, v_etext.ui, v_fillarea.ui,
+  v_ftext.ui, v_ftext_offset.ui, v_gtext.ui, v_justified.ui,
+  v_pieslice.ui, v_pline.ui, v_pmarker.ui, v_rbox.ui, v_rfbox.ui,
+  vr_recfl.ui:
+
+  Translation by Peter A. West
+
+2008-03-12 Wednesday 18:33  Gerhard Stoll
+
+  * gemdos/: prozess/pwait3.ui, system/ssystem.ui:
+
+  Wrong UDO syntax
+
+2008-03-12 Wednesday 18:32  Gerhard Stoll
+
+  * bios/bios.u, bios/bios_en.ui, xbios/xbios.u, gemdos/gemdos.u,
+  magic/magicerr.u:
+
+  Translation by Peter A. West
+
+2008-03-07 Friday 17:56  Gerhard Stoll
+
+  * bios/cookie/: list.ui, description/*:
+  * gem/vdi/: vdi_f.u, attribut/*, structures/*:
+  * bios/cookie/description/_VDI.ui, xbios/bildscrm/getrez.ui,
+  xbios/bildscrm/setpalet.ui, xbios/bildscrm/vsetmask.ui,
+  gem/vdi/assign_sys.ui, gem/vdi/metafile.u, gem/vdi/vdi.u,
+  gem/vdi/vdi_en.u, gem/vdi/attribut/attribut.u,
+  gem/vdi/attribut/bitmap/bitmap.u, gem/vdi/attribut/fill/fill.u,
+  gem/vdi/attribut/linien/lines.u, gem/vdi/attribut/marker/marker.u,
+  gem/vdi/attribut/text/text.u,
+  gem/vdi/attribut/uebergeordnete/superior.u:
+
+  Translation by Peter A. West
+
+2008-01-27 Sunday 13:34  Gerhard Stoll
+
+  * tos/: tos_de.ui, tos_en.ui:
+  * linea/:
+
+  Translation by Peter A. West
+
+2008-01-13 Sunday 20:41  Michael Bernstein
+
+  * gemdos/: signale.u
+  * gemdos/chrinout/:
+  * gemdos/dir/:
+  * gemdos/file/:
+  * gemdos/prozess/:
+  * gemdos/structures/PD.ui, structures/flock.ui:
+
+  Erweiterungen hinzugefuegt, die Peter West beim Uebersetzen von Deutsch
+  nach Englisch mit Hilfe des AC eingefuegt hatte.
+
+  Add extensions made by Peter West with help of AC while translate from
+  german to english.
+
+2008-01-08 Tuesday 18:32  Gerhard Stoll
+
+  * gemdos/: filesys.u, gemdos.u, gemdos_f.u, signale.u,
+  chrinout/cauxin.ui, chrinout/cconws.ui, file/fforce.ui,
+  prozess/psetauid.ui, prozess/psignal.ui, prozess/pwait3.ui,
+  structures/PD.ui, structures/sigaction.ui, system/ssystem.ui,
+  system/super.ui:
+
+  Translation by Peter A. West
+
+2008-01-01 Tuesday 19:38  Michael Bernstein
+
+  * gemdos/: argv.u, filesys.u, gemdos.u, gemdos_f.u, signale.u,
+  tekbios.u, chrinout/*, datetime/*, dir/*, file/*,
+  memory/*, prozess/*, structures/*, system/*:
+
+  Uebersetzung von Peter West integriert. Seine Kommentare wurden
+  noch nicht beachtet, da sie etwas Recherche erfordern.
+
+  Add translations from Peter West. His comments ignored at this
+  time because they need some research work.
+
+2007-12-30 Sunday 09:33  Gerhard Stoll
+
+  * xbios/*, bios/sys_var_en.u, bios/xbra.u,
+  bios/cookie/description/FSMC.ui,
+  bios/cookie/description/NVDI.ui, bios/cookie/description/_FLK.ui,
+  bios/cookie/description/_NET.ui, bios/structures/mpb.ui,
+  anhang/anhang/ascii.ui:
+
+  Translation by Peter A. West
+
+2007-12-27 Thursday 10:22  Gerhard Stoll
+
+  * xbios/: startrac/installe.ui
+  * xbios/structures/:
+  * xbios/: xbios_f.u
+  * xbios/spezial/:
+  * xbios/tastatur/:
+  * xbios/: sound/*, startrac/*:
+  * xbios/pci_bios/:
+
+  Translation by Peter A. West
+
+2007-12-09 Sunday 10:30  Gerhard Stoll
+
+  * gem/aes/evnt_/messages/messages.u:
+
+  Messages from Porthos add
+
+2007-12-04 Tuesday 20:10  Gerhard Stoll
+
+  * xbios/overscan/: oscanis.ui, oscanpat.ui, oscanphy.ui,
+  oscanscr.ui, oscanswi.ui, oscantab.ui, oscanvb.ui, overscan.u:
+
+  Translation by Peter A. West
+
+2007-12-04 Tuesday 20:10  Gerhard Stoll
+
+  * gemdos/gemdos_f.u:
+
+  Add function from GEMTASK Royal to the list
+
+2007-12-02 Sunday 09:50  Gerhard Stoll
+
+  * xbios/: datetime/settime.ui, dsp56001/iostream.ui,
+  dsp56001/outstrea.ui, interrpt/jdisint.ui, interrpt/jenabint.ui,
+  laufwerk/*:
+  * xbios/centscrn/: vattrib.ui, vclose.ui, vcreate.ui, vdelete.ui,
+  vfirst.ui, vload.ui, vlock.ui, vnext.ui, voffset.ui, vopen.ui,
+  vread.ui, vsave.ui, vscroll.ui, vseek.ui, vsize.ui, vvalid.ui,
+  vwrite.ui:
+  * xbios/: dsp56001/*, interrpt/interrpt.u,
+  interrpt/jdisint.ui, interrpt/jenabint.ui:
+
+  Translation by Peter A. West
+
+2007-10-07 Sunday 08:59  Gerhard Stoll
+
+  * bios/cookie/description/: CT60.ui, FSMC.ui, NVDI.ui, _MCH.ui:
+
+  More infos from some cookies
+
+2007-10-07 Sunday 08:58  Gerhard Stoll
+
+  * xbios/: datetime/datetime.u, datetime/datetime.ui,
+  datetime/gettime.ui, datetime/nvmacces.ui, datetime/settime.ui,
+  datetime/xbtimer.ui, drucker/drucker.u, drucker/prtblk.ui,
+  drucker/scrdmp.ui, drucker/setprt.ui, dsp56001/availabl.ui,
+  dsp56001/blkbytes.ui, dsp56001/blkhndsh.ui, dsp56001/dsp56001.u:
+  * config.u, bios/cookie/example_en.ui, gem/vdi/vdi.u,
+  gem/vdi/vdi_en.u, xbios/bildscrm/*, xbios/centscrn/*,
+  xbios/crazydot/*, xbios/crazydot/resetscr.ui,
+  xbios/ct60/cache.ui, xbios/ct60/ct60.u,
+  xbios/ct60/ct60_vmalloc.ui, xbios/ct60/fl_cache.ui,
+  xbios/ct60/rcortemp.ui, xbios/ct60/rd_param.ui:
+  * config.u, gem/aes/aes_f.u, gem/aes/appl_/appl_getinfo.ui,
+  gemdos/gemdos_f.u, xbios/xbios.u, xbios/bildscrm/bildscrm.u,
+  xbios/bildscrm/cursconf.ui, xbios/bildscrm/egetpale.ui,
+  xbios/bildscrm/egetshif.ui, xbios/bildscrm/esetbank.ui,
+  xbios/startrac/scmsmode.ui:
+
+  Translation by Peter A. West
+
+2007-08-26 Sunday 16:37  Gerhard Stoll
+
+  * xbios/pci_bios/get_machine_id.ui:
+
+  Manufacturer code from ARAnyM
+
+2007-08-26 Sunday 16:36  Gerhard Stoll
+
+  * bios/: bios_en.ui, cookie/cookie.u, cookie/cookie_en.ui,
+  cookie/description/CHBT.ui, cookie/description/CHN1.ui,
+  cookie/description/CHNG.ui, cookie/description/FSER.ui:
+
+  Small text changes
+
+2007-08-13 Monday 19:50  Gerhard Stoll
+
+  * magic/magic.u, anhang/typedefs.u:
+
+  Wrong label
+
+2007-08-13 Monday 19:50  Gerhard Stoll
+
+  * protokol/dhst.u:
+
+  Add define DHST_ADD and DHST_ACK
+
+2007-08-13 Monday 19:49  Gerhard Stoll
+
+  * gem/aes/evnt_/messages/: geneva.ui, messages.u, rsdaemon.ui,
+  description/cab.ui, description/geneva.ui, description/rsdaemon.ui:
+
+  CAB Protocol
+
+2007-08-13 Monday 19:48  Gerhard Stoll
+
+  * bios/cookie/: list.ui, description/GSND.ui:
+
+  GSND is a cookie
+
+2007-08-04 Saturday 05:52  Gerhard Stoll
+
+  * bios/cookie/description/GMTC.ui:
+
+  Infos for programmer
+
+2007-08-04 Saturday 05:52  Gerhard Stoll
+
+  * gemdos/structures/flock.ui:
+
+  Add some lables
+
+2007-08-04 Saturday 05:52  Gerhard Stoll
+
+  * anhang/typedefs.u:
+
+  Wrong syntax in XCPB
+
+2007-07-03 Tuesday 18:01  Gerhard Stoll
+
+  * gem/aes/evnt_/messages/messages.u:
+
+  Message from the GFA-Basic Editor (GBE)
+
+2007-07-03 Tuesday 18:00  Gerhard Stoll
+
+  * gemdos/: gemdos.u, network/Nversion.ui, network/network.u:
+
+  Network function
+
+2007-07-03 Tuesday 17:59  Gerhard Stoll
+
+  * anhang/: neu.u, changes/04_98.ui:
+
+  Start with version 4.98
+
+2007-06-17 Sunday 17:05  Gerhard Stoll
+
+  * anhang/changes/04_97.ui:
+
+  Make Release 4.97
+
+2007-06-17 Sunday 06:52  Gerhard Stoll
+
+  * bios/cookie/: cookie.u, list.ui:
+
+  Delete some links
+
+2007-06-16 Saturday 12:14  Gerhard Stoll
+
+  * bios/bios_en.ui:
+
+  Small chnages
+
+2007-06-16 Saturday 12:13  Gerhard Stoll
+
+  * gem/aes/wind_/wind_get_set_geneva.ui:
+
+  Double defined symbol
+
+2007-06-16 Saturday 08:24  Gerhard Stoll
+
+  * bios/cookie/description/PRNû.ui:
+
+  Delete file with no good filename
+
+2007-06-15 Friday 17:07  Gerhard Stoll
+
+  * bios/cookie/description/PRNSS.ui:
+
+  Change filename
+
+2007-06-15 Friday 16:40  Gerhard Stoll
+
+  * bios/cookie/list.ui:
+
+  Wrong UDO syntax
+
+2007-06-15 Friday 16:40  Gerhard Stoll
+
+  * bios/cookie/description/LMus.ui:
+
+  Wrong headline
+
+!end_verbatim
+
+!end_node

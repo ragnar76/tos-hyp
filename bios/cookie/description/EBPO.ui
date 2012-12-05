@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, EBPO
+
+(!B)EB Modeleur(!b)
+
+Universal modeller.
+
+!end_node
+
+!else
+
+!begin_node Cookie, EBPO
+
+(!B)EB Modeleur(!b)
+
+Universel Modeler
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,20 @@
+!iflang [english]
+
+!begin_node Cookie, GOBJ
+
+Was used by the (!B)ObjectGEM PurePascal library(!b) up to Version 1.20.
+As of Version 1.50 the cookie is no longer created.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GOBJ
+
+Wurde von der (!B)PurePascal-Bibliothek ObjectGEM(!b) bis Version 1.20 verwendet.
+Ab Version 1.50 wird der Cookie nicht mehr angelegt.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,149 @@
+!iflang [english]
+
+!begin_node Application library
+!html_name Application library
+
+This library contains functions to initialize and terminate a GEM
+application; in addition these routines permit communication with
+other processes. In total, the following functions are available:
+
+!begin_xlist [ù appl_getinfo_str] !compressed
+!item [ù appl_bvset]
+Sets connected logical drives
+!item [ù appl_control]
+Targeted (!nolink [control]) of applications
+!item [ù appl_exit]
+Deregisters (!nolink [AES]) user program and releases ID
+!item [ù appl_find]
+Gets (!nolink [AES]) ID of another (!nolink [AES]) application
+!item [ù appl_getinfo]
+Gets system information
+!item [ù appl_getinfo_str]
+Gets extended system information
+!item [ù appl_init]
+Registers (!nolink [AES]) application
+
+!item [ù appl_options]
+Sets or gets application options
+
+!item [ù appl_read]
+Reads (!nolink [AES]) messages
+!item [ù appl_search]
+Searches for applications in system
+!item [ù appl_tplay]
+Plays back (!nolink [AES]) events
+!item [ù appl_trecord]
+Records (!nolink [AES]) events
+!item [ù appl_write]
+Writes (!nolink [AES]) messages
+!item [ù appl_xbvset]
+Extended version for reporting connected drives
+!item [ù appl_yield]
+Forces (!nolink [AES]) process-switch
+!item [ù _appl_yield]
+Forces (!nolink [AES]) process-switch
+
+!item [ù x_appl_flags]
+Controls execution flags
+!item [ù x_appl_font]
+Changes font and window borders
+!item [ù x_appl_sleep]
+Puts application to sleep, or wakes it up
+!item [ù x_appl_term]
+Terminate an application and remove it from memory.
+
+!end_xlist
+
+(!B)Note:(!b) Special attention is drawn here to appl_getinfo, with whose
+help one can easily inquire about the properties of the system at
+run-time.
+
+See also: Style guidelines
+
+!else
+
+!begin_node Applikationsfunktionen
+!html_name Application library
+
+In dieser Bibliothek sind Funktionen enthalten, um eine GEM-Applikation zu
+initialisieren und zu terminieren; darber hinaus erlauben diese Routinen
+die Kommunikation mit anderen Prozessen. Insgesamt stehen die folgenden
+Funktionen zur Verfgung:
+
+!begin_xlist [ù appl_getinfo_str] !compressed
+!item [ù appl_bvset]
+Angeschlossene Laufwerke setzen.
+!item [ù appl_control]
+Gezieltes Steuern von Anwendungen.
+!item [ù appl_exit]
+(!nolink [AES])-Anwenderprogramm abmelden und Kennung freigeben.
+!item [ù appl_find]
+(!nolink [AES])-Kennung einer anderen AES-Applikation ermitteln.
+!item [ù appl_getinfo]
+System-Informationen ermitteln.
+!item [ù appl_getinfo_str]
+erweiterte System-Informationen ermitteln.
+!item [ù appl_init]
+(!nolink [AES])-Anwendung anmelden.
+
+!item [ù appl_options]
+Sets or gets application options
+
+!item [ù appl_read]
+(!nolink [AES])-Mitteilungen lesen.
+!item [ù appl_search]
+Applikationen im System suchen.
+!item [ù appl_tplay]
+Ereignisse abspielen.
+!item [ù appl_trecord]
+Ereignisse aufzeichnen.
+!item [ù appl_write]
+(!nolink [AES])-Mitteilungen schreiben.
+!item [ù appl_xbvset]
+Extended available drive bitmaps.
+!item [ù appl_yield]
+(!nolink [AES])-Proze-Switch erzwingen.
+!item [ù _appl_yield]
+(!nolink [AES])-Proze-Switch erzwingen.
+
+!item [ù x_appl_flags]
+Controls execution flags
+!item [ù x_appl_font]
+Changes font and window borders
+!item [ù x_appl_sleep]
+Puts application to sleep, or wakes it up
+!item [ù x_appl_term]
+Terminate an application and remove it from memory.
+
+!end_xlist
+
+(!B)Hinweis:(!b) Besondere Beachtung verdient dabei appl_getinfo, mit dessen
+Hilfe sich leicht Eigenschaften des Betriebssystems zur Laufzeit erfragen
+lassen.
+
+Querverweis: Style-Guidelines
+
+!endif
+
+!include gem\aes\appl_\appl_bvset.ui
+!include gem\aes\appl_\appl_control.ui
+!include gem\aes\appl_\appl_exit.ui
+!include gem\aes\appl_\appl_find.ui
+!include gem\aes\appl_\appl_getinfo.ui
+!include gem\aes\appl_\appl_getinfo_str.ui
+!include gem\aes\appl_\appl_init.ui
+!include gem\aes\appl_\appl_options.ui
+!include gem\aes\appl_\appl_read.ui
+!include gem\aes\appl_\appl_search.ui
+!include gem\aes\appl_\appl_tplay.ui
+!include gem\aes\appl_\appl_trecord.ui
+!include gem\aes\appl_\appl_write.ui
+!include gem\aes\appl_\appl_xbvset.ui
+!include gem\aes\appl_\appl_yield.ui
+!include gem\aes\appl_\_appl_yield.ui
+!include gem\aes\appl_\x_appl_flags.ui
+!include gem\aes\appl_\x_appl_font.ui
+!include gem\aes\appl_\x_appl_sleep.ui
+!include gem\aes\appl_\x_appl_term.ui
+
+!end_node

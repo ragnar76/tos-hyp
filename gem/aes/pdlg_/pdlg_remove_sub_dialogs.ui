@@ -1,0 +1,163 @@
+!iflang [english]
+
+!begin_node pdlg_remove_sub_dialogs
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØPrint dialog - Remove private dialogsÆ - Remove sub-dialogs from the print
+dialog.
+
+!item [Opcode:]
+205 (sub-opcode 4)
+
+!item [Syntax:]
+int16_t pdlg_remove_sub_dialogs ( PRN_DIALOG *prn_dialog );
+
+!item [Description:]
+The call pdlg_remove_sub_dialogs removes the applica!-tion's own sub-dialogs
+from the print dialog. The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)prn_dialog(!i) !! Pointer to management structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+The return value of the function is unknown at present.
+
+!item [Availability:]
+The presence of this function can be checked with (!link [appl_getinfo][%apgi_7])
+(opcode 7).
+
+!item [Group:]
+Print dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for pdlg_remove_sub_dialogs]) ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for pdlg_remove_sub_dialogs
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_remove_sub_dialogs ( PRN_DIALOG *prn_dialog );
+
+!item [Binding:]
+!begin_verbatim
+int16_t pdlg_remove_sub_dialogs ( PRN_DIALOG *prn_dialog )
+{
+   addr_in[0] = prn_dialog;
+   int_in[0] = 4;
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 205   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+int_in    !! int_in[0]  !! 4     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node pdlg_remove_sub_dialogs
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØPrint Dialog - Remove Private DialogsÆ - Unterdialoge aus dem Druckdialog
+entfernen.
+
+!item [AES-Nummer:]
+205 (Unterfunktion 4)
+
+!item [Deklaration:]
+int16_t pdlg_remove_sub_dialogs ( PRN_DIALOG *prn_dialog );
+
+!item [Beschreibung:]
+Die Funktion entfernt die applikationseigenen Unterdialoge aus dem
+Druckdialog. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)prn_dialog(!i) !! Zeiger auf Verwaltungsstruktur
+!end_table
+
+!item [Ergebnis:]
+Der RÅckgabewert der Funktion ist z.Zt. nicht bekannt.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Druckdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr pdlg_remove_sub_dialogs])  ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr pdlg_remove_sub_dialogs
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_remove_sub_dialogs ( PRN_DIALOG *prn_dialog );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t pdlg_remove_sub_dialogs ( PRN_DIALOG *prn_dialog )
+{
+   addr_in[0] = prn_dialog;
+   int_in[0] = 4;
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 205   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+int_in    !! int_in[0]  !! 4     # Sub-Opcode
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,27 @@
+!iflang [english]
+
+!begin_node Cookie, ALIC
+
+(!B)Alice (!b)
+
+Makes all applications iconify-capable. An operating system capable 
+of iconification is a prerequisite.
+
+Modifies vectors 45 ((!nolink [BIOS])) and 34 ((!nolink [AES])).
+
+!end_node
+
+!else
+
+!begin_node Cookie, ALIC
+
+(!B)Alice (!b)
+
+macht alle Applikationen Iconify-f„hig. Voraussetzung ist ein 
+Iconify-f„higes Betriebssystem.
+
+Verbiegt die Vektoren 45 ((!nolink [BIOS])) und 34 ((!nolink [AES])). 
+
+!end_node
+
+!endif

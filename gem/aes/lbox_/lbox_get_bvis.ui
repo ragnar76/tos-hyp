@@ -1,0 +1,165 @@
+!iflang [english]
+
+!begin_node lbox_get_bvis
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box get number of visible items, Slider BÆ - Obtain number of visible
+items (slider B).
+
+!item [Opcode:]
+174 (sub-opcode 10)
+
+!item [Syntax:]
+int16_t lbox_get_bvis ( LIST_BOX *box );
+
+!item [Description:]
+The call lbox_get_bvis obtains the number of visible items of a list box for
+slider B. The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+This function returns the number of visible items for slider B.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_get_bvis]) ~ lbox_free_items ~ lbox_delete
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_get_bvis
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_bvis ( LIST_BOX *box );
+
+!item [Binding:]
+!begin_verbatim
+int16_t lbox_get_bvis ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 10;
+
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 174   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 10    # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_get_bvis
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Get Number Of Visible Items, Slider BÆ - Anzahl sichtbarer
+EintrÑge ermitteln.
+
+!item [AES-Nummer:]
+174 (Unterfunktion 10)
+
+!item [Deklaration:]
+int16_t lbox_get_bvis ( LIST_BOX *box );
+
+!item [Beschreibung:]
+Die Funktion ermittelt die Anzahl der sichtbaren EintrÑge einer Listbox fÅr
+Slider B. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert die Anzahl der sichtbaren EintrÑge zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_get_bvis])  ~ lbox_free_items ~  lbox_delete
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_get_bvis
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_bvis ( LIST_BOX *box );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t lbox_get_bvis ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 10;
+
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 174   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 10     # Unterfunktion
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

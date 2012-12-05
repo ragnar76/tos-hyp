@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, SLIP
+
+(!B)SLIP(!b)
+
+Socket/UDP/TCP/IP/SLIP implementation for MagiC. Makes the most 
+important network commands available.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SLIP
+
+(!B)SLIP(!b)
+
+Socket/UDP/TCP/IP/SLIP-Implementation fÅr MagiC. Stellt die 
+wichtigsten Netzwerk-Befehle zur VerfÅgung.
+
+!end_node
+
+!endif
+ 

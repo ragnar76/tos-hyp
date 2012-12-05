@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, SMon
+
+(!B)SysMon(!b) - The system (!nolink [monitor])
+
+Modifies (!nolink [GEM, GEMDOS, BIOS, XBIOS]), LINEA, RTX (TRAP #4 & 5), VBL, 
+IKBDSYS.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SMon
+
+(!B)SysMon(!b) - Der System-Monitor.
+
+Ver„ndert (!nolink [GEM, GEMDOS, BIOS, XBIOS]), LINEA,  RTX (TRAP #4 & 5),
+VBL, IKBDSYS.
+
+!end_node
+
+!endif
+ 

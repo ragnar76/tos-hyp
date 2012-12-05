@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, IDSK
+
+(!B)ICON-Desk(!b)
+
+Source: (!I)ST-Digital.(!i)
+
+!end_node
+
+!else
+
+!begin_node Cookie, IDSK
+
+(!B)ICON-Desk(!b)
+
+Quelle: (!I)ST-Digital.(!i)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, HDEY
+
+(!B)Hard Disc Eye (!b)
+
+Lights drive A:'s LED whenever a hard drive is accessed. 
+
+Modifies hdv_rw.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HDEY
+
+(!B)Hard Disc Eye(!b)
+
+Lights drive's A: LED whenever harddrive is accessed 
+
+verbiegt: hdv_rw.
+
+!end_node
+
+!endif
+ 

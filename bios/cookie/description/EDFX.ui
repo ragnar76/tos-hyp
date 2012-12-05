@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, EDFX
+
+(!B)EDPBFIX.PRG(!b)
+
+Patch program for use of MS-DOS ED floppy disks (1 sector per cluster)
+under (!nolink [TOS]).
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, EDFX
+
+(!B)EDPBFIX.PRG(!b)
+
+Patchprogramm zum Betrieb von MS-DOS-ED-Disketten (1 Sektor 
+pro Cluster) unter (!nolink [TOS]).
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

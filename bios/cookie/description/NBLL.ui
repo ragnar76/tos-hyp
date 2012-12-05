@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, NBLL
+
+(!B)NEWBELL.PRG(!b)
+
+Sets a new system bell sound. 
+
+Modified: bell_hook, reset vector.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, NBLL
+
+(!B)NEWBELL.PRG(!b) 
+
+Setzt eine neue Systemglocke.
+
+Verbogen: bell_hook, Resetvektor.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

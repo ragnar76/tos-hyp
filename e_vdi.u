@@ -1,0 +1,38 @@
+########################################
+# @(#) TOS - das Betriebssystem
+# @(#) Rolf Kotzian
+########################################
+
+!iflang [english]
+	!docinfo [title] The documentation for
+	!docinfo [program]    VDI
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] VDI (TOS - The Operating System)
+!else
+	!docinfo [title] Die Anleitung zum
+	!docinfo [program]    VDI
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] VDI (TOS - das Betriebssystem)
+!endif
+
+!include config.u
+
+########################################
+
+!begin_document
+
+!ifdest [tech]
+\documentstyle[11pt,german]{article}
+!endif
+!ifdest [stg]
+!begin_raw
+@options "+g -s +x +zz -t4"
+@subject "Programmieren/Atari"
+!end_raw
+!endif
+!maketitle
+!tableofcontents
+
+!include gem/vdi/vdi.u
+
+!end_document

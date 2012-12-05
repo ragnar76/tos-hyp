@@ -1,0 +1,269 @@
+!iflang [english]
+
+
+!begin_node Fsfirst
+(!begin_liste) [Availability]
+!item [Name:]
+Øsearch first fileÆ - Search for first file entry.
+
+!item [Opcode:]
+78
+
+!item [Syntax:]
+int32_t Fsfirst ( const int8_t *filename, int16_t attr );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Fsfirst can obtain information about the
+first occurrence of a file or subdirectory. The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [filename]
+Pointer to the filename or subdirectory
+!item [attr]
+Attributes that should be matched by the file searched for
+!begin_xlist !short
+!item [Bit-0:]
+Include read-only files
+!item [Bit-1:]
+Include hidden files
+!item [Bit-2:]
+Include system files
+!item [Bit-3:]
+Include volume labels
+!item [Bit-4:]
+Include subdirectories
+!item [Bit-5:]
+Include files with archive-bit set
+!end_xlist
+!end_xlist
+
+The filename or path may also contain the jokers '*' and '?'. When the
+function terminates, the directory entry will fill the disk transfer area
+(DTA), whose location can be obtained or set with Fgetdta and Fsetdta
+respectively. The required information can then be obtained from the
+(!nolink [DTA]) structure.
+
+The (!nolink [DTA]) must be initialised with Fsfirst!
+
+(!B)Note:(!b) If the program runs in the MiNT-domain, Fsfirst will return
+lower case filenames. As (!link [file-systems][File-systems]) exist that
+are case sensitive, you should avoid making such conversions manually.
+However, if you absolutely need upper case filenames you should use Pdomain
+to make your program run in the TOS-domain.
+
+(!B)(!nolink [Notes about MagiC]):(!b) If bit 3 of (!I)attr(!i) is set,
+then the kernel will call the (!link [XFS][MagiC's XFS-concept]) function
+xfs_rlabel. The calling user program can unfortunately no longer get the
+date and time of the disk name under (!nolink [MagiC]) with this. The
+kernel sets all fields to 0 and the function Fsnext may not be executed. As
+of (!nolink [MagiC]) 3, the function Dreadlabel is used instead, which also
+manages long filenames.
+
+If bit 3 of (!I)attr(!i) is not set, a search for files is made as in
+(!nolink [TOS]). If a file is a symbolic link, the DOS kernel calls the
+function Fxattr to follow the link. The values returned by Fxattr are then
+copied to the (!nolink [DTA]).
+
+(!B)Warning:(!b) (!nolink [MagiC]) is not always able to evaluate correctly
+relative symbolic links during Fsfirst/(!nolink [Fsnext]). There are three
+ways to overcome this:
+
+!begin_xlist !short [(a)]
+!item [(a)]
+Best: use Dxreaddir
+!item [(b)]
+Use only absolute symbolic links
+!item [(c)]
+Alays make the search directory the current one
+!end_xlist
+
+Though MiNT handles this case correctly, it is at a huge cost. The
+Fsfirst/next concept is basically obsolete, ineffective and unsafe, and
+should be avoided both in MiNT as well as in (!nolink [MagiC]).
+
+!item [(!nolink [Return]) value:]
+The function returns the following results:
+
+!begin_xlist !short [EFILNF :]
+!item [E_OK :]
+No error has occurred
+!item [EFILNF :]
+File not found
+!item [ENMFIL :]
+No more files
+!end_xlist
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions.
+
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding][Bindings for Fsfirst]) ~ Fgetdta ~ Fsetdta ~ Fsnext ~
+DTA ~ (!link [Recursive search][DTA]) ~
+(!link [XFS-concept][MagiC's XFS-concept])
+(!ende_liste)
+
+
+!begin_node Bindings for Fsfirst
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fsfirst ( const int8_t *filename, int16_t attr );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    attr,-(sp)   ; Offset 6
+pea       filename     ; Offset 2
+move.w    #78,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #8,sp        ; Correct stack
+!end_verbatim
+
+!item [GFA-Basic]
+Fehler%=Gemdos(&H4E,L:filename%,W:attr%)
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Fsfirst
+(!begin_liste) [Beschreibung]
+!item [Name:]
+Øsearch first fileÆ - ersten Dateieintrag suchen.
+
+!item [Gemdosnummer:]
+78
+
+!item [Deklaration:]
+int32_t Fsfirst ( const int8_t *filename, int16_t attr );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Fsfirst erlaubt es, Informationen Åber Dateien oder
+Verzeichnisse zu ermitteln. Es gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [filename]
+Zeiger auf den Dateinamen
+!item [attr]
+Attribute, die auf den gesuchten Dateityp passen sollen.
+!begin_xlist !short
+!item [Bit-0:]
+Datei ist schreibgeschÅtzt
+!item [Bit-1:]
+Datei ist versteckt
+!item [Bit-2:]
+Systemdatei
+!item [Bit-3:]
+Diskettenname
+!item [Bit-4:]
+Verzeichnis
+!item [Bit-5:]
+Archiv-Bit
+!end_xlist
+!end_xlist
+
+Der Pfadname kann auch die Joker '*' und '?' enthalten. Nach Abschluû der
+Funktion steht der Verzeichniseintrag unter der
+DiskettenÅbertragungsadresse DTA, die mit Fgetdta und Fsetdta ermittelt
+bzw. festgelegt werden kann. Die Informationen kînnen dann der Struktur
+(!nolink [DTA]) entnommen werden.
+
+Die (!nolink [DTA]) muss durch Fsfirst() initialisiert werden!
+
+(!B)Hinweis:(!b) Falls das Programm in der MiNT-Domain lÑuft, liefert
+Fsfirst 'lower case' Filenamen. Da es Filesysteme gibt die case sensitiv
+arbeiten, sollten Sie diese Umwandlung auf keinen Fall manuell durchfÅhren.
+Wenn Sie hingegen unbedingt 'upper case' Filenamen benîtigen, sollten Sie
+Ihr Programm per Pdomain in der TOS-Domain laufen lassen.
+
+(!B)Anmerkung zu (!nolink [MagiC]):(!b) Ist Bit-3 von attr gesetzt, so ruft der Kernel
+die XFS-Funktion xfs_rlabel auf. Das aufrufende Anwenderprogramm kann damit
+leider unter MagiC nicht mehr Datum und Uhrzeit des Disknamens ermitteln.
+Der Kernel setzt alle Felder auf 0, und die Funktion Fsnext darf dann nicht
+ausgefÅhrt werden. Ab (!nolink [MagiC]) 3 wird stattdessen die Funktion
+Dreadlabel benutzt, die auch mit langen Dateinamen zurechtkommt.
+
+Ist Bit-3 von attr nicht gesetzt, wird wie in TOS nach Dateien gesucht. Ist
+eine Datei ein symbolischer Link, ruft der DOS-Kernel die Funktion Fxattr
+auf, um den Link zu verfolgen. Die von Fxattr gelieferten Werte werden dann
+in die DTA kopiert.
+
+(!B)Achtung:(!b) (!nolink [MagiC]) ist nicht immer in der Lage, relative
+symbolische Links wÑhrend eines Fsfirst/(!nolink [Fsnext]) korrekt
+auszuwerten. Es bieten sich 3 Auswege an:
+
+!begin_xlist !short [(a)]
+!item [(a)]
+Am besten: Dxreaddir verwenden.
+!item [(b)]
+Nur absolute symbolische Links verwenden.
+!item [(c)]
+Das Suchverzeichnis jeweils zum aktuellen machen.
+!end_xlist
+
+MiNT behandelt diesen Fall zwar korrekt, jedoch auf Kosten eines gewaltigen
+Aufwands. Das Fsfirst/next-Konzept ist grundsÑtzlich veraltet, ineffektiv
+und unsicher, und sollte sowohl in MiNT als auch in (!nolink [MagiC])
+vermieden werden.
+
+!item [Ergebnis:]
+Die Funktion liefert folgende Resultate:
+
+!begin_xlist !short [EFILNF :]
+!item [E_OK :]
+kein Fehler aufgetreten
+!item [EFILNF :]
+Datei nicht gefunden
+!item [ENMFIL :]
+keine weiteren Dateien
+!end_xlist
+
+!item [VerfÅgbar:]
+Alle GEMDOS Versionen.
+
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Fsfirst]) ~ Fgetdta ~ Fsetdta ~  Fsnext ~
+DTA ~ (!link [rekursive Suche][DTA]) ~
+(!link [XFS-Konzept][Das XFS-Konzept von MagiC])
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Fsfirst
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fsfirst ( const int8_t *filename, int16_t attr );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    attr,-(sp)   ; Offset 6
+pea       filename     ; Offset 2
+move.w    #78,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #8,sp        ; Stack korrigieren
+!end_verbatim
+
+!item [GFA-Basic]
+Fehler%=Gemdos(&H4E,L:filename%,W:attr%)
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

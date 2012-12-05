@@ -1,0 +1,32 @@
+!iflang [english]
+
+!begin_node Cookie, T206
+
+(!B)PATCHX06.PRG(!b)
+
+Corrects errors in the Disk-(!nolink [BIOS]) of (!nolink [TOS]) 2.06/3.06 and enables correct 
+ED handling with Getbpb.
+
+Modifies hdv_bpb, hdv_rw, hdv_mediach.
+
+Status: Public Domain.
+
+!end_node
+
+!else
+
+!begin_node Cookie, T206
+
+(!B)PATCHX06.PRG(!b)
+
+Korrigiert Fehler im Diskbios des (!nolink [TOS]) 2.06/3.06 und 
+erm”glicht korrekte ED-Behandlung durch Getbpb.
+
+Verbiegt hdv_bpb, hdv_rw, hdv_mediach.
+
+Status: Public Domain.
+
+!end_node
+
+!endif
+ 

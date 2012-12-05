@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, UFSL
+
+(!B)Extended Universal Font Selector(!b)
+
+See also: The UFSL interface.
+
+!end_node
+
+!else
+
+!begin_node Cookie, UFSL
+
+(!B)Extended Universal Font Selector(!b)
+
+Querverweise: Die UFSL-Schnittstelle
+
+!end_node
+
+!endif
+ 

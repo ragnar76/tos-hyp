@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, MBRD
+
+(!B)Blit_RD(!b) - A RAMdisk that uses the blitter (if present)
+
+Modifies the three hdv_... vectors.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MBRD
+
+(!B)Blit_RD(!b) - RAMdisk, die -- wenn vorhanden -- den Blitter benutzt.
+
+Verbiegt die drei hdv_... Vektoren.
+
+!end_node
+
+!endif
+ 

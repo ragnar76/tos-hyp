@@ -1,0 +1,68 @@
+# Source: MCWRSND1.LZH
+
+!iflang [english]
+
+!begin_node Cookie, MCWR
+
+(!B)Microwire DMA sound interface(!b)
+
+The value of the MCWR cookie is used as values for the MICROWIRE 
+interface.
+
+The highest byte represents the total sound volume. The following 
+byte represents the volume of the left channel. The byte after this 
+represents the volume of the right channel. The last byte is divided 
+into two nibbles: The higher value nibble represents the strength of 
+bass frequencies, the lower value one the strength of the treble 
+frequencies.
+
+The value of the MCWR cookie represents the following structure, 
+expressed in 'C':
+
+!begin_verbatim
+typedef struct
+{
+  unsigned volume: 8;
+  unsigned left:   8;
+  unsigned right:  8;
+  unsigned bass:   4;
+  unsigned treble: 4;
+} MCWR;
+!end_verbatim
+
+!end_node
+
+!else
+
+!begin_node Cookie, MCWR
+
+(!B)Microwire DMA sound interface(!b)
+
+Der Wert des MCWR-COOKIEs wird als Werte fr das MICROWIRE-Interface
+benutzt.
+
+Das h”chste Byte steht fr die Gesamtlautst„rke
+Das darauffolgende Byte repr„sentiert die Lautst„rke des linken Kanals.
+Das darauffolgende Byte repr„sentiert die Lautst„rke des rechten Kanals.
+Das letzte Byte wird in zwei Nibble aufgeteilt. Das h”herwertige stellt den 
+Wert fr Tiefen, das Niederwertige den fr H”hen dar.
+
+In 'C' ausgedrckt:
+
+Der Wert des MCWR-COOKIEs repr„sentiert folgende Struktur.
+
+!begin_verbatim
+typedef struct
+{
+  unsigned volume: 8;
+  unsigned left:   8;
+  unsigned right:  8;
+  unsigned bass:   4;
+  unsigned treble: 4;
+} MCWR;
+!end_verbatim
+
+!end_node
+
+!endif
+ 

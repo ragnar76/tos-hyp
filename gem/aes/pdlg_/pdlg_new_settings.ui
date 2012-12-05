@@ -1,0 +1,162 @@
+!iflang [english]
+
+!begin_node pdlg_new_settings
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØPrint dialog - New default settingsÆ - Set default printer settings.
+
+!item [Opcode:]
+205 (sub-opcode 5)
+
+!item [Syntax:]
+PRN_SETTINGS *pdlg_new_settings ( PRN_DIALOG *prn_dialog );
+
+!item [Description:]
+The call pdlg_new_settings returns a pointer to the initialized printer settings.
+The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)prn_dialog(!i) !! Pointer to management structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+The function returns a pointer to a PRN_SETTINGS structure in which the current
+printer settings are stored.
+
+!item [Availability:]
+The presence of this function can be checked with (!link [appl_getinfo][%apgi_7])
+(opcode 7).
+
+!item [Group:]
+Print dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for pdlg_new_settings]) ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for pdlg_new_settings
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+PRN_SETTINGS *pdlg_new_settings ( PRN_DIALOG *prn_dialog );
+
+!item [Binding:]
+!begin_verbatim
+PRN_SETTINGS *pdlg_new_settings ( PRN_DIALOG *prn_dialog )
+{
+   addr_in[0] = prn_dialog;
+   int_in[0] = 5;
+   crys_if (205);
+
+   return ( addr_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0]  !! 205   # Function opcode
+control+2 !! control[1]  !! 1     # Entry in int_in
+control+4 !! control[2]  !! 0     # Entry in int_out
+control+6 !! control[3]  !! 1     # Entry in addr_in
+control+8 !! control[4]  !! 1     # Entry in addr_out
+addr_in   !! addr_in[0]  !! prn_dialog
+int_in    !! int_in[0]   !! 5     # Sub-opcode
+addr_out  !! addr_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node pdlg_new_settings
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØPrint Dialog - New Default SettingsÆ - Default Druckereinstellungen setzen.
+
+!item [AES-Nummer:]
+205 (Unterfunktion 5)
+
+!item [Deklaration:]
+PRN_SETTINGS *pdlg_new_settings ( PRN_DIALOG *prn_dialog );
+
+!item [Beschreibung:]
+Die Funktion setzt die Default-Druckereinstellungen. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)prn_dialog(!i) !! Zeiger auf Verwaltungsstruktur
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert einen Zeiger auf eine PRN_SETTINGS Struktur zurÅck, in
+der die aktuellen Druckereinstellungen vermerkt sind.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Druckdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr pdlg_new_settings]) ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr pdlg_new_settings
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+PRN_SETTINGS *pdlg_new_settings ( PRN_DIALOG *prn_dialog );
+
+!item [Umsetzung:]
+!begin_verbatim
+PRN_SETTINGS *pdlg_new_settings ( PRN_DIALOG *prn_dialog )
+{
+   addr_in[0] = prn_dialog;
+   int_in[0] = 5;
+   crys_if (205);
+
+   return ( addr_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0]  !! 205   # Opcode der Funktion
+control+2 !! control[1]  !! 1     # EintrÑge in int_in
+control+4 !! control[2]  !! 0     # EintrÑge in int_out
+control+6 !! control[3]  !! 1     # EintrÑge in addr_in
+control+8 !! control[4]  !! 1     # EintrÑge in addr_out
+addr_in   !! addr_in[0]  !! prn_dialog
+int_in    !! int_in[0]   !! 5     # Sub-Opcode
+addr_out  !! addr_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,230 @@
+!iflang [english]
+
+!begin_node vst_name
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØSet text face by nameÆ - Find and set font.
+
+!item [Opcode:]
+230 (Opcode 0)
+
+!item [Syntax:]
+int16_t vst_name ( int16_t handle, int16_t font_format, 
+                int8_t *font_name, int8_t *ret_name );
+
+!item [Description:]
+The call vst_name searches for a font by name, and sets it as the current one.
+
+!begin_xlist !short [font_format]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [handle]
+Workstation identifier
+!item [font_format]
+Possible font formats:
+!begin_xlist !short
+!item [1 =]
+Bitmap font
+!item [2 =]
+Speedo font
+!item [4 =]
+TrueType font
+!item [8 =]
+Type-1 font
+!end_xlist
+!item [font_name]
+Font name
+!item [ret_name]
+Name of the selected font
+!end_xlist
+
+(!B)Note:(!b) Missing or extra spaces in the font name are ignored. If the
+requested font is not available, the system font is selected.
+
+!item [(!nolink [Return]) value:]
+The function returns the ID of the selected font.
+
+!item [Availability:]
+The function is available under NVDI as of Version 3.02.
+
+!item [Group:]
+Text attributes
+
+!item [See also:]
+(!link [Binding] [Bindings for vst_name]) ~ vqt_name ~ vqt_xfntinfo
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings for vst_name
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t vst_name ( int16_t handle, int16_t font_format, 
+                int8_t *font_name, int8_t *ret_name );
+
+!item [Binding:]
+!begin_verbatim
+int16_t vst_name (int16_t handle, int16_t font_format,
+                  int8_t *font_name, int8_t *ret_name)
+{
+   intin[0] = font_format;
+   intin[1..n] = font_name[0..n-1];
+
+   contrl[0] = 230;
+   contrl[1] = 0;
+   contrl[3] = n;
+   contrl[5] = 0;
+   contrl[6] = handle;
+
+   vdi ();
+
+   ret_name[0..m-1] = intout[1..m];
+   return ( intout[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! Contents
+!hline
+contrl    !! contrl[0]    !! 230   # Function Opcode
+contrl+2  !! contrl[1]    !! 0     # entry in ptsin
+contrl+4  !! contrl[2]    !! 0     # entry in ptsout
+contrl+6  !! contrl[3]    !! n     # entry in intin
+contrl+8  !! contrl[4]    !! m     # entry in intout
+contrl+10 !! contrl[5]    !! 0     Sub-Opcode
+contrl+12 !! contrl[6]    !! handle
+intin     !! intin[0]     !! font_format
+intin+2   !! intin[1..n]  !! font_name[0..n-1]
+intout    !! intout[0]    !! Return value
+intout+2  !! intout[1..m] !! ret_name[0..m-1]
+!end_table
+
+(!ende_liste)
+!end_node
+
+!else
+
+!begin_node vst_name
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØSet text face by nameÆ - Zeichensatz suchen und einstellen
+
+!item [VDI-Nummer:]
+230 (Opcode 0)
+
+!item [Deklaration:]
+int16_t vst_name ( int16_t handle, int16_t font_format, 
+                int8_t *font_name, int8_t *ret_name );
+
+!item [Beschreibung:]
+Die Funktion sucht einen Zeichensatz, und stellt ihn ein. Es gilt:
+
+!begin_xlist !short [font_format]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [handle]
+Kennung der Workstation
+!item [font_format]
+gewÅnschtes Zeichensatz-Format
+!begin_xlist !short
+!item [1 =]
+Bitmap-Font
+!item [2 =]
+Speedo
+!item [4 =]
+TrueType
+!item [8 =]
+Type-1
+!end_xlist
+!item [font_name]
+gewÅnschter Zeichensatz-Name
+!item [ret_name]
+Name des eingestellten Fonts
+!end_xlist
+
+(!B)Hinweis:(!b) Fehlende oder ÅberschÅssige Leerzeichen werden bei der
+Suche ignoriert. Wenn in den angegebenen Formaten kein Zeichensatz des
+gesuchten Namens vorhanden ist, wird der System-Font gesetzt.
+
+!item [Ergebnis:]
+Die Funktion liefert die ID des eingestellten Zeichensatzes zurÅck.
+
+!item [VerfÅgbar:]
+Die Funktion steht unter NVDI ab Version 3.02 zur VerfÅgung.
+
+!item [Gruppe:]
+Text-Attribute
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr vst_name]) ~  vqt_name ~  vqt_xfntinfo
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings fÅr vst_name
+!ignore_index
+
+(!begin_liste) [Umsetzung]
+
+!item [C:]
+int16_t vst_name ( int16_t handle, int16_t font_format, 
+                int8_t *font_name, int8_t *ret_name );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t vst_name (int16_t handle, int16_t font_format,
+                  int8_t *font_name, int8_t *ret_name)
+{
+   intin[0] = font_format;
+   intin[1..n] = font_name[0..n-1];
+
+   contrl[0] = 230;
+   contrl[1] = 0;
+   contrl[3] = n;
+   contrl[5] = 0;
+   contrl[6] = handle;
+
+   vdi ();
+
+   ret_name[0..m-1] = intout[1..m];
+   return ( intout[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+contrl    !! contrl[0]    !! 230   # Opcode der Funktion
+contrl+2  !! contrl[1]    !! 0     # EintrÑge in ptsin
+contrl+4  !! contrl[2]    !! 0     # EintrÑge in ptsout
+contrl+6  !! contrl[3]    !! n     # EintrÑge in intin
+contrl+8  !! contrl[4]    !! m     # EintrÑge in intout
+contrl+10 !! contrl[5]    !! 0     Unterfunktion
+contrl+12 !! contrl[6]    !! handle
+intin     !! intin[0]     !! font_format
+intin+2   !! intin[1..n]  !! font_name[0..n-1]
+intout    !! intout[0]    !! Return-Wert
+intout+2  !! intout[1..m] !! ret_name[0..m-1]
+!end_table
+
+(!ende_liste)
+!end_node
+
+!endif

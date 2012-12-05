@@ -1,0 +1,155 @@
+!iflang [english]
+
+!begin_node Fseek
+(!begin_liste) [Availability]
+!item [Name:]
+Øfile seekÆ - Move file position pointer.
+
+!item [Opcode:]
+66
+
+!item [Syntax:]
+int32_t Fseek ( int32_t offset, int16_t handle, int16_t seekmode );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Fseek permits the file pointer to be moved to
+a new position within a file. The following apply:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [offset]
+Number of bytes that are to be skipped
+!item [handle]
+(!nolink [GEMDOS]) file handle
+!item [seekmode]
+Type of repositioning:
+!begin_xlist !short [0 =]
+!item [0 =]
+From start of file
+!item [1 =]
+From current position
+!item [2 =]
+From end of file
+!end_xlist
+!end_xlist
+(!B)Note:(!b) Applied to (!nolink [pipes]) the function returns the value
+EACCDN; this way applications can differentiate between devices and pipes.
+
+!item [(!nolink [Return]) value:]
+The function returns a positive value of the new absolute location of the
+file pointer from the start of the file, or a negative error-message.
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions.
+
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding][Bindings for Fseek]) ~ Fread ~ Fwrite ~
+(!link [Test for pipes][Pipes, Test for])
+(!ende_liste)
+
+
+!begin_node Bindings for Fseek
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fseek ( int32_t offset, int16_t handle, int16_t seekmode );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    seekmode,-(sp)  ; Offset 8
+move.w    handle,-(sp)    ; Offset 6
+move.l    offset,-(sp)    ; Offset 2
+move.w    #66,-(sp)       ; Offset 0
+trap      #1              ; GEMDOS
+lea       $A(sp),sp       ; Correct stack
+!end_verbatim
+
+!item [GFA-Basic]
+Fehler%=Gemdos(&H42,L:offset%,W:handle%,W:seekmode%)
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Fseek
+(!begin_liste) [Beschreibung]
+!item [Name:]
+Øfile seekÆ - Dateiposition verschieben.
+
+!item [Gemdosnummer:]
+66
+
+!item [Deklaration:]
+int32_t Fseek ( int32_t offset, int16_t handle, int16_t seekmode );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Fseek erlaubt es, den Dateizeiger innerhalb einer Datei
+neu zu positionieren. Es gilt:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [offset]
+Anzahl der Bytes, die Åbersprungen werden sollen
+!item [handle]
+Dateikennung
+!item [seekmode]
+Art der Positionierung
+!begin_xlist !short [0 =]
+!item [0 =]
+vom Dateianfang
+!item [1 =]
+ab aktueller Position
+!item [2 =]
+vom Dateiende
+!end_xlist
+!end_xlist
+(!B)Hinweis:(!b) Auf (!nolink [Pipes]) angewandt liefert die Funktion den
+Wert EACCDN; damit kînnen Applikationen GerÑte und Pipes unterscheiden.
+
+!item [Ergebnis:]
+Die Funktion liefert als positives Ergebnis die neue Position innerhalb der
+Datei, oder eine negative Fehlermeldung.
+
+!item [VerfÅgbar:]
+Alle GEMDOS Versionen.
+
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Fseek]) ~ Fread ~ Fwrite ~
+(!link [Test auf Pipes][Pipes, Test auf])
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Fseek
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int32_t Fseek ( int32_t offset, int16_t handle, int16_t seekmode );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    seekmode,-(sp)  ; Offset 8
+move.w    handle,-(sp)    ; Offset 6
+move.l    offset,-(sp)    ; Offset 2
+move.w    #66,-(sp)       ; Offset 0
+trap      #1              ; GEMDOS aufrufen
+lea       $A(sp),sp       ; Stack korrigieren
+!end_verbatim
+
+!item [GFA-Basic]
+Fehler%=Gemdos(&H42,L:offset%,W:handle%,W:seekmode%)
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

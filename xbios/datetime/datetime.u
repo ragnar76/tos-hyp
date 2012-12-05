@@ -1,0 +1,31 @@
+!iflang [english]
+
+!begin_node Date, Time and Timer
+
+!begin_xlist [ù NVMaccess ] !short
+!item [ù Gettime]   Gets the date and time.
+!item [ù NVMaccess] Configures the NVM of the real-time clock.
+!item [ù Settime]   Sets the date and time.
+!item [ù Xbtimer]   Initializes the system timer.
+!end_xlist
+
+!else
+
+!begin_node Datum, Uhrzeit und Zeitgeber
+
+!begin_xlist [ù NVMaccess ] !short
+!item [ù Gettime]   (!nolink [Datum und Uhrzeit]) ermitteln.
+!item [ù NVMaccess] Konfiguration des NVM der Echtzeituhr.
+!item [ù Settime]   (!nolink [Datum und Uhrzeit]) einstellen.
+!item [ù Xbtimer]   Systemzeitgeber initialisieren.
+!end_xlist
+
+
+!endif
+
+!include xbios/datetime/gettime.ui
+!include xbios/datetime/nvmacces.ui
+!include xbios/datetime/settime.ui
+!include xbios/datetime/xbtimer.ui
+!include xbios/datetime/datetime.ui
+!end_node

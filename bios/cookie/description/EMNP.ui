@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, EMNP
+
+(!B)MNP emulator(!b)
+
+Software that emulates MNP (without compression).
+
+!end_node
+
+!else
+
+!begin_node Cookie, EMNP
+
+(!B)MNP emulator(!b)
+
+Software that emulates MNP (without compression).
+
+!end_node
+
+!endif
+ 

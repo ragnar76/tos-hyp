@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, OVWI
+
+(!B)OVER_WIN(!b) - OverScan Window-size patch
+
+!end_node
+
+!else
+
+!begin_node Cookie, OVWI
+
+(!B)OVER_WIN(!b) - OverScan Window-Size Patch
+
+!end_node
+
+!endif
+ 

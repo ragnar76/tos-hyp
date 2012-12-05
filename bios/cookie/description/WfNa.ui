@@ -1,0 +1,51 @@
+!iflang [english]
+
+!begin_node Cookie, WfNa
+
+(!B)WFNAME.PRG(!b)
+
+This extends MagiC by a special function which allows other programs 
+to inquire the window title of any window.
+
+For programmers:
+!begin_itemize
+!item As long as WFNAME.PRG is (!nolink [installed]), one can inquire window titles 
+of any desired window with wind_get(WF_NAME).
+
+!item  WFNAME.PRG can be recognized by a 'WfNa' cookie. A query whether 
+  wind_get(WF_NAME) is possible should therefore be made as follows:
+
+  'WfNa'-cookie present OR (!nl)
+  'AmAN'-cookie present OR (!nl)
+  MagiC >= 6.0 present.
+!end_itemize
+
+!end_node
+
+!else
+
+!begin_node Cookie, WfNa
+
+(!B)WFNAME.PRG(!b)
+
+Dies erweitert MagiC um eine spezielle Funktion. Es erm”glicht
+anderen Programmen, den Fenstertitel beliebiger Fenster abfragen zu
+k”nnen.
+
+Fr Programmierer:
+!begin_itemize
+!item  Sofern WFNAME.PRG installiert ist, kann man Fenstertitel beliebiger
+  Fenster mit wind_get(WF_NAME) erfragen.
+
+!item WFNAME.PRG gibt sich durch einen 'WfNa'-Cookie zu erkennen. Abfrage,
+  ob wind_get(WF_NAME) m”glich ist, sollte daher so erfolgen:
+
+  'WfNa'-Cookie vorhanden ODER (!nl)
+  'AmAN'-Cookie vorhanden ODER (!nl)
+  MagiC >= 6.0 vorhanden.
+!end_itemize
+
+!end_node
+
+!endif
+ 

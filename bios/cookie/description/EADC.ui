@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, EADC
+
+(!B)Easydisc(!b)
+
+Flexible and reset-proof RAMdisk with many extras.
+
+!end_node
+
+!else
+
+!begin_node Cookie, EADC
+
+(!B)Easydisc(!b) F
+
+lexible und resetfeste RAMdisk mit vielen Extras.
+
+!end_node
+
+!endif
+ 

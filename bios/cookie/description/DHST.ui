@@ -1,0 +1,29 @@
+!iflang [english]
+
+!begin_node Cookie, DHST
+
+(!B)Document History protocol(!b)
+
+Contains in the low WORD of the cookie value the (!nolink [AES]) ID of the 
+Document History server. The Document History protocol is available 
+as of StartMeUp! 7.01.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DHST
+
+(!B)Document History Protokoll(!b)
+
+EnthÑlt im unteren Word des Cookie-Wertes die (!nolink [AES])-ID des Document-History- 
+Servers. Das Document-History-Protokoll ist ab StartMeUp! 7.01 verfÅgbar. 
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

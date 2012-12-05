@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, JCNB
+
+(!B)JCNBOOT(!b) - Mouse-operable boot selector (Auto, ACC, setups)
+!end_node
+
+!else
+
+!begin_node Cookie, JCNB
+
+(!B)JCNBOOT(!b) - Mausbedienbarer Bootselektor (Auto, ACC, Setups)
+
+
+!end_node
+
+!endif
+ 

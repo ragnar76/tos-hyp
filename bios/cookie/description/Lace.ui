@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, Lace
+
+(!B)LaceScan(!b)
+
+LaceScan is a package that allows an ordinary ST to display a much 
+larger screen area (i.e. more pixels) than that ordinarily used by 
+each of the three original resolutions, and also to emulate some 
+larger resolutions than even this enlarged screen can display 
+physically.
+
+!end_node
+
+!else
+
+!begin_node Cookie, Lace
+
+(!B)LaceScan(!b)
+
+LaceScan is a package that allows an ordinary ST to display a much 
+larger screen area (i.e. more pixels) than that ordinarily used by 
+each of the three original resolutions, and also to emulate some 
+larger resolutions than even this enlarged screen can display 
+physically.
+
+!end_node
+
+!endif
+ 

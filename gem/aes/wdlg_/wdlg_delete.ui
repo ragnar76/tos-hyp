@@ -1,0 +1,157 @@
+!iflang [english]
+
+!begin_node wdlg_delete
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØWindow-dialog deleteÆ - Release memory used by a closed window-dialog
+
+!item [Opcode:]
+163
+
+!item [Syntax:]
+int16_t wdlg_delete ( DIALOG *dialog );
+
+!item [Description:]
+The function wdlg_delete releases the memory allocated for a window-dialog
+that has been closed. The following applies:
+
+!begin_table [l|l]
+(!I)Parameter(!i) !! Meaning
+!hline
+(!I)dialog(!i) !! Pointer to the dialog structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+The function always returns the value 1.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+Window-dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for wdlg_delete]) ~ wdlg_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for wdlg_delete
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_delete ( DIALOG *dialog );
+
+!item [Binding:]
+!begin_verbatim
+int16_t wdlg_delete ( DIALOG *dialog )
+{
+   addr_in[0] = dialog;
+   crys_if (163);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 163   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! dialog
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node wdlg_delete
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØWindowDialog DeleteÆ - Fensterdialog schlieûen.
+
+!item [AES-Nummer:]
+163
+
+!item [Deklaration:]
+int16_t wdlg_delete ( DIALOG *dialog );
+
+!item [Beschreibung:]
+Die Funktion gibt den Speicherplatz fÅr einen Fensterdialog wieder frei. Es
+gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)dialog(!i) !! Zeiger auf den Dialog
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert stets den Wert 1 zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Fensterdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr wdlg_delete]) ~  wdlg_close
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr wdlg_delete
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t wdlg_delete ( DIALOG *dialog );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t wdlg_delete ( DIALOG *dialog )
+{
+   addr_in[0] = dialog;
+   crys_if (163);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 163   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! dialog
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, MFNT
+
+Font-loader accessory or program, with add-on program (!B)MFNTINST.PRG(!b) 
+
+Source: PD-Pool diskette 2240.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MFNT
+
+Fontloader-Accessory oder Programm mit Zusatzprogramm (!B)MFNTINST.PRG(!b)
+
+Quelle: (PD-Pool 2240).
+
+!end_node
+
+!endif
+ 

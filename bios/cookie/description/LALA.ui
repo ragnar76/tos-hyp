@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, LALA
+
+(!B)ALBOLALA!(!b)
+
+Module for the playing of samples via bell_hook ((!I)ST-Magazin(!i) 1/92).
+
+!end_node
+
+!else
+
+!begin_node Cookie, LALA
+
+(!B)ALBOLALA!(!b)
+
+Modul zum Abspielen von Samples via bell_hook ((!I)ST-Magazin(!i) 1/92).
+
+!end_node
+
+!endif
+ 

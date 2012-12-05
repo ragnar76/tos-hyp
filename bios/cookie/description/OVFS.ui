@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, OVFS
+
+(!B)OVER_FSB(!b) - OverScan File-selector patch
+
+!end_node
+
+!else
+
+!begin_node Cookie, OVFS
+
+(!B)OVER_FSB(!b) - OverScan Fileselector Patch
+
+!end_node
+
+!endif
+ 

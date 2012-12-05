@@ -1,0 +1,43 @@
+########################################
+# @(#) TOS - das Betriebssystem
+# @(#) Rolf Kotzian
+########################################
+
+!iflang [english]
+	!docinfo [title] The documentation for
+	!docinfo [program]    View Protocol
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] View Protocol (TOS - The Operating System)
+!else
+	!docinfo [title] Die Anleitung zum
+	!docinfo [program]    View Protocol
+	!docinfo [date]    (!today)
+	!docinfo [stgdatabase] View Protokoll (TOS - das Betriebssystem)
+!endif
+
+!use_short_tocs      [all]
+!use_auto_subtocs    [info,html,tvh,win]
+!use_auto_subsubtocs [info,html,tvh,win]
+!no_effects          [asc]
+
+!include config.u
+
+########################################
+
+!begin_document
+
+!ifdest [tech]
+\documentstyle[11pt,german]{article}
+!endif
+!ifdest [stg]
+!begin_raw
+@options "+g -s +x +zz -t4"
+@subject "Programmieren/Atari"
+!end_raw
+!endif
+!maketitle
+!tableofcontents
+
+!include protokol\view.u
+
+!end_document

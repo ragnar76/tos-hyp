@@ -1,0 +1,27 @@
+!iflang [english]
+
+!begin_node Cookie, RTOB
+
+(!B)OptoBell(!b) - Alters the presentation of ASCII-BEL
+
+Source: (!I)ST-Computer.(!i)
+
+Modifies (!nolink [BIOS])-trap.
+
+!end_node
+
+!else
+
+!begin_node Cookie, RTOB
+
+(!B)OptoBell(!b) - Žndert die Darstellung von ASCII-BEL
+
+Quelle: (!I)ST-Computer.(!i)
+
+Žndert (!nolink [BIOS])-trap.
+
+
+!end_node
+
+!endif
+ 

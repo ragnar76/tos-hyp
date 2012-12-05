@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, MDRK
+
+(!B)MegaDark(!b) - Screensaver for the MegaVision300 graphics card
+
+Modifies one slot in the vbl-queue, ikbdsys and InitMouse 
+
+Source: Sang Support mailbox.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MDRK
+
+(!B)MegaDark(!b) - Bilschirmschoner fÅr die MegaVision300-Grafikkarte
+
+VerÑndert ein Slot in der vbl-queue, ikbdsys und InitMouse
+
+Quelle: Sang Support-Mailbox
+
+!end_node
+
+!endif
+ 

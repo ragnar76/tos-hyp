@@ -1,0 +1,19 @@
+!iflang [english]
+
+!begin_node Cookie, BASH
+
+(!B)Bourne-Again Shell(!b) of the FSF
+
+Redirected: shell_p.
+!end_node
+
+!else
+
+!begin_node Cookie, BASH
+
+(!B)Bourne-Again-Shell(!b) der FSF
+
+Umgebogen: shell_p.
+!end_node
+
+!endif

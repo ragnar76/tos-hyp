@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, CNTS
+
+(!B)CentScreen(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, CNTS
+
+(!B)CentScreen(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,32 @@
+!iflang [english]
+
+!begin_node Cookie, PROB
+
+(!B)Profibase(!b)
+
+Poolware database with various special functions, in particular 
+programmability.
+
+Modifies vectors: TRAP #2, etv_critic, etv_term.
+
+Distribution: PD-Pool, LogicBase Software GbR.
+
+!end_node
+
+!else
+
+!begin_node Cookie, PROB
+
+(!B)Profibase(!b)
+
+Poolware-Datenbank mit diversen Sonderfunktionen, 
+insbesondere Programmierbarkeit.
+
+Vektoren: TRAP #2, etv_critic, etv_term. 
+
+Vertrieb: PD-Pool, LogicBase Software GbR
+
+!end_node
+
+!endif
+ 

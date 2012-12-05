@@ -1,0 +1,33 @@
+!iflang [english]
+
+!begin_node COLOR_ENTRY
+The union COLOR_ENTRY contains the colour table entry. In future,
+colour spaces other than RGB may be available:
+
+!begin_verbatim
+typedef union
+{
+   COLOR_RGB   rgb;
+   COLOR_CMYK  cmyk;
+} COLOR_ENTRY;
+!end_verbatim
+!end_node
+
+
+!else
+
+!begin_node COLOR_ENTRY
+Die Union COLOR_ENTRY enthÑlt den
+Farbtabelleneintrag. ZukÅnftig sind auch andere FarbrÑume
+als RGB mîglich:
+
+!begin_verbatim
+typedef union
+{
+   COLOR_RGB   rgb;
+   COLOR_CMYK  cmyk;
+} COLOR_ENTRY;
+!end_verbatim
+!end_node
+
+!endif

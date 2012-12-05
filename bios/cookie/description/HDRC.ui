@@ -1,0 +1,29 @@
+!iflang [english]
+
+!begin_node Cookie, HDRC
+
+(!B)AUDIODRV(!b)
+
+Driver for a hard disk recording system that is connected at the 
+ACSI port.
+
+Redirected vectors: 200Hz timer, hdv_bpb, hdv_rw, hdv_boot, 
+hdv_mediach.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HDRC
+
+(!B)AUDIODRV(!b)
+
+Treiber fÅr ein Harddiskrecordingsystem, das am ACSI-Port ange!-schlossen
+wird.
+
+Vektoren: 200Hz-Timer, hdv_bpb, hdv_rw, hdv_boot, hdv_mediach.
+
+!end_node
+
+!endif
+ 

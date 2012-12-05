@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, fMSX
+
+(!B)fMSX.PRG(!b)
+
+Port of the freeMSX-emulator to (!nolink [GEM]).
+
+Modifies vectors: Kbdvbase()->kb_kbdsys.
+
+Status: Freeware. 
+
+!end_node
+
+!else
+
+!begin_node Cookie, fMSX
+
+(!B)fMSX.PRG(!b)
+
+Portierung des freeMSXemulators auf (!nolink [GEM]).
+
+Vektoren: Kbdvbase()->kb_kbdsys
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

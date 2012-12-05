@@ -1,0 +1,184 @@
+!iflang [english]
+
+!begin_node pdlg_use_settings
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØPrint dialog - Use settingsÆ - Use validated settings.
+
+!item [Opcode:]
+205 (sub-opcode 9)
+
+!item [Syntax:]
+int16_t pdlg_use_settings ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings );
+
+!item [Description:]
+The call pdlg_use_settings serves to validate the printer settings that were set
+with pdlg_new_settings before adopting them for use. The following apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)prn_dialog(!i) !! Pointer to management structure
+(!I)settings(!i) !! Printer settings
+!end_table
+
+This function should be called if a program wants to print immediately and it is
+not possible to call pdlg_do or pdlg_open and pdlg_evnt (e.g. Calamus print
+dialogs). The passed printer settings will be validated (and saved for old
+drivers).
+
+!item [(!nolink [Return]) value:]
+The function returns the value 1 if it operates correctly, else the value 0 in
+case of error.
+
+!item [Availability:]
+The presence of this function can be checked with (!link [appl_getinfo][%apgi_7])
+(opcode 7).
+
+!item [Group:]
+Print dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for pdlg_use_settings]) ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for pdlg_use_settings
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_use_settings ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings );
+
+!item [Binding:]
+!begin_verbatim
+int16_t pdlg_use_settings ( PRN_DIALOG *prn_dialog,
+                            PRN_SETTINGS *settings )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = settings;
+
+   int_in[0] = 9;
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 205   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! settings
+int_in    !! int_in[0]  !! 9     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node pdlg_use_settings
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØPrint Dialog - Use SettingsÆ - Einstellungen anwenden.
+
+!item [AES-Nummer:]
+205 (Unterfunktion 9)
+
+!item [Deklaration:]
+int16_t pdlg_use_settings ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings );
+
+!item [Beschreibung:]
+Die Funktion sorgt fÅr eine öberprÅfung der angegebenen
+Druckereinstellungen.
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)prn_dialog(!i) !! Zeiger auf Verwaltungsstruktur
+(!I)settings(!i) !! Zeiger auf Druckereinstellungen
+!end_table
+
+Die Funktion sollte aufgerufen werden, wenn ein Programm
+gleich ausdrucken mîchte und es nicht mîglich ist pdlg_do oder pdlg_open
+und pdlg_evnt aufzurufen (etwa bei Calamus-Druckdialogen der Fall). Die
+Åbergebenen Druckereinstellungen werden ÅberprÅft, und bei alten Treibern
+gesichert.
+
+!item [Ergebnis:]
+Die Funktion liefert bei korrekter AusfÅhrung den Wert 1, und im Fehlerfall
+den Wert 0 zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Druckdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr pdlg_use_settings]) ~  WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr pdlg_use_settings
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_use_settings ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t pdlg_use_settings ( PRN_DIALOG *prn_dialog,
+                            PRN_SETTINGS *settings )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = settings;
+
+   int_in[0] = 9;
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 205   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! settings
+int_in    !! int_in[0]  !! 9     # Sub-Opcode
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

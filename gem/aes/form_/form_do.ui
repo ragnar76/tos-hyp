@@ -1,0 +1,182 @@
+!iflang [english]
+
+!begin_node form_do
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØForm do dialogÆ - Process the dialog with input from the user.
+
+!item [Opcode:]
+50
+
+!item [Syntax:]
+int16_t form_do ( OBJECT *fo_dotree, int16_t fo_dostartob );
+
+!item [Description:]
+The call form_do takes over the processing of user actions in a dialog form from
+the calling application, suspending program (!nolink [control]) and handling all
+selectable objects, radio buttons etc. The following apply:
+
+!begin_xlist !short [fo_dostartob]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [fo_dotree]
+Pointer to object tree of the dialog box
+!item [fo_dostartob]
+Index of the editable object where the text cursor should be at the opening of
+the dialog (the object must have the EDITABLE flag set); it will be 0 if the
+object tree contains no editable object
+!end_xlist
+
+(!B)Note:(!b) The function only returns once the user activates an object with
+the EXIT or TOUCHEXIT flag, and restores (!nolink [control]) to the calling
+program.
+
+!item [(!nolink [Return]) value:]
+This will be the index of the object which was used to close the dialog. With a
+double-click, in addition bit 15 will be set.
+
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Form library
+
+!item [See also:]
+(!link [Binding] [Bindings for form_do])  ~ form_xdo  ~ OBJECT
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for form_do
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t form_do ( OBJECT *fo_dotree, int16_t fo_dostartob );
+
+!item [Binding:]
+!begin_verbatim
+int16_t form_do (OBJECT *fo_dotree, int16_t fo_dostartob)
+{
+   int_in[0]  = fo_dostartob;
+   addr_in[0] = fo_dotree;
+
+   return ( crys_if(50) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 50    # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! fo_dostartob
+addr_in   !! addr_in[0] !! fo_dotree
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node form_do
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØForm do DialogÆ - fÅhrt den Dialog mit dem Anwender durch.
+
+!item [AES-Nummer:]
+50
+
+!item [Deklaration:]
+int16_t form_do ( OBJECT *fo_dotree, int16_t fo_dostartob );
+
+!item [Beschreibung:]
+Die Funktion Åbernimmt die Behandlung von Benutzeraktionen in einem
+Formular. Es gilt:
+
+!begin_xlist !short [fo_dostartob]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [fo_dotree]
+Zeiger auf den Objektbaum der Dialogbox
+!item [fo_dostartob]
+Nummer des Editobjekts, wo sich zu Dialogbeginn der Textcursor befinden
+soll (0 falls der Objektbaum kein Editobjekt enthÑlt)
+!end_xlist
+
+(!B)Hinweis:(!b) Die Funktion kehrt erst dann zurÅck, wenn der Benutzer ein
+Objekt mit EXIT- bzw. TOUCHEXIT Status aktiviert.
+
+!item [Ergebnis:]
+Als Ergebnis wird der Index des Objekts zurÅckgegeben, mit dessen Hilfe der
+Dialog beendet wurde. Bei einem (!nolink [Doppelklick]) wird zusÑtzlich das 15. Bit
+gesetzt.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+(!link [Formulare][Formularfunktionen])
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr form_do])  ~ form_xdo  ~ OBJECT
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr form_do
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t form_do ( OBJECT *fo_dotree, int16_t fo_dostartob );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t form_do (OBJECT *fo_dotree, int16_t fo_dostartob)
+{
+   int_in[0]  = fo_dostartob;
+   addr_in[0] = fo_dotree;
+
+   return ( crys_if(50) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 50    # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! fo_dostartob
+addr_in   !! addr_in[0] !! fo_dotree
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, BGHD
+
+Contains configuration flags for the (!B)BubbleGEM Help-Daemon(!b).
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, BGHD
+
+EnthÑlt Konfigurationsflags fÅr den (!B)BubbleGEM Help-Daemon(!b).
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

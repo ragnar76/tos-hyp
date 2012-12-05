@@ -1,0 +1,25 @@
+!iflang [english]
+
+!begin_node Cookie, MPRO
+
+(!B)MagicPro(!b) config CPX
+
+Contains pointers to configuration data of programs that use Magic 
+Professional >= 1.00. Exact format available on request.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MPRO
+
+(!B)MagicPro(!b)-Config-CPX.
+
+Enth„lt Zeiger auf Konfigurationsdaten von 
+Programmen, die Magic Professional >= 1.00 benutzen. Genaues Format auf 
+Anfrage.
+
+!end_node
+
+!endif
+ 

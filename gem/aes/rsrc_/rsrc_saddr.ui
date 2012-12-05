@@ -1,0 +1,216 @@
+!iflang [english]
+
+!begin_node rsrc_saddr
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+Resource store addressÆ - Store address of an object.
+
+!item [Opcode:]
+113
+
+!item [Syntax:]
+int16_t rsrc_saddr ( int16_t re_stype, int16_t re_sindex, void *saddr );
+
+!item [Description:]
+The call rsrc_saddr stores the start address of a data structure in memory. The
+following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [re_stype]
+Type of structure:
+!begin_table [l r l l]
+(!nolink [R_TREE]) 			!!  0 !! = !! Object tree
+(!nolink [R_OBJECT]) 		!!  1 !! = !! Individual OBJECT
+(!nolink [R_TEDINFO]) 	!!  2 !! = !! TEDINFO structure
+(!nolink [R_ICONBLK]) 	!!  3 !! = !! ICONBLK structure
+(!nolink [R_BITBLK]) 		!!  4 !! = !! BITBLK structure
+(!nolink [R_STRING]) 		!!  5 !! = !! Free string data
+(!nolink [R_IMAGEDATA]) !!  6 !! = !! Free image data
+(!nolink [R_OBSPEC]) 		!!  7 !! = !! (!I)ob_spec(!i) field in OBJECT
+(!nolink [R_TEPTEXT]) 	!!  8 !! = !! (!I)te_ptext(!i) in TEDINFO
+(!nolink [R_TEPTMPLT])	!!  9 !! = !! (!I)te_ptmplt(!i) in TEDINFO
+(!nolink [R_TEPVALID]) 	!! 10 !! = !! (!I)te_pvalid(!i) in TEDINFO
+(!nolink [R_IBPMASK]) 	!! 11 !! = !! (!I)ib_pmask(!i) in ICONBLK
+(!nolink [R_IBPDATA]) 	!! 12 !! = !! (!I)ib_pdata(!i) in ICONBLK
+(!nolink [R_IBPTEXT]) 	!! 13 !! = !! (!I)ib_ptext(!i) in ICONBLK
+(!nolink [R_BIPDATA]) 	!! 14 !! = !! (!I)ib_pdata(!i) in BITBLK
+(!nolink [R_FRSTR]) 		!! 15 !! = !! (!I)ad_frstr(!i) free string
+(!nolink [R_FRIMG]) 		!! 16 !! = !! (!I)ad_frimg(!i) free image
+!end_table
+!item [re_sindex]
+Position within the data structure
+!item [saddr]
+Address to be saved in data structure
+!end_xlist
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Resource library
+
+!item [See also:]
+(!link [Binding] [Bindings for rsrc_saddr]) ~ rsrc_gaddr ~ OBJECT
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for rsrc_saddr
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t rsrc_saddr ( int16_t re_stype, int16_t re_sindex, void *saddr );
+
+!item [Binding:]
+!begin_verbatim
+int16_t rsrc_saddr (int16_t re_stype, int16_t re_sindex,
+                    void *saddr)
+{
+   int_in[0]  = re_stype;
+   int_in[1]  = re_sindex;
+   addr_in[0] = saddr;
+
+   return ( crys_if(113) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 113   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! re_stype
+int_in+2  !! int_in[1]  !! re_sindex
+addr_in   !! addr_in[0] !! saddr
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node rsrc_saddr
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØResource store AddressÆ - speichert die Adresse eines Objektes.
+
+!item [AES-Nummer:]
+113
+
+!item [Deklaration:]
+int16_t rsrc_saddr ( int16_t re_stype, int16_t re_sindex, void *saddr );
+
+!item [Beschreibung:]
+Die Funktion speichert die Anfangsadresse einer Datenstruktur im Speicher.
+Es gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [re_stype]
+Typ der Struktur
+!begin_table [l r l l]
+(!nolink [R_TREE]) 			!!  0 !! = !! Objektbaum
+(!nolink [R_OBJECT]) 		!!  1 !! = !! Individual OBJECT
+(!nolink [R_TEDINFO]) 	!!  2 !! = !! TEDINFO Struktur
+(!nolink [R_ICONBLK]) 	!!  3 !! = !! ICONBLK Struktur
+(!nolink [R_BITBLK]) 		!!  4 !! = !! BITBLK Struktur
+(!nolink [R_STRING]) 		!!  5 !! = !! Free string data
+(!nolink [R_IMAGEDATA]) !!  6 !! = !! Free image data
+(!nolink [R_OBSPEC]) 		!!  7 !! = !! (!I)ob_spec(!i) Feld in OBJECT
+(!nolink [R_TEPTEXT]) 	!!  8 !! = !! (!I)te_ptext(!i) in TEDINFO
+(!nolink [R_TEPTMPLT])	!!  9 !! = !! (!I)te_ptmplt(!i) in TEDINFO
+(!nolink [R_TEPVALID]) 	!! 10 !! = !! (!I)te_pvalid(!i) in TEDINFO
+(!nolink [R_IBPMASK]) 	!! 11 !! = !! (!I)ib_pmask(!i) in ICONBLK
+(!nolink [R_IBPDATA]) 	!! 12 !! = !! (!I)ib_pdata(!i) in ICONBLK
+(!nolink [R_IBPTEXT]) 	!! 13 !! = !! (!I)ib_ptext(!i) in ICONBLK
+(!nolink [R_BIPDATA]) 	!! 14 !! = !! (!I)ib_pdata(!i) in BITBLK
+(!nolink [R_FRSTR]) 		!! 15 !! = !! (!I)ad_frstr(!i) free string
+(!nolink [R_FRIMG]) 		!! 16 !! = !! (!I)ad_frimg(!i) free image
+!end_table
+
+!item [re_sindex]
+Position innerhalb der Datenstruktur
+!item [saddr]
+abzuspeichernde Adresse
+!end_xlist
+
+!item [Ergebnis:]
+Ein Fehler ist nur dann aufgetreten, wenn als Ergebnis 0 zurÅckgegeben wird.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+(!link [Resourceorganisation][Resourcefunktionen])
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr rsrc_saddr]) ~ rsrc_gaddr ~ OBJECT
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr rsrc_saddr
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t rsrc_saddr ( int16_t re_stype, int16_t re_sindex, void *saddr );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t rsrc_saddr (int16_t re_stype, int16_t re_sindex,
+                    void *saddr)
+{
+   int_in[0]  = re_stype;
+   int_in[1]  = re_sindex;
+   addr_in[0] = saddr;
+
+   return ( crys_if(113) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 113   # Opcode der Funktion
+control+2 !! control[1] !! 2     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! re_stype
+int_in+2  !! int_in[1]  !! re_sindex
+addr_in   !! addr_in[0] !! saddr
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

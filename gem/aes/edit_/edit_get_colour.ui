@@ -1,0 +1,171 @@
+!iflang [english]
+
+!begin_node edit_get_colour
+(!begin_liste) [Availability]
+!item [Name:]
+ØEdit Object Get ColourÆ - Examine settings: Colours
+!item [Opcode:]
+216 (sub-opcode 2)
+
+!item [Syntax:]
+int16_t edit_get_colour ( OBJECT *tree, int16_t obj, 
+                       int16_t *tcolour, int16_t  *bcolour );
+
+!item [Description:]
+The call edit_get_colour obtains the colour of an object. The following apply:
+               
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)tree(!i) !! RSC-tree of object
+(!I)obj(!i) !! Object index
+(!I)tcolour(!i) !! Text colour
+(!I)bcolour(!i) !! Background colour
+!end_table
+
+!item [(!nolink [Return]) value:]
+The function returns the value 1 on successful execution, else the value 0 in
+case of error.
+
+!item [Availability:]
+As of MagiC 5.20 by means of a shared library.
+
+!item [Group:]
+Editable object functions
+
+!item [See also:]
+(!link [Binding] [Bindings for edit_get_colour])
+(!ende_liste)
+
+
+
+!begin_node Bindings for edit_get_colour
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t edit_get_colour ( OBJECT *tree, int16_t obj, 
+                       int16_t *tcolour, int16_t  *bcolour );
+!item [Binding:]
+!begin_verbatim
+int16_t edit_get_colour ( OBJECT *tree, int16_t obj, 
+                          int16_t *tcolour, int16_t  *bcolour )
+{
+   int_in[0]  = obj;
+   int_in[1]  = 2;      /* Sub-opcode for function */
+
+   addr_in[0] = tree;
+
+   crys_if( 216 );
+
+   *tcolour = int_out[1];
+   *bcolour = int_out[2];
+   
+   return ( int_out[0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 216   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 3     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! 2     # Sub-opcode
+addr_in   !! addr_in[0] !! tree
+int_out   !! int_out[0]  !! Return value
+int_out+2 !! int_out[1]  !! tcolour
+int_out+4 !! int_out[2]  !! bcolour
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node edit_get_colour
+(!begin_liste) [Beschreibung]
+!item [Name:]
+ØEdit Object Get ColourÆ - ermittelt die Farbeinstellungen eines
+Editobjektes.
+!item [AES-Nummer:]
+216 (Unterfunktion 2)
+!item [Deklaration:]
+int16_t edit_get_colour ( OBJECT *tree, int16_t obj, 
+                       int16_t *tcolour, int16_t  *bcolour );
+
+!item [Beschreibung:]
+
+!begin_table [l|l]
+Parameter  !! Bedeutung
+!hline
+(!I)tree(!i) !! RSC-Baum des Objekts
+(!I)obj(!i) !! Objektnummer
+(!I)tcolour(!i) !! Textfarbe
+(!I)bcolour(!i) !! Hintergrundfarbe
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert bei erfolgreicher AusfÅhrung den Wert 1 und im
+Fehlerfall den Wert 0 zurÅck.
+
+!item [VerfÅgbar:]
+ab MagiC 5.20 mittels SharedLibrary
+
+!item [Gruppe:]
+Editobjekt-Funktionen
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr edit_get_colour])
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr edit_get_colour
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+!item [C:]
+int16_t edit_get_colour ( OBJECT *tree, int16_t obj, 
+                       int16_t *tcolour, int16_t  *bcolour );
+!item [Umsetzung:]
+!begin_verbatim
+int16_t edit_get_colour ( OBJECT *tree, int16_t obj, 
+                          int16_t *tcolour, int16_t  *bcolour )
+{
+   int_in[0]  = obj;
+   int_in[1]  = 2;      /* Subcode fÅr Funktion */
+
+   addr_in[0] = tree;
+
+   crys_if( 216 );
+
+   *tcolour = int_out[1];
+   *bcolour = int_out[2];
+   
+   return ( int_out[0] );
+}
+!end_verbatim
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 216   # Opcode der Funktion
+control+2 !! control[1] !! 2     # EintrÑge in int_in
+control+4 !! control[2] !! 3     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]  !! obj
+int_in+2  !! int_in[1]  !! 2     # Sub-Opcode
+addr_in   !! addr_in[0] !! tree
+int_out   !! int_out[0]  !! Return-Wert
+int_out+2 !! int_out[1]  !! tcolour
+int_out+4 !! int_out[2]  !! bcolour
+!end_table
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,31 @@
+!iflang [english]
+
+!begin_node Cookie, Pinp
+
+(!B)Driver for inputs from the parallel port(!b)
+
+This driver lets the port of another computer look like a printer,
+using a cable in which Strobe and Busy are crossed over) and permits 
+reading from this port with the (!nolink [BIOS]) routines.
+
+Modified vectors: $100, $51E, $53E, $55E and $57E.
+
+!end_node
+
+!else
+
+!begin_node Cookie, Pinp
+
+(!B)Treiber fÅr die Eingabe vom parallelen Port(!b)
+
+Dieser Treiber lÑût den Port fÅr einen 
+anderen Rechner wie einen Drucker aussehen (mit einem Kabel, bei dem 
+Strobe und Busy gekreuzt sind) und ermîglicht das Lesen von diesem Port 
+mit den (!nolink [BIOS])-Routinen.
+
+Verbogene Vektoren sind $100, $51E, $53E, $55E und $57E.
+
+!end_node
+
+!endif
+ 

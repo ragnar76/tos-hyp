@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, DYJD
+
+(!B)Dosound(!b) 
+
+Replaces Dosound, Cconout and Crawio. This is mainly useful on systems 
+that do not support this routine, such as a PC with MagiC PC (MPC), 
+for instance.
+
+(!nolink [GEMDOS]) and (!nolink [BIOS]) vectors are modified.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DYJD
+
+(!B)Dosound(!b)
+
+Ersetzt Dosound, Cconout und Crawio. Dies ist hauptsÑchlich 
+sinnvollauf Systemen die diese Routine nicht unterstÅtzen, also z.B. auf
+einem PC mit MagiC PC (MPC).
+
+Verbogen werden (!nolink [GEMDOS]) und (!nolink [BIOS])-Vektoren.
+
+!end_node
+
+!endif
+ 

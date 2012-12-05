@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, SDWN
+
+(!B)ScreenDown(!b) - Retains screen memory in ST-RAM
+
+Modifies vectors: X(!nolink [BIOS]).
+
+Status: Public Domain.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SDWN
+
+(!B)ScreenDown(!b) - beh„lt Bildschirmspeicher im ST-RAM
+
+Vektoren: X(!nolink [BIOS]).
+
+Status: Public Domain. 
+
+!end_node
+
+!endif
+ 

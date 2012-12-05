@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, LEmu
+
+(!B)(!link [LaceScan][Cookie, Lace]) command-keys emulator(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, LEmu
+
+(!B)(!link [LaceScan][Cookie, Lace]) command-keys emulator(!b)
+
+!end_node
+
+!endif
+ 

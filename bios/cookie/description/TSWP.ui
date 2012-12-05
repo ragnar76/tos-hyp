@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, TSWP
+
+(!B)TonySoft Write Protection(!b)
+
+Protects logical drives from write accesses, and hooks into the 
+hdv_rw vector for this.
+
+!end_node
+
+!else
+
+!begin_node Cookie, TSWP
+
+(!B)TonySoft Write Protection(!b)
+
+SchÅtzt logische Laufwerke vor Schreibzugriffen 
+und hÑngt sich dazu in den hdv_rw-Vektor.
+
+!end_node
+
+!endif
+ 

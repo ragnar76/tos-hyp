@@ -1,0 +1,5 @@
+!iflang [english]
+	!include tos/tos_en.ui
+!else
+	!include tos/tos_de.ui
+!endif

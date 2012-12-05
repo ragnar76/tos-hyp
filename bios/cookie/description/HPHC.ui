@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, HPHC
+
+(!B)Hardcopy for HP DeskJet(!b)
+
+Modifies hardcopy vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HPHC
+
+(!B)Hardcopy fÅr HP Deskjet(!b)
+
+Verbiegt Hardcopy-Vektor.
+
+!end_node
+
+!endif
+ 

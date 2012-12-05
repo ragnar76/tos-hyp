@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, NETS
+
+Driver software for (!B)PAM Novell netware(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, NETS
+
+Treibersoftware zur (!B)PAM Novell-Netware(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, PRO5
+
+(!B)PROTECT5.PRG(!b)
+
+Resident virus check/kill/protect program'.
+
+!end_node
+
+!else
+
+!begin_node Cookie, PRO5
+
+(!B)PROTECT5.PRG(!b)
+
+Resident virus check/kill/protect program'.
+
+!end_node
+
+!endif
+ 

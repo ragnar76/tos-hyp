@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, DCF7
+
+(!B)DCF77(!b) decodes the signals of a joystick-port radio clock receiver. 
+An accessory provides a freely configurable clock in the menu bar.
+
+Modifies Kbdvbase->joyvec.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DCF7
+
+(!B)DCF77(!b) decodiert die Signale eines Joystickport-Funkuhrempf„ngers. Per 
+Accessory frei konfigurierbare Men-Uhr.
+
+Verbiegt Kbdvbase->joyvec. 
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,226 @@
+!iflang [english]
+
+!begin_node lbox_ascroll_to
+!html_name lbox_ascroll_to
+
+!label lbox_scroll_to
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box scroll to, Slider AÆ - Set position of slider A of the list box.
+
+!item [Opcode:]
+175 (sub-opcode 4)
+
+!item [Syntax:]
+void lbox_ascroll_to ( LIST_BOX *box, int16_t first, GRECT *box_rect,
+                       GRECT *slider_rect );
+
+(!I)or(!i)
+
+void lbox_scroll_to ( ... );
+
+!item [Description:]
+The call lbox_ascroll_to positions slider A in a list box. The following apply:
+
+!begin_table [l|l]
+Parameter  !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+(!I)first(!i) !! Index of the first visible entry
+(!I)box_rect(!i) !! Pointer to redraw rectangle or 0L
+(!I)slider_rect(!i) !! Pointer to redraw rectangle or 0L
+!end_table
+
+(!B)Hint:(!b)
+This function works in principle like a call of lbox_set_slider 
+followed by a lbox_update; scrolling 
+takes place if possible, however, to reduce the amount of drawing required.
+One may therefore not use lbox_scroll_to if the item list of the list 
+box has changed.
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_ascroll_to]) ~ lbox_do ~ lbox_set_slider
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_ascroll_to
+!html_name Bindings_for_lbox_ascroll_to
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_ascroll_to ( LIST_BOX *box, int16_t first, GRECT *box_rect,
+                       GRECT *slider_rect );
+
+or
+
+void lbox_scroll_to ( ... );
+
+!item [Binding:]
+!begin_verbatim
+void lbox_ascroll_to ( LIST_BOX *box, int16_t first,
+                       GRECT *box_rect,
+                       GRECT *slider_rect )
+
+or
+
+void lbox_scroll_to ( ... )                       
+{
+   addr_in[0] = box;
+   addr_in[1] = box_rect;
+   addr_in[2] = slider_rect;
+
+   int_in[0] = 4;
+   int_in[1] = first;
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 175   # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 3     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+addr_in+4 !! addr_in[1] !! box_rect
+addr_in+8 !! addr_in[2] !! slider_rect
+int_in    !! int_in[0]  !! 4     # Sub-opcode
+int_in+2  !! int_in[1]  !! first
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_ascroll_to
+!html_name lbox_ascroll_to
+
+!label lbox_scroll_to
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Scroll To, Slider AÆ - Slider der Listbox setzen.
+
+!item [AES-Nummer:]
+175 (Unterfunktion 4)
+
+!item [Deklaration:]
+void lbox_ascroll_to ( LIST_BOX *box, int16_t first, GRECT *box_rect,
+                       GRECT *slider_rect );
+
+oder
+
+void lbox_scroll_to ( ... );
+
+!item [Beschreibung:]
+Die Funktion positioniert den Slider-A in einer Listbox. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf Listbox-Struktur
+(!I)first(!i) !! Index des ersten sichbaren Eintrags
+(!I)box_rect(!i) !! Redraw-Rechteck der Listbox (oder NULL)
+(!I)slider_rect(!i) !! Redraw-Rechteck des Sliders (oder NULL)
+!end_table
+
+(!B)Hinweis:(!b) Die Funktion arbeitet im Prinzip wie ein Aufruf von
+lbox_set_slider mit anschlieûendem lbox_update. Der Unterschied liegt darin,
+daû (falls mîglich) gescrollt wird, um mîglichst wenig neu zeichnen zu
+mÅssen. Sollte sich die Elemenliste der Listbox geÑndert haben, darf diese
+Funktion daher (!I)nicht(!i) benutzt werden.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_ascroll_to]) ~  lbox_do ~  lbox_set_slider
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_ascroll_to
+!html_name Bindings_for_lbox_ascroll_to
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_ascroll_to ( LIST_BOX *box, int16_t first, GRECT *box_rect,
+                       GRECT *slider_rect );
+
+oder
+
+void lbox_scroll_to ( ... );
+
+!item [Umsetzung:]
+!begin_verbatim
+void lbox_ascroll_to ( LIST_BOX *box, int16_t first,
+                       GRECT *box_rect,
+                       GRECT *slider_rect )
+
+oder
+
+void lbox_scroll_to ( ... )                       
+{
+   addr_in[0] = box;
+   addr_in[1] = box_rect;
+   addr_in[2] = slider_rect;
+
+   int_in[0] = 4;
+   int_in[1] = first;
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 175   # Opcode der Funktion
+control+2 !! control[1] !! 2     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 3     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+addr_in+4 !! addr_in[1] !! box_rect
+addr_in+8 !! addr_in[2] !! slider_rect
+int_in    !! int_in[0]  !! 4     # Unterfunktion
+int_in+2  !! int_in[1]  !! first
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

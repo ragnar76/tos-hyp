@@ -1,0 +1,27 @@
+!iflang [english]
+
+!begin_node Cookie, BHdl
+
+(!B)BadHandle(!b) 1/92
+##4# Sollte nicht was vor '1/92' stehen?
+
+Remedies the "invalid handle" error in various programs in 
+connection with (!nolink [GDOS]).
+
+Redirected: TRAP #2 ((!nolink [VDI/AES])).
+
+!end_node
+
+!else
+
+!begin_node Cookie, BHdl
+
+(!B)BadHandle(!b) 1/92, behebt den "ungueltiges Handle" - Fehler diverser 
+Programme im Zusammenhang mit (!nolink [GDOS]).
+
+verbogen: TRAP #2 (!nolink [VDI/AES])).
+
+!end_node
+
+!endif
+ 

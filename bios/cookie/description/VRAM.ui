@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, VRAM
+
+(!B)VRAM(!b) - Virtual memory management for TT030
+
+!end_node
+
+!else
+
+!begin_node Cookie, VRAM
+
+(!B)VRAM(!b) - virtuelle Speicherverwaltung fÅr TT
+
+!end_node
+
+!endif
+ 

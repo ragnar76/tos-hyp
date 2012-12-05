@@ -1,0 +1,115 @@
+!iflang [english]
+
+!begin_node Fsetdta
+(!begin_liste) [Availability]
+!item [Name:]
+ØSet disk transfer addressÆ - Set the address for the transfer region for
+floppy disk operations.
+
+!item [Opcode:]
+26
+
+!item [Syntax:]
+void Fsetdta ( DTA *buf );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Fsetdta sets the address of the memory
+segment that will be used as the new DTA. The parameter (!I)buf(!i) is a
+pointer to this structure.
+
+(!B)Note:(!b) At program launch the (!nolink [DTA]) will be established
+starting at offset 0x80 in the basepage.
+
+!item [(!nolink [Return]) value:]
+The function does not return a result.
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions.
+
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding][Bindings for Fsetdta]) ~ Fgetdta ~ Fsfirst ~ BASEPAGE ~ DTA
+(!ende_liste)
+
+
+!begin_node Bindings for Fsetdta
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+void Fsetdta ( DTA *buf );
+
+!item [Assembler:]
+!begin_verbatim
+pea       buf          ; Offset 2
+move.w    #26,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #6,sp        ; Correct stack
+!end_verbatim
+
+!item [GFA-Basic]
+Fehler%=Gemdos(&H1A,L:buf%)
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Fsetdta
+(!begin_liste) [Beschreibung]
+!item [Name:]
+Øset disk transfer addressÆ - Setzen der Adresse fÅr den öbertragungsbereich
+fÅr Diskettenoperationen.
+
+!item [Gemdosnummer:]
+26
+
+!item [Deklaration:]
+void Fsetdta ( DTA *buf );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Fsetdta setzt die Adresse auf einen Speicherblock, der
+als neue DTA benutzt wird. Der Parameter (!I)buf(!i) ist ein Zeiger auf
+diese Struktur.
+
+(!B)Hinweis:(!b) Bei Programmstart wird die (!nolink [DTA]) ab dem Offset
+0x80 in der Basepage eingerichtet.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis.
+
+
+!item [VerfÅgbar:]
+Alle GEMDOS Versionen.
+
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Fsetdta]) ~ Fgetdta ~ Fsfirst ~ BASEPAGE ~
+DTA
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Fsetdta
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+void Fsetdta ( DTA *buf );
+
+!item [Assembler:]
+!begin_verbatim
+pea       buf          ; Offset 2
+move.w    #26,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #6,sp        ; Stack korrigieren
+!end_verbatim
+
+!item [GFA-Basic]
+Fehler%=Gemdos(&H1A,L:buf%)
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

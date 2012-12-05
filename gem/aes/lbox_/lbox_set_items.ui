@@ -1,0 +1,170 @@
+!iflang [english]
+
+!begin_node lbox_set_items
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box set new item listÆ - Sets new items list for the list box.
+
+!item [Opcode:]
+175 (sub-opcode 1)
+
+!item [Syntax:]
+void lbox_set_items ( LIST_BOX *box, LBOX_ITEM *items );
+
+!item [Description:]
+The call lbox_set_items sets a new list with list box items. The following
+apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+(!I)items(!i) !! Pointer to the new list of items, or NULL
+!end_table
+
+(!B)Hint:(!b) The old list must first be freed with lbox_free_items. The
+pointer (!I)items(!i) can also be 0L if the list box is empty and contains no
+entries.
+
+!item [(!nolink [Return]) value:]
+This function does not return a result.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_set_items]) ~ lbox_free_items ~ lbox_cnt_items
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_set_items
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_set_items ( LIST_BOX *box, LBOX_ITEM *items );
+
+!item [Binding:]
+!begin_verbatim
+void lbox_set_items ( LIST_BOX *box, LBOX_ITEM *items )
+{
+   addr_in[0] = box;
+   addr_in[1] = items;
+
+   int_in[0]  = 1;
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 175   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 0     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+addr_in+4 !! addr_in[1] !! items
+int_in    !! int_in[0]  !! 1     # Sub-opcode
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_set_items
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Set New Item ListÆ - neue Elementliste setzen.
+
+!item [AES-Nummer:]
+175 (Unterfunktion 1)
+
+!item [Deklaration:]
+void lbox_set_items ( LIST_BOX *box, LBOX_ITEM *items );
+
+!item [Beschreibung:]
+Die Funktion setzt eine neue Liste mit Listbox-EintrÑgen. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+(!I)items(!i) !! Zeiger auf die neue Element-Liste
+!end_table
+
+(!B)Hinweis:(!b) Die alte Liste muû vorher per lbox_free_items freigegeben
+werden. Der Parameter (!I)items(!i) kann auch den Wert NULL besitzen, falls
+die Listbox leer ist, und keine EintrÑge enthÑlt.
+
+!item [Ergebnis:]
+Die Funktion liefert kein Ergebnis zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7])
+(Opcode 7) festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_set_items]) ~ lbox_free_items ~ lbox_cnt_items
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_set_items
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+void lbox_set_items ( LIST_BOX *box, LBOX_ITEM *items );
+
+!item [Umsetzung:]
+!begin_verbatim
+void lbox_set_items ( LIST_BOX *box, LBOX_ITEM *items )
+{
+   addr_in[0] = box;
+   addr_in[1] = items;
+
+   int_in[0]  = 1;
+   crys_if (175);
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 175   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 0     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! box
+addr_in+4 !! addr_in[1] !! items
+int_in    !! int_in[0]  !! 1     # Unterfunktion
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

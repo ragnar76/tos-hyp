@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, SMTT
+
+(!B)SM-124 emulator(!b)
+
+Modifies (!nolink [AES])-, (!nolink [GEMDOS])-, (!nolink [BIOS])- and
+X(!nolink [BIOS])-trap as well as the exec_os vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, SMTT
+
+(!B)SM124-Emulator(!b)
+
+Verbiegt (!nolink [AES])-, (!nolink [GEMDOS])-, (!nolink [BIOS])- und
+X(!nolink [BIOS])-Trap sowie den exec_os-Vektor.
+
+!end_node
+
+!endif
+ 

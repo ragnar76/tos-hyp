@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, MADD
+
+(!B)ADDMEM(!b)
+
+Allows use of the TT-RAM despite 24-bit addressing.
+
+Published in (!I)ST-Computer.(!i)
+
+!end_node
+
+!else
+
+!begin_node Cookie, MADD
+
+(!B)ADDMEM(!b)
+
+Nutzung des TT-RAM trotz 24-Bit-Adressierung.
+
+Ver”ffentlicht in (!I)ST-Computer.(!i)
+
+!end_node
+
+!endif
+ 

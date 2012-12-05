@@ -1,0 +1,20 @@
+!iflang [english]
+
+!begin_node Cookie, MCSP
+
+Unimplemented Integer Instruction and Floating Point Handler
+
+Use the Line-F Vector.
+!end_node
+
+!else
+
+!begin_node Cookie, MCSP
+
+Unimplemented Integer Instruction und Floating Point Handler
+
+Nutzt den Line-F Vector.
+!end_node
+
+!endif
+ 

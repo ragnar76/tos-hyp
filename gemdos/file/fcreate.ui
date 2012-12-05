@@ -1,0 +1,212 @@
+!iflang [english]
+
+!begin_node Fcreate
+(!begin_liste) [Availability]
+!item [Name:]
+ØFile createÆ - Create a file.
+
+!item [Opcode:]
+60
+
+!item [Syntax:]
+int16_t Fcreate ( const int8_t *fname, int16_t attr );
+
+!item [Description:]
+The (!nolink [GEMDOS]) routine Fcreate creates a new file, or truncates an
+existing one, with a given name and attributes. The following apply:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [fname]
+Pointer to the filename.
+!item [attr]
+File attributes:
+!begin_xlist !short
+!item [Bit 0:]
+File is write-protected
+!item [Bit 1:]
+File is hidden
+!item [Bit 2:]
+File is a system file
+!item [Bit 3:]
+Volume label (diskette name)
+!item [Bit 5:]
+Archive bit
+!end_xlist
+!end_xlist
+(!B)Note:(!b) In a network, the creation of a file sets the exclusivity.
+Whether the underlying (!nolink [GEMDOS]) is network capable can be
+established via the cookie (!link [_FLK][Cookie, _FLK]). 
+
+(!B)Note about MagiC:(!b) If bit 3 in (!I)attr(!i) is set, then the XFS
+function xfs_wlabel will be called. If this function can be executed without
+an error, then the value 0x0000fffc will be returned. This corresponds to a
+handle for the file NUL: or U:\DEV\NULL. However, this feature is only
+present for reasons of compatibility; as of (!nolink [MagiC]) 3, it is
+better to fall back on the function Dwritelabel.
+
+The specified attributes exist only under DOS file-systems and are ignored
+or emulated by other file-systems. With the Macintosh file-system (HFS), for
+instance, only bit 0 of (!I)attr(!i) is supported.
+
+Incidentally, symbolic links are dereferenced by this function, so that if
+the file already exists as a symbolic link, the file referenced from this
+link will be set to zero length.
+
+!item [(!nolink [Return]) value:]
+The function returns the following results:
+!begin_xlist !short [Otherwise :]
+!item [EPTHNF :]
+Access path is incorrect.
+!item [ENHNDL :]
+No more file handles left.
+!item [EACCDN :]
+Write access denied.
+!item [Otherwise :]
+ID of the file.
+!end_xlist
+
+!item [Availability:]
+All (!nolink [GEMDOS]) versions. However, (!nolink [GEMDOS]) Version 0.13
+creating a read-only file returns a handle that is of not much use. GEMDOS
+versions below 0.15 wrongly allow more than one volume label per disk.
+
+!item [Group:]
+File functions
+
+!item [See also:]
+(!link [Binding] [Bindings for Fcreate]) ~ Fopen ~
+(!link [XFS-concept in MagiC][MagiC's XFS-concept])
+(!ende_liste)
+
+
+!begin_node Bindings for Fcreate
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Fcreate ( const int8_t *fname, int16_t attr );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    attr,-(sp)   ; Offset 6
+pea       fname        ; Offset 2
+move.w    #60,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #8,sp        ; Correct stack
+!end_verbatim
+
+!item [GFA-Basic]
+Handle%=Gemos(&H3c,L:fname%,W:attr)
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node Fcreate
+(!begin_liste) [Beschreibung]
+!item [Name:]
+Øfile createÆ - Datei anlegen.
+
+!item [Gemdosnummer:]
+60
+
+!item [Deklaration:]
+int16_t Fcreate ( const int8_t *fname, int16_t attr );
+
+!item [Beschreibung:]
+Die GEMDOS-Routine Fcreate legt eine neue Datei mit dem angegebenen Namen
+und Attributen an oder lîscht den Inhalt einer vorhandenen. Es gilt:
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [fname]
+Zeiger auf den Dateinamen
+!item [attr]
+Dateiattribute
+!begin_xlist !short
+!item [Bit-0:]
+Datei ist schreibgeschÅtzt
+!item [Bit-1:]
+Datei ist versteckt
+!item [Bit-2:]
+Systemdatei
+!item [Bit-3:]
+Diskettenname
+!item [Bit-5:]
+Archiv Bit
+!end_xlist
+!end_xlist
+(!B)Hinweis:(!b) Im Netzwerk setzt das Erzeugen einer Datei die
+ExclusivitÑt. Ob das zugrundeliegende (!nolink [GEMDOS]) netzwerkfÑhig ist,
+kann Åber den Cookie (!link [_FLK][Cookie, _FLK]) ermittelt werden.
+
+(!B)Anmerkung zu (!nolink [MagiC]):(!b) Ist Bit-3 in attr gesetzt, wird die
+XFS-Funktion xfs_wlabel aufgerufen. Wenn diese Funktion ohne Fehler
+ausgefÅhrt werden kann, wird als RÅckgabewert 0x0000fffc zurÅckgegeben. Dies
+entspricht einem Handle fÅr die Datei NUL: bzw. U:\DEV\NULL. Dieses Feature
+ist jedoch nur noch aus KompatibilitÑtsgrÅnden vorhanden; ab MagiC 3 sollte
+besser auf die Funktion Dwritelabel zurÅckgegriffen werden.
+
+Die angegebenen Attribute existieren nur unter DOS-Dateisystemen und werden
+von anderen Dateisystemen ignoriert oder simuliert. Beim Macintosh
+Dateisystem (HFS) wird z.B. nur Bit-0 von (!I)attr(!i) unterstÅtzt.
+
+Symbolische Links werden Åbrigens von dieser Funktion dereferenziert, d.h.
+wenn die Datei bereits als symb. Link existiert, wird die von diesem Link
+referenzierte Datei auf die LÑnge Null gesetzt.
+
+!item [Ergebnis:]
+Die Funktion liefert folgende Resultate:
+!begin_xlist !short [EPTHNF :]
+!item [EPTHNF :]
+Zugriffspfad ist unkorrekt
+!item [ENHNDL :]
+keine freien Dateihandles mehr
+!item [EACCDN :]
+kein Schreibzugriff mîglich
+!item [sonst :]
+Kennung der Datei
+!end_xlist
+
+!item [VerfÅgbar:]
+Alle GEMDOS Versionen. Wird mit GEMDOS Version 0.13 eine schreibgeschÅtzte
+Datei angelegt, wird ein unbrauchbares Handle zurÅck geliefert. GEMDOS
+Versionen kleiner 0.15 erlauben fÑlschlicherweise mehr als einen
+Diskettenname auf einer Diskette.
+
+!item [Gruppe:]
+Dateifunktionen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr Fcreate]) ~ Fopen ~
+(!link [XFS-Konzept in MagiC][Das XFS-Konzept von MagiC])
+(!ende_liste)
+
+
+!begin_node Bindings fÅr Fcreate
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Fcreate ( const int8_t *fname, int16_t attr );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    attr,-(sp)   ; Offset 6
+pea       fname        ; Offset 2
+move.w    #60,-(sp)    ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #8,sp        ; Stack korrigieren
+!end_verbatim
+
+!item [GFA-Basic]
+Handle%=Gemos(&H3c,L:fname%,W:attr)
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

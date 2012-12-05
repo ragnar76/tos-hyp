@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, GI30
+
+(!B)Gandhi(!b) - Outputs the information available from exceptions
+
+The cookie points to a configuration structure.
+
+Modifies the following vectors: 2-9, 11, 13, 48-54, 56-58. 
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GI30
+
+(!B)Gandhi(!b) - gibt die zu den Exceptions erh„ltlichen Infos aus
+
+Cookie zeigt auf eine Konfigurations-Struktur.
+
+Verbiegt folgende Vektoren: 2-9, 11, 13, 48-54, 56-58.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

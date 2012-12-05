@@ -1,0 +1,167 @@
+!iflang [english]
+
+!begin_node fslx_close
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØFile selectionX closeÆ - Close the file-selector and release memory.
+
+!item [Opcode:]
+191
+
+!item [Syntax:]
+int16_t fslx_close ( void *fsd );
+
+!item [Description:]
+The call fslx_close closes the file-selector, and releases the specified
+descriptor. The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+
+!item [~]
+~
+!item [fsd]
+Descriptor that was passed at the successful opening of a file-selector
+window
+!end_xlist
+
+!item [(!nolink [Return]) value:]
+The function returns the value 1 if successful, else the value 0.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (opcode 7).
+
+!item [Group:]
+Extended file-selectors
+
+!item [See also:]
+(!link [Binding] [Bindings for fslx_close]) ~ fslx_open
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for fslx_close
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t fslx_close ( void *fsd );
+
+!item [Binding:]
+!begin_verbatim
+int16_t fslx_close ( void *fsd )
+{
+   addr_in[0] = fsd;
+   crys_if (191);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 191   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! fsd
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node fslx_close
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØFile SelectionX CloseÆ - Auswahl schlieûen und Speicher freigeben.
+
+!item [AES-Nummer:]
+191
+
+!item [Deklaration:]
+int16_t fslx_close ( void *fsd );
+
+!item [Beschreibung:]
+Die Funktion schlieût die (!nolink [Dateiauswahl]), und gibt den angegebenen Deskriptor
+wieder frei. Es gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [fsd]
+Deskriptor, der beim erfolgreichen ôffnen eines Dateiauswahlfensters
+Åbergeben wurde
+!end_xlist
+
+!item [Ergebnis:]
+Die Funktion liefert bei fehlerfreier AusfÅhrung den Wert 1 zurÅck,
+anderenfalls den Wert 0.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Fileselektoren
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr fslx_close]) ~  fslx_open
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr fslx_close
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t fslx_close ( void *fsd );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t fslx_close ( void *fsd )
+{
+   addr_in[0] = fsd;
+   crys_if (191);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 191   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 1     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! fsd
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

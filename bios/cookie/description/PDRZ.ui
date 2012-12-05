@@ -1,0 +1,25 @@
+!iflang [english]
+
+!begin_node Cookie, PDRZ
+
+(!B)LockGetrez(!b)
+
+Mini-hack for specifying a desired return value of the X(!nolink [BIOS]) 
+function Getrez. Convinces some uncleanly programmed applications.
+
+!end_node
+
+!else
+
+!begin_node Cookie, PDRZ
+
+(!B)LockGetrez(!b)
+
+Mini-Hack zum Festlegen eines gewÅnschten RÅckgabewertes 
+der X(!nolink [BIOS])-Funktion Getrez. öberzeugt manches unsauber programmierte 
+Programm.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, WaSA
+
+(!B)SATELLIT(!b)
+
+This is a multi-ACC that uses this cookie ID for communication. 
+
+Status: Shareware
+
+!end_node
+
+!else
+
+!begin_node Cookie, WaSA
+
+(!B)SATELLIT(!b)
+
+Dies ist ein Multi-ACC, das die Kennung zur Kommunikation 
+benutzt.
+
+Status: Shareware
+
+
+!end_node
+
+!endif
+ 

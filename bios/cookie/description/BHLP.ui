@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, BHLP
+
+(!B)Configuration flags for BubbleGEM(!b) are contained in this cookie.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, BHLP
+
+EnthÑlt Konfigurationsflags fÅr BubbleGEM.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

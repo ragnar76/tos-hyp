@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, RFUS
+
+(!B)RUFUS(!b) - Shareware terminal program
+
+!end_node
+
+!else
+
+!begin_node Cookie, RFUS
+
+(!B)RUFUS(!b) - das Shareware-Terminalprogramm.
+
+!end_node
+
+!endif
+ 

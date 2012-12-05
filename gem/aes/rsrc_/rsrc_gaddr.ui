@@ -1,0 +1,260 @@
+!iflang [english]
+
+!begin_node rsrc_gaddr
+!html_name rsrc_gaddr
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØResource get addressÆ - Obtain address of an object in a resource set.
+
+!item [Opcode:]
+112
+
+!item [Syntax:]
+int16_t rsrc_gaddr ( int16_t re_gtype, int16_t re_gindex, void *gaddr );
+
+!item [Description:]
+The call rsrc_gaddr obtains the start addresses of various object structures of
+resource files loaded into memory with rsrc_load. The following apply:
+
+!begin_table [l|l]
+Parameter  !! Meaning
+!hline
+!label R_TREE
+!label R_OBJECT
+!label R_TEDINFO
+!label R_ICONBLK
+!label R_BITBLK
+!label R_STRING
+!label R_IMAGEDATA
+!label R_OBSPEC
+!label R_TEPTEXT
+!label R_TEPTMPLT
+(!I)re_gtype(!i) !! Type of structure searched for:
+!label R_TEPVALID
+!label R_IBPMASK
+!label R_IBPDATA
+!label R_IBPTEXT
+!label R_BIPDATA
+!label R_FRSTR
+!label R_FRIMG
+~ !! R_TREE      0~ = Object tree
+~ !! R_OBJECT    1~ = Individual OBJECT
+~ !! R_TEDINFO   2~ = TEDINFO structure
+~ !! R_ICONBLK   3~ = ICONBLK structure
+~ !! R_BITBLK    4~ = BITBLK structure
+~ !! R_STRING    5~ = Free string data
+~ !! R_IMAGEDATA 6~ = Free image data
+~ !! R_OBSPEC    7~ = (!I)ob_spec(!i) field in OBJECT
+~ !! R_TEPTEXT   8~ = (!I)te_ptext(!i) in TEDINFO
+~ !! R_TEPTMPLT  9~ = (!I)te_ptmplt(!i) in TEDINFO
+~ !! R_TEPVALID  10 = (!I)te_pvalid(!i) in TEDINFO
+~ !! R_IBPMASK   11 = (!I)ib_pmask(!i) in ICONBLK
+~ !! R_IBPDATA   12 = (!I)ib_pdata(!i) in ICONBLK
+~ !! R_IBPTEXT   13 = (!I)ib_ptext(!i) in ICONBLK
+~ !! R_BIPDATA   14 = (!I)ib_pdate(!i) in BITBLK
+~ !! R_FRSTR     15 = (!I)ad_frstr(!i) free string
+~ !! R_FRIMG     16 = (!I)ad_frimg(!i) free image
+(!I)re_gindex(!i)  !! Index of the structure searched for
+(!I)gaddr(!i) !! Address of the desired structure
+!end_table
+
+(!B)Note:(!b) If one wants to search for a text pointer within a TEDINFO
+structure, for instance, then one must (!I)not(!i) pass the index of the
+associated object, but the index of the (!nolink [TEDINFO]) structure. The
+same applies in essence to other codings.
+
+!item [(!nolink [Return]) value:]
+An error has arisen only if the value 0 is returned (= object does not exist).
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Resource library
+
+!item [See also:]
+(!link [Binding] [Bindings for rsrc_gaddr]) ~ rsrc_load
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for rsrc_gaddr
+!html_name Bindings_for_rsrc_gaddr
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t rsrc_gaddr ( int16_t re_gtype, int16_t re_gindex, void *gaddr );
+
+!item [Binding:]
+!begin_verbatim
+int16_t rsrc_gaddr (int16_t re_gtype, int16_t re_gindex,
+                    void *gaddr)
+{
+   int_in[0]  = re_gtype;
+   int_in[1]  = re_gindex;
+   control[4] = 1;
+
+   crys_if (112);
+
+   control[4] = 0;
+   *gaddr = addr_out[0];
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0]  !! 112   # Function opcode
+control+2 !! control[1]  !! 2     # Entry in int_in
+control+4 !! control[2]  !! 1     # Entry in int_out
+control+6 !! control[3]  !! 0     # Entry in addr_in
+control+8 !! control[4]  !! 1     # Entry in addr_out
+int_in    !! int_in[0]   !! re_gtype
+int_in+2  !! int_in[1]   !! re_gindex
+int_out   !! int_out[0]  !! Return value
+addr_out  !! addr_out[0] !! gaddr
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node rsrc_gaddr
+!html_name rsrc_gaddr
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØResource get AddressÆ - ermittelt die Adresse eines Objekts in einem
+Resourceset.
+
+!item [AES-Nummer:]
+112
+
+!item [Deklaration:]
+int16_t rsrc_gaddr ( int16_t re_gtype, int16_t re_gindex, void *gaddr );
+
+!item [Beschreibung:]
+Die Funktion ermittelt die Anfangsadressen verschiedener Objektstrukturen
+von im Speicher geladenen Resourcefiles. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+!label R_TREE
+!label R_OBJECT
+!label R_TEDINFO
+!label R_ICONBLK
+!label R_BITBLK
+!label R_STRING
+!label R_IMAGEDATA
+!label R_OBSPEC
+!label R_TEPTEXT
+!label R_TEPTMPLT
+re_gtype !! Typ der gesuchten Struktur
+!label R_TEPVALID
+!label R_IBPMASK
+!label R_IBPDATA
+!label R_IBPTEXT
+!label R_BIPDATA
+!label R_FRSTR
+!label R_FRIMG
+~ !! R_TREE      0~ = Objektbaum
+~ !! R_OBJECT    1~ = OBJECT
+~ !! R_TEDINFO   2~ = TEDINFO
+~ !! R_ICONBLK   3~ = ICONBLK
+~ !! R_BITBLK    4~ = BITBLK
+~ !! R_STRING    5~ = String
+~ !! R_IMAGEDATA 6~ = imagedate
+~ !! R_OBSPEC    7~ = ob_spec
+~ !! R_TEPTEXT   8~ = te_ptext
+~ !! R_TEPTMPLT  9~ = te_ptmplt
+~ !! R_TEPVALID  10 = te_pvalid
+~ !! R_IBPMASK   11 = ib_pmask
+~ !! R_IBPDATA   12 = ib_pdata
+~ !! R_IBPTEXT   13 = ib_ptext
+~ !! R_BIPDATA   14 = ib_pdate
+~ !! R_FRSTR     15 = ad_frstr
+~ !! R_FRIMG     16 = ad_frimg
+re_gindex !! Index der gesuchten Struktur
+gaddr !! Adresse der gewÅnschten Struktur
+!end_table
+
+(!B)Hinweis:(!b) Wenn beispielsweise der Textzeiger innerhalb einer
+TEDINFO-Struktur gesucht werden soll, so muû nicht die Nummer des
+zugehîrigen Objektes, sondern die Nummer der (!nolink [TEDINFO])-Struktur Åbergeben
+werden. FÅr andere Codierungen gilt i.w. das gleiche.
+
+!item [Ergebnis:]
+Ein Fehler ist nur dann aufgetreten, wenn als Ergebnis 0 zurÅckgegeben wird.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+(!link [Resourceorganisation][Resourcefunktionen])
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr rsrc_gaddr]) ~ rsrc_load
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr rsrc_gaddr
+!html_name Bindings_for_rsrc_gaddr
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t rsrc_gaddr ( int16_t re_gtype, int16_t re_gindex, void *gaddr );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t rsrc_gaddr (int16_t re_gtype, int16_t re_gindex,
+                    void *gaddr)
+{
+   int_in[0]  = re_gtype;
+   int_in[1]  = re_gindex;
+   control[4] = 1;
+
+   crys_if (112);
+
+   control[4] = 0;
+   *gaddr = addr_out[0];
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0]  !! 112   # Opcode der Funktion
+control+2 !! control[1]  !! 2     # EintrÑge in int_in
+control+4 !! control[2]  !! 1     # EintrÑge in int_out
+control+6 !! control[3]  !! 0     # EintrÑge in addr_in
+control+8 !! control[4]  !! 1     # EintrÑge in addr_out
+int_in    !! int_in[0]   !! re_gtype
+int_in+2  !! int_in[1]   !! re_gindex
+int_out   !! int_out[0]  !! Return-Wert
+addr_out  !! addr_out[0] !! gaddr
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

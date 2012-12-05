@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, WBrd
+
+(!B)Bird's Wing(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, WBrd
+
+(!B)Bird's Wing(!b)
+
+!end_node
+
+!endif
+ 

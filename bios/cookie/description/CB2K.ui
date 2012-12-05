@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, CB2K
+
+Patch for remedying the (!B)2kB Gemdos bug(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, CB2K
+
+Patch zur Behebung des (!B)2kB Gemdos bug(!b).
+
+!end_node
+
+!endif
+ 

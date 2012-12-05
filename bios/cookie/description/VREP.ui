@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, VREP
+
+(!B)Vector Guard(!b) - Reset-proof resident program that supervises system 
+vectors 
+
+Modifies vector: resvector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, VREP
+
+(!B)Vector Guard(!b) - Resetresidentes Programm, das Systemvektoren Åberwacht
+
+VerÑnderter Vektor: resvector.
+
+!end_node
+
+!endif
+ 

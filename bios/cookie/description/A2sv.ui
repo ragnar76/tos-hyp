@@ -1,0 +1,32 @@
+!iflang [english]
+
+!begin_node Cookie, A2sv
+
+(!B)Trapsave(!b)
+
+Ensures that the four trap-handlers do not change any CPU registers 
+(except the return register D0). 
+
+Copyright status: Public Domain. TRAPSAVE.LZH.
+
+Vectors modified: (!nolink [GEMDOS])-trap, (!nolink [GEM])-trap, (!nolink [BIOS])-trap, 
+(!nolink [XBIOS-trap]).
+
+!end_node
+
+!else
+
+!begin_node Cookie, A2sv
+
+(!B)Trapsave(!b)
+
+Sorgt dafÅr, daû von den vier Trap Handlern keine CPU-Register 
+verÑndert werden (auûer dem RÅckgaberegister D0).
+
+Copyrightstatus: Public Domain. TRAPSAVE.LZH. 
+
+Vektoren: GEMDOS-Trap, GEM-Trap, BIOS-Trap, XBIOS-Trap.
+
+!end_node
+
+!endif

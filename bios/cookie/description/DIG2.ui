@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, DIG2
+
+(!B)Digiplay(!b) by Emmanuel Jaccard
+
+!end_node
+
+!else
+
+!begin_node Cookie, DIG2
+
+(!B)Digiplay(!b) von Emmanuel Jaccard
+
+!end_node
+
+!endif
+ 

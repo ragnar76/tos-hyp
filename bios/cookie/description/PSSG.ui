@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, PSSG
+
+(!B)Paint Shop(!b)
+
+Modifies hardcopy vector.
+
+!end_node
+
+!else
+
+!begin_node Cookie, PSSG
+
+(!B)Paint Shop(!b)
+
+Verbiegt: Hardcopyvektor.
+
+!end_node
+
+!endif
+ 

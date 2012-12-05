@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, ShLk
+
+(!B)Shift Lock(!b)
+
+With ALT+right-Shift one can switch ShiftLock on/off.
+
+Modifies IKBD.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, ShLk
+
+(!B)Shift Lock(!b)
+
+Per ALT-Recht-Shift wird ShiftLock ein-/ausgeschaltet.
+
+Verbiegt IKBD.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

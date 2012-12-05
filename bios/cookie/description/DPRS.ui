@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, DPRS
+
+(!B)Printer buffer(!b)
+
+Status: PD.
+
+!end_node
+
+!else
+
+!begin_node Cookie, DPRS
+
+(!B)Druckerbuffer(!b)
+
+Status: PD.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, HDPR
+
+(!B)HDPROTEC(!b)
+
+Write- and read-protect program.
+
+!end_node
+
+!else
+
+!begin_node Cookie, HDPR
+
+(!B)HDPROTEC(!b)
+
+Schreib- und Leseschutzprogramm.
+
+!end_node
+
+!endif
+ 

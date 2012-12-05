@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, WaHW
+
+Created and used by (!B)HIGH_WAY.ACC(!b)
+
+Status: Shareware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, WaHW
+
+Wird von (!B)HIGH_WAY.ACC(!b) angelegt und benutzt.
+
+Status: Shareware.
+
+!end_node
+
+!endif
+ 

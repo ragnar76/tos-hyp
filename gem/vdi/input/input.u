@@ -1,0 +1,143 @@
+!iflang [english]
+
+!begin_node Input functions
+
+The input functions enable a program to inquire the status of the
+keyboard and mouse, taking into consideration the input modes. They
+also offer routines for linking in timer and mouse interrupts.
+The following functions are available:
+
+!begin_xlist !short [ù vsnm_valuator]
+!item [ù v_hide_c]
+Hides graphic mouse cursor
+!item [ù v_show_c]
+Displays (unhides) graphic mouse cursor
+!item [ù vex_butv]
+Moves service routine for mouse-button interrrupts
+!item [ù vex_curv]
+Draws customized mouse pointer
+!item [ù vex_motv]
+Moves service routine for mouse movement interrupts
+!item [ù vex_timv]
+Moves service routine for timer interrupts
+!item [ù vex_wheelv]
+Service routine for mouse wheel events
+!item [ù vq_key_s]
+Inquires Shift-key status
+!item [ù vq_mouse]
+Gets position of graphic cursor
+!item [ù vrq_choice]
+Awaits keypress (REQUEST)
+!item [ù vrq_locator]
+Gets position of graphic cursor (REQUEST)
+!item [ù vrq_string]
+Reads in string from keyboard (REQUEST)
+!item [ù vrq_valuator]
+Supervision of input devices (REQUEST)
+!item [ù vsc_form]
+Defines graphic cursor
+!item [ù vsin_mode]
+Switches between REQUEST and SAMPLE mode
+!item [ù vsm_choice]
+Gets the key pressed last (SAMPLE)
+!item [ù vsm_locator]
+Gets position of the graphic cursor (SAMPLE)
+!item [ù vsm_string]
+Reads in string from keyboard (SAMPLE)
+!item [ù vsm_valuator]
+Gets the status of input devices (SAMPLE)
+!end_xlist
+
+(!B)Note:(!b) These functions are intended primarily for the owner of the
+(!I)physical(!i) workstation, i.e. for the (!nolink [AES]). Programs should
+(provided there are no pressing needs for a different procedure) always inquire
+mouse and keyboard events through the (!nolink [AES])'s
+(!link [event functions][Event library]), because
+otherwise inputs intended for other applications may be intercepted.
+
+See also: VDI workstations ~ Style guidelines
+
+!else
+
+!begin_node Eingabefunktionen
+
+Die Eingabefunktionen erm”glichen es einem Programm, unter Bercksichtigung
+der Eingabemodi, Tastatur und Maus abzufragen. Auerdem bieten sie Routinen
+zum einklinken in Timer- und Maus-Interrupts. Es stehen die folgenden
+Funktionen zur Verfgung:
+
+!begin_xlist !short [ù vsnm_valuator]
+!item [ù v_hide_c]
+Grafikcursor abschalten.
+!item [ù v_show_c]
+Grafikcursor darstellen.
+!item [ù vex_butv]
+Serviceroutine fr Maustasteninterrupt verlegen.
+!item [ù vex_curv]
+Mauszeiger selbst zeichnen.
+!item [ù vex_motv]
+Serviceroutine fr Mausbewegungsinterrupt verlegen.
+!item [ù vex_timv]
+Serviceroutine des Timerinterrupts verlegen.
+!item [ù vex_wheelv]
+Serviceroutine fr Mausradereignisse.
+!item [ù vq_key_s]
+Tastaturstatus abfragen.
+!item [ù vq_mouse]
+Position des Grafikcursors ermitteln.
+!item [ù vrq_choice]
+Tastendruck abwarten (REQUEST).
+!item [ù vrq_locator]
+Position des Grafikcursor ermitteln (REQUEST).
+!item [ù vrq_string]
+String von Tastatur einlesen (REQUEST).
+!item [ù vrq_valuator]
+šberwachung von Eingabeger„ten (REQUEST).
+!item [ù vsc_form]
+Grafikcursor definieren.
+!item [ù vsin_mode]
+Umschalten zwischen REQUEST- und SAMPLE-Modus.
+!item [ù vsm_choice]
+Ermittelt die zuletzt gedrckte Taste (SAMPLE).
+!item [ù vsm_locator]
+Position des Grafikcursor ermitteln (SAMPLE).
+!item [ù vsm_string]
+String von Tastatur einlesen (SAMPLE).
+!item [ù vsm_valuator]
+Ermittlung des Status von Eingabeger„ten (SAMPLE).
+!end_xlist
+
+(!B)Hinweis:(!b) Diese Funktionen sind in erster Linie fr den Besitzer der
+(!I)physikalischen(!i) Workstation, d.h. fr das AES gedacht. Programme
+sollten (sofern es keine zwingenden Grnde fr ein anderes Vorgehen gibt)
+Maus- und Tastaturereignisse immer durch die Ereignisfunktionen des (!nolink [AES])
+abfragen, da anderenfalls fr andere Applikationen bestimmte Eingaben
+abgefangen werden.
+
+Querverweis: Workstations des VDI ~ Style-Guidelines
+
+
+!endif
+
+!include gem\vdi\input\vex_butv.ui
+!include gem\vdi\input\vex_curv.ui
+!include gem\vdi\input\vex_motv.ui
+!include gem\vdi\input\vex_timv.ui
+!include gem\vdi\input\vex_wheelv.ui
+!include gem\vdi\input\vq_key_s.ui
+!include gem\vdi\input\vq_mouse.ui
+!include gem\vdi\input\vrq_choice.ui
+!include gem\vdi\input\vrq_locator.ui
+!include gem\vdi\input\vrq_string.ui
+!include gem\vdi\input\vrq_valuator.ui
+!include gem\vdi\input\vsc_form.ui
+!include gem\vdi\input\vsin_mode.ui
+!include gem\vdi\input\vsm_choice.ui
+!include gem\vdi\input\vsm_locator.ui
+!include gem\vdi\input\vsm_string.ui
+!include gem\vdi\input\vsm_valuator.ui
+!include gem\vdi\input\v_hide_c.ui
+!include gem\vdi\input\v_show_c.ui
+
+
+!end_node

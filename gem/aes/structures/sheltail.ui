@@ -1,0 +1,67 @@
+!iflang [english]
+
+!begin_node SHELTAIL
+
+!begin_verbatim
+typedef struct
+{
+    int16_t dummy;       /* A NULL-WORD                 */
+    int32_t magic;       /* 'SHEL', if it's a shell     */
+    int16_t isfirst;     /* First call of the shell     */
+    int32_t lasterr;     /* Last error                  */
+    int16_t wasgr;       /* Program was a graphic-app.  */
+} SHELTAIL;
+!end_verbatim
+
+(!B)Note:(!b) This information is conveyed to an alternative desktop by MagiC
+at program launch (can be obtained by shel_read). If the shell returns
+a negative error code, then MAGXDESK will be reactivated.
+
+If (!I)isfirst(!i) is set then the status is to be read from something like
+DESKTOP.INF, if (!I)isfirst(!i) is not set then one takes the temporary file
+or shell-buffer.
+
+(!I)lasterr(!i) is the return value of the program running previously. If
+this was a (!nolink [GEM]) program then the error will already have been displayed
+in an alert box. It is well known that the LONGword is negative if
+the error occurred with Pexec itself; a program return value always
+has the high-WORD 0.
+
+See also:
+About the AES  ~ GEM  ~ shel_wdef
+!end_node
+
+!else
+
+!begin_node SHELTAIL
+
+!begin_verbatim
+typedef struct
+{
+    int16_t dummy;       /* ein Nullwort               */
+    int32_t magic;       /* 'SHEL', wenn Shell...      */
+    int16_t isfirst;     /* erster Aufruf der Shell    */
+    int32_t lasterr;     /* letzter Fehler             */
+    int16_t wasgr;       /* Programm war Grafikapp.    */
+} SHELTAIL;
+!end_verbatim
+
+(!B)Hinweis:(!b) Diese Informationen bekommt ein alternatives Desktop von
+MagiC beim Programmstart Åbermittelt (per shel_read zu ermitteln). Gibt die
+Shell einen negativen Fehlercode zurÅck, so wird MAGXDESK wieder aktiviert.
+
+Wenn die Komponente (!I)isfirst(!i) gesetzt ist, ist der Status etwa aus der
+DESKTOP.INF-Datei zu lesen, anderenfalls aus einer temporÑren Datei bzw. dem
+Shell-Puffer.
+
+Die Komponente (!I)lasterr(!i) entspricht dem RÅckgabewert des
+vorher gelaufenen Programms. Wenn dies ein GEM-Programm war, ist der Fehler
+bereits per Alertbox angezeigt worden. Das Langwort ist negativ, wenn der
+Fehler beim Pexec selbst auftrat; ein Programm-RÅckgabewert besitzt immer
+ein High-Word von 0.
+
+Querverweis:
+AES  ~ GEM  ~ shel_wdef
+!end_node
+
+!endif

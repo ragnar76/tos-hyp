@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, PRCS
+
+(!B)CopySTar(!b) v4.0
+
+Copying program (as of Version 4.0).
+
+!end_node
+
+!else
+
+!begin_node Cookie, PRCS
+
+(!B)copySTar(!b) v4.0
+
+Kopierprogramm (ab Version 4.0).
+
+!end_node
+
+!endif
+ 

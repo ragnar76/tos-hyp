@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, ck01
+
+(!B)Reset handler for cookie library(!b)
+
+Installs a reset handler which clears the cookie jar on reboot.
+
+
+!end_node
+
+!else
+
+!begin_node Cookie, ck01
+
+(!B)Reset Handler der Cookie-Library(!b)
+
+Installiert einen Reset Handler, welchen den Cookie-Jar bei erneuten Booten l”scht.
+
+!end_node
+
+!endif
+ 

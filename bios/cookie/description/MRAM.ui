@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, MRAM
+
+(!B)More RAM(!b) - Enlarges the free memory
+
+!end_node
+
+!else
+
+!begin_node Cookie, MRAM
+
+(!B)Mehr RAM(!b) - vergr”žert den freien Speicher
+
+!end_node
+
+!endif
+ 

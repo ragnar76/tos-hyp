@@ -1,0 +1,163 @@
+!iflang [english]
+
+!begin_node lbox_get_bentries
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+¯List box get number of entries, Slider B® - Obtain number of entries (slider B).
+
+!item [Opcode:]
+174 (sub-opcode 11)
+
+!item [Syntax:]
+int16_t lbox_get_bentries ( LIST_BOX *box );
+
+!item [Description:]
+The call lbox_get_bentries returns the number of entries in the list for slider
+B. The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+This function returns the number of items for slider B.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_get_bentries]) ~ lbox_free_items ~ lbox_delete
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_get_bentries
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_bentries ( LIST_BOX *box );
+
+!item [Binding:]
+!begin_verbatim
+int16_t lbox_get_bentries ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 11;
+
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 174   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 11    # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_get_bentries
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+¯List Box Get Number Of Items, Slider B® - Anzahl der Elemente ermitteln.
+
+!item [AES-Nummer:]
+174 (Unterfunktion 11)
+
+!item [Deklaration:]
+int16_t lbox_get_bentries ( LIST_BOX *box );
+
+!item [Beschreibung:]
+Die Funktion ermittelt die Anzahl der Eintr„ge einer Listbox fr Slider B.
+Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert die Anzahl der Eintr„ge fr den Slider-B zurck.
+
+!item [Verfgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr lbox_get_bentries]) ~  lbox_free_items ~  lbox_delete
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fr lbox_get_bentries
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t lbox_get_bentries ( LIST_BOX *box );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t lbox_get_bentries ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 11;
+
+   crys_if (174);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 174   # Opcode der Funktion
+control+2 !! control[1] !! 1     # Eintr„ge in int_in
+control+4 !! control[2] !! 1     # Eintr„ge in int_out
+control+6 !! control[3] !! 1     # Eintr„ge in addr_in
+control+8 !! control[4] !! 0     # Eintr„ge in addr_out
+addr_in   !! addr_in[0] !! box
+int_in    !! int_in[0]  !! 11     # Unterfunktion
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

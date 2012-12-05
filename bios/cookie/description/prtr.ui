@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, prtr
+
+(!B)Printer driver for adapting the Atari character set to IBM printers(!b)
+
+Modifies (!nolink [BIOS])-trap.
+
+!end_node
+
+!else
+
+!begin_node Cookie, prtr
+
+(!B)Druckertreiber zur Anpassung des Atari-Zeichensatzes an IBM-Drucker (!b)
+
+Verbiegt (!nolink [BIOS])-Trap.
+
+!end_node
+
+!endif
+ 

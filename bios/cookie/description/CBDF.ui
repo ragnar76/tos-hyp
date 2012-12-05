@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, CBDF
+
+(!B)Dabbel Feature(!b)
+
+Redirection of drive accesses.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CBDF
+
+(!B)Dabbel Feature(!b)
+
+Umlenkung von Laufwerkszugriffen.
+
+!end_node
+
+!endif
+ 

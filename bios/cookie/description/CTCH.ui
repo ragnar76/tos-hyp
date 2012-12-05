@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, CTCH
+
+(!B)Master-module catch.mmx(!b)
+
+Interception of ^C, ^\ and ^Z, timeouts for programs.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CTCH
+
+(!B)Master-Modul catch.mmx(!b)
+
+Abfangen von ^C, ^\ und ^Z, Timeouts fÅr Programme.
+
+!end_node
+
+!endif
+ 

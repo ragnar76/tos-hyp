@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, GSP1
+
+(!B)(!nolink [GEM]) Spooler(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, GSP1
+
+(!B)(!nolink [GEM]) Spooler(!b)
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, xNet
+
+(!B)xNet-ST(!b) - Low-cost network
+
+!end_node
+
+!else
+
+!begin_node Cookie, xNet
+
+(!B)xNet-ST(!b) - Low-Cost-Netzwerk
+
+!end_node
+
+!endif
+ 

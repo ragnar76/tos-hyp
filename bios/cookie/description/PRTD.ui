@@ -1,0 +1,28 @@
+!iflang [english]
+
+!begin_node Cookie, PRTD
+
+(!B)Print To Disk(!b) V1.10
+
+Redirects the (!nolink [GEMDOS]) and (!nolink [BIOS]) outputs for the
+printer to a file. 
+
+Uses vectors: TRAP #1, TRAP #13.
+
+!end_node
+
+!else
+
+!begin_node Cookie, PRTD
+
+(!B)Print To Disk(!b) V1.10
+
+Leitet die (!nolink [GEMDOS])- und (!nolink [BIOS])-Ausgaben fÅr den 
+Drucker in eine Datei um.
+
+Benutzte Vektoren: Trap #1, Trap #13.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, GLAS
+
+(!B)Free drive-space display(!b)
+
+Desk accessory for showing free space available on (!nolink [GEMDOS]) drives.
+
+Hooks into hdw_rw and TRAP #1.                                  
+
+!end_node
+
+!else
+
+!begin_node Cookie, GLAS
+
+ACC zur (!B)Anzeige des freien Speicherplatzes(!b) auf den
+(!nolink [GEMDOS])-Laufwerken.
+
+
+H„ngt in hdw_rw und TRAP #1.
+
+!end_node
+
+!endif
+ 

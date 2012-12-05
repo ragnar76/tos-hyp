@@ -1,0 +1,103 @@
+!iflang [english]
+
+
+!begin_node Pgetuid
+(!begin_liste) [Availability]
+!item [Name:]
+¯Pgetuid® - Get user ID of a process.
+
+!item [Opcode:]
+271
+
+!item [Syntax:]
+int16_t Pgetuid ( void );
+
+!item [Description:]
+The function Pgetuid returns the actual user ID of the current (calling)
+process. This is a number between 0 and 255 that determines the access
+rights permissions of the process, and can be used to differentiate the
+individual users in multi-user systems.
+
+!item [(!nolink [Return]) value:]
+The return value is the actual user ID of the process.
+
+!item [Availability:]
+As of the first in MultiTOS integrated MiNT version 1.04.
+
+!item [Group:]
+Process functions
+
+!item [See also:]
+(!link [Binding][Bindings for Pgetuid]) ~ Pgetgid ~ Pgeteuid ~ Pgetegid
+(!ende_liste)
+
+
+!begin_node Bindings for Pgetuid
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Pgetuid ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #271,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS
+addq.l    #2,sp        ; Correct stack
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!else
+
+
+!begin_node Pgetuid
+(!begin_liste) [Beschreibung]
+!item [Name:]
+¯Pgetuid® - User ID eines Prozesses ermitteln.
+
+!item [Gemdosnummer:]
+271
+
+!item [Deklaration:]
+int16_t Pgetuid ( void );
+
+!item [Beschreibung:]
+Die Funktion liefert die wirkliche User-ID des aktuellen Prozesses zurck.
+Dies ist eine Zahl zwischen 0 und 255, die die Zugriffsrechte des Prozesses
+festlegt und benutzt werden kann, um in Multi-User-Systemen die einzelnen
+Benutzer zu unterscheiden.
+
+!item [Ergebnis:]
+Der Rckgabewert ist die tats„chliche User-ID des Prozesses.
+
+!item [Verfgbar:]
+Seit der ersten in MultiTOS integrierten MiNT Version 1.04.
+
+!item [Gruppe:]
+Prozessfunktionen
+
+!item [Querverweis:]
+(!link [Binding][Bindings fr Pgetuid]) ~ Pgetgid ~ Pgeteuid ~ Pgetegid
+(!ende_liste)
+
+
+!begin_node Bindings fr Pgetuid
+!ignore_index
+(!begin_liste) [Assembler:]
+!item [C:]
+int16_t Pgetuid ( void );
+
+!item [Assembler:]
+!begin_verbatim
+move.w    #271,-(sp)   ; Offset 0
+trap      #1           ; GEMDOS aufrufen
+addq.l    #2,sp        ; Stack korrigieren
+!end_verbatim
+(!ende_liste)
+!end_node
+!end_node
+
+
+!endif

@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, CHAM
+
+(!B)Chameleon(!b)
+
+Accessory for loading/removing desk accessories while computer is 
+running.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CHAM
+
+(!B)Chameleon(!b)
+
+Accessory zum Nachladen/Entfernen von Accessories.
+
+!end_node
+
+!endif
+ 

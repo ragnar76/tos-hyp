@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, _T30
+
+(!B)KAOS (!nolink [TOS])(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, _T30
+
+(!B)KAOS (!nolink [TOS])(!b)
+
+!end_node
+
+!endif
+ 

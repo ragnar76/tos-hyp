@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, USHD
+
+(!B)HDDRIVER.PRG(!b) - Diskus hard disk driver as of Version 2.5
+
+!end_node
+
+!else
+
+!begin_node Cookie, USHD
+
+(!B)HDDRIVER.PRG(!b) - Diskus-Plattentreiber ab Version 2.5
+
+!end_node
+
+!endif
+ 

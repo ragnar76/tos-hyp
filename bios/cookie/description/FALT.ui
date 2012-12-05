@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, FALT
+
+(!B)FALTOFF(!b)
+
+Fix-program for a bug problem with Setscreen on MegaSTE's.
+
+ST-Computer 1/1992, Page 165
+
+Status: PD.
+
+!end_node
+
+!else
+
+!begin_node Cookie, FALT
+
+(!B)FALTOFF(!b)
+
+Fixprogramm fÅr ein Problem bei Setscreen() auf MegaSTE's.
+
+ST-Computer 1/1992, Seite 165
+
+Status: PD.
+
+!end_node
+
+!endif
+ 

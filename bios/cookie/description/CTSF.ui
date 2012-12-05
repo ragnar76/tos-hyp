@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, CTSF
+
+(!B)CTSFIX.PRG(!b)
+
+CTS-bug fix.
+
+!end_node
+
+!else
+
+!begin_node Cookie, CTSF
+
+(!B)CTSFIX.PRG(!b)
+
+CTS-bug fix.
+
+!end_node
+
+!endif
+ 

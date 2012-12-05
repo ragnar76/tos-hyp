@@ -1,0 +1,42 @@
+!iflang [english]
+
+!begin_node Cookie, JMLB
+
+(!B)McBoot(!b) bootselector
+
+Modifies vectors: resvector, exec_os.
+
+Status: Shareware
+
+Frey key:
+!begin_verbatim
+general key
+no street
+no town
+1554446552
+!end_verbatim
+
+!end_node
+
+!else
+
+!begin_node Cookie, JMLB
+
+(!B)McBoot(!b) Bootselektor
+
+Verbogene Vektoren: resvector, exec_os
+
+Status: Shareware
+
+Freier SchlÅssel:
+!begin_verbatim
+general key
+no street
+no town
+1554446552
+!end_verbatim
+
+!end_node
+
+!endif
+ 

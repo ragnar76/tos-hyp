@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, PRNž
+
+(!B)WandelSZ (!b)
+
+Hooks into the (!nolink [BIOS]) and converts the 'ž' of the ST to the 
+MS-DOS 'ž'.
+
+!end_node
+
+!else
+
+!begin_node Cookie, PRNž
+
+(!B)WandelSZ(!b)
+
+H„ngt im (!nolink [BIOS]) und wandelt das ž des ST in ein MS-DOS-ž um.
+
+!end_node
+
+!endif
+ 

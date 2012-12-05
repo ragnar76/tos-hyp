@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, RTKC
+
+(!B)Keyclick(!b)
+
+Modifies ikbd_sys, (!nolink [AES, VDI, GEMDOS and XBIOS]) vectors.
+
+!end_node
+
+!else
+
+!begin_node Cookie, RTKC
+
+(!B)Keyclick(!b)
+
+Ver„ndert ikbd_sys, (!nolink [AES, VDI, GEMDOS und XBIOS])-Vektoren.
+
+!end_node
+
+!endif
+ 

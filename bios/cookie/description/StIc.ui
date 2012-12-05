@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, StIc
+
+(!B)Stewart Icon-server(!b)
+
+In conjunction with Stewart, in place of the MagiC logo a (colour) 
+icon appears in the menu bar - a different one for each (!nolink [installed]) 
+application.
+
+!end_node
+
+!else
+
+!begin_node Cookie, StIc
+
+(!B)Stewart-Iconserver(!b)
+
+Zusammen mit Stewart erscheint statt dem MagiC 
+Logo ein (Farb)Icon in der MenÅleiste - fÅr jede angemeldete 
+Applikation ein Anderes.
+
+!end_node
+
+!endif
+ 

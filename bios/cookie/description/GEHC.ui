@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, GEHC
+
+Hot key driver for (!B)Hypercache Turbo+(!b)
+
+Modifies ikbdsys.
+
+!end_node
+
+!else
+
+!begin_node Cookie, GEHC
+
+Hotkey-Treiber fÅr (!B)Hypercache Turbo+(!b)
+
+Verbiegt ikbdsys.
+
+!end_node
+
+!endif
+ 

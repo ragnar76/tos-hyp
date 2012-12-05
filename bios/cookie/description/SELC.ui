@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SELC
+
+(!B)File-selector from C-Lab(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, SELC
+
+(!B)File-Selector von C-Lab(!b)
+
+!end_node
+
+!endif
+ 

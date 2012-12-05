@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, BLOW
+
+(!B)Blowup030(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, BLOW
+
+(!B)Blowup030(!b)
+
+!end_node
+
+!endif
+ 

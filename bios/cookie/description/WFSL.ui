@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, WFSL
+
+(!B)WFSEL(!b) - Window File-SeLector
+
+Modifies (!nolink [AES])-trap and (!nolink [BIOS])-trap.
+
+Status: Shareware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, WFSL
+
+(!B)WFSEL(!b) - Window-File-SELector
+
+Verbiegt (!nolink [AES])-Trap und (!nolink [BIOS])-Trap.
+
+Status: Shareware.
+
+!end_node
+
+!endif
+ 

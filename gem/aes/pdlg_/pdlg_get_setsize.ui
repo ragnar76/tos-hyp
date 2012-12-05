@@ -1,0 +1,145 @@
+!iflang [english]
+
+!begin_node pdlg_get_setsize
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØPrint dialog - Get setting structure sizeÆ - Obtain the length of the
+(!nolink [PRN_SETTINGS]) structure.
+
+!item [Opcode:]
+204 (sub-opcode 0)
+
+!item [Syntax:]
+int32_t pdlg_get_setsize ( void );
+
+!item [Description:]
+The call pdlg_get_setsize returns the length of the PRN_SETTINGS structure.
+
+!item [(!nolink [Return]) value:]
+The function returns the length of the structure in bytes.
+
+!item [Availability:]
+The presence of this function can be checked with (!link [appl_getinfo][%apgi_7])
+(opcode 7).
+
+!item [Group:]
+Print dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for pdlg_get_setsize]) ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for pdlg_get_setsize
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int32_t pdlg_get_setsize ( void );
+
+!item [Binding:]
+!begin_verbatim
+int32_t pdlg_get_setsize ( void )
+{
+   int_in[0] = 0;
+   crys_if (204);
+
+   return ( int_out[0..1] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0]    !! 204   # Function opcode
+control+2 !! control[1]    !! 1     # Entry in int_in
+control+4 !! control[2]    !! 2     # Entry in int_out
+control+6 !! control[3]    !! 0     # Entry in addr_in
+control+8 !! control[4]    !! 0     # Entry in addr_out
+int_in    !! int_in[0]     !! 0     # Sub-opcode
+int_out   !! int_out[0..1] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node pdlg_get_setsize
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØPrint Dialog - Get Setting Structure SizeÆ - LÑnge der (!nolink [PRN_SETTINGS])
+Struktur ermitteln.
+
+!item [AES-Nummer:]
+204 (Unterfunktion 0)
+
+!item [Deklaration:]
+int32_t pdlg_get_setsize ( void );
+
+!item [Beschreibung:]
+Die Funktion ermittelt die LÑnge der PRN_SETTINGS-Struktur.
+
+!item [Ergebnis:]
+Die Funktion liefert die LÑnge der Struktur in Bytes zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Druckdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr pdlg_get_setsize]) ~  WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr pdlg_get_setsize
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int32_t pdlg_get_setsize ( void );
+
+!item [Umsetzung:]
+!begin_verbatim
+int32_t pdlg_get_setsize ( void )
+{
+   int_in[0] = 0;
+   crys_if (204);
+
+   return ( int_out[0..1] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0]    !! 204   # Opcode der Funktion
+control+2 !! control[1]    !! 1     # EintrÑge in int_in
+control+4 !! control[2]    !! 2     # EintrÑge in int_out
+control+6 !! control[3]    !! 0     # EintrÑge in addr_in
+control+8 !! control[4]    !! 0     # EintrÑge in addr_out
+int_in    !! int_in[0]     !! 0     # Sub-Opcode
+int_out   !! int_out[0..1] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

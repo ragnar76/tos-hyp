@@ -1,0 +1,179 @@
+!iflang [english]
+
+!begin_node pdlg_add_sub_dialogs
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØPrint dialog - Add private dialogsÆ - Add sub-dialogs to the printer dialog.
+
+!item [Opcode:]
+205 (sub-opcode 3)
+
+!item [Syntax:]
+int16_t pdlg_add_sub_dialogs ( PRN_DIALOG *prn_dialog, PDLG_SUB *sub_dialog );
+
+!item [Description:]
+The call pdlg_add_sub_dialogs permits adding an appli!-cation's own sub-dialogs
+to the printer dialog. The following apply:
+
+!begin_table [l|l|l]
+Parameter !! Meaning
+!hline
+(!I)prn_dialog(!i) !! Pointer to management structure
+(!I)sub_dialog(!i) !! List of sub-dialogs
+!end_table
+
+This function could be useful to add custom print options such as markers,
+watermarks or background images, for instance.
+
+!item [(!nolink [Return]) value:]
+The function returns the value 1 if all went well, else the value 0 in case
+of error.
+
+!item [Availability:]
+The presence of this function can be checked with (!link [appl_getinfo][%apgi_7])
+(opcode 7).
+
+!item [Group:]
+Print dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for pdlg_add_sub_dialogs]) ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for pdlg_add_sub_dialogs
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_add_sub_dialogs ( PRN_DIALOG *prn_dialog, PDLG_SUB *sub_dialog );
+
+!item [Binding:]
+!begin_verbatim
+int16_t pdlg_add_sub_dialogs ( PRN_DIALOG *prn_dialog,
+                               PDLG_SUB *sub_dialog )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = sub_dialog;
+   int_in[0] = 3;
+
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 205   # Function opcode
+control+2 !! control[1] !! 1     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! sub_dialog
+int_in    !! int_in[0]  !! 3     # Sub-opcode
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node pdlg_add_sub_dialogs
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØPrint Dialog - Add Private DialogsÆ - Unterdialoge zum Druckdialog
+hinzufÅgen.
+
+!item [AES-Nummer:]
+205 (Unterfunktion 3)
+
+!item [Deklaration:]
+int16_t pdlg_add_sub_dialogs ( PRN_DIALOG *prn_dialog, PDLG_SUB *sub_dialog );
+
+!item [Beschreibung:]
+Die Funktion erlaubt das HinzufÅgen eigener Unterdialoge zum Druckdialog.
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)prn_dialog(!i) !! Zeiger auf Verwaltungsstruktur
+(!I)sub_dialog(!i) !! Liste von Unterdialogen
+!end_table
+
+NÅtzlich ist diese Funktion etwa, um eigene Druckoptionen
+wie Marken oder Hintergrundbilder anzubieten.
+
+!item [Ergebnis:]
+Die Funktion liefert bei korrekter AusfÅhrung den Wert 1 und im Fehlerfall
+den Wert 0 zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Druckdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr pdlg_add_sub_dialogs])  ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr pdlg_add_sub_dialogs
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_add_sub_dialogs ( PRN_DIALOG *prn_dialog, PDLG_SUB *sub_dialog );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t pdlg_add_sub_dialogs ( PRN_DIALOG *prn_dialog,
+                               PDLG_SUB *sub_dialog )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = sub_dialog;
+   int_in[0] = 3;
+
+   crys_if (205);
+
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 205   # Opcode der Funktion
+control+2 !! control[1] !! 1     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! sub_dialog
+int_in    !! int_in[0]  !! 3     # Sub-Opcode
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

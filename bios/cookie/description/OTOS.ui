@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, OTOS
+
+(!B)oTOSis(!b) - (!nolink [TOS]) emulator for Linux/68K
+
+The value contains the version number.
+
+!end_node
+
+!else
+
+!begin_node Cookie, OTOS
+
+(!B)oTOSis - (!nolink [TOS]) emulator for Linux/68K(!b)
+
+Der Wert enth„lt die Versionsnummer.
+
+!end_node
+
+!endif
+ 

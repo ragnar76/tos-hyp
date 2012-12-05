@@ -1,0 +1,199 @@
+!iflang [english]
+
+!begin_node pdlg_evnt
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØPrint dialog - Handle eventÆ - Event processing of the print dialog.
+
+!item [Opcode:]
+206
+
+!item [Syntax:]
+int16_t pdlg_evnt ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings,
+                 EVNT *events, int16_t *button );
+
+!item [Description:]
+The call pdlg_evnt takes on the event management for a print dialog. The
+following apply:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)prn_dialog(!i) !! Pointer to management structure
+(!I)settings(!i) !! Printer settings
+(!I)events(!i)   !! Pointer to EVNT structure
+!label  PDLG_CANCEL
+!label  PDLG_OK
+(!I)button(!i)   !! Selected button (or 0)
+~ !! PDLG_CANCEL (1) = Cancel
+~ !! PDLG_OK (2) ~~~~= OK
+!end_table
+
+The funcfunc evaluat and internally calls wdlg_evnt. If the dialog was confirmed,
+then the new printer settings are returned in (!I)settings.(!i)
+               
+!item [(!nolink [Return]) value:]
+The function returns the value 0 if one of the EXIT buttons was clicked on, else
+the value 1.
+
+!item [Availability:]
+The presence of this function can be checked with (!link [appl_getinfo][%apgi_7])
+(opcode 7).
+
+!item [Group:]
+Print dialogs
+
+!item [See also:]
+(!link [Binding] [Bindings for pdlg_evnt]) ~ WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for pdlg_evnt
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_evnt ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings,
+                 EVNT *events, int16_t *button );
+
+!item [Binding:]
+!begin_verbatim
+int16_t pdlg_evnt ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings,
+                    EVNT *events, int16_t *button )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = settings;
+   addr_in[2] = events;
+
+   crys_if (206);
+
+   *button = int_out[1];
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 206   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 2     # Entry in int_out
+control+6 !! control[3] !! 3     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! settings
+addr_in+8 !! addr_in[2] !! events
+int_out   !! int_out[0] !! Return value
+int_out+2 !! int_out[1] !! button
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node pdlg_evnt
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØPrint Dialog - Handle EventÆ - (!nolink [Ereignisverwaltung]) des Druckdialoges.
+
+!item [AES-Nummer:]
+206
+
+!item [Deklaration:]
+int16_t pdlg_evnt ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings,
+                 EVNT *events, int16_t *button );
+
+!item [Beschreibung:]
+Die Funktion Åbernimmt die (!nolink [Ereignisverwaltung]) fÅr einen Druckdialog.
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)prn_dialog(!i) !! Zeiger auf Verwaltungsstruktur
+(!I)settings(!i) !! Zeiger auf Druckereinstellungen
+(!I)events(!i)   !! Zeiger auf EVNT-Struktur
+!label  PDLG_CANCEL
+!label  PDLG_OK
+(!I)button(!i) !! ausgewÑhlter Button (oder 0)
+~ !! PDLG_CANCEL (1) = Abbruch
+~ !! PDLG_OK (2)~~~~ = OK
+!end_table
+
+Die Funktion wertet die Åbergebene EVNT-Struktur aus und
+ruft intern wdlg_evnt auf. Falls der Dialog bestÑtigt wurde, wird im
+Parameter (!I)settings(!i) die neue Druckeinstellung zurÅckgeliefert.
+
+!item [Ergebnis:]
+Die Funktion liefert den Wert 0 zurÅck, falls einer der EXIT-Buttons
+angeklickt wurde, und anderenfalls den Wert 1.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7]) (Opcode 7)
+festgestellt werden.
+
+!item [Gruppe:]
+Druckdialoge
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr pdlg_evnt]) ~  WDIALOG
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr pdlg_evnt
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t pdlg_evnt ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings,
+                 EVNT *events, int16_t *button );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t pdlg_evnt ( PRN_DIALOG *prn_dialog, PRN_SETTINGS *settings,
+                    EVNT *events, int16_t *button )
+{
+   addr_in[0] = prn_dialog;
+   addr_in[1] = settings;
+   addr_in[2] = events;
+
+   crys_if (206);
+
+   *button = int_out[1];
+   return ( int_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 206   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 2     # EintrÑge in int_out
+control+6 !! control[3] !! 3     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! prn_dialog
+addr_in+4 !! addr_in[1] !! settings
+addr_in+8 !! addr_in[2] !! events
+int_out   !! int_out[0] !! Return-Wert
+int_out+2 !! int_out[1] !! button
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

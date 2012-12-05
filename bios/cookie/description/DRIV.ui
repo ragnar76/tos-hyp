@@ -1,0 +1,23 @@
+!iflang [english]
+
+!begin_node Cookie, DRIV
+
+(!B)Drive-Edit(!b)
+
+Modifies the three hard disk vectors.
+
+
+!end_node
+
+!else
+
+!begin_node Cookie, DRIV
+
+(!B)Drive-Edit(!b)
+
+Verbiegt die drei Harddisk-Vektoren.
+
+!end_node
+
+!endif
+ 

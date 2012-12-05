@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, KIDI
+
+(!B)RAMdisk(!b) by Robert Irrgang
+
+!end_node
+
+!else
+
+!begin_node Cookie, KIDI
+
+(!B)RAMdisk(!b) von Robert Irrgang
+
+!end_node
+
+!endif
+ 

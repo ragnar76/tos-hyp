@@ -1,0 +1,30 @@
+!iflang [english]
+
+!begin_node Cookie, MMAC
+
+(!B)MM_ACCEL.PRG(!b) - MagicMouse
+
+Mouse accelerator (6th order polynomial). 
+
+Vectors that are modified: mouse_vec, resvector.
+
+Status: Freeware.
+
+!end_node
+
+!else
+
+!begin_node Cookie, MMAC
+
+(!B)MM_ACCEL.PRG(!b) - MagicMouse
+
+Mausbeschleuniger (Polynom 6. Grades).
+
+Vektoren die verbogen werden: MOUSE_VEC, RESVECTOR.
+
+Status: Freeware.
+
+!end_node
+
+!endif
+ 

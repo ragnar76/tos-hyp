@@ -1,0 +1,160 @@
+!iflang [english]
+
+!begin_node lbox_get_tree
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØList box get treeÆ - Obtain object tree of the list box dialog.
+
+!item [Opcode:]
+174 (sub-opcode 1)
+
+!item [Syntax:]
+OBJECT *lbox_get_tree ( LIST_BOX *box );
+
+!item [Description:]
+The call lbox_get_tree obtains a pointer to the object tree of the list box
+dialog. The following applies:
+
+!begin_table [l|l]
+Parameter !! Meaning
+!hline
+(!I)box(!i) !! Pointer to the list box structure
+!end_table
+
+!item [(!nolink [Return]) value:]
+The function returns a pointer to the object tree of the list box dialog.
+
+!item [Availability:]
+The presence of this call should be checked for using
+(!link [appl_getinfo][%apgi_7]) (Opcode 7).
+
+!item [Group:]
+List boxes
+
+!item [See also:]
+(!link [Binding] [Bindings for lbox_get_tree]) ~ lbox_get_udata ~ lbox_get_first
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for lbox_get_tree
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+OBJECT *lbox_get_tree ( LIST_BOX *box );
+
+!item [Binding:]
+!begin_verbatim
+OBJECT *lbox_get_tree ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 1;
+   crys_if (174);
+
+   return ( addr_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0]  !! 174   # Function opcode
+control+2 !! control[1]  !! 1     # Entry in int_in
+control+4 !! control[2]  !! 0     # Entry in int_out
+control+6 !! control[3]  !! 1     # Entry in addr_in
+control+8 !! control[4]  !! 1     # Entry in addr_out
+addr_in   !! addr_in[0]  !! box
+int_in    !! int_in[0]   !! 1     # Sub-opcode
+addr_out  !! addr_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node lbox_get_tree
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØList Box Get TreeÆ - Objektbaum des Dialogs ermitteln.
+
+!item [AES-Nummer:]
+174 (Unterfunktion 1)
+
+!item [Deklaration:]
+OBJECT *lbox_get_tree ( LIST_BOX *box );
+
+!item [Beschreibung:]
+Die Funktion ermittelt den Zeiger auf den Objektbaum der Dialogbox. Es gilt:
+
+!begin_table [l|l]
+Parameter !! Bedeutung
+!hline
+(!I)box(!i) !! Zeiger auf die Listbox-Struktur
+!end_table
+
+!item [Ergebnis:]
+Die Funktion liefert einen Zeiger auf den Objektbaum des Dialogs zurÅck.
+
+!item [VerfÅgbar:]
+Das Vorhandensein dieser Funktion kann per (!link [appl_getinfo][%apgi_7])
+(Opcode 7) festgestellt werden.
+
+!item [Gruppe:]
+Listboxen
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr lbox_get_tree]) ~ lbox_get_udata ~ lbox_get_first
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr lbox_get_tree
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+OBJECT *lbox_get_tree ( LIST_BOX *box );
+
+!item [Umsetzung:]
+!begin_verbatim
+OBJECT *lbox_get_tree ( LIST_BOX *box )
+{
+   addr_in[0] = box;
+   int_in[0]  = 1;
+   crys_if (174);
+
+   return ( addr_out[0] );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0]  !! 174   # Opcode der Funktion
+control+2 !! control[1]  !! 1     # EintrÑge in int_in
+control+4 !! control[2]  !! 0     # EintrÑge in int_out
+control+6 !! control[3]  !! 1     # EintrÑge in addr_in
+control+8 !! control[4]  !! 1     # EintrÑge in addr_out
+addr_in   !! addr_in[0]  !! box
+int_in    !! int_in[0]   !! 1     # Unterfunktion
+addr_out  !! addr_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

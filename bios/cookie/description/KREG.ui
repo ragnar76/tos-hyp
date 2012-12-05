@@ -1,0 +1,26 @@
+!iflang [english]
+
+!begin_node Cookie, KREG
+
+(!B)Kill Registers(!b)
+
+Hangs in the (!nolink [GEMDOS])-trap and destroys the registers a0/a1/a2/d1/d2.
+
+Status: Freeware, killregs.zoo
+
+!end_node
+
+!else
+
+!begin_node Cookie, KREG
+
+(!B)KillRegisters(!b)
+
+H„ngt im (!nolink [GEMDOS])-Trap und zerst”rt die Register a0/a1/a2/d1/d2
+
+Status: Freeware, killregs.zoo
+
+!end_node
+
+!endif
+ 

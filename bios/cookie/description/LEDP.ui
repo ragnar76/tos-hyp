@@ -1,0 +1,31 @@
+!iflang [english]
+
+!begin_node Cookie, LEDP
+
+(!B)LED Panel(!b)
+
+Displays hard disk accesses and optionally other things like date and 
+time on the screen. 
+
+Modified via XBRA: hdv_rw.
+
+Status: Version 2.4 (31.1.94), PD.
+
+!end_node
+
+!else
+
+!begin_node Cookie, LEDP
+
+(!B)LED-Panel(!b)
+
+Zeigt Harddisk-Zugriffe und anderes auf dem Bildschirm an. 
+
+šber XBRA verbogen: hdv_rw.
+
+Status: Version 2.4 (31.1.94), PD.
+
+!end_node
+
+!endif
+ 

@@ -1,0 +1,196 @@
+!iflang [english]
+
+!begin_node shel_envrn
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØShell environmentÆ - Obtains value of environmental variables.
+
+!item [Opcode:]
+125
+
+!item [Syntax:]
+int16_t shel_envrn ( int8_t **sh_epvalue, int8_t *sh_eparm );
+
+!item [Description:]
+The call shel_envrn searches the current environment string to find the value of
+a specific environmental variable of the (!nolink [AES]). The following apply:
+
+!begin_xlist !short [sh_epvalue]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [sh_epvalue]
+Name of the environmental variable
+!item [sh_eparm]
+After the call contains the value of the corresponding variable
+!end_xlist
+
+(!B)Example:(!b) If the current environment is, say: 'PATH=C:\;D:\;E:\' then
+calling shel_envrn with (!I)sh_eparm(!i) pointing to the string 'PATH=' would
+set the pointer pointed to by (!I)sh_epvalue(!i) to the start of the string
+'C:\;D:\;E:\'. Note that the character string pointed to by (!I)sh_eparm(!i)
+should include the name of the variable (!U)and(!u) the 'equals' sign.
+
+(!B)Note:(!b) To change the (!nolink [AES]) environment, one should hook into
+the exec_os vector, which is also used to launch (!nolink [GEM]). In the called
+routine, the basepage pointer lies on the stack (as in a program). In this
+basepage one can then simply enter a pointer to the new environment.
+
+But a word of warning: In (!nolink [AES]) versions lower than 1.4, only the first
+50 bytes will be adopted; also these only accept semicolons as separators between
+multiple 'PATH=' arguments, while later versions accept commas as well.
+
+(!B)Another tip:(!b) If the pointer returned for 'PATH=' points to a NULLbyte, one
+should increase it by the value 1 to get the correct result.
+
+!item [(!nolink [Return]) value:]
+The function always returns a value of 1.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Shell library
+
+!item [See also:]
+(!link [Binding] [Bindings for shel_envrn])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for shel_envrn
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t shel_envrn ( int8_t **sh_epvalue, int8_t *sh_eparm );
+
+!item [Binding:]
+!begin_verbatim
+int16_t shel_envrn (int8_t **sh_epvalue, int8_t *sh_eparm)
+{
+   addr_in[0] = sh_epvalue;
+   addr_in[1] = sh_eparm;
+
+   return ( crys_if(125) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 125   # Function opcode
+control+2 !! control[1] !! 0     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 2     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+addr_in   !! addr_in[0] !! sh_epvalue
+addr_in   !! addr_in[1] !! sh_eparm
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node shel_envrn
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØShell environmentÆ - ermittelt den Wert von Environmentvariablen.
+
+!item [AES-Nummer:]
+125
+
+!item [Deklaration:]
+int16_t shel_envrn ( int8_t **sh_epvalue, int8_t *sh_eparm );
+
+!item [Beschreibung:]
+Die Funktion ermittelt den Wert einer beliebigen Environmentvariablen des
+AES. Es gilt:
+
+!begin_xlist !short [sh_epvalue]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [sh_epvalue]
+Name der Environment-Variablen
+!item [sh_eparm]
+enthÑlt nach dem Aufruf den Wert der entsprechenen Variablen
+!end_xlist
+
+(!B)Hinweis:(!b) Um das (!nolink [AES])-Environment zu Ñndern sollte man sich in den
+exec_os-Vektor einklinken, Åber den auch das GEM gestartet wird. In der
+aufgerufenen Routine liegt (analog zu einem Programm) der Basepage-Zeiger
+auf dem Stack. In diese Basepage kann dann einfach ein Zeiger auf das neue
+Environment eingetragen werden. Aber Achtung: In (!nolink [AES])-Versionen kleiner als
+1.4 werden nur die ersten 50 Bytes Åbernommen.
+
+(!B)Noch ein Tip:(!b) Wenn der fÅr 'PATH=' zurÅckgelieferte Zeiger auf ein
+Nullbyte verweist, sollte man ihn um den Wert 1 erhîhen, um an das richtige
+Ergebnis zu gelangen.
+
+!item [Ergebnis:]
+Die Funktion liefert als Ergebnis immer 1.
+
+!item [VerfÅgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+(!link [Shell-Kommunikation][Shellfunktionen])
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr shel_envrn])
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fÅr shel_envrn
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t shel_envrn ( int8_t **sh_epvalue, int8_t *sh_eparm );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t shel_envrn (int8_t **sh_epvalue, int8_t *sh_eparm)
+{
+   addr_in[0] = sh_epvalue;
+   addr_in[1] = sh_eparm;
+
+   return ( crys_if(125) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 125   # Opcode der Funktion
+control+2 !! control[1] !! 0     # EintrÑge in int_in
+control+4 !! control[2] !! 1     # EintrÑge in int_out
+control+6 !! control[3] !! 2     # EintrÑge in addr_in
+control+8 !! control[4] !! 0     # EintrÑge in addr_out
+addr_in   !! addr_in[0] !! sh_epvalue
+addr_in   !! addr_in[1] !! sh_eparm
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

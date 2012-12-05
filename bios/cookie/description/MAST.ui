@@ -1,0 +1,24 @@
+!iflang [english]
+
+!begin_node Cookie, MAST
+
+(!B)Master(!b)
+
+Modified: Bus error, TRAP #1, TRAP #13, etv_critic, etv_term, 
+_shell_p, resvector (old_resvalid lies directly before the 'XBRA').
+
+!end_node
+
+!else
+
+!begin_node Cookie, MAST
+
+(!B)Master(!b)
+
+Verbogen: Buserror, Trap #1, Trap #13, etv_critic, etv_term, 
+_shell_p, resvector (old_resvalid steht direct vor dem 'XBRA').
+
+!end_node
+
+!endif
+ 

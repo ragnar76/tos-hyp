@@ -1,0 +1,223 @@
+!iflang [english]
+
+!begin_node v_bez_qual
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+ØSet Bezier qualityÆ - Set quality of the Bezier spline creation.
+
+!item [Opcode:]
+5 (Escape 99, Opcode 32)
+
+!item [Syntax:]
+int16_t v_bez_qual ( int16_t handle, int16_t qual, int16_t *set_qual );
+
+!item [Description:]
+The call v_bez_qual sets a new factor that determines the quality and
+speed with which Bezier splines are drawn. The following apply:
+               
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [handle]
+Workstation identifier
+!item [qual]
+Requested Bezier quality
+!item [set_qual]
+Realized Bezier quality (not available with (!nolink [GEM])/3 Release 3.1).
+!end_xlist
+
+(!B)Note:(!b) The quality of the Beziers can be set as usual in percent (i.e.
+from 0 to 100), where 0 is fastest but produces the lowest quality while 100
+is slowest with the highest possible quality. (!I)set_qual(!i) may not be an
+exact percentage as the rendering engine may not support every possible value
+between 1 and 99.
+
+!item [(!nolink [Return]) value:]
+The function returns the old quality factor.
+
+The (!nolink [GEM])/3 and NVDI bindings also returns (!I)set_qual.(!i)
+
+!item [Availability:]
+As of (!nolink [GEM])/3 Release 3.1, SpeedoGDOS 4.00 onwards and NVDI 2.10 onwards.
+               
+!item [Group:]
+Lines attributes
+
+!item [See also:]
+(!link [Binding] [Bindings for v_bez_qual]) ~ v_bez_on ~ v_bez_off ~ v_bez ~
+v_bez_fill ~ v_set_app_buff
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings for v_bez_qual
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t v_bez_qual ( int16_t handle, int16_t qual, int16_t *set_qual );
+
+FÅr GEM/3 Release 3.1 gilt: (!nl)
+int16_t v_bez_qual ( int16_t handle, int16_t qual );
+
+!item [Binding:]
+!begin_verbatim
+int16_t v_bez_qual (int16_t handle, int16_t qual,
+                    int16_t *set_qual)
+{
+   intin[0] = 32;
+   intin[1] = 1;
+   intin[2] = qual;
+
+   contrl[0] = 5;
+   contrl[1] = 0;
+   contrl[3] = 3;
+   contrl[5] = 99;
+   contrl[6] = handle;
+
+   vdi ();
+
+   *set_qual = intout[0];
+   
+   return intout[0];
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! Contents
+!hline
+contrl    !! contrl[0] !! 5     # Function Opcode
+contrl+2  !! contrl[1] !! 0     # entry in ptsin
+contrl+4  !! contrl[2] !! 0     # entry in ptsout
+contrl+6  !! contrl[3] !! 3     # entry in intin
+contrl+8  !! contrl[4] !! 1     # entry in intout
+contrl+10 !! contrl[5] !! 99    Sub-Opcode
+contrl+12 !! contrl[6] !! handle
+intin     !! intin[0]  !! 32
+intin+2   !! intin[1]  !! 1
+intin+4   !! intin[2]  !! qual
+intout    !! intout[0] !! set_qual
+!end_table
+
+(!ende_liste)
+!end_node
+
+!else
+
+!begin_node v_bez_qual
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+ØSet Bezier qualityÆ - QualitÑt der Bezier-Spline-Erzeugung setzen.
+
+!item [VDI-Nummer:]
+5 (Escape 99, Opcode 32)
+
+!item [Deklaration:]
+int16_t v_bez_qual ( int16_t handle, int16_t qual, int16_t *set_qual );
+
+!item [Beschreibung:]
+Die Funktion setzt einen neuen Faktor, der die QualitÑt und Geschwindigkeit
+bestimmt, mit der Bezier-Splines gezeichnet werden. Es gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [handle]
+Kennung der Workstation
+!item [qual]
+gewÅnschte QualitÑt in Prozent
+!item [set_qual]
+eingestellte QualitÑt in Prozent (Steht bei (!nolink [GEM])/3 Release 3.1 nicht zur VerfÅgung).
+!end_xlist
+
+(!B)Hinweis:(!b) Die QualitÑt der Beziers kann wie Åblich in Prozent (d.h.
+von 0 bis 100) eingestellt werden.
+
+!item [Ergebnis:]
+Die Funktion liefert den alten QualitÑts-Faktor zurÅck.
+
+Das (!nolink [GEM])/3 und NVDI Binding liefert (!I)set_qual(!i) zusÑtzlich
+als Returnwert zurÅck.
+
+!item [VerfÅgbar:]
+ab (!nolink [GEM])/3 Release 3.1, ab SpeedoGDOS 4.00 und ab NVDI 2.10.
+
+!item [Gruppe:]
+Linien-Attribute
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fÅr v_bez_qual]) ~ v_bez_on ~ v_bez_off ~ v_bez ~
+v_bez_fill ~ v_set_app_buff
+
+(!ende_liste)
+!end_node
+
+
+
+!begin_node Bindings fÅr v_bez_qual
+!ignore_index
+
+(!begin_liste) [Umsetzung]
+
+!item [C:]
+int16_t v_bez_qual ( int16_t handle, int16_t qual, int16_t *set_qual );
+
+FÅr GEM/3 Release 3.1 gilt: (!nl)
+int16_t v_bez_qual ( int16_t handle, int16_t qual );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t v_bez_qual (int16_t handle, int16_t qual,
+                    int16_t *set_qual)
+{
+   intin[0] = 32;
+   intin[1] = 1;
+   intin[2] = qual;
+
+   contrl[0] = 5;
+   contrl[1] = 0;
+   contrl[3] = 3;
+   contrl[5] = 99;
+   contrl[6] = handle;
+
+   vdi ();
+
+   *set_qual = intout[0];
+   
+   return intout[0];
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+contrl    !! contrl[0] !! 5     # Opcode der Funktion
+contrl+2  !! contrl[1] !! 0     # EintrÑge in ptsin
+contrl+4  !! contrl[2] !! 0     # EintrÑge in ptsout
+contrl+6  !! contrl[3] !! 3     # EintrÑge in intin
+contrl+8  !! contrl[4] !! 1     # EintrÑge in intout
+contrl+10 !! contrl[5] !! 99    Unterfunktion
+contrl+12 !! contrl[6] !! handle
+intin     !! intin[0]  !! 32
+intin+2   !! intin[1]  !! 1
+intin+4   !! intin[2]  !! qual
+intout    !! intout[0] !! set_qual
+!end_table
+
+(!ende_liste)
+!end_node
+
+!endif

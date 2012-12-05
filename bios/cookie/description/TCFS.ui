@@ -1,0 +1,22 @@
+!iflang [english]
+
+!begin_node Cookie, TCFS
+
+(!B)Turbo-C File-Selector(!b) as desk accessory
+
+Modifies the (!nolink [GEM])-trap.
+
+!end_node
+
+!else
+
+!begin_node Cookie, TCFS
+
+(!B)Turbo-C-Fileselector(!b) als Accessory
+
+Verbiegt den (!nolink [GEM])-Trap.
+
+!end_node
+
+!endif
+ 

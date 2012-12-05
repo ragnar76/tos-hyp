@@ -1,0 +1,190 @@
+!iflang [english]
+
+!begin_node menu_icheck
+
+(!begin_liste) [Availability]
+
+!item [Name:]
+¯Menu indicate check® - Set or clear check mark (tick) in menu options.
+
+!item [Opcode:]
+31
+
+!item [Syntax:]
+int16_t menu_icheck ( OBJECT *me_ctree, int16_t me_citem, int16_t me_ccheck );
+
+!item [Description:]
+The call menu_icheck sets or removes a check mark (tick) before a menu entry.
+The following apply:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Meaning
+!item [~]
+~
+!item [me_ctree]
+Address of the menu object tree
+!item [me_citem]
+Index of the menu entry
+!item [me_ccheck]
+!begin_table [l l l]
+0 !! = !! Clear tick
+1 !! = !! Set tick
+!end_table
+!end_xlist
+
+(!B)Note:(!b) For appearance's sake, every entry of a menu should start with
+two space characters. From PC-(!nolink [GEM]) 2.0 onwards, small triangles
+instead of a tick are used for this purpose.
+
+!item [(!nolink [Return]) value:]
+The value 0 indicates that an error has arisen.
+
+!item [Availability:]
+All (!nolink [AES]) versions.
+
+!item [Group:]
+Menu library
+
+!item [See also:]
+(!link [Binding] [Bindings for menu_icheck]) ~ OBJECT
+
+(!ende_liste)
+
+
+
+!begin_node Bindings for menu_icheck
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t menu_icheck ( OBJECT *me_ctree, int16_t me_citem, int16_t me_ccheck );
+
+!item [Binding:]
+!begin_verbatim
+int16_t menu_icheck (OBJECT *me_ctree, int16_t me_citem,
+                     int16_t me_ccheck)
+{
+   int_in[0]  = me_citem;
+   int_in[1]  = me_ccheck;
+   addr_in[0] = me_ctree;
+
+   return ( crys_if(31) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Address !! Element !! (!nolink [Contents])
+!hline
+control   !! control[0] !! 31    # Function opcode
+control+2 !! control[1] !! 2     # Entry in int_in
+control+4 !! control[2] !! 1     # Entry in int_out
+control+6 !! control[3] !! 1     # Entry in addr_in
+control+8 !! control[4] !! 0     # Entry in addr_out
+int_in    !! int_in[0]  !! me_citem
+int_in+2  !! int_in[1]  !! me_ccheck
+addr_in   !! addr_in[0] !! me_ctree
+int_out   !! int_out[0] !! Return value
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!else
+
+!begin_node menu_icheck
+
+(!begin_liste) [Beschreibung]
+
+!item [Name:]
+¯Menu indicate Check® - schreibt oder l”scht ein H„ckchen in der Menleiste.
+
+!item [AES-Nummer:]
+31
+
+!item [Deklaration:]
+int16_t menu_icheck ( OBJECT *me_ctree, int16_t me_citem, int16_t me_ccheck );
+
+!item [Beschreibung:]
+Die Funktion l”scht oder setzt ein H„kchen vor einem Meneintrag. Es gilt:
+
+!begin_xlist !short [Parameter]
+!item [Parameter]
+Bedeutung
+!item [~]
+~
+!item [me_ctree]
+Adresse des Men-Objektbaumes
+!item [me_citem]
+Nummer des Meneintrages
+!item [me_ccheck]
+!begin_table [l l l]
+0 !! = !! H„kchen l”schen
+1 !! = !! H„kchen setzen
+!end_table
+!end_xlist
+
+(!B)Hinweis:(!b) Aus optischen Grnden sollte man jeden Eintrag eines Mens
+mit zwei Leerzeichen beginnen lassen. Ab PC-GEM 2.0 werden statt des
+H„kchens kleine Dreiecke fr diesen Zweck verwendet.
+
+!item [Ergebnis:]
+Bei einem Rckgabewert von Null ist ein Fehler aufgetreten.
+
+!item [Verfgbar:]
+All (!nolink [AES]) versions.
+
+!item [Gruppe:]
+(!link [Mens][Menfunktionen])
+
+!item [Querverweis:]
+(!link [Binding] [Bindings fr menu_icheck]) ~ OBJECT
+
+(!ende_liste)
+
+
+
+!begin_node Bindings fr menu_icheck
+!ignore_index
+
+(!begin_liste) [GEM-Arrays]
+
+!item [C:]
+int16_t menu_icheck ( OBJECT *me_ctree, int16_t me_citem, int16_t me_ccheck );
+
+!item [Umsetzung:]
+!begin_verbatim
+int16_t menu_icheck (OBJECT *me_ctree, int16_t me_citem,
+                     int16_t me_ccheck)
+{
+   int_in[0]  = me_citem;
+   int_in[1]  = me_ccheck;
+   addr_in[0] = me_ctree;
+
+   return ( crys_if(31) );
+}
+!end_verbatim
+
+!item [GEM-Arrays:]
+!begin_table [l l l]
+Adresse !! Feldelement !! Belegung
+!hline
+control   !! control[0] !! 31    # Opcode der Funktion
+control+2 !! control[1] !! 2     # Eintr„ge in int_in
+control+4 !! control[2] !! 1     # Eintr„ge in int_out
+control+6 !! control[3] !! 1     # Eintr„ge in addr_in
+control+8 !! control[4] !! 0     # Eintr„ge in addr_out
+int_in    !! int_in[0]  !! me_citem
+int_in+2  !! int_in[1]  !! me_ccheck
+addr_in   !! addr_in[0] !! me_ctree
+int_out   !! int_out[0] !! Return-Wert
+!end_table
+
+(!ende_liste)
+!end_node
+!end_node
+
+!endif

@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SM00
+
+(!B)SOTA(!b) - Printer spooler
+
+!end_node
+
+!else
+
+!begin_node Cookie, SM00
+
+(!B)SOTA(!b) - Printer Spooler
+
+!end_node
+
+!endif
+ 

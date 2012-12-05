@@ -1,0 +1,18 @@
+!iflang [english]
+
+!begin_node Cookie, SBTS
+
+(!B)Trap Spy(!b)
+
+!end_node
+
+!else
+
+!begin_node Cookie, SBTS
+
+(!B)Trap-Spy(!b)
+
+!end_node
+
+!endif
+ 
